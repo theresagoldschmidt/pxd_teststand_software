@@ -1,0 +1,2215 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_stm32f0xspl_adc.a:
+
+stm32f10x_adc.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0 331052 Jul 30 19:07 2021 stm32f10x_adc.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000b34  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000b68  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000b68  2**0
+                  ALLOC
+  3 .debug_abbrev 00000174  00000000  00000000  00000b68  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000c0e  00000000  00000000  00000cdc  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   00000520  00000000  00000000  000018ea  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 0004bfcc  00000000  00000000  00001e0a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    000007d4  00000000  00000000  0004ddd6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 00000401  00000000  00000000  0004e5aa  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 0000008c  00000000  00000000  0004e9ab  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  0004ea37  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    00000678  00000000  00000000  0004ea57  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  0004f0cf  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  0004f0fa  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  00000400  00000000  00000000  0004f12c  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 stm32f10x_adc.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     F .text	00000080 ADC_DeInit
+00000000         *UND*	00000000 RCC_APB2PeriphResetCmd
+00000080 g     F .text	000000bc ADC_Init
+0000013c g     F .text	00000042 ADC_StructInit
+00000180 g     F .text	00000036 ADC_Cmd
+000001b8 g     F .text	00000036 ADC_DMACmd
+000001f0 g     F .text	00000048 ADC_ITConfig
+00000238 g     F .text	0000001e ADC_ResetCalibration
+00000258 g     F .text	00000036 ADC_GetResetCalibrationStatus
+00000290 g     F .text	0000001e ADC_StartCalibration
+000002b0 g     F .text	00000036 ADC_GetCalibrationStatus
+000002e8 g     F .text	00000036 ADC_SoftwareStartConvCmd
+00000320 g     F .text	00000036 ADC_GetSoftwareStartConvStatus
+00000358 g     F .text	0000004c ADC_DiscModeChannelCountConfig
+000003a4 g     F .text	00000036 ADC_DiscModeCmd
+000003dc g     F .text	000001ce ADC_RegularChannelConfig
+000005ac g     F .text	00000036 ADC_ExternalTrigConvCmd
+000005e4 g     F .text	0000001a ADC_GetConversionValue
+00000600 g     F .text	00000014 ADC_GetDualModeConversionValue
+00000614 g     F .text	00000036 ADC_AutoInjectedConvCmd
+0000064c g     F .text	00000036 ADC_InjectedDiscModeCmd
+00000684 g     F .text	00000038 ADC_ExternalTrigInjectedConvConfig
+000006bc g     F .text	00000036 ADC_ExternalTrigInjectedConvCmd
+000006f4 g     F .text	00000036 ADC_SoftwareStartInjectedConvCmd
+0000072c g     F .text	00000036 ADC_GetSoftwareStartInjectedConvCmdStatus
+00000764 g     F .text	00000150 ADC_InjectedChannelConfig
+000008b4 g     F .text	0000004c ADC_InjectedSequencerLengthConfig
+00000900 g     F .text	00000032 ADC_SetInjectedOffset
+00000934 g     F .text	00000034 ADC_GetInjectedConversionValue
+00000968 g     F .text	0000003c ADC_AnalogWatchdogCmd
+000009a4 g     F .text	00000026 ADC_AnalogWatchdogThresholdsConfig
+000009cc g     F .text	0000003a ADC_AnalogWatchdogSingleChannelConfig
+00000a08 g     F .text	00000038 ADC_TempSensorVrefintCmd
+00000a40 g     F .text	0000003c ADC_GetFlagStatus
+00000a7c g     F .text	00000020 ADC_ClearFlag
+00000a9c g     F .text	00000066 ADC_GetITStatus
+00000b04 g     F .text	00000030 ADC_ClearITPendingBit
+
+
+
+Disassembly of section .text:
+
+00000000 <ADC_DeInit>:
+  * @brief  Deinitializes the ADCx peripheral registers to their default reset values.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval None
+  */
+void ADC_DeInit(ADC_TypeDef* ADCx)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  
+  if (ADCx == ADC1)
+   8:	687a      	ldr	r2, [r7, #4]
+   a:	4b1a      	ldr	r3, [pc, #104]	; (74 <ADC_DeInit+0x74>)
+   c:	429a      	cmp	r2, r3
+   e:	d10c      	bne.n	2a <ADC_DeInit+0x2a>
+  {
+    /* Enable ADC1 reset state */
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_ADC1, ENABLE);
+  10:	f44f 7000 	mov.w	r0, #512	; 0x200
+  14:	f04f 0101 	mov.w	r1, #1
+  18:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			18: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    /* Release ADC1 from reset state */
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_ADC1, DISABLE);
+  1c:	f44f 7000 	mov.w	r0, #512	; 0x200
+  20:	f04f 0100 	mov.w	r1, #0
+  24:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			24: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  28:	e020      	b.n	6c <ADC_DeInit+0x6c>
+  }
+  else if (ADCx == ADC2)
+  2a:	687a      	ldr	r2, [r7, #4]
+  2c:	4b12      	ldr	r3, [pc, #72]	; (78 <ADC_DeInit+0x78>)
+  2e:	429a      	cmp	r2, r3
+  30:	d10c      	bne.n	4c <ADC_DeInit+0x4c>
+  {
+    /* Enable ADC2 reset state */
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_ADC2, ENABLE);
+  32:	f44f 6080 	mov.w	r0, #1024	; 0x400
+  36:	f04f 0101 	mov.w	r1, #1
+  3a:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			3a: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    /* Release ADC2 from reset state */
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_ADC2, DISABLE);
+  3e:	f44f 6080 	mov.w	r0, #1024	; 0x400
+  42:	f04f 0100 	mov.w	r1, #0
+  46:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			46: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  4a:	e00f      	b.n	6c <ADC_DeInit+0x6c>
+  }
+  else
+  {
+    if (ADCx == ADC3)
+  4c:	687a      	ldr	r2, [r7, #4]
+  4e:	4b0b      	ldr	r3, [pc, #44]	; (7c <ADC_DeInit+0x7c>)
+  50:	429a      	cmp	r2, r3
+  52:	d10b      	bne.n	6c <ADC_DeInit+0x6c>
+    {
+      /* Enable ADC3 reset state */
+      RCC_APB2PeriphResetCmd(RCC_APB2Periph_ADC3, ENABLE);
+  54:	f44f 4000 	mov.w	r0, #32768	; 0x8000
+  58:	f04f 0101 	mov.w	r1, #1
+  5c:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			5c: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+      /* Release ADC3 from reset state */
+      RCC_APB2PeriphResetCmd(RCC_APB2Periph_ADC3, DISABLE);
+  60:	f44f 4000 	mov.w	r0, #32768	; 0x8000
+  64:	f04f 0100 	mov.w	r1, #0
+  68:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			68: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    }
+  }
+}
+  6c:	f107 0708 	add.w	r7, r7, #8
+  70:	46bd      	mov	sp, r7
+  72:	bd80      	pop	{r7, pc}
+  74:	40012400 	.word	0x40012400
+  78:	40012800 	.word	0x40012800
+  7c:	40013c00 	.word	0x40013c00
+
+00000080 <ADC_Init>:
+  * @param  ADC_InitStruct: pointer to an ADC_InitTypeDef structure that contains
+  *         the configuration information for the specified ADC peripheral.
+  * @retval None
+  */
+void ADC_Init(ADC_TypeDef* ADCx, ADC_InitTypeDef* ADC_InitStruct)
+{
+  80:	b480      	push	{r7}
+  82:	b085      	sub	sp, #20
+  84:	af00      	add	r7, sp, #0
+  86:	6078      	str	r0, [r7, #4]
+  88:	6039      	str	r1, [r7, #0]
+  uint32_t tmpreg1 = 0;
+  8a:	f04f 0300 	mov.w	r3, #0
+  8e:	60fb      	str	r3, [r7, #12]
+  uint8_t tmpreg2 = 0;
+  90:	f04f 0300 	mov.w	r3, #0
+  94:	72fb      	strb	r3, [r7, #11]
+  assert_param(IS_ADC_DATA_ALIGN(ADC_InitStruct->ADC_DataAlign)); 
+  assert_param(IS_ADC_REGULAR_LENGTH(ADC_InitStruct->ADC_NbrOfChannel));
+
+  /*---------------------------- ADCx CR1 Configuration -----------------*/
+  /* Get the ADCx CR1 value */
+  tmpreg1 = ADCx->CR1;
+  96:	687b      	ldr	r3, [r7, #4]
+  98:	685b      	ldr	r3, [r3, #4]
+  9a:	60fb      	str	r3, [r7, #12]
+  /* Clear DUALMOD and SCAN bits */
+  tmpreg1 &= CR1_CLEAR_Mask;
+  9c:	68fb      	ldr	r3, [r7, #12]
+  9e:	f423 2370 	bic.w	r3, r3, #983040	; 0xf0000
+  a2:	f423 7380 	bic.w	r3, r3, #256	; 0x100
+  a6:	60fb      	str	r3, [r7, #12]
+  /* Configure ADCx: Dual mode and scan conversion mode */
+  /* Set DUALMOD bits according to ADC_Mode value */
+  /* Set SCAN bit according to ADC_ScanConvMode value */
+  tmpreg1 |= (uint32_t)(ADC_InitStruct->ADC_Mode | ((uint32_t)ADC_InitStruct->ADC_ScanConvMode << 8));
+  a8:	683b      	ldr	r3, [r7, #0]
+  aa:	681a      	ldr	r2, [r3, #0]
+  ac:	683b      	ldr	r3, [r7, #0]
+  ae:	791b      	ldrb	r3, [r3, #4]
+  b0:	ea4f 2303 	mov.w	r3, r3, lsl #8
+  b4:	ea42 0303 	orr.w	r3, r2, r3
+  b8:	68fa      	ldr	r2, [r7, #12]
+  ba:	ea42 0303 	orr.w	r3, r2, r3
+  be:	60fb      	str	r3, [r7, #12]
+  /* Write to ADCx CR1 */
+  ADCx->CR1 = tmpreg1;
+  c0:	687b      	ldr	r3, [r7, #4]
+  c2:	68fa      	ldr	r2, [r7, #12]
+  c4:	605a      	str	r2, [r3, #4]
+
+  /*---------------------------- ADCx CR2 Configuration -----------------*/
+  /* Get the ADCx CR2 value */
+  tmpreg1 = ADCx->CR2;
+  c6:	687b      	ldr	r3, [r7, #4]
+  c8:	689b      	ldr	r3, [r3, #8]
+  ca:	60fb      	str	r3, [r7, #12]
+  /* Clear CONT, ALIGN and EXTSEL bits */
+  tmpreg1 &= CR2_CLEAR_Mask;
+  cc:	68fa      	ldr	r2, [r7, #12]
+  ce:	4b1a      	ldr	r3, [pc, #104]	; (138 <ADC_Init+0xb8>)
+  d0:	ea02 0303 	and.w	r3, r2, r3
+  d4:	60fb      	str	r3, [r7, #12]
+  /* Configure ADCx: external trigger event and continuous conversion mode */
+  /* Set ALIGN bit according to ADC_DataAlign value */
+  /* Set EXTSEL bits according to ADC_ExternalTrigConv value */
+  /* Set CONT bit according to ADC_ContinuousConvMode value */
+  tmpreg1 |= (uint32_t)(ADC_InitStruct->ADC_DataAlign | ADC_InitStruct->ADC_ExternalTrigConv |
+  d6:	683b      	ldr	r3, [r7, #0]
+  d8:	68da      	ldr	r2, [r3, #12]
+  da:	683b      	ldr	r3, [r7, #0]
+  dc:	689b      	ldr	r3, [r3, #8]
+  de:	431a      	orrs	r2, r3
+            ((uint32_t)ADC_InitStruct->ADC_ContinuousConvMode << 1));
+  e0:	683b      	ldr	r3, [r7, #0]
+  e2:	795b      	ldrb	r3, [r3, #5]
+  e4:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  tmpreg1 &= CR2_CLEAR_Mask;
+  /* Configure ADCx: external trigger event and continuous conversion mode */
+  /* Set ALIGN bit according to ADC_DataAlign value */
+  /* Set EXTSEL bits according to ADC_ExternalTrigConv value */
+  /* Set CONT bit according to ADC_ContinuousConvMode value */
+  tmpreg1 |= (uint32_t)(ADC_InitStruct->ADC_DataAlign | ADC_InitStruct->ADC_ExternalTrigConv |
+  e8:	ea42 0303 	orr.w	r3, r2, r3
+  ec:	68fa      	ldr	r2, [r7, #12]
+  ee:	ea42 0303 	orr.w	r3, r2, r3
+  f2:	60fb      	str	r3, [r7, #12]
+            ((uint32_t)ADC_InitStruct->ADC_ContinuousConvMode << 1));
+  /* Write to ADCx CR2 */
+  ADCx->CR2 = tmpreg1;
+  f4:	687b      	ldr	r3, [r7, #4]
+  f6:	68fa      	ldr	r2, [r7, #12]
+  f8:	609a      	str	r2, [r3, #8]
+
+  /*---------------------------- ADCx SQR1 Configuration -----------------*/
+  /* Get the ADCx SQR1 value */
+  tmpreg1 = ADCx->SQR1;
+  fa:	687b      	ldr	r3, [r7, #4]
+  fc:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+  fe:	60fb      	str	r3, [r7, #12]
+  /* Clear L bits */
+  tmpreg1 &= SQR1_CLEAR_Mask;
+ 100:	68fb      	ldr	r3, [r7, #12]
+ 102:	f423 0370 	bic.w	r3, r3, #15728640	; 0xf00000
+ 106:	60fb      	str	r3, [r7, #12]
+  /* Configure ADCx: regular channel sequence length */
+  /* Set L bits according to ADC_NbrOfChannel value */
+  tmpreg2 |= (uint8_t) (ADC_InitStruct->ADC_NbrOfChannel - (uint8_t)1);
+ 108:	683b      	ldr	r3, [r7, #0]
+ 10a:	7c1b      	ldrb	r3, [r3, #16]
+ 10c:	f103 33ff 	add.w	r3, r3, #4294967295
+ 110:	b2da      	uxtb	r2, r3
+ 112:	7afb      	ldrb	r3, [r7, #11]
+ 114:	ea42 0303 	orr.w	r3, r2, r3
+ 118:	72fb      	strb	r3, [r7, #11]
+  tmpreg1 |= (uint32_t)tmpreg2 << 20;
+ 11a:	7afb      	ldrb	r3, [r7, #11]
+ 11c:	ea4f 5303 	mov.w	r3, r3, lsl #20
+ 120:	68fa      	ldr	r2, [r7, #12]
+ 122:	ea42 0303 	orr.w	r3, r2, r3
+ 126:	60fb      	str	r3, [r7, #12]
+  /* Write to ADCx SQR1 */
+  ADCx->SQR1 = tmpreg1;
+ 128:	687b      	ldr	r3, [r7, #4]
+ 12a:	68fa      	ldr	r2, [r7, #12]
+ 12c:	62da      	str	r2, [r3, #44]	; 0x2c
+}
+ 12e:	f107 0714 	add.w	r7, r7, #20
+ 132:	46bd      	mov	sp, r7
+ 134:	bc80      	pop	{r7}
+ 136:	4770      	bx	lr
+ 138:	fff1f7fd 	.word	0xfff1f7fd
+
+0000013c <ADC_StructInit>:
+  * @brief  Fills each ADC_InitStruct member with its default value.
+  * @param  ADC_InitStruct : pointer to an ADC_InitTypeDef structure which will be initialized.
+  * @retval None
+  */
+void ADC_StructInit(ADC_InitTypeDef* ADC_InitStruct)
+{
+ 13c:	b480      	push	{r7}
+ 13e:	b083      	sub	sp, #12
+ 140:	af00      	add	r7, sp, #0
+ 142:	6078      	str	r0, [r7, #4]
+  /* Reset ADC init structure parameters values */
+  /* Initialize the ADC_Mode member */
+  ADC_InitStruct->ADC_Mode = ADC_Mode_Independent;
+ 144:	687b      	ldr	r3, [r7, #4]
+ 146:	f04f 0200 	mov.w	r2, #0
+ 14a:	601a      	str	r2, [r3, #0]
+  /* initialize the ADC_ScanConvMode member */
+  ADC_InitStruct->ADC_ScanConvMode = DISABLE;
+ 14c:	687b      	ldr	r3, [r7, #4]
+ 14e:	f04f 0200 	mov.w	r2, #0
+ 152:	711a      	strb	r2, [r3, #4]
+  /* Initialize the ADC_ContinuousConvMode member */
+  ADC_InitStruct->ADC_ContinuousConvMode = DISABLE;
+ 154:	687b      	ldr	r3, [r7, #4]
+ 156:	f04f 0200 	mov.w	r2, #0
+ 15a:	715a      	strb	r2, [r3, #5]
+  /* Initialize the ADC_ExternalTrigConv member */
+  ADC_InitStruct->ADC_ExternalTrigConv = ADC_ExternalTrigConv_T1_CC1;
+ 15c:	687b      	ldr	r3, [r7, #4]
+ 15e:	f04f 0200 	mov.w	r2, #0
+ 162:	609a      	str	r2, [r3, #8]
+  /* Initialize the ADC_DataAlign member */
+  ADC_InitStruct->ADC_DataAlign = ADC_DataAlign_Right;
+ 164:	687b      	ldr	r3, [r7, #4]
+ 166:	f04f 0200 	mov.w	r2, #0
+ 16a:	60da      	str	r2, [r3, #12]
+  /* Initialize the ADC_NbrOfChannel member */
+  ADC_InitStruct->ADC_NbrOfChannel = 1;
+ 16c:	687b      	ldr	r3, [r7, #4]
+ 16e:	f04f 0201 	mov.w	r2, #1
+ 172:	741a      	strb	r2, [r3, #16]
+}
+ 174:	f107 070c 	add.w	r7, r7, #12
+ 178:	46bd      	mov	sp, r7
+ 17a:	bc80      	pop	{r7}
+ 17c:	4770      	bx	lr
+ 17e:	bf00      	nop
+
+00000180 <ADC_Cmd>:
+  * @param  NewState: new state of the ADCx peripheral.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_Cmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 180:	b480      	push	{r7}
+ 182:	b083      	sub	sp, #12
+ 184:	af00      	add	r7, sp, #0
+ 186:	6078      	str	r0, [r7, #4]
+ 188:	460b      	mov	r3, r1
+ 18a:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 18c:	78fb      	ldrb	r3, [r7, #3]
+ 18e:	2b00      	cmp	r3, #0
+ 190:	d006      	beq.n	1a0 <ADC_Cmd+0x20>
+  {
+    /* Set the ADON bit to wake up the ADC from power down mode */
+    ADCx->CR2 |= CR2_ADON_Set;
+ 192:	687b      	ldr	r3, [r7, #4]
+ 194:	689b      	ldr	r3, [r3, #8]
+ 196:	f043 0201 	orr.w	r2, r3, #1
+ 19a:	687b      	ldr	r3, [r7, #4]
+ 19c:	609a      	str	r2, [r3, #8]
+ 19e:	e005      	b.n	1ac <ADC_Cmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC peripheral */
+    ADCx->CR2 &= CR2_ADON_Reset;
+ 1a0:	687b      	ldr	r3, [r7, #4]
+ 1a2:	689b      	ldr	r3, [r3, #8]
+ 1a4:	f023 0201 	bic.w	r2, r3, #1
+ 1a8:	687b      	ldr	r3, [r7, #4]
+ 1aa:	609a      	str	r2, [r3, #8]
+  }
+}
+ 1ac:	f107 070c 	add.w	r7, r7, #12
+ 1b0:	46bd      	mov	sp, r7
+ 1b2:	bc80      	pop	{r7}
+ 1b4:	4770      	bx	lr
+ 1b6:	bf00      	nop
+
+000001b8 <ADC_DMACmd>:
+  * @param  NewState: new state of the selected ADC DMA transfer.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_DMACmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 1b8:	b480      	push	{r7}
+ 1ba:	b083      	sub	sp, #12
+ 1bc:	af00      	add	r7, sp, #0
+ 1be:	6078      	str	r0, [r7, #4]
+ 1c0:	460b      	mov	r3, r1
+ 1c2:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_DMA_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 1c4:	78fb      	ldrb	r3, [r7, #3]
+ 1c6:	2b00      	cmp	r3, #0
+ 1c8:	d006      	beq.n	1d8 <ADC_DMACmd+0x20>
+  {
+    /* Enable the selected ADC DMA request */
+    ADCx->CR2 |= CR2_DMA_Set;
+ 1ca:	687b      	ldr	r3, [r7, #4]
+ 1cc:	689b      	ldr	r3, [r3, #8]
+ 1ce:	f443 7280 	orr.w	r2, r3, #256	; 0x100
+ 1d2:	687b      	ldr	r3, [r7, #4]
+ 1d4:	609a      	str	r2, [r3, #8]
+ 1d6:	e005      	b.n	1e4 <ADC_DMACmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC DMA request */
+    ADCx->CR2 &= CR2_DMA_Reset;
+ 1d8:	687b      	ldr	r3, [r7, #4]
+ 1da:	689b      	ldr	r3, [r3, #8]
+ 1dc:	f423 7280 	bic.w	r2, r3, #256	; 0x100
+ 1e0:	687b      	ldr	r3, [r7, #4]
+ 1e2:	609a      	str	r2, [r3, #8]
+  }
+}
+ 1e4:	f107 070c 	add.w	r7, r7, #12
+ 1e8:	46bd      	mov	sp, r7
+ 1ea:	bc80      	pop	{r7}
+ 1ec:	4770      	bx	lr
+ 1ee:	bf00      	nop
+
+000001f0 <ADC_ITConfig>:
+  * @param  NewState: new state of the specified ADC interrupts.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_ITConfig(ADC_TypeDef* ADCx, uint16_t ADC_IT, FunctionalState NewState)
+{
+ 1f0:	b480      	push	{r7}
+ 1f2:	b085      	sub	sp, #20
+ 1f4:	af00      	add	r7, sp, #0
+ 1f6:	6078      	str	r0, [r7, #4]
+ 1f8:	4613      	mov	r3, r2
+ 1fa:	460a      	mov	r2, r1
+ 1fc:	807a      	strh	r2, [r7, #2]
+ 1fe:	707b      	strb	r3, [r7, #1]
+  uint8_t itmask = 0;
+ 200:	f04f 0300 	mov.w	r3, #0
+ 204:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  assert_param(IS_ADC_IT(ADC_IT));
+  /* Get the ADC IT index */
+  itmask = (uint8_t)ADC_IT;
+ 206:	887b      	ldrh	r3, [r7, #2]
+ 208:	73fb      	strb	r3, [r7, #15]
+  if (NewState != DISABLE)
+ 20a:	787b      	ldrb	r3, [r7, #1]
+ 20c:	2b00      	cmp	r3, #0
+ 20e:	d006      	beq.n	21e <ADC_ITConfig+0x2e>
+  {
+    /* Enable the selected ADC interrupts */
+    ADCx->CR1 |= itmask;
+ 210:	687b      	ldr	r3, [r7, #4]
+ 212:	685a      	ldr	r2, [r3, #4]
+ 214:	7bfb      	ldrb	r3, [r7, #15]
+ 216:	431a      	orrs	r2, r3
+ 218:	687b      	ldr	r3, [r7, #4]
+ 21a:	605a      	str	r2, [r3, #4]
+ 21c:	e007      	b.n	22e <ADC_ITConfig+0x3e>
+  }
+  else
+  {
+    /* Disable the selected ADC interrupts */
+    ADCx->CR1 &= (~(uint32_t)itmask);
+ 21e:	687b      	ldr	r3, [r7, #4]
+ 220:	685a      	ldr	r2, [r3, #4]
+ 222:	7bfb      	ldrb	r3, [r7, #15]
+ 224:	ea6f 0303 	mvn.w	r3, r3
+ 228:	401a      	ands	r2, r3
+ 22a:	687b      	ldr	r3, [r7, #4]
+ 22c:	605a      	str	r2, [r3, #4]
+  }
+}
+ 22e:	f107 0714 	add.w	r7, r7, #20
+ 232:	46bd      	mov	sp, r7
+ 234:	bc80      	pop	{r7}
+ 236:	4770      	bx	lr
+
+00000238 <ADC_ResetCalibration>:
+  * @brief  Resets the selected ADC calibration registers.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval None
+  */
+void ADC_ResetCalibration(ADC_TypeDef* ADCx)
+{
+ 238:	b480      	push	{r7}
+ 23a:	b083      	sub	sp, #12
+ 23c:	af00      	add	r7, sp, #0
+ 23e:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  /* Resets the selected ADC calibration registers */  
+  ADCx->CR2 |= CR2_RSTCAL_Set;
+ 240:	687b      	ldr	r3, [r7, #4]
+ 242:	689b      	ldr	r3, [r3, #8]
+ 244:	f043 0208 	orr.w	r2, r3, #8
+ 248:	687b      	ldr	r3, [r7, #4]
+ 24a:	609a      	str	r2, [r3, #8]
+}
+ 24c:	f107 070c 	add.w	r7, r7, #12
+ 250:	46bd      	mov	sp, r7
+ 252:	bc80      	pop	{r7}
+ 254:	4770      	bx	lr
+ 256:	bf00      	nop
+
+00000258 <ADC_GetResetCalibrationStatus>:
+  * @brief  Gets the selected ADC reset calibration registers status.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval The new state of ADC reset calibration registers (SET or RESET).
+  */
+FlagStatus ADC_GetResetCalibrationStatus(ADC_TypeDef* ADCx)
+{
+ 258:	b480      	push	{r7}
+ 25a:	b085      	sub	sp, #20
+ 25c:	af00      	add	r7, sp, #0
+ 25e:	6078      	str	r0, [r7, #4]
+  FlagStatus bitstatus = RESET;
+ 260:	f04f 0300 	mov.w	r3, #0
+ 264:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  /* Check the status of RSTCAL bit */
+  if ((ADCx->CR2 & CR2_RSTCAL_Set) != (uint32_t)RESET)
+ 266:	687b      	ldr	r3, [r7, #4]
+ 268:	689b      	ldr	r3, [r3, #8]
+ 26a:	f003 0308 	and.w	r3, r3, #8
+ 26e:	2b00      	cmp	r3, #0
+ 270:	d003      	beq.n	27a <ADC_GetResetCalibrationStatus+0x22>
+  {
+    /* RSTCAL bit is set */
+    bitstatus = SET;
+ 272:	f04f 0301 	mov.w	r3, #1
+ 276:	73fb      	strb	r3, [r7, #15]
+ 278:	e002      	b.n	280 <ADC_GetResetCalibrationStatus+0x28>
+  }
+  else
+  {
+    /* RSTCAL bit is reset */
+    bitstatus = RESET;
+ 27a:	f04f 0300 	mov.w	r3, #0
+ 27e:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the RSTCAL bit status */
+  return  bitstatus;
+ 280:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 282:	4618      	mov	r0, r3
+ 284:	f107 0714 	add.w	r7, r7, #20
+ 288:	46bd      	mov	sp, r7
+ 28a:	bc80      	pop	{r7}
+ 28c:	4770      	bx	lr
+ 28e:	bf00      	nop
+
+00000290 <ADC_StartCalibration>:
+  * @brief  Starts the selected ADC calibration process.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval None
+  */
+void ADC_StartCalibration(ADC_TypeDef* ADCx)
+{
+ 290:	b480      	push	{r7}
+ 292:	b083      	sub	sp, #12
+ 294:	af00      	add	r7, sp, #0
+ 296:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  /* Enable the selected ADC calibration process */  
+  ADCx->CR2 |= CR2_CAL_Set;
+ 298:	687b      	ldr	r3, [r7, #4]
+ 29a:	689b      	ldr	r3, [r3, #8]
+ 29c:	f043 0204 	orr.w	r2, r3, #4
+ 2a0:	687b      	ldr	r3, [r7, #4]
+ 2a2:	609a      	str	r2, [r3, #8]
+}
+ 2a4:	f107 070c 	add.w	r7, r7, #12
+ 2a8:	46bd      	mov	sp, r7
+ 2aa:	bc80      	pop	{r7}
+ 2ac:	4770      	bx	lr
+ 2ae:	bf00      	nop
+
+000002b0 <ADC_GetCalibrationStatus>:
+  * @brief  Gets the selected ADC calibration status.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval The new state of ADC calibration (SET or RESET).
+  */
+FlagStatus ADC_GetCalibrationStatus(ADC_TypeDef* ADCx)
+{
+ 2b0:	b480      	push	{r7}
+ 2b2:	b085      	sub	sp, #20
+ 2b4:	af00      	add	r7, sp, #0
+ 2b6:	6078      	str	r0, [r7, #4]
+  FlagStatus bitstatus = RESET;
+ 2b8:	f04f 0300 	mov.w	r3, #0
+ 2bc:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  /* Check the status of CAL bit */
+  if ((ADCx->CR2 & CR2_CAL_Set) != (uint32_t)RESET)
+ 2be:	687b      	ldr	r3, [r7, #4]
+ 2c0:	689b      	ldr	r3, [r3, #8]
+ 2c2:	f003 0304 	and.w	r3, r3, #4
+ 2c6:	2b00      	cmp	r3, #0
+ 2c8:	d003      	beq.n	2d2 <ADC_GetCalibrationStatus+0x22>
+  {
+    /* CAL bit is set: calibration on going */
+    bitstatus = SET;
+ 2ca:	f04f 0301 	mov.w	r3, #1
+ 2ce:	73fb      	strb	r3, [r7, #15]
+ 2d0:	e002      	b.n	2d8 <ADC_GetCalibrationStatus+0x28>
+  }
+  else
+  {
+    /* CAL bit is reset: end of calibration */
+    bitstatus = RESET;
+ 2d2:	f04f 0300 	mov.w	r3, #0
+ 2d6:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the CAL bit status */
+  return  bitstatus;
+ 2d8:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 2da:	4618      	mov	r0, r3
+ 2dc:	f107 0714 	add.w	r7, r7, #20
+ 2e0:	46bd      	mov	sp, r7
+ 2e2:	bc80      	pop	{r7}
+ 2e4:	4770      	bx	lr
+ 2e6:	bf00      	nop
+
+000002e8 <ADC_SoftwareStartConvCmd>:
+  * @param  NewState: new state of the selected ADC software start conversion.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_SoftwareStartConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 2e8:	b480      	push	{r7}
+ 2ea:	b083      	sub	sp, #12
+ 2ec:	af00      	add	r7, sp, #0
+ 2ee:	6078      	str	r0, [r7, #4]
+ 2f0:	460b      	mov	r3, r1
+ 2f2:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 2f4:	78fb      	ldrb	r3, [r7, #3]
+ 2f6:	2b00      	cmp	r3, #0
+ 2f8:	d006      	beq.n	308 <ADC_SoftwareStartConvCmd+0x20>
+  {
+    /* Enable the selected ADC conversion on external event and start the selected
+       ADC conversion */
+    ADCx->CR2 |= CR2_EXTTRIG_SWSTART_Set;
+ 2fa:	687b      	ldr	r3, [r7, #4]
+ 2fc:	689b      	ldr	r3, [r3, #8]
+ 2fe:	f443 02a0 	orr.w	r2, r3, #5242880	; 0x500000
+ 302:	687b      	ldr	r3, [r7, #4]
+ 304:	609a      	str	r2, [r3, #8]
+ 306:	e005      	b.n	314 <ADC_SoftwareStartConvCmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC conversion on external event and stop the selected
+       ADC conversion */
+    ADCx->CR2 &= CR2_EXTTRIG_SWSTART_Reset;
+ 308:	687b      	ldr	r3, [r7, #4]
+ 30a:	689b      	ldr	r3, [r3, #8]
+ 30c:	f423 02a0 	bic.w	r2, r3, #5242880	; 0x500000
+ 310:	687b      	ldr	r3, [r7, #4]
+ 312:	609a      	str	r2, [r3, #8]
+  }
+}
+ 314:	f107 070c 	add.w	r7, r7, #12
+ 318:	46bd      	mov	sp, r7
+ 31a:	bc80      	pop	{r7}
+ 31c:	4770      	bx	lr
+ 31e:	bf00      	nop
+
+00000320 <ADC_GetSoftwareStartConvStatus>:
+  * @brief  Gets the selected ADC Software start conversion Status.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval The new state of ADC software start conversion (SET or RESET).
+  */
+FlagStatus ADC_GetSoftwareStartConvStatus(ADC_TypeDef* ADCx)
+{
+ 320:	b480      	push	{r7}
+ 322:	b085      	sub	sp, #20
+ 324:	af00      	add	r7, sp, #0
+ 326:	6078      	str	r0, [r7, #4]
+  FlagStatus bitstatus = RESET;
+ 328:	f04f 0300 	mov.w	r3, #0
+ 32c:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  /* Check the status of SWSTART bit */
+  if ((ADCx->CR2 & CR2_SWSTART_Set) != (uint32_t)RESET)
+ 32e:	687b      	ldr	r3, [r7, #4]
+ 330:	689b      	ldr	r3, [r3, #8]
+ 332:	f403 0380 	and.w	r3, r3, #4194304	; 0x400000
+ 336:	2b00      	cmp	r3, #0
+ 338:	d003      	beq.n	342 <ADC_GetSoftwareStartConvStatus+0x22>
+  {
+    /* SWSTART bit is set */
+    bitstatus = SET;
+ 33a:	f04f 0301 	mov.w	r3, #1
+ 33e:	73fb      	strb	r3, [r7, #15]
+ 340:	e002      	b.n	348 <ADC_GetSoftwareStartConvStatus+0x28>
+  }
+  else
+  {
+    /* SWSTART bit is reset */
+    bitstatus = RESET;
+ 342:	f04f 0300 	mov.w	r3, #0
+ 346:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the SWSTART bit status */
+  return  bitstatus;
+ 348:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 34a:	4618      	mov	r0, r3
+ 34c:	f107 0714 	add.w	r7, r7, #20
+ 350:	46bd      	mov	sp, r7
+ 352:	bc80      	pop	{r7}
+ 354:	4770      	bx	lr
+ 356:	bf00      	nop
+
+00000358 <ADC_DiscModeChannelCountConfig>:
+  * @param  Number: specifies the discontinuous mode regular channel
+  *         count value. This number must be between 1 and 8.
+  * @retval None
+  */
+void ADC_DiscModeChannelCountConfig(ADC_TypeDef* ADCx, uint8_t Number)
+{
+ 358:	b480      	push	{r7}
+ 35a:	b085      	sub	sp, #20
+ 35c:	af00      	add	r7, sp, #0
+ 35e:	6078      	str	r0, [r7, #4]
+ 360:	460b      	mov	r3, r1
+ 362:	70fb      	strb	r3, [r7, #3]
+  uint32_t tmpreg1 = 0;
+ 364:	f04f 0300 	mov.w	r3, #0
+ 368:	60fb      	str	r3, [r7, #12]
+  uint32_t tmpreg2 = 0;
+ 36a:	f04f 0300 	mov.w	r3, #0
+ 36e:	60bb      	str	r3, [r7, #8]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_REGULAR_DISC_NUMBER(Number));
+  /* Get the old register value */
+  tmpreg1 = ADCx->CR1;
+ 370:	687b      	ldr	r3, [r7, #4]
+ 372:	685b      	ldr	r3, [r3, #4]
+ 374:	60fb      	str	r3, [r7, #12]
+  /* Clear the old discontinuous mode channel count */
+  tmpreg1 &= CR1_DISCNUM_Reset;
+ 376:	68fb      	ldr	r3, [r7, #12]
+ 378:	f423 4360 	bic.w	r3, r3, #57344	; 0xe000
+ 37c:	60fb      	str	r3, [r7, #12]
+  /* Set the discontinuous mode channel count */
+  tmpreg2 = Number - 1;
+ 37e:	78fb      	ldrb	r3, [r7, #3]
+ 380:	f103 33ff 	add.w	r3, r3, #4294967295
+ 384:	60bb      	str	r3, [r7, #8]
+  tmpreg1 |= tmpreg2 << 13;
+ 386:	68bb      	ldr	r3, [r7, #8]
+ 388:	ea4f 3343 	mov.w	r3, r3, lsl #13
+ 38c:	68fa      	ldr	r2, [r7, #12]
+ 38e:	ea42 0303 	orr.w	r3, r2, r3
+ 392:	60fb      	str	r3, [r7, #12]
+  /* Store the new register value */
+  ADCx->CR1 = tmpreg1;
+ 394:	687b      	ldr	r3, [r7, #4]
+ 396:	68fa      	ldr	r2, [r7, #12]
+ 398:	605a      	str	r2, [r3, #4]
+}
+ 39a:	f107 0714 	add.w	r7, r7, #20
+ 39e:	46bd      	mov	sp, r7
+ 3a0:	bc80      	pop	{r7}
+ 3a2:	4770      	bx	lr
+
+000003a4 <ADC_DiscModeCmd>:
+  *         on regular group channel.
+  *         This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_DiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 3a4:	b480      	push	{r7}
+ 3a6:	b083      	sub	sp, #12
+ 3a8:	af00      	add	r7, sp, #0
+ 3aa:	6078      	str	r0, [r7, #4]
+ 3ac:	460b      	mov	r3, r1
+ 3ae:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 3b0:	78fb      	ldrb	r3, [r7, #3]
+ 3b2:	2b00      	cmp	r3, #0
+ 3b4:	d006      	beq.n	3c4 <ADC_DiscModeCmd+0x20>
+  {
+    /* Enable the selected ADC regular discontinuous mode */
+    ADCx->CR1 |= CR1_DISCEN_Set;
+ 3b6:	687b      	ldr	r3, [r7, #4]
+ 3b8:	685b      	ldr	r3, [r3, #4]
+ 3ba:	f443 6200 	orr.w	r2, r3, #2048	; 0x800
+ 3be:	687b      	ldr	r3, [r7, #4]
+ 3c0:	605a      	str	r2, [r3, #4]
+ 3c2:	e005      	b.n	3d0 <ADC_DiscModeCmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC regular discontinuous mode */
+    ADCx->CR1 &= CR1_DISCEN_Reset;
+ 3c4:	687b      	ldr	r3, [r7, #4]
+ 3c6:	685b      	ldr	r3, [r3, #4]
+ 3c8:	f423 6200 	bic.w	r2, r3, #2048	; 0x800
+ 3cc:	687b      	ldr	r3, [r7, #4]
+ 3ce:	605a      	str	r2, [r3, #4]
+  }
+}
+ 3d0:	f107 070c 	add.w	r7, r7, #12
+ 3d4:	46bd      	mov	sp, r7
+ 3d6:	bc80      	pop	{r7}
+ 3d8:	4770      	bx	lr
+ 3da:	bf00      	nop
+
+000003dc <ADC_RegularChannelConfig>:
+  *     @arg ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles	
+  *     @arg ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles	
+  * @retval None
+  */
+void ADC_RegularChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime)
+{
+ 3dc:	b480      	push	{r7}
+ 3de:	b085      	sub	sp, #20
+ 3e0:	af00      	add	r7, sp, #0
+ 3e2:	6078      	str	r0, [r7, #4]
+ 3e4:	70f9      	strb	r1, [r7, #3]
+ 3e6:	70ba      	strb	r2, [r7, #2]
+ 3e8:	707b      	strb	r3, [r7, #1]
+  uint32_t tmpreg1 = 0, tmpreg2 = 0;
+ 3ea:	f04f 0300 	mov.w	r3, #0
+ 3ee:	60fb      	str	r3, [r7, #12]
+ 3f0:	f04f 0300 	mov.w	r3, #0
+ 3f4:	60bb      	str	r3, [r7, #8]
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_CHANNEL(ADC_Channel));
+  assert_param(IS_ADC_REGULAR_RANK(Rank));
+  assert_param(IS_ADC_SAMPLE_TIME(ADC_SampleTime));
+  /* if ADC_Channel_10 ... ADC_Channel_17 is selected */
+  if (ADC_Channel > ADC_Channel_9)
+ 3f6:	78fb      	ldrb	r3, [r7, #3]
+ 3f8:	2b09      	cmp	r3, #9
+ 3fa:	d929      	bls.n	450 <ADC_RegularChannelConfig+0x74>
+  {
+    /* Get the old register value */
+    tmpreg1 = ADCx->SMPR1;
+ 3fc:	687b      	ldr	r3, [r7, #4]
+ 3fe:	68db      	ldr	r3, [r3, #12]
+ 400:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to clear */
+    tmpreg2 = SMPR1_SMP_Set << (3 * (ADC_Channel - 10));
+ 402:	78fa      	ldrb	r2, [r7, #3]
+ 404:	4613      	mov	r3, r2
+ 406:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 40a:	189b      	adds	r3, r3, r2
+ 40c:	f1a3 031e 	sub.w	r3, r3, #30
+ 410:	f04f 0207 	mov.w	r2, #7
+ 414:	fa02 f303 	lsl.w	r3, r2, r3
+ 418:	60bb      	str	r3, [r7, #8]
+    /* Clear the old channel sample time */
+    tmpreg1 &= ~tmpreg2;
+ 41a:	68bb      	ldr	r3, [r7, #8]
+ 41c:	ea6f 0303 	mvn.w	r3, r3
+ 420:	68fa      	ldr	r2, [r7, #12]
+ 422:	ea02 0303 	and.w	r3, r2, r3
+ 426:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to set */
+    tmpreg2 = (uint32_t)ADC_SampleTime << (3 * (ADC_Channel - 10));
+ 428:	7879      	ldrb	r1, [r7, #1]
+ 42a:	78fa      	ldrb	r2, [r7, #3]
+ 42c:	4613      	mov	r3, r2
+ 42e:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 432:	189b      	adds	r3, r3, r2
+ 434:	f1a3 031e 	sub.w	r3, r3, #30
+ 438:	fa01 f303 	lsl.w	r3, r1, r3
+ 43c:	60bb      	str	r3, [r7, #8]
+    /* Set the new channel sample time */
+    tmpreg1 |= tmpreg2;
+ 43e:	68fa      	ldr	r2, [r7, #12]
+ 440:	68bb      	ldr	r3, [r7, #8]
+ 442:	ea42 0303 	orr.w	r3, r2, r3
+ 446:	60fb      	str	r3, [r7, #12]
+    /* Store the new register value */
+    ADCx->SMPR1 = tmpreg1;
+ 448:	687b      	ldr	r3, [r7, #4]
+ 44a:	68fa      	ldr	r2, [r7, #12]
+ 44c:	60da      	str	r2, [r3, #12]
+ 44e:	e024      	b.n	49a <ADC_RegularChannelConfig+0xbe>
+  }
+  else /* ADC_Channel include in ADC_Channel_[0..9] */
+  {
+    /* Get the old register value */
+    tmpreg1 = ADCx->SMPR2;
+ 450:	687b      	ldr	r3, [r7, #4]
+ 452:	691b      	ldr	r3, [r3, #16]
+ 454:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to clear */
+    tmpreg2 = SMPR2_SMP_Set << (3 * ADC_Channel);
+ 456:	78fa      	ldrb	r2, [r7, #3]
+ 458:	4613      	mov	r3, r2
+ 45a:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 45e:	189b      	adds	r3, r3, r2
+ 460:	f04f 0207 	mov.w	r2, #7
+ 464:	fa02 f303 	lsl.w	r3, r2, r3
+ 468:	60bb      	str	r3, [r7, #8]
+    /* Clear the old channel sample time */
+    tmpreg1 &= ~tmpreg2;
+ 46a:	68bb      	ldr	r3, [r7, #8]
+ 46c:	ea6f 0303 	mvn.w	r3, r3
+ 470:	68fa      	ldr	r2, [r7, #12]
+ 472:	ea02 0303 	and.w	r3, r2, r3
+ 476:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to set */
+    tmpreg2 = (uint32_t)ADC_SampleTime << (3 * ADC_Channel);
+ 478:	7879      	ldrb	r1, [r7, #1]
+ 47a:	78fa      	ldrb	r2, [r7, #3]
+ 47c:	4613      	mov	r3, r2
+ 47e:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 482:	189b      	adds	r3, r3, r2
+ 484:	fa01 f303 	lsl.w	r3, r1, r3
+ 488:	60bb      	str	r3, [r7, #8]
+    /* Set the new channel sample time */
+    tmpreg1 |= tmpreg2;
+ 48a:	68fa      	ldr	r2, [r7, #12]
+ 48c:	68bb      	ldr	r3, [r7, #8]
+ 48e:	ea42 0303 	orr.w	r3, r2, r3
+ 492:	60fb      	str	r3, [r7, #12]
+    /* Store the new register value */
+    ADCx->SMPR2 = tmpreg1;
+ 494:	687b      	ldr	r3, [r7, #4]
+ 496:	68fa      	ldr	r2, [r7, #12]
+ 498:	611a      	str	r2, [r3, #16]
+  }
+  /* For Rank 1 to 6 */
+  if (Rank < 7)
+ 49a:	78bb      	ldrb	r3, [r7, #2]
+ 49c:	2b06      	cmp	r3, #6
+ 49e:	d829      	bhi.n	4f4 <ADC_RegularChannelConfig+0x118>
+  {
+    /* Get the old register value */
+    tmpreg1 = ADCx->SQR3;
+ 4a0:	687b      	ldr	r3, [r7, #4]
+ 4a2:	6b5b      	ldr	r3, [r3, #52]	; 0x34
+ 4a4:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to clear */
+    tmpreg2 = SQR3_SQ_Set << (5 * (Rank - 1));
+ 4a6:	78bb      	ldrb	r3, [r7, #2]
+ 4a8:	f103 32ff 	add.w	r2, r3, #4294967295
+ 4ac:	4613      	mov	r3, r2
+ 4ae:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 4b2:	189b      	adds	r3, r3, r2
+ 4b4:	f04f 021f 	mov.w	r2, #31
+ 4b8:	fa02 f303 	lsl.w	r3, r2, r3
+ 4bc:	60bb      	str	r3, [r7, #8]
+    /* Clear the old SQx bits for the selected rank */
+    tmpreg1 &= ~tmpreg2;
+ 4be:	68bb      	ldr	r3, [r7, #8]
+ 4c0:	ea6f 0303 	mvn.w	r3, r3
+ 4c4:	68fa      	ldr	r2, [r7, #12]
+ 4c6:	ea02 0303 	and.w	r3, r2, r3
+ 4ca:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to set */
+    tmpreg2 = (uint32_t)ADC_Channel << (5 * (Rank - 1));
+ 4cc:	78f9      	ldrb	r1, [r7, #3]
+ 4ce:	78bb      	ldrb	r3, [r7, #2]
+ 4d0:	f103 32ff 	add.w	r2, r3, #4294967295
+ 4d4:	4613      	mov	r3, r2
+ 4d6:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 4da:	189b      	adds	r3, r3, r2
+ 4dc:	fa01 f303 	lsl.w	r3, r1, r3
+ 4e0:	60bb      	str	r3, [r7, #8]
+    /* Set the SQx bits for the selected rank */
+    tmpreg1 |= tmpreg2;
+ 4e2:	68fa      	ldr	r2, [r7, #12]
+ 4e4:	68bb      	ldr	r3, [r7, #8]
+ 4e6:	ea42 0303 	orr.w	r3, r2, r3
+ 4ea:	60fb      	str	r3, [r7, #12]
+    /* Store the new register value */
+    ADCx->SQR3 = tmpreg1;
+ 4ec:	687b      	ldr	r3, [r7, #4]
+ 4ee:	68fa      	ldr	r2, [r7, #12]
+ 4f0:	635a      	str	r2, [r3, #52]	; 0x34
+ 4f2:	e055      	b.n	5a0 <ADC_RegularChannelConfig+0x1c4>
+  }
+  /* For Rank 7 to 12 */
+  else if (Rank < 13)
+ 4f4:	78bb      	ldrb	r3, [r7, #2]
+ 4f6:	2b0c      	cmp	r3, #12
+ 4f8:	d829      	bhi.n	54e <ADC_RegularChannelConfig+0x172>
+  {
+    /* Get the old register value */
+    tmpreg1 = ADCx->SQR2;
+ 4fa:	687b      	ldr	r3, [r7, #4]
+ 4fc:	6b1b      	ldr	r3, [r3, #48]	; 0x30
+ 4fe:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to clear */
+    tmpreg2 = SQR2_SQ_Set << (5 * (Rank - 7));
+ 500:	78ba      	ldrb	r2, [r7, #2]
+ 502:	4613      	mov	r3, r2
+ 504:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 508:	189b      	adds	r3, r3, r2
+ 50a:	f1a3 0323 	sub.w	r3, r3, #35	; 0x23
+ 50e:	f04f 021f 	mov.w	r2, #31
+ 512:	fa02 f303 	lsl.w	r3, r2, r3
+ 516:	60bb      	str	r3, [r7, #8]
+    /* Clear the old SQx bits for the selected rank */
+    tmpreg1 &= ~tmpreg2;
+ 518:	68bb      	ldr	r3, [r7, #8]
+ 51a:	ea6f 0303 	mvn.w	r3, r3
+ 51e:	68fa      	ldr	r2, [r7, #12]
+ 520:	ea02 0303 	and.w	r3, r2, r3
+ 524:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to set */
+    tmpreg2 = (uint32_t)ADC_Channel << (5 * (Rank - 7));
+ 526:	78f9      	ldrb	r1, [r7, #3]
+ 528:	78ba      	ldrb	r2, [r7, #2]
+ 52a:	4613      	mov	r3, r2
+ 52c:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 530:	189b      	adds	r3, r3, r2
+ 532:	f1a3 0323 	sub.w	r3, r3, #35	; 0x23
+ 536:	fa01 f303 	lsl.w	r3, r1, r3
+ 53a:	60bb      	str	r3, [r7, #8]
+    /* Set the SQx bits for the selected rank */
+    tmpreg1 |= tmpreg2;
+ 53c:	68fa      	ldr	r2, [r7, #12]
+ 53e:	68bb      	ldr	r3, [r7, #8]
+ 540:	ea42 0303 	orr.w	r3, r2, r3
+ 544:	60fb      	str	r3, [r7, #12]
+    /* Store the new register value */
+    ADCx->SQR2 = tmpreg1;
+ 546:	687b      	ldr	r3, [r7, #4]
+ 548:	68fa      	ldr	r2, [r7, #12]
+ 54a:	631a      	str	r2, [r3, #48]	; 0x30
+ 54c:	e028      	b.n	5a0 <ADC_RegularChannelConfig+0x1c4>
+  }
+  /* For Rank 13 to 16 */
+  else
+  {
+    /* Get the old register value */
+    tmpreg1 = ADCx->SQR1;
+ 54e:	687b      	ldr	r3, [r7, #4]
+ 550:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+ 552:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to clear */
+    tmpreg2 = SQR1_SQ_Set << (5 * (Rank - 13));
+ 554:	78ba      	ldrb	r2, [r7, #2]
+ 556:	4613      	mov	r3, r2
+ 558:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 55c:	189b      	adds	r3, r3, r2
+ 55e:	f1a3 0341 	sub.w	r3, r3, #65	; 0x41
+ 562:	f04f 021f 	mov.w	r2, #31
+ 566:	fa02 f303 	lsl.w	r3, r2, r3
+ 56a:	60bb      	str	r3, [r7, #8]
+    /* Clear the old SQx bits for the selected rank */
+    tmpreg1 &= ~tmpreg2;
+ 56c:	68bb      	ldr	r3, [r7, #8]
+ 56e:	ea6f 0303 	mvn.w	r3, r3
+ 572:	68fa      	ldr	r2, [r7, #12]
+ 574:	ea02 0303 	and.w	r3, r2, r3
+ 578:	60fb      	str	r3, [r7, #12]
+    /* Calculate the mask to set */
+    tmpreg2 = (uint32_t)ADC_Channel << (5 * (Rank - 13));
+ 57a:	78f9      	ldrb	r1, [r7, #3]
+ 57c:	78ba      	ldrb	r2, [r7, #2]
+ 57e:	4613      	mov	r3, r2
+ 580:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 584:	189b      	adds	r3, r3, r2
+ 586:	f1a3 0341 	sub.w	r3, r3, #65	; 0x41
+ 58a:	fa01 f303 	lsl.w	r3, r1, r3
+ 58e:	60bb      	str	r3, [r7, #8]
+    /* Set the SQx bits for the selected rank */
+    tmpreg1 |= tmpreg2;
+ 590:	68fa      	ldr	r2, [r7, #12]
+ 592:	68bb      	ldr	r3, [r7, #8]
+ 594:	ea42 0303 	orr.w	r3, r2, r3
+ 598:	60fb      	str	r3, [r7, #12]
+    /* Store the new register value */
+    ADCx->SQR1 = tmpreg1;
+ 59a:	687b      	ldr	r3, [r7, #4]
+ 59c:	68fa      	ldr	r2, [r7, #12]
+ 59e:	62da      	str	r2, [r3, #44]	; 0x2c
+  }
+}
+ 5a0:	f107 0714 	add.w	r7, r7, #20
+ 5a4:	46bd      	mov	sp, r7
+ 5a6:	bc80      	pop	{r7}
+ 5a8:	4770      	bx	lr
+ 5aa:	bf00      	nop
+
+000005ac <ADC_ExternalTrigConvCmd>:
+  * @param  NewState: new state of the selected ADC external trigger start of conversion.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_ExternalTrigConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 5ac:	b480      	push	{r7}
+ 5ae:	b083      	sub	sp, #12
+ 5b0:	af00      	add	r7, sp, #0
+ 5b2:	6078      	str	r0, [r7, #4]
+ 5b4:	460b      	mov	r3, r1
+ 5b6:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 5b8:	78fb      	ldrb	r3, [r7, #3]
+ 5ba:	2b00      	cmp	r3, #0
+ 5bc:	d006      	beq.n	5cc <ADC_ExternalTrigConvCmd+0x20>
+  {
+    /* Enable the selected ADC conversion on external event */
+    ADCx->CR2 |= CR2_EXTTRIG_Set;
+ 5be:	687b      	ldr	r3, [r7, #4]
+ 5c0:	689b      	ldr	r3, [r3, #8]
+ 5c2:	f443 1280 	orr.w	r2, r3, #1048576	; 0x100000
+ 5c6:	687b      	ldr	r3, [r7, #4]
+ 5c8:	609a      	str	r2, [r3, #8]
+ 5ca:	e005      	b.n	5d8 <ADC_ExternalTrigConvCmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC conversion on external event */
+    ADCx->CR2 &= CR2_EXTTRIG_Reset;
+ 5cc:	687b      	ldr	r3, [r7, #4]
+ 5ce:	689b      	ldr	r3, [r3, #8]
+ 5d0:	f423 1280 	bic.w	r2, r3, #1048576	; 0x100000
+ 5d4:	687b      	ldr	r3, [r7, #4]
+ 5d6:	609a      	str	r2, [r3, #8]
+  }
+}
+ 5d8:	f107 070c 	add.w	r7, r7, #12
+ 5dc:	46bd      	mov	sp, r7
+ 5de:	bc80      	pop	{r7}
+ 5e0:	4770      	bx	lr
+ 5e2:	bf00      	nop
+
+000005e4 <ADC_GetConversionValue>:
+  * @brief  Returns the last ADCx conversion result data for regular channel.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval The Data conversion value.
+  */
+uint16_t ADC_GetConversionValue(ADC_TypeDef* ADCx)
+{
+ 5e4:	b480      	push	{r7}
+ 5e6:	b083      	sub	sp, #12
+ 5e8:	af00      	add	r7, sp, #0
+ 5ea:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  /* Return the selected ADC conversion value */
+  return (uint16_t) ADCx->DR;
+ 5ec:	687b      	ldr	r3, [r7, #4]
+ 5ee:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
+ 5f0:	b29b      	uxth	r3, r3
+}
+ 5f2:	4618      	mov	r0, r3
+ 5f4:	f107 070c 	add.w	r7, r7, #12
+ 5f8:	46bd      	mov	sp, r7
+ 5fa:	bc80      	pop	{r7}
+ 5fc:	4770      	bx	lr
+ 5fe:	bf00      	nop
+
+00000600 <ADC_GetDualModeConversionValue>:
+/**
+  * @brief  Returns the last ADC1 and ADC2 conversion result data in dual mode.
+  * @retval The Data conversion value.
+  */
+uint32_t ADC_GetDualModeConversionValue(void)
+{
+ 600:	b480      	push	{r7}
+ 602:	af00      	add	r7, sp, #0
+  /* Return the dual mode conversion value */
+  return (*(__IO uint32_t *) DR_ADDRESS);
+ 604:	4b02      	ldr	r3, [pc, #8]	; (610 <ADC_GetDualModeConversionValue+0x10>)
+ 606:	681b      	ldr	r3, [r3, #0]
+}
+ 608:	4618      	mov	r0, r3
+ 60a:	46bd      	mov	sp, r7
+ 60c:	bc80      	pop	{r7}
+ 60e:	4770      	bx	lr
+ 610:	4001244c 	.word	0x4001244c
+
+00000614 <ADC_AutoInjectedConvCmd>:
+  * @param  NewState: new state of the selected ADC auto injected conversion
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_AutoInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 614:	b480      	push	{r7}
+ 616:	b083      	sub	sp, #12
+ 618:	af00      	add	r7, sp, #0
+ 61a:	6078      	str	r0, [r7, #4]
+ 61c:	460b      	mov	r3, r1
+ 61e:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 620:	78fb      	ldrb	r3, [r7, #3]
+ 622:	2b00      	cmp	r3, #0
+ 624:	d006      	beq.n	634 <ADC_AutoInjectedConvCmd+0x20>
+  {
+    /* Enable the selected ADC automatic injected group conversion */
+    ADCx->CR1 |= CR1_JAUTO_Set;
+ 626:	687b      	ldr	r3, [r7, #4]
+ 628:	685b      	ldr	r3, [r3, #4]
+ 62a:	f443 6280 	orr.w	r2, r3, #1024	; 0x400
+ 62e:	687b      	ldr	r3, [r7, #4]
+ 630:	605a      	str	r2, [r3, #4]
+ 632:	e005      	b.n	640 <ADC_AutoInjectedConvCmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC automatic injected group conversion */
+    ADCx->CR1 &= CR1_JAUTO_Reset;
+ 634:	687b      	ldr	r3, [r7, #4]
+ 636:	685b      	ldr	r3, [r3, #4]
+ 638:	f423 6280 	bic.w	r2, r3, #1024	; 0x400
+ 63c:	687b      	ldr	r3, [r7, #4]
+ 63e:	605a      	str	r2, [r3, #4]
+  }
+}
+ 640:	f107 070c 	add.w	r7, r7, #12
+ 644:	46bd      	mov	sp, r7
+ 646:	bc80      	pop	{r7}
+ 648:	4770      	bx	lr
+ 64a:	bf00      	nop
+
+0000064c <ADC_InjectedDiscModeCmd>:
+  *         on injected group channel.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_InjectedDiscModeCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 64c:	b480      	push	{r7}
+ 64e:	b083      	sub	sp, #12
+ 650:	af00      	add	r7, sp, #0
+ 652:	6078      	str	r0, [r7, #4]
+ 654:	460b      	mov	r3, r1
+ 656:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 658:	78fb      	ldrb	r3, [r7, #3]
+ 65a:	2b00      	cmp	r3, #0
+ 65c:	d006      	beq.n	66c <ADC_InjectedDiscModeCmd+0x20>
+  {
+    /* Enable the selected ADC injected discontinuous mode */
+    ADCx->CR1 |= CR1_JDISCEN_Set;
+ 65e:	687b      	ldr	r3, [r7, #4]
+ 660:	685b      	ldr	r3, [r3, #4]
+ 662:	f443 5280 	orr.w	r2, r3, #4096	; 0x1000
+ 666:	687b      	ldr	r3, [r7, #4]
+ 668:	605a      	str	r2, [r3, #4]
+ 66a:	e005      	b.n	678 <ADC_InjectedDiscModeCmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC injected discontinuous mode */
+    ADCx->CR1 &= CR1_JDISCEN_Reset;
+ 66c:	687b      	ldr	r3, [r7, #4]
+ 66e:	685b      	ldr	r3, [r3, #4]
+ 670:	f423 5280 	bic.w	r2, r3, #4096	; 0x1000
+ 674:	687b      	ldr	r3, [r7, #4]
+ 676:	605a      	str	r2, [r3, #4]
+  }
+}
+ 678:	f107 070c 	add.w	r7, r7, #12
+ 67c:	46bd      	mov	sp, r7
+ 67e:	bc80      	pop	{r7}
+ 680:	4770      	bx	lr
+ 682:	bf00      	nop
+
+00000684 <ADC_ExternalTrigInjectedConvConfig>:
+  *     @arg ADC_ExternalTrigInjecConv_None: Injected conversion started by software and not
+  *                                          by external trigger (for ADC1, ADC2 and ADC3)
+  * @retval None
+  */
+void ADC_ExternalTrigInjectedConvConfig(ADC_TypeDef* ADCx, uint32_t ADC_ExternalTrigInjecConv)
+{
+ 684:	b480      	push	{r7}
+ 686:	b085      	sub	sp, #20
+ 688:	af00      	add	r7, sp, #0
+ 68a:	6078      	str	r0, [r7, #4]
+ 68c:	6039      	str	r1, [r7, #0]
+  uint32_t tmpreg = 0;
+ 68e:	f04f 0300 	mov.w	r3, #0
+ 692:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_EXT_INJEC_TRIG(ADC_ExternalTrigInjecConv));
+  /* Get the old register value */
+  tmpreg = ADCx->CR2;
+ 694:	687b      	ldr	r3, [r7, #4]
+ 696:	689b      	ldr	r3, [r3, #8]
+ 698:	60fb      	str	r3, [r7, #12]
+  /* Clear the old external event selection for injected group */
+  tmpreg &= CR2_JEXTSEL_Reset;
+ 69a:	68fb      	ldr	r3, [r7, #12]
+ 69c:	f423 43e0 	bic.w	r3, r3, #28672	; 0x7000
+ 6a0:	60fb      	str	r3, [r7, #12]
+  /* Set the external event selection for injected group */
+  tmpreg |= ADC_ExternalTrigInjecConv;
+ 6a2:	68fa      	ldr	r2, [r7, #12]
+ 6a4:	683b      	ldr	r3, [r7, #0]
+ 6a6:	ea42 0303 	orr.w	r3, r2, r3
+ 6aa:	60fb      	str	r3, [r7, #12]
+  /* Store the new register value */
+  ADCx->CR2 = tmpreg;
+ 6ac:	687b      	ldr	r3, [r7, #4]
+ 6ae:	68fa      	ldr	r2, [r7, #12]
+ 6b0:	609a      	str	r2, [r3, #8]
+}
+ 6b2:	f107 0714 	add.w	r7, r7, #20
+ 6b6:	46bd      	mov	sp, r7
+ 6b8:	bc80      	pop	{r7}
+ 6ba:	4770      	bx	lr
+
+000006bc <ADC_ExternalTrigInjectedConvCmd>:
+  *         injected conversion.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_ExternalTrigInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 6bc:	b480      	push	{r7}
+ 6be:	b083      	sub	sp, #12
+ 6c0:	af00      	add	r7, sp, #0
+ 6c2:	6078      	str	r0, [r7, #4]
+ 6c4:	460b      	mov	r3, r1
+ 6c6:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 6c8:	78fb      	ldrb	r3, [r7, #3]
+ 6ca:	2b00      	cmp	r3, #0
+ 6cc:	d006      	beq.n	6dc <ADC_ExternalTrigInjectedConvCmd+0x20>
+  {
+    /* Enable the selected ADC external event selection for injected group */
+    ADCx->CR2 |= CR2_JEXTTRIG_Set;
+ 6ce:	687b      	ldr	r3, [r7, #4]
+ 6d0:	689b      	ldr	r3, [r3, #8]
+ 6d2:	f443 4200 	orr.w	r2, r3, #32768	; 0x8000
+ 6d6:	687b      	ldr	r3, [r7, #4]
+ 6d8:	609a      	str	r2, [r3, #8]
+ 6da:	e005      	b.n	6e8 <ADC_ExternalTrigInjectedConvCmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC external event selection for injected group */
+    ADCx->CR2 &= CR2_JEXTTRIG_Reset;
+ 6dc:	687b      	ldr	r3, [r7, #4]
+ 6de:	689b      	ldr	r3, [r3, #8]
+ 6e0:	f423 4200 	bic.w	r2, r3, #32768	; 0x8000
+ 6e4:	687b      	ldr	r3, [r7, #4]
+ 6e6:	609a      	str	r2, [r3, #8]
+  }
+}
+ 6e8:	f107 070c 	add.w	r7, r7, #12
+ 6ec:	46bd      	mov	sp, r7
+ 6ee:	bc80      	pop	{r7}
+ 6f0:	4770      	bx	lr
+ 6f2:	bf00      	nop
+
+000006f4 <ADC_SoftwareStartInjectedConvCmd>:
+  * @param  NewState: new state of the selected ADC software start injected conversion.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_SoftwareStartInjectedConvCmd(ADC_TypeDef* ADCx, FunctionalState NewState)
+{
+ 6f4:	b480      	push	{r7}
+ 6f6:	b083      	sub	sp, #12
+ 6f8:	af00      	add	r7, sp, #0
+ 6fa:	6078      	str	r0, [r7, #4]
+ 6fc:	460b      	mov	r3, r1
+ 6fe:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 700:	78fb      	ldrb	r3, [r7, #3]
+ 702:	2b00      	cmp	r3, #0
+ 704:	d006      	beq.n	714 <ADC_SoftwareStartInjectedConvCmd+0x20>
+  {
+    /* Enable the selected ADC conversion for injected group on external event and start the selected
+       ADC injected conversion */
+    ADCx->CR2 |= CR2_JEXTTRIG_JSWSTART_Set;
+ 706:	687b      	ldr	r3, [r7, #4]
+ 708:	689b      	ldr	r3, [r3, #8]
+ 70a:	f443 1202 	orr.w	r2, r3, #2129920	; 0x208000
+ 70e:	687b      	ldr	r3, [r7, #4]
+ 710:	609a      	str	r2, [r3, #8]
+ 712:	e005      	b.n	720 <ADC_SoftwareStartInjectedConvCmd+0x2c>
+  }
+  else
+  {
+    /* Disable the selected ADC conversion on external event for injected group and stop the selected
+       ADC injected conversion */
+    ADCx->CR2 &= CR2_JEXTTRIG_JSWSTART_Reset;
+ 714:	687b      	ldr	r3, [r7, #4]
+ 716:	689b      	ldr	r3, [r3, #8]
+ 718:	f423 1202 	bic.w	r2, r3, #2129920	; 0x208000
+ 71c:	687b      	ldr	r3, [r7, #4]
+ 71e:	609a      	str	r2, [r3, #8]
+  }
+}
+ 720:	f107 070c 	add.w	r7, r7, #12
+ 724:	46bd      	mov	sp, r7
+ 726:	bc80      	pop	{r7}
+ 728:	4770      	bx	lr
+ 72a:	bf00      	nop
+
+0000072c <ADC_GetSoftwareStartInjectedConvCmdStatus>:
+  * @brief  Gets the selected ADC Software start injected conversion Status.
+  * @param  ADCx: where x can be 1, 2 or 3 to select the ADC peripheral.
+  * @retval The new state of ADC software start injected conversion (SET or RESET).
+  */
+FlagStatus ADC_GetSoftwareStartInjectedConvCmdStatus(ADC_TypeDef* ADCx)
+{
+ 72c:	b480      	push	{r7}
+ 72e:	b085      	sub	sp, #20
+ 730:	af00      	add	r7, sp, #0
+ 732:	6078      	str	r0, [r7, #4]
+  FlagStatus bitstatus = RESET;
+ 734:	f04f 0300 	mov.w	r3, #0
+ 738:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  /* Check the status of JSWSTART bit */
+  if ((ADCx->CR2 & CR2_JSWSTART_Set) != (uint32_t)RESET)
+ 73a:	687b      	ldr	r3, [r7, #4]
+ 73c:	689b      	ldr	r3, [r3, #8]
+ 73e:	f403 1300 	and.w	r3, r3, #2097152	; 0x200000
+ 742:	2b00      	cmp	r3, #0
+ 744:	d003      	beq.n	74e <ADC_GetSoftwareStartInjectedConvCmdStatus+0x22>
+  {
+    /* JSWSTART bit is set */
+    bitstatus = SET;
+ 746:	f04f 0301 	mov.w	r3, #1
+ 74a:	73fb      	strb	r3, [r7, #15]
+ 74c:	e002      	b.n	754 <ADC_GetSoftwareStartInjectedConvCmdStatus+0x28>
+  }
+  else
+  {
+    /* JSWSTART bit is reset */
+    bitstatus = RESET;
+ 74e:	f04f 0300 	mov.w	r3, #0
+ 752:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the JSWSTART bit status */
+  return  bitstatus;
+ 754:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 756:	4618      	mov	r0, r3
+ 758:	f107 0714 	add.w	r7, r7, #20
+ 75c:	46bd      	mov	sp, r7
+ 75e:	bc80      	pop	{r7}
+ 760:	4770      	bx	lr
+ 762:	bf00      	nop
+
+00000764 <ADC_InjectedChannelConfig>:
+  *     @arg ADC_SampleTime_71Cycles5: Sample time equal to 71.5 cycles	
+  *     @arg ADC_SampleTime_239Cycles5: Sample time equal to 239.5 cycles	
+  * @retval None
+  */
+void ADC_InjectedChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel, uint8_t Rank, uint8_t ADC_SampleTime)
+{
+ 764:	b480      	push	{r7}
+ 766:	b087      	sub	sp, #28
+ 768:	af00      	add	r7, sp, #0
+ 76a:	6078      	str	r0, [r7, #4]
+ 76c:	70f9      	strb	r1, [r7, #3]
+ 76e:	70ba      	strb	r2, [r7, #2]
+ 770:	707b      	strb	r3, [r7, #1]
+  uint32_t tmpreg1 = 0, tmpreg2 = 0, tmpreg3 = 0;
+ 772:	f04f 0300 	mov.w	r3, #0
+ 776:	617b      	str	r3, [r7, #20]
+ 778:	f04f 0300 	mov.w	r3, #0
+ 77c:	613b      	str	r3, [r7, #16]
+ 77e:	f04f 0300 	mov.w	r3, #0
+ 782:	60fb      	str	r3, [r7, #12]
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_CHANNEL(ADC_Channel));
+  assert_param(IS_ADC_INJECTED_RANK(Rank));
+  assert_param(IS_ADC_SAMPLE_TIME(ADC_SampleTime));
+  /* if ADC_Channel_10 ... ADC_Channel_17 is selected */
+  if (ADC_Channel > ADC_Channel_9)
+ 784:	78fb      	ldrb	r3, [r7, #3]
+ 786:	2b09      	cmp	r3, #9
+ 788:	d929      	bls.n	7de <ADC_InjectedChannelConfig+0x7a>
+  {
+    /* Get the old register value */
+    tmpreg1 = ADCx->SMPR1;
+ 78a:	687b      	ldr	r3, [r7, #4]
+ 78c:	68db      	ldr	r3, [r3, #12]
+ 78e:	617b      	str	r3, [r7, #20]
+    /* Calculate the mask to clear */
+    tmpreg2 = SMPR1_SMP_Set << (3*(ADC_Channel - 10));
+ 790:	78fa      	ldrb	r2, [r7, #3]
+ 792:	4613      	mov	r3, r2
+ 794:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 798:	189b      	adds	r3, r3, r2
+ 79a:	f1a3 031e 	sub.w	r3, r3, #30
+ 79e:	f04f 0207 	mov.w	r2, #7
+ 7a2:	fa02 f303 	lsl.w	r3, r2, r3
+ 7a6:	613b      	str	r3, [r7, #16]
+    /* Clear the old channel sample time */
+    tmpreg1 &= ~tmpreg2;
+ 7a8:	693b      	ldr	r3, [r7, #16]
+ 7aa:	ea6f 0303 	mvn.w	r3, r3
+ 7ae:	697a      	ldr	r2, [r7, #20]
+ 7b0:	ea02 0303 	and.w	r3, r2, r3
+ 7b4:	617b      	str	r3, [r7, #20]
+    /* Calculate the mask to set */
+    tmpreg2 = (uint32_t)ADC_SampleTime << (3*(ADC_Channel - 10));
+ 7b6:	7879      	ldrb	r1, [r7, #1]
+ 7b8:	78fa      	ldrb	r2, [r7, #3]
+ 7ba:	4613      	mov	r3, r2
+ 7bc:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 7c0:	189b      	adds	r3, r3, r2
+ 7c2:	f1a3 031e 	sub.w	r3, r3, #30
+ 7c6:	fa01 f303 	lsl.w	r3, r1, r3
+ 7ca:	613b      	str	r3, [r7, #16]
+    /* Set the new channel sample time */
+    tmpreg1 |= tmpreg2;
+ 7cc:	697a      	ldr	r2, [r7, #20]
+ 7ce:	693b      	ldr	r3, [r7, #16]
+ 7d0:	ea42 0303 	orr.w	r3, r2, r3
+ 7d4:	617b      	str	r3, [r7, #20]
+    /* Store the new register value */
+    ADCx->SMPR1 = tmpreg1;
+ 7d6:	687b      	ldr	r3, [r7, #4]
+ 7d8:	697a      	ldr	r2, [r7, #20]
+ 7da:	60da      	str	r2, [r3, #12]
+ 7dc:	e024      	b.n	828 <ADC_InjectedChannelConfig+0xc4>
+  }
+  else /* ADC_Channel include in ADC_Channel_[0..9] */
+  {
+    /* Get the old register value */
+    tmpreg1 = ADCx->SMPR2;
+ 7de:	687b      	ldr	r3, [r7, #4]
+ 7e0:	691b      	ldr	r3, [r3, #16]
+ 7e2:	617b      	str	r3, [r7, #20]
+    /* Calculate the mask to clear */
+    tmpreg2 = SMPR2_SMP_Set << (3 * ADC_Channel);
+ 7e4:	78fa      	ldrb	r2, [r7, #3]
+ 7e6:	4613      	mov	r3, r2
+ 7e8:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 7ec:	189b      	adds	r3, r3, r2
+ 7ee:	f04f 0207 	mov.w	r2, #7
+ 7f2:	fa02 f303 	lsl.w	r3, r2, r3
+ 7f6:	613b      	str	r3, [r7, #16]
+    /* Clear the old channel sample time */
+    tmpreg1 &= ~tmpreg2;
+ 7f8:	693b      	ldr	r3, [r7, #16]
+ 7fa:	ea6f 0303 	mvn.w	r3, r3
+ 7fe:	697a      	ldr	r2, [r7, #20]
+ 800:	ea02 0303 	and.w	r3, r2, r3
+ 804:	617b      	str	r3, [r7, #20]
+    /* Calculate the mask to set */
+    tmpreg2 = (uint32_t)ADC_SampleTime << (3 * ADC_Channel);
+ 806:	7879      	ldrb	r1, [r7, #1]
+ 808:	78fa      	ldrb	r2, [r7, #3]
+ 80a:	4613      	mov	r3, r2
+ 80c:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 810:	189b      	adds	r3, r3, r2
+ 812:	fa01 f303 	lsl.w	r3, r1, r3
+ 816:	613b      	str	r3, [r7, #16]
+    /* Set the new channel sample time */
+    tmpreg1 |= tmpreg2;
+ 818:	697a      	ldr	r2, [r7, #20]
+ 81a:	693b      	ldr	r3, [r7, #16]
+ 81c:	ea42 0303 	orr.w	r3, r2, r3
+ 820:	617b      	str	r3, [r7, #20]
+    /* Store the new register value */
+    ADCx->SMPR2 = tmpreg1;
+ 822:	687b      	ldr	r3, [r7, #4]
+ 824:	697a      	ldr	r2, [r7, #20]
+ 826:	611a      	str	r2, [r3, #16]
+  }
+  /* Rank configuration */
+  /* Get the old register value */
+  tmpreg1 = ADCx->JSQR;
+ 828:	687b      	ldr	r3, [r7, #4]
+ 82a:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 82c:	617b      	str	r3, [r7, #20]
+  /* Get JL value: Number = JL+1 */
+  tmpreg3 =  (tmpreg1 & JSQR_JL_Set)>> 20;
+ 82e:	697b      	ldr	r3, [r7, #20]
+ 830:	f403 1340 	and.w	r3, r3, #3145728	; 0x300000
+ 834:	ea4f 5313 	mov.w	r3, r3, lsr #20
+ 838:	60fb      	str	r3, [r7, #12]
+  /* Calculate the mask to clear: ((Rank-1)+(4-JL-1)) */
+  tmpreg2 = JSQR_JSQ_Set << (5 * (uint8_t)((Rank + 3) - (tmpreg3 + 1)));
+ 83a:	68fb      	ldr	r3, [r7, #12]
+ 83c:	b2db      	uxtb	r3, r3
+ 83e:	ea6f 0303 	mvn.w	r3, r3
+ 842:	b2da      	uxtb	r2, r3
+ 844:	78bb      	ldrb	r3, [r7, #2]
+ 846:	18d3      	adds	r3, r2, r3
+ 848:	b2db      	uxtb	r3, r3
+ 84a:	f103 0303 	add.w	r3, r3, #3
+ 84e:	b2db      	uxtb	r3, r3
+ 850:	461a      	mov	r2, r3
+ 852:	4613      	mov	r3, r2
+ 854:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 858:	189b      	adds	r3, r3, r2
+ 85a:	f04f 021f 	mov.w	r2, #31
+ 85e:	fa02 f303 	lsl.w	r3, r2, r3
+ 862:	613b      	str	r3, [r7, #16]
+  /* Clear the old JSQx bits for the selected rank */
+  tmpreg1 &= ~tmpreg2;
+ 864:	693b      	ldr	r3, [r7, #16]
+ 866:	ea6f 0303 	mvn.w	r3, r3
+ 86a:	697a      	ldr	r2, [r7, #20]
+ 86c:	ea02 0303 	and.w	r3, r2, r3
+ 870:	617b      	str	r3, [r7, #20]
+  /* Calculate the mask to set: ((Rank-1)+(4-JL-1)) */
+  tmpreg2 = (uint32_t)ADC_Channel << (5 * (uint8_t)((Rank + 3) - (tmpreg3 + 1)));
+ 872:	78f9      	ldrb	r1, [r7, #3]
+ 874:	68fb      	ldr	r3, [r7, #12]
+ 876:	b2db      	uxtb	r3, r3
+ 878:	ea6f 0303 	mvn.w	r3, r3
+ 87c:	b2da      	uxtb	r2, r3
+ 87e:	78bb      	ldrb	r3, [r7, #2]
+ 880:	18d3      	adds	r3, r2, r3
+ 882:	b2db      	uxtb	r3, r3
+ 884:	f103 0303 	add.w	r3, r3, #3
+ 888:	b2db      	uxtb	r3, r3
+ 88a:	461a      	mov	r2, r3
+ 88c:	4613      	mov	r3, r2
+ 88e:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 892:	189b      	adds	r3, r3, r2
+ 894:	fa01 f303 	lsl.w	r3, r1, r3
+ 898:	613b      	str	r3, [r7, #16]
+  /* Set the JSQx bits for the selected rank */
+  tmpreg1 |= tmpreg2;
+ 89a:	697a      	ldr	r2, [r7, #20]
+ 89c:	693b      	ldr	r3, [r7, #16]
+ 89e:	ea42 0303 	orr.w	r3, r2, r3
+ 8a2:	617b      	str	r3, [r7, #20]
+  /* Store the new register value */
+  ADCx->JSQR = tmpreg1;
+ 8a4:	687b      	ldr	r3, [r7, #4]
+ 8a6:	697a      	ldr	r2, [r7, #20]
+ 8a8:	639a      	str	r2, [r3, #56]	; 0x38
+}
+ 8aa:	f107 071c 	add.w	r7, r7, #28
+ 8ae:	46bd      	mov	sp, r7
+ 8b0:	bc80      	pop	{r7}
+ 8b2:	4770      	bx	lr
+
+000008b4 <ADC_InjectedSequencerLengthConfig>:
+  * @param  Length: The sequencer length. 
+  *   This parameter must be a number between 1 to 4.
+  * @retval None
+  */
+void ADC_InjectedSequencerLengthConfig(ADC_TypeDef* ADCx, uint8_t Length)
+{
+ 8b4:	b480      	push	{r7}
+ 8b6:	b085      	sub	sp, #20
+ 8b8:	af00      	add	r7, sp, #0
+ 8ba:	6078      	str	r0, [r7, #4]
+ 8bc:	460b      	mov	r3, r1
+ 8be:	70fb      	strb	r3, [r7, #3]
+  uint32_t tmpreg1 = 0;
+ 8c0:	f04f 0300 	mov.w	r3, #0
+ 8c4:	60fb      	str	r3, [r7, #12]
+  uint32_t tmpreg2 = 0;
+ 8c6:	f04f 0300 	mov.w	r3, #0
+ 8ca:	60bb      	str	r3, [r7, #8]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_INJECTED_LENGTH(Length));
+  
+  /* Get the old register value */
+  tmpreg1 = ADCx->JSQR;
+ 8cc:	687b      	ldr	r3, [r7, #4]
+ 8ce:	6b9b      	ldr	r3, [r3, #56]	; 0x38
+ 8d0:	60fb      	str	r3, [r7, #12]
+  /* Clear the old injected sequnence lenght JL bits */
+  tmpreg1 &= JSQR_JL_Reset;
+ 8d2:	68fb      	ldr	r3, [r7, #12]
+ 8d4:	f423 1340 	bic.w	r3, r3, #3145728	; 0x300000
+ 8d8:	60fb      	str	r3, [r7, #12]
+  /* Set the injected sequnence lenght JL bits */
+  tmpreg2 = Length - 1; 
+ 8da:	78fb      	ldrb	r3, [r7, #3]
+ 8dc:	f103 33ff 	add.w	r3, r3, #4294967295
+ 8e0:	60bb      	str	r3, [r7, #8]
+  tmpreg1 |= tmpreg2 << 20;
+ 8e2:	68bb      	ldr	r3, [r7, #8]
+ 8e4:	ea4f 5303 	mov.w	r3, r3, lsl #20
+ 8e8:	68fa      	ldr	r2, [r7, #12]
+ 8ea:	ea42 0303 	orr.w	r3, r2, r3
+ 8ee:	60fb      	str	r3, [r7, #12]
+  /* Store the new register value */
+  ADCx->JSQR = tmpreg1;
+ 8f0:	687b      	ldr	r3, [r7, #4]
+ 8f2:	68fa      	ldr	r2, [r7, #12]
+ 8f4:	639a      	str	r2, [r3, #56]	; 0x38
+}
+ 8f6:	f107 0714 	add.w	r7, r7, #20
+ 8fa:	46bd      	mov	sp, r7
+ 8fc:	bc80      	pop	{r7}
+ 8fe:	4770      	bx	lr
+
+00000900 <ADC_SetInjectedOffset>:
+  * @param  Offset: the offset value for the selected ADC injected channel
+  *   This parameter must be a 12bit value.
+  * @retval None
+  */
+void ADC_SetInjectedOffset(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel, uint16_t Offset)
+{
+ 900:	b480      	push	{r7}
+ 902:	b085      	sub	sp, #20
+ 904:	af00      	add	r7, sp, #0
+ 906:	6078      	str	r0, [r7, #4]
+ 908:	4613      	mov	r3, r2
+ 90a:	460a      	mov	r2, r1
+ 90c:	70fa      	strb	r2, [r7, #3]
+ 90e:	803b      	strh	r3, [r7, #0]
+  __IO uint32_t tmp = 0;
+ 910:	f04f 0300 	mov.w	r3, #0
+ 914:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_INJECTED_CHANNEL(ADC_InjectedChannel));
+  assert_param(IS_ADC_OFFSET(Offset));  
+  
+  tmp = (uint32_t)ADCx;
+ 916:	687b      	ldr	r3, [r7, #4]
+ 918:	60fb      	str	r3, [r7, #12]
+  tmp += ADC_InjectedChannel;
+ 91a:	78fa      	ldrb	r2, [r7, #3]
+ 91c:	68fb      	ldr	r3, [r7, #12]
+ 91e:	18d3      	adds	r3, r2, r3
+ 920:	60fb      	str	r3, [r7, #12]
+  
+  /* Set the selected injected channel data offset */
+  *(__IO uint32_t *) tmp = (uint32_t)Offset;
+ 922:	68fb      	ldr	r3, [r7, #12]
+ 924:	883a      	ldrh	r2, [r7, #0]
+ 926:	601a      	str	r2, [r3, #0]
+}
+ 928:	f107 0714 	add.w	r7, r7, #20
+ 92c:	46bd      	mov	sp, r7
+ 92e:	bc80      	pop	{r7}
+ 930:	4770      	bx	lr
+ 932:	bf00      	nop
+
+00000934 <ADC_GetInjectedConversionValue>:
+  *     @arg ADC_InjectedChannel_3: Injected Channel3 selected
+  *     @arg ADC_InjectedChannel_4: Injected Channel4 selected
+  * @retval The Data conversion value.
+  */
+uint16_t ADC_GetInjectedConversionValue(ADC_TypeDef* ADCx, uint8_t ADC_InjectedChannel)
+{
+ 934:	b480      	push	{r7}
+ 936:	b085      	sub	sp, #20
+ 938:	af00      	add	r7, sp, #0
+ 93a:	6078      	str	r0, [r7, #4]
+ 93c:	460b      	mov	r3, r1
+ 93e:	70fb      	strb	r3, [r7, #3]
+  __IO uint32_t tmp = 0;
+ 940:	f04f 0300 	mov.w	r3, #0
+ 944:	60fb      	str	r3, [r7, #12]
+  
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_INJECTED_CHANNEL(ADC_InjectedChannel));
+
+  tmp = (uint32_t)ADCx;
+ 946:	687b      	ldr	r3, [r7, #4]
+ 948:	60fb      	str	r3, [r7, #12]
+  tmp += ADC_InjectedChannel + JDR_Offset;
+ 94a:	78fa      	ldrb	r2, [r7, #3]
+ 94c:	68fb      	ldr	r3, [r7, #12]
+ 94e:	18d3      	adds	r3, r2, r3
+ 950:	f103 0328 	add.w	r3, r3, #40	; 0x28
+ 954:	60fb      	str	r3, [r7, #12]
+  
+  /* Returns the selected injected channel conversion data value */
+  return (uint16_t) (*(__IO uint32_t*)  tmp);   
+ 956:	68fb      	ldr	r3, [r7, #12]
+ 958:	681b      	ldr	r3, [r3, #0]
+ 95a:	b29b      	uxth	r3, r3
+}
+ 95c:	4618      	mov	r0, r3
+ 95e:	f107 0714 	add.w	r7, r7, #20
+ 962:	46bd      	mov	sp, r7
+ 964:	bc80      	pop	{r7}
+ 966:	4770      	bx	lr
+
+00000968 <ADC_AnalogWatchdogCmd>:
+  *     @arg ADC_AnalogWatchdog_AllRegAllInjecEnable: Analog watchdog on all regular and injected channels
+  *     @arg ADC_AnalogWatchdog_None: No channel guarded by the analog watchdog
+  * @retval None	  
+  */
+void ADC_AnalogWatchdogCmd(ADC_TypeDef* ADCx, uint32_t ADC_AnalogWatchdog)
+{
+ 968:	b480      	push	{r7}
+ 96a:	b085      	sub	sp, #20
+ 96c:	af00      	add	r7, sp, #0
+ 96e:	6078      	str	r0, [r7, #4]
+ 970:	6039      	str	r1, [r7, #0]
+  uint32_t tmpreg = 0;
+ 972:	f04f 0300 	mov.w	r3, #0
+ 976:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_ANALOG_WATCHDOG(ADC_AnalogWatchdog));
+  /* Get the old register value */
+  tmpreg = ADCx->CR1;
+ 978:	687b      	ldr	r3, [r7, #4]
+ 97a:	685b      	ldr	r3, [r3, #4]
+ 97c:	60fb      	str	r3, [r7, #12]
+  /* Clear AWDEN, AWDENJ and AWDSGL bits */
+  tmpreg &= CR1_AWDMode_Reset;
+ 97e:	68fb      	ldr	r3, [r7, #12]
+ 980:	f423 0340 	bic.w	r3, r3, #12582912	; 0xc00000
+ 984:	f423 7300 	bic.w	r3, r3, #512	; 0x200
+ 988:	60fb      	str	r3, [r7, #12]
+  /* Set the analog watchdog enable mode */
+  tmpreg |= ADC_AnalogWatchdog;
+ 98a:	68fa      	ldr	r2, [r7, #12]
+ 98c:	683b      	ldr	r3, [r7, #0]
+ 98e:	ea42 0303 	orr.w	r3, r2, r3
+ 992:	60fb      	str	r3, [r7, #12]
+  /* Store the new register value */
+  ADCx->CR1 = tmpreg;
+ 994:	687b      	ldr	r3, [r7, #4]
+ 996:	68fa      	ldr	r2, [r7, #12]
+ 998:	605a      	str	r2, [r3, #4]
+}
+ 99a:	f107 0714 	add.w	r7, r7, #20
+ 99e:	46bd      	mov	sp, r7
+ 9a0:	bc80      	pop	{r7}
+ 9a2:	4770      	bx	lr
+
+000009a4 <ADC_AnalogWatchdogThresholdsConfig>:
+  *   This parameter must be a 12bit value.
+  * @retval None
+  */
+void ADC_AnalogWatchdogThresholdsConfig(ADC_TypeDef* ADCx, uint16_t HighThreshold,
+                                        uint16_t LowThreshold)
+{
+ 9a4:	b480      	push	{r7}
+ 9a6:	b083      	sub	sp, #12
+ 9a8:	af00      	add	r7, sp, #0
+ 9aa:	6078      	str	r0, [r7, #4]
+ 9ac:	4613      	mov	r3, r2
+ 9ae:	460a      	mov	r2, r1
+ 9b0:	807a      	strh	r2, [r7, #2]
+ 9b2:	803b      	strh	r3, [r7, #0]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_THRESHOLD(HighThreshold));
+  assert_param(IS_ADC_THRESHOLD(LowThreshold));
+  /* Set the ADCx high threshold */
+  ADCx->HTR = HighThreshold;
+ 9b4:	887a      	ldrh	r2, [r7, #2]
+ 9b6:	687b      	ldr	r3, [r7, #4]
+ 9b8:	625a      	str	r2, [r3, #36]	; 0x24
+  /* Set the ADCx low threshold */
+  ADCx->LTR = LowThreshold;
+ 9ba:	883a      	ldrh	r2, [r7, #0]
+ 9bc:	687b      	ldr	r3, [r7, #4]
+ 9be:	629a      	str	r2, [r3, #40]	; 0x28
+}
+ 9c0:	f107 070c 	add.w	r7, r7, #12
+ 9c4:	46bd      	mov	sp, r7
+ 9c6:	bc80      	pop	{r7}
+ 9c8:	4770      	bx	lr
+ 9ca:	bf00      	nop
+
+000009cc <ADC_AnalogWatchdogSingleChannelConfig>:
+  *     @arg ADC_Channel_16: ADC Channel16 selected
+  *     @arg ADC_Channel_17: ADC Channel17 selected
+  * @retval None
+  */
+void ADC_AnalogWatchdogSingleChannelConfig(ADC_TypeDef* ADCx, uint8_t ADC_Channel)
+{
+ 9cc:	b480      	push	{r7}
+ 9ce:	b085      	sub	sp, #20
+ 9d0:	af00      	add	r7, sp, #0
+ 9d2:	6078      	str	r0, [r7, #4]
+ 9d4:	460b      	mov	r3, r1
+ 9d6:	70fb      	strb	r3, [r7, #3]
+  uint32_t tmpreg = 0;
+ 9d8:	f04f 0300 	mov.w	r3, #0
+ 9dc:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_CHANNEL(ADC_Channel));
+  /* Get the old register value */
+  tmpreg = ADCx->CR1;
+ 9de:	687b      	ldr	r3, [r7, #4]
+ 9e0:	685b      	ldr	r3, [r3, #4]
+ 9e2:	60fb      	str	r3, [r7, #12]
+  /* Clear the Analog watchdog channel select bits */
+  tmpreg &= CR1_AWDCH_Reset;
+ 9e4:	68fb      	ldr	r3, [r7, #12]
+ 9e6:	f023 031f 	bic.w	r3, r3, #31
+ 9ea:	60fb      	str	r3, [r7, #12]
+  /* Set the Analog watchdog channel */
+  tmpreg |= ADC_Channel;
+ 9ec:	78fb      	ldrb	r3, [r7, #3]
+ 9ee:	68fa      	ldr	r2, [r7, #12]
+ 9f0:	ea42 0303 	orr.w	r3, r2, r3
+ 9f4:	60fb      	str	r3, [r7, #12]
+  /* Store the new register value */
+  ADCx->CR1 = tmpreg;
+ 9f6:	687b      	ldr	r3, [r7, #4]
+ 9f8:	68fa      	ldr	r2, [r7, #12]
+ 9fa:	605a      	str	r2, [r3, #4]
+}
+ 9fc:	f107 0714 	add.w	r7, r7, #20
+ a00:	46bd      	mov	sp, r7
+ a02:	bc80      	pop	{r7}
+ a04:	4770      	bx	lr
+ a06:	bf00      	nop
+
+00000a08 <ADC_TempSensorVrefintCmd>:
+  * @param  NewState: new state of the temperature sensor.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void ADC_TempSensorVrefintCmd(FunctionalState NewState)
+{
+ a08:	b480      	push	{r7}
+ a0a:	b083      	sub	sp, #12
+ a0c:	af00      	add	r7, sp, #0
+ a0e:	4603      	mov	r3, r0
+ a10:	71fb      	strb	r3, [r7, #7]
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ a12:	79fb      	ldrb	r3, [r7, #7]
+ a14:	2b00      	cmp	r3, #0
+ a16:	d006      	beq.n	a26 <ADC_TempSensorVrefintCmd+0x1e>
+  {
+    /* Enable the temperature sensor and Vrefint channel*/
+    ADC1->CR2 |= CR2_TSVREFE_Set;
+ a18:	4b08      	ldr	r3, [pc, #32]	; (a3c <ADC_TempSensorVrefintCmd+0x34>)
+ a1a:	4a08      	ldr	r2, [pc, #32]	; (a3c <ADC_TempSensorVrefintCmd+0x34>)
+ a1c:	6892      	ldr	r2, [r2, #8]
+ a1e:	f442 0200 	orr.w	r2, r2, #8388608	; 0x800000
+ a22:	609a      	str	r2, [r3, #8]
+ a24:	e005      	b.n	a32 <ADC_TempSensorVrefintCmd+0x2a>
+  }
+  else
+  {
+    /* Disable the temperature sensor and Vrefint channel*/
+    ADC1->CR2 &= CR2_TSVREFE_Reset;
+ a26:	4b05      	ldr	r3, [pc, #20]	; (a3c <ADC_TempSensorVrefintCmd+0x34>)
+ a28:	4a04      	ldr	r2, [pc, #16]	; (a3c <ADC_TempSensorVrefintCmd+0x34>)
+ a2a:	6892      	ldr	r2, [r2, #8]
+ a2c:	f422 0200 	bic.w	r2, r2, #8388608	; 0x800000
+ a30:	609a      	str	r2, [r3, #8]
+  }
+}
+ a32:	f107 070c 	add.w	r7, r7, #12
+ a36:	46bd      	mov	sp, r7
+ a38:	bc80      	pop	{r7}
+ a3a:	4770      	bx	lr
+ a3c:	40012400 	.word	0x40012400
+
+00000a40 <ADC_GetFlagStatus>:
+  *     @arg ADC_FLAG_JSTRT: Start of injected group conversion flag
+  *     @arg ADC_FLAG_STRT: Start of regular group conversion flag
+  * @retval The new state of ADC_FLAG (SET or RESET).
+  */
+FlagStatus ADC_GetFlagStatus(ADC_TypeDef* ADCx, uint8_t ADC_FLAG)
+{
+ a40:	b480      	push	{r7}
+ a42:	b085      	sub	sp, #20
+ a44:	af00      	add	r7, sp, #0
+ a46:	6078      	str	r0, [r7, #4]
+ a48:	460b      	mov	r3, r1
+ a4a:	70fb      	strb	r3, [r7, #3]
+  FlagStatus bitstatus = RESET;
+ a4c:	f04f 0300 	mov.w	r3, #0
+ a50:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_GET_FLAG(ADC_FLAG));
+  /* Check the status of the specified ADC flag */
+  if ((ADCx->SR & ADC_FLAG) != (uint8_t)RESET)
+ a52:	687b      	ldr	r3, [r7, #4]
+ a54:	681a      	ldr	r2, [r3, #0]
+ a56:	78fb      	ldrb	r3, [r7, #3]
+ a58:	ea02 0303 	and.w	r3, r2, r3
+ a5c:	2b00      	cmp	r3, #0
+ a5e:	d003      	beq.n	a68 <ADC_GetFlagStatus+0x28>
+  {
+    /* ADC_FLAG is set */
+    bitstatus = SET;
+ a60:	f04f 0301 	mov.w	r3, #1
+ a64:	73fb      	strb	r3, [r7, #15]
+ a66:	e002      	b.n	a6e <ADC_GetFlagStatus+0x2e>
+  }
+  else
+  {
+    /* ADC_FLAG is reset */
+    bitstatus = RESET;
+ a68:	f04f 0300 	mov.w	r3, #0
+ a6c:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the ADC_FLAG status */
+  return  bitstatus;
+ a6e:	7bfb      	ldrb	r3, [r7, #15]
+}
+ a70:	4618      	mov	r0, r3
+ a72:	f107 0714 	add.w	r7, r7, #20
+ a76:	46bd      	mov	sp, r7
+ a78:	bc80      	pop	{r7}
+ a7a:	4770      	bx	lr
+
+00000a7c <ADC_ClearFlag>:
+  *     @arg ADC_FLAG_JSTRT: Start of injected group conversion flag
+  *     @arg ADC_FLAG_STRT: Start of regular group conversion flag
+  * @retval None
+  */
+void ADC_ClearFlag(ADC_TypeDef* ADCx, uint8_t ADC_FLAG)
+{
+ a7c:	b480      	push	{r7}
+ a7e:	b083      	sub	sp, #12
+ a80:	af00      	add	r7, sp, #0
+ a82:	6078      	str	r0, [r7, #4]
+ a84:	460b      	mov	r3, r1
+ a86:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_CLEAR_FLAG(ADC_FLAG));
+  /* Clear the selected ADC flags */
+  ADCx->SR = ~(uint32_t)ADC_FLAG;
+ a88:	78fb      	ldrb	r3, [r7, #3]
+ a8a:	ea6f 0203 	mvn.w	r2, r3
+ a8e:	687b      	ldr	r3, [r7, #4]
+ a90:	601a      	str	r2, [r3, #0]
+}
+ a92:	f107 070c 	add.w	r7, r7, #12
+ a96:	46bd      	mov	sp, r7
+ a98:	bc80      	pop	{r7}
+ a9a:	4770      	bx	lr
+
+00000a9c <ADC_GetITStatus>:
+  *     @arg ADC_IT_AWD: Analog watchdog interrupt mask
+  *     @arg ADC_IT_JEOC: End of injected conversion interrupt mask
+  * @retval The new state of ADC_IT (SET or RESET).
+  */
+ITStatus ADC_GetITStatus(ADC_TypeDef* ADCx, uint16_t ADC_IT)
+{
+ a9c:	b480      	push	{r7}
+ a9e:	b087      	sub	sp, #28
+ aa0:	af00      	add	r7, sp, #0
+ aa2:	6078      	str	r0, [r7, #4]
+ aa4:	460b      	mov	r3, r1
+ aa6:	807b      	strh	r3, [r7, #2]
+  ITStatus bitstatus = RESET;
+ aa8:	f04f 0300 	mov.w	r3, #0
+ aac:	75fb      	strb	r3, [r7, #23]
+  uint32_t itmask = 0, enablestatus = 0;
+ aae:	f04f 0300 	mov.w	r3, #0
+ ab2:	613b      	str	r3, [r7, #16]
+ ab4:	f04f 0300 	mov.w	r3, #0
+ ab8:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_GET_IT(ADC_IT));
+  /* Get the ADC IT index */
+  itmask = ADC_IT >> 8;
+ aba:	887b      	ldrh	r3, [r7, #2]
+ abc:	ea4f 2313 	mov.w	r3, r3, lsr #8
+ ac0:	b29b      	uxth	r3, r3
+ ac2:	613b      	str	r3, [r7, #16]
+  /* Get the ADC_IT enable bit status */
+  enablestatus = (ADCx->CR1 & (uint8_t)ADC_IT) ;
+ ac4:	687b      	ldr	r3, [r7, #4]
+ ac6:	685a      	ldr	r2, [r3, #4]
+ ac8:	887b      	ldrh	r3, [r7, #2]
+ aca:	b2db      	uxtb	r3, r3
+ acc:	ea02 0303 	and.w	r3, r2, r3
+ ad0:	60fb      	str	r3, [r7, #12]
+  /* Check the status of the specified ADC interrupt */
+  if (((ADCx->SR & itmask) != (uint32_t)RESET) && enablestatus)
+ ad2:	687b      	ldr	r3, [r7, #4]
+ ad4:	681a      	ldr	r2, [r3, #0]
+ ad6:	693b      	ldr	r3, [r7, #16]
+ ad8:	ea02 0303 	and.w	r3, r2, r3
+ adc:	2b00      	cmp	r3, #0
+ ade:	d006      	beq.n	aee <ADC_GetITStatus+0x52>
+ ae0:	68fb      	ldr	r3, [r7, #12]
+ ae2:	2b00      	cmp	r3, #0
+ ae4:	d003      	beq.n	aee <ADC_GetITStatus+0x52>
+  {
+    /* ADC_IT is set */
+    bitstatus = SET;
+ ae6:	f04f 0301 	mov.w	r3, #1
+ aea:	75fb      	strb	r3, [r7, #23]
+ aec:	e002      	b.n	af4 <ADC_GetITStatus+0x58>
+  }
+  else
+  {
+    /* ADC_IT is reset */
+    bitstatus = RESET;
+ aee:	f04f 0300 	mov.w	r3, #0
+ af2:	75fb      	strb	r3, [r7, #23]
+  }
+  /* Return the ADC_IT status */
+  return  bitstatus;
+ af4:	7dfb      	ldrb	r3, [r7, #23]
+}
+ af6:	4618      	mov	r0, r3
+ af8:	f107 071c 	add.w	r7, r7, #28
+ afc:	46bd      	mov	sp, r7
+ afe:	bc80      	pop	{r7}
+ b00:	4770      	bx	lr
+ b02:	bf00      	nop
+
+00000b04 <ADC_ClearITPendingBit>:
+  *     @arg ADC_IT_AWD: Analog watchdog interrupt mask
+  *     @arg ADC_IT_JEOC: End of injected conversion interrupt mask
+  * @retval None
+  */
+void ADC_ClearITPendingBit(ADC_TypeDef* ADCx, uint16_t ADC_IT)
+{
+ b04:	b480      	push	{r7}
+ b06:	b085      	sub	sp, #20
+ b08:	af00      	add	r7, sp, #0
+ b0a:	6078      	str	r0, [r7, #4]
+ b0c:	460b      	mov	r3, r1
+ b0e:	807b      	strh	r3, [r7, #2]
+  uint8_t itmask = 0;
+ b10:	f04f 0300 	mov.w	r3, #0
+ b14:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_ADC_ALL_PERIPH(ADCx));
+  assert_param(IS_ADC_IT(ADC_IT));
+  /* Get the ADC IT index */
+  itmask = (uint8_t)(ADC_IT >> 8);
+ b16:	887b      	ldrh	r3, [r7, #2]
+ b18:	ea4f 2313 	mov.w	r3, r3, lsr #8
+ b1c:	b29b      	uxth	r3, r3
+ b1e:	73fb      	strb	r3, [r7, #15]
+  /* Clear the selected ADC interrupt pending bits */
+  ADCx->SR = ~(uint32_t)itmask;
+ b20:	7bfb      	ldrb	r3, [r7, #15]
+ b22:	ea6f 0203 	mvn.w	r2, r3
+ b26:	687b      	ldr	r3, [r7, #4]
+ b28:	601a      	str	r2, [r3, #0]
+}
+ b2a:	f107 0714 	add.w	r7, r7, #20
+ b2e:	46bd      	mov	sp, r7
+ b30:	bc80      	pop	{r7}
+ b32:	4770      	bx	lr

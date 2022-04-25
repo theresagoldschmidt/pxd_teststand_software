@@ -1,0 +1,246 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_dio.a:
+
+dio_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0 316888 Jul 30 19:07 2021 dio_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000010c  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000140  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000140  2**0
+                  ALLOC
+  3 .debug_abbrev 0000012c  00000000  00000000  00000140  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000003a5  00000000  00000000  0000026c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   00000452  00000000  00000000  00000611  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 0004b953  00000000  00000000  00000a63  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    00000118  00000000  00000000  0004c3b6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 00000096  00000000  00000000  0004c4ce  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 000000f1  00000000  00000000  0004c564  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  0004c655  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    00000396  00000000  00000000  0004c675  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  0004ca0b  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  0004ca36  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  000000b0  00000000  00000000  0004ca68  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 dio_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     F .text	00000042 xme_hal_dio_button_init
+00000000         *UND*	00000000 RCC_APB2PeriphClockCmd
+00000000         *UND*	00000000 GPIO_Init
+00000044 g     F .text	00000022 xme_hal_dio_read_button
+00000000         *UND*	00000000 GPIO_ReadInputDataBit
+00000068 g     F .text	00000042 xme_hal_dio_led_init
+000000ac g     F .text	00000026 xme_hal_dio_led_set
+00000000         *UND*	00000000 GPIO_WriteBit
+000000d4 g     F .text	00000036 xme_hal_dio_led_toggle
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_dio_button_init>:
+/***   Implementation                                                       ***/
+/******************************************************************************/
+
+void
+xme_hal_dio_button_init(xme_hal_dio_clock_t clock, xme_hal_dio_port_t port, xme_hal_dio_pin_t pin)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	4613      	mov	r3, r2
+   c:	80fb      	strh	r3, [r7, #6]
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(clock | RCC_APB2Periph_AFIO, ENABLE);
+   e:	68fb      	ldr	r3, [r7, #12]
+  10:	f043 0301 	orr.w	r3, r3, #1
+  14:	4618      	mov	r0, r3
+  16:	f04f 0101 	mov.w	r1, #1
+  1a:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+			1a: R_ARM_THM_CALL	RCC_APB2PeriphClockCmd
+
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  1e:	f04f 0304 	mov.w	r3, #4
+  22:	75fb      	strb	r3, [r7, #23]
+	GPIO_InitStructure.GPIO_Pin = pin;
+  24:	88fb      	ldrh	r3, [r7, #6]
+  26:	82bb      	strh	r3, [r7, #20]
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  28:	f04f 0303 	mov.w	r3, #3
+  2c:	75bb      	strb	r3, [r7, #22]
+	GPIO_Init(port, &GPIO_InitStructure);
+  2e:	f107 0314 	add.w	r3, r7, #20
+  32:	68b8      	ldr	r0, [r7, #8]
+  34:	4619      	mov	r1, r3
+  36:	f7ff fffe 	bl	0 <GPIO_Init>
+			36: R_ARM_THM_CALL	GPIO_Init
+}
+  3a:	f107 0718 	add.w	r7, r7, #24
+  3e:	46bd      	mov	sp, r7
+  40:	bd80      	pop	{r7, pc}
+  42:	bf00      	nop
+
+00000044 <xme_hal_dio_read_button>:
+
+xme_hal_dio_button_t
+xme_hal_dio_read_button(xme_hal_dio_port_t port, xme_hal_dio_pin_t pin)
+{
+  44:	b580      	push	{r7, lr}
+  46:	b082      	sub	sp, #8
+  48:	af00      	add	r7, sp, #0
+  4a:	6078      	str	r0, [r7, #4]
+  4c:	460b      	mov	r3, r1
+  4e:	807b      	strh	r3, [r7, #2]
+	return GPIO_ReadInputDataBit(port, pin);
+  50:	887b      	ldrh	r3, [r7, #2]
+  52:	6878      	ldr	r0, [r7, #4]
+  54:	4619      	mov	r1, r3
+  56:	f7ff fffe 	bl	0 <GPIO_ReadInputDataBit>
+			56: R_ARM_THM_CALL	GPIO_ReadInputDataBit
+  5a:	4603      	mov	r3, r0
+}
+  5c:	4618      	mov	r0, r3
+  5e:	f107 0708 	add.w	r7, r7, #8
+  62:	46bd      	mov	sp, r7
+  64:	bd80      	pop	{r7, pc}
+  66:	bf00      	nop
+
+00000068 <xme_hal_dio_led_init>:
+
+void
+xme_hal_dio_led_init(xme_hal_dio_clock_t clock, xme_hal_dio_port_t port, xme_hal_dio_pin_t pin)
+{
+  68:	b580      	push	{r7, lr}
+  6a:	b086      	sub	sp, #24
+  6c:	af00      	add	r7, sp, #0
+  6e:	60f8      	str	r0, [r7, #12]
+  70:	60b9      	str	r1, [r7, #8]
+  72:	4613      	mov	r3, r2
+  74:	80fb      	strh	r3, [r7, #6]
+	GPIO_InitTypeDef GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(clock | RCC_APB2Periph_AFIO, ENABLE);
+  76:	68fb      	ldr	r3, [r7, #12]
+  78:	f043 0301 	orr.w	r3, r3, #1
+  7c:	4618      	mov	r0, r3
+  7e:	f04f 0101 	mov.w	r1, #1
+  82:	f7ff fffe 	bl	0 <RCC_APB2PeriphClockCmd>
+			82: R_ARM_THM_CALL	RCC_APB2PeriphClockCmd
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  86:	f04f 0310 	mov.w	r3, #16
+  8a:	75fb      	strb	r3, [r7, #23]
+	GPIO_InitStructure.GPIO_Pin = pin;
+  8c:	88fb      	ldrh	r3, [r7, #6]
+  8e:	82bb      	strh	r3, [r7, #20]
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  90:	f04f 0303 	mov.w	r3, #3
+  94:	75bb      	strb	r3, [r7, #22]
+
+	GPIO_Init(port, &GPIO_InitStructure);
+  96:	f107 0314 	add.w	r3, r7, #20
+  9a:	68b8      	ldr	r0, [r7, #8]
+  9c:	4619      	mov	r1, r3
+  9e:	f7ff fffe 	bl	0 <GPIO_Init>
+			9e: R_ARM_THM_CALL	GPIO_Init
+}
+  a2:	f107 0718 	add.w	r7, r7, #24
+  a6:	46bd      	mov	sp, r7
+  a8:	bd80      	pop	{r7, pc}
+  aa:	bf00      	nop
+
+000000ac <xme_hal_dio_led_set>:
+
+void
+xme_hal_dio_led_set(xme_hal_dio_port_t port, xme_hal_dio_pin_t pin, xme_hal_dio_led_t led_state)
+{
+  ac:	b580      	push	{r7, lr}
+  ae:	b082      	sub	sp, #8
+  b0:	af00      	add	r7, sp, #0
+  b2:	6078      	str	r0, [r7, #4]
+  b4:	4613      	mov	r3, r2
+  b6:	460a      	mov	r2, r1
+  b8:	807a      	strh	r2, [r7, #2]
+  ba:	707b      	strb	r3, [r7, #1]
+	GPIO_WriteBit(port, pin, led_state);
+  bc:	887a      	ldrh	r2, [r7, #2]
+  be:	787b      	ldrb	r3, [r7, #1]
+  c0:	6878      	ldr	r0, [r7, #4]
+  c2:	4611      	mov	r1, r2
+  c4:	461a      	mov	r2, r3
+  c6:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+			c6: R_ARM_THM_CALL	GPIO_WriteBit
+}
+  ca:	f107 0708 	add.w	r7, r7, #8
+  ce:	46bd      	mov	sp, r7
+  d0:	bd80      	pop	{r7, pc}
+  d2:	bf00      	nop
+
+000000d4 <xme_hal_dio_led_toggle>:
+
+void
+xme_hal_dio_led_toggle(xme_hal_dio_port_t port, xme_hal_dio_pin_t pin)
+{
+  d4:	b580      	push	{r7, lr}
+  d6:	b082      	sub	sp, #8
+  d8:	af00      	add	r7, sp, #0
+  da:	6078      	str	r0, [r7, #4]
+  dc:	460b      	mov	r3, r1
+  de:	807b      	strh	r3, [r7, #2]
+	GPIO_WriteBit(port, pin, !GPIO_ReadInputDataBit(port, pin));
+  e0:	887b      	ldrh	r3, [r7, #2]
+  e2:	6878      	ldr	r0, [r7, #4]
+  e4:	4619      	mov	r1, r3
+  e6:	f7ff fffe 	bl	0 <GPIO_ReadInputDataBit>
+			e6: R_ARM_THM_CALL	GPIO_ReadInputDataBit
+  ea:	4603      	mov	r3, r0
+  ec:	2b00      	cmp	r3, #0
+  ee:	bf14      	ite	ne
+  f0:	2300      	movne	r3, #0
+  f2:	2301      	moveq	r3, #1
+  f4:	b2db      	uxtb	r3, r3
+  f6:	887a      	ldrh	r2, [r7, #2]
+  f8:	6878      	ldr	r0, [r7, #4]
+  fa:	4611      	mov	r1, r2
+  fc:	461a      	mov	r2, r3
+  fe:	f7ff fffe 	bl	0 <GPIO_WriteBit>
+			fe: R_ARM_THM_CALL	GPIO_WriteBit
+}
+ 102:	f107 0708 	add.w	r7, r7, #8
+ 106:	46bd      	mov	sp, r7
+ 108:	bd80      	pop	{r7, pc}
+ 10a:	bf00      	nop

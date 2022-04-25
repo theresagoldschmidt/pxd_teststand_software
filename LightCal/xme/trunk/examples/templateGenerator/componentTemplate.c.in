@@ -1,0 +1,163 @@
+/*
+ * Copyright (c) 2011-2012, fortiss GmbH.
+ * Licensed under the Apache License, Version 2.0.
+ *
+ * Use, modification and distribution are subject to the terms specified
+ * in the accompanying license file LICENSE.txt located at the root directory
+ * of this software distribution. A copy is available at
+ * http://chromosome.fortiss.org/.
+ *
+ * This file is part of CHROMOSOME.
+ *
+ * $Id$
+ */
+
+/**
+ * \file
+ *         @COMPONENT_NAME_PRETTY@ component.
+ *
+ * \author
+ *         @AUTHOR_NAME@ <@AUTHOR_MAIL@>
+ */
+
+/******************************************************************************/
+/***   Includes                                                             ***/
+/******************************************************************************/
+#include "xme/@COMPONENT_CLASS@/@COMPONENT_NAME_IDENTIFIER@.h"
+
+/******************************************************************************/
+/***   Implementation                                                       ***/
+/******************************************************************************/
+// TODO: Use or remove this sample topic subscription callback function:
+static
+void
+_xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_receiveDataCallback(xme_hal_sharedPtr_t dataHandle, void* userData)
+{
+	// TODO: In case you supply the component's configuration instance
+	//       via userData when subscribing, you can access it here:
+	xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config = (xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t*)userData;
+
+	// TODO: Add code
+	XME_LOG(XME_LOG_NOTE, "Receive data callback function called!\n");
+	
+	// Example: Print data to screen
+	{
+		const char* message = (const char*)xme_hal_sharedPtr_getPointer(dataHandle);
+		XME_LOG(XME_LOG_NOTE, "Received: %s\n", message);
+	}
+}
+
+// TODO: Use or remove this sample task callback function:
+static
+void
+_xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_taskCallback(void* userData)
+{
+	// TODO: In case you supply the component's configuration instance
+	//       via userData when creating the task, you can access it here:
+	xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config = (xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t*)userData;
+
+	// TODO: Add code
+	XME_LOG(XME_LOG_NOTE, "Task callback function called!\n");
+
+	// Example: Send data
+	{
+		static const char* message = "Test";
+		xme_core_dcc_sendTopicData(config->publicationHandle, (void*)message, strlen(message)+1);
+	}
+}
+
+xme_core_status_t
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_create(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config)
+{
+	// TODO: Initialize component state
+	config->dummyState = 0;
+
+	// TODO: Add code
+	XME_LOG(XME_LOG_NOTE, "Create function of @COMPONENT_NAME_PRETTY@ called!\n");
+
+	// Example: Publish a topic
+	config->publicationHandle =
+		xme_core_dcc_publishTopic
+		(
+			XME_CORE_TOPIC_EVENT,
+			XME_CORE_MD_EMPTY_META_DATA,
+			false,
+			NULL
+		);
+
+	// Check for errors
+	if (XME_CORE_DCC_INVALID_PUBLICATION_HANDLE == config->publicationHandle)
+	{
+		return XME_CORE_STATUS_INTERNAL_ERROR;
+	}
+
+	// Example: Subscribe to a topic
+	config->subscriptionHandle =
+		xme_core_dcc_subscribeTopic
+		(
+			XME_CORE_TOPIC_EVENT,
+			XME_CORE_MD_EMPTY_META_DATA,
+			false,
+			_xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_receiveDataCallback,
+			config
+		);
+
+	// Check for errors
+	if (XME_CORE_DCC_INVALID_SUBSCRIPTION_HANDLE == config->subscriptionHandle)
+	{
+		// Unpublish topic since subscription does not work
+		xme_core_dcc_unpublishTopic(config->publicationHandle);
+		return XME_CORE_STATUS_INTERNAL_ERROR;
+	}
+
+	return XME_CORE_STATUS_SUCCESS;
+}
+
+xme_core_status_t
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_activate(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config)
+{
+	// TODO: Add code
+	XME_LOG(XME_LOG_NOTE, "Activate function of @COMPONENT_NAME_PRETTY@ called!\n");
+
+	// Example: Start a task:
+	config->taskHandle =
+		xme_core_resourceManager_scheduleTask
+		(
+			1000,
+			2000,
+			XME_HAL_SCHED_PRIORITY_NORMAL,
+			_xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_taskCallback,
+			config
+		);
+
+	// Check for errors
+	if (XME_CORE_RESOURCEMANAGER_TASK_INFEASIBLE == config->taskHandle)
+	{
+		return XME_CORE_STATUS_INTERNAL_ERROR;
+	}
+
+	return XME_CORE_STATUS_SUCCESS;
+}
+
+void
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_deactivate(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config)
+{
+	// TODO: Add code
+	XME_LOG(XME_LOG_NOTE, "Deactivate function of @COMPONENT_NAME_PRETTY@ called!\n");
+
+	// Example: Remove the task:
+	xme_core_resourceManager_killTask(config->taskHandle);
+}
+
+void
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_destroy(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config)
+{
+	// TODO: Add code
+	XME_LOG(XME_LOG_NOTE, "Destroy function of @COMPONENT_NAME_PRETTY@ called!\n");
+
+	// Example: Unsubscribe the topic
+	xme_core_dcc_unsubscribeTopic(config->subscriptionHandle);
+
+	// Example: Unpublish the topic
+	xme_core_dcc_unpublishTopic(config->publicationHandle);
+}

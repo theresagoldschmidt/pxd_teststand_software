@@ -1,0 +1,14 @@
+﻿Der Buildvorgang wurde am 20.11.2017 14:49:39 gestartet.
+     1>Projekt "C:\LightCal\Project\VISA.vcxproj" auf Knoten "2", build Ziel(e).
+     1>InitializeBuildStatus:
+         "VISA.dir\Debug\VISA.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       CustomBuild:
+         Alle Ausgaben sind aktuell.
+       FinalizeBuildStatus:
+         Die Datei "VISA.dir\Debug\VISA.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "VISA.dir\Debug\VISA.lastbuildstate".
+     1>Die Erstellung des Projekts "C:\LightCal\Project\VISA.vcxproj" ist abgeschlossen, build Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:00.09

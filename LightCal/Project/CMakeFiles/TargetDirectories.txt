@@ -1,0 +1,7 @@
+C:/LightCal/Project/CMakeFiles/VISA.dir
+C:/LightCal/Project/CMakeFiles/PACKAGE.dir
+C:/LightCal/Project/CMakeFiles/FTDI.dir
+C:/LightCal/Project/CMakeFiles/INSTALL.dir
+C:/LightCal/Project/CMakeFiles/PsRemoteControl.dir
+C:/LightCal/Project/CMakeFiles/ALL_BUILD.dir
+C:/LightCal/Project/CMakeFiles/ZERO_CHECK.dir

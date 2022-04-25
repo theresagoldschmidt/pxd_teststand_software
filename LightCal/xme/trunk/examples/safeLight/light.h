@@ -1,0 +1,1 @@
+xme_core_status_t testFunction();

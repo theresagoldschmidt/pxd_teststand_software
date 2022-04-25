@@ -1,0 +1,587 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_sharedPtr.a:
+
+sharedPtr_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  43712 Jul 30 19:07 2021 sharedPtr_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000002d4  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000308  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  00000000  00000000  00000308  2**2
+                  ALLOC
+  3 .debug_abbrev 0000013a  00000000  00000000  00000308  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000458  00000000  00000000  00000442  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   00000707  00000000  00000000  0000089a  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 00007f9f  00000000  00000000  00000fa1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    00000218  00000000  00000000  00008f40  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 00000187  00000000  00000000  00009158  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 000000fd  00000000  00000000  000092df  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  000093dc  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    00000665  00000000  00000000  000093fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  00009a61  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  00009a8c  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  00000130  00000000  00000000  00009ac0  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 sharedPtr_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xme_core_config
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000004       O *COM*	00000004 xme_core_log_logCallback
+00000000 g     F .text	00000010 xme_hal_sharedPtr_init
+00000010 g     F .text	0000000a xme_hal_sharedPtr_fini
+00000190       O *COM*	00000004 xme_hal_sharedPtr_buffer
+0000001c g     F .text	0000008c xme_hal_sharedPtr_create
+00000000         *UND*	00000000 xme_hal_mem_alloc
+000000a8 g     F .text	00000068 xme_hal_sharedPtr_realloc
+000002ac g     F .text	00000028 xme_hal_sharedPtr_getPointer
+000001f0 g     F .text	0000004c xme_hal_sharedPtr_createFromPointer
+00000174 g     F .text	0000007c xme_hal_sharedPtr_destroy
+00000110 g     F .text	00000064 xme_hal_sharedPtr_retain
+00000000         *UND*	00000000 xme_hal_mem_free
+00000000         *UND*	00000000 memcpy
+0000023c g     F .text	0000002c xme_hal_sharedPtr_getSize
+00000268 g     F .text	00000044 xme_hal_sharedPtr_getReferenceCount
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_sharedPtr_init>:
+/***   Implementation                                                       ***/
+/******************************************************************************/
+// TODO: Inline all these functions on this platform! See ticket #822
+xme_core_status_t
+xme_hal_sharedPtr_init()
+{
+   0:	b480      	push	{r7}
+   2:	af00      	add	r7, sp, #0
+	return XME_CORE_STATUS_SUCCESS;
+   4:	f04f 0300 	mov.w	r3, #0
+}
+   8:	4618      	mov	r0, r3
+   a:	46bd      	mov	sp, r7
+   c:	bc80      	pop	{r7}
+   e:	4770      	bx	lr
+
+00000010 <xme_hal_sharedPtr_fini>:
+
+void
+xme_hal_sharedPtr_fini()
+{
+  10:	b480      	push	{r7}
+  12:	af00      	add	r7, sp, #0
+}
+  14:	46bd      	mov	sp, r7
+  16:	bc80      	pop	{r7}
+  18:	4770      	bx	lr
+  1a:	bf00      	nop
+
+0000001c <xme_hal_sharedPtr_create>:
+xme_hal_sharedPtr_t
+xme_hal_sharedPtr_create
+(
+	uint16_t size
+)
+{
+  1c:	b590      	push	{r4, r7, lr}
+  1e:	b085      	sub	sp, #20
+  20:	af00      	add	r7, sp, #0
+  22:	4603      	mov	r3, r0
+  24:	80fb      	strh	r3, [r7, #6]
+	xme_hal_sharedPtr_t sharedPointer;
+
+	for (sharedPointer = (xme_hal_sharedPtr_t)0; sharedPointer < XME_CORE_BROKER_PACKET_BUFFER; sharedPointer = (xme_hal_sharedPtr_t)(((uint16_t)sharedPointer)+1))
+  26:	f04f 0300 	mov.w	r3, #0
+  2a:	81fb      	strh	r3, [r7, #14]
+  2c:	e02d      	b.n	8a <xme_hal_sharedPtr_create+0x6e>
+	{
+		if (xme_hal_sharedPtr_buffer[sharedPointer].referenceCount == 0)
+  2e:	89fb      	ldrh	r3, [r7, #14]
+  30:	4a1c      	ldr	r2, [pc, #112]	; (a4 <xme_hal_sharedPtr_create+0x88>)
+  32:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  36:	18d3      	adds	r3, r2, r3
+  38:	88db      	ldrh	r3, [r3, #6]
+  3a:	2b00      	cmp	r3, #0
+  3c:	d121      	bne.n	82 <xme_hal_sharedPtr_create+0x66>
+		{
+			if (NULL == (xme_hal_sharedPtr_buffer[sharedPointer].slot_data = xme_hal_mem_alloc(size)))
+  3e:	89fc      	ldrh	r4, [r7, #14]
+  40:	88fb      	ldrh	r3, [r7, #6]
+  42:	4618      	mov	r0, r3
+  44:	f7ff fffe 	bl	0 <xme_hal_mem_alloc>
+			44: R_ARM_THM_CALL	xme_hal_mem_alloc
+  48:	4602      	mov	r2, r0
+  4a:	4b16      	ldr	r3, [pc, #88]	; (a4 <xme_hal_sharedPtr_create+0x88>)
+  4c:	f843 2034 	str.w	r2, [r3, r4, lsl #3]
+  50:	4b14      	ldr	r3, [pc, #80]	; (a4 <xme_hal_sharedPtr_create+0x88>)
+  52:	f853 3034 	ldr.w	r3, [r3, r4, lsl #3]
+  56:	2b00      	cmp	r3, #0
+  58:	d01b      	beq.n	92 <xme_hal_sharedPtr_create+0x76>
+			{
+				// Out of memory
+				break;
+			}
+
+			xme_hal_sharedPtr_buffer[sharedPointer].referenceCount = 1;
+  5a:	89fb      	ldrh	r3, [r7, #14]
+  5c:	4a11      	ldr	r2, [pc, #68]	; (a4 <xme_hal_sharedPtr_create+0x88>)
+  5e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  62:	18d3      	adds	r3, r2, r3
+  64:	f04f 0201 	mov.w	r2, #1
+  68:	80da      	strh	r2, [r3, #6]
+			xme_hal_sharedPtr_buffer[sharedPointer].size = size;
+  6a:	89fb      	ldrh	r3, [r7, #14]
+  6c:	4a0d      	ldr	r2, [pc, #52]	; (a4 <xme_hal_sharedPtr_create+0x88>)
+  6e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  72:	18d3      	adds	r3, r2, r3
+  74:	88fa      	ldrh	r2, [r7, #6]
+  76:	809a      	strh	r2, [r3, #4]
+
+			return (xme_hal_sharedPtr_t)(((uint16_t)sharedPointer)+1);
+  78:	89fb      	ldrh	r3, [r7, #14]
+  7a:	f103 0301 	add.w	r3, r3, #1
+  7e:	b29b      	uxth	r3, r3
+  80:	e00a      	b.n	98 <xme_hal_sharedPtr_create+0x7c>
+	uint16_t size
+)
+{
+	xme_hal_sharedPtr_t sharedPointer;
+
+	for (sharedPointer = (xme_hal_sharedPtr_t)0; sharedPointer < XME_CORE_BROKER_PACKET_BUFFER; sharedPointer = (xme_hal_sharedPtr_t)(((uint16_t)sharedPointer)+1))
+  82:	89fb      	ldrh	r3, [r7, #14]
+  84:	f103 0301 	add.w	r3, r3, #1
+  88:	81fb      	strh	r3, [r7, #14]
+  8a:	89fb      	ldrh	r3, [r7, #14]
+  8c:	2b31      	cmp	r3, #49	; 0x31
+  8e:	d9ce      	bls.n	2e <xme_hal_sharedPtr_create+0x12>
+  90:	e000      	b.n	94 <xme_hal_sharedPtr_create+0x78>
+		if (xme_hal_sharedPtr_buffer[sharedPointer].referenceCount == 0)
+		{
+			if (NULL == (xme_hal_sharedPtr_buffer[sharedPointer].slot_data = xme_hal_mem_alloc(size)))
+			{
+				// Out of memory
+				break;
+  92:	bf00      	nop
+
+			return (xme_hal_sharedPtr_t)(((uint16_t)sharedPointer)+1);
+		}
+	}
+
+	return XME_HAL_SHAREDPTR_INVALID_POINTER;
+  94:	f04f 0300 	mov.w	r3, #0
+}
+  98:	4618      	mov	r0, r3
+  9a:	f107 0714 	add.w	r7, r7, #20
+  9e:	46bd      	mov	sp, r7
+  a0:	bd90      	pop	{r4, r7, pc}
+  a2:	bf00      	nop
+  a4:	00000000 	.word	0x00000000
+			a4: R_ARM_ABS32	xme_hal_sharedPtr_buffer
+
+000000a8 <xme_hal_sharedPtr_realloc>:
+xme_hal_sharedPtr_realloc
+(
+	xme_hal_sharedPtr_t sharedPointer,
+	uint16_t size
+)
+{
+  a8:	b590      	push	{r4, r7, lr}
+  aa:	b085      	sub	sp, #20
+  ac:	af00      	add	r7, sp, #0
+  ae:	4602      	mov	r2, r0
+  b0:	460b      	mov	r3, r1
+  b2:	80fa      	strh	r2, [r7, #6]
+  b4:	80bb      	strh	r3, [r7, #4]
+	uint16_t oldSize;
+	xme_hal_sharedPtr_t newBuffer;
+
+	if (XME_HAL_SHAREDPTR_INVALID_POINTER == sharedPointer)
+  b6:	88fb      	ldrh	r3, [r7, #6]
+  b8:	2b00      	cmp	r3, #0
+  ba:	d105      	bne.n	c8 <xme_hal_sharedPtr_realloc+0x20>
+	{
+		return xme_hal_sharedPtr_create(size);
+  bc:	88bb      	ldrh	r3, [r7, #4]
+  be:	4618      	mov	r0, r3
+  c0:	f7ff fffe 	bl	1c <xme_hal_sharedPtr_create>
+			c0: R_ARM_THM_CALL	xme_hal_sharedPtr_create
+  c4:	4603      	mov	r3, r0
+  c6:	e01c      	b.n	102 <xme_hal_sharedPtr_realloc+0x5a>
+	}
+
+	XME_ASSERT_RVAL(sharedPointer < XME_CORE_BROKER_PACKET_BUFFER, XME_HAL_SHAREDPTR_INVALID_POINTER);
+
+	oldSize = xme_hal_sharedPtr_buffer[sharedPointer].size;
+  c8:	88fb      	ldrh	r3, [r7, #6]
+  ca:	4a10      	ldr	r2, [pc, #64]	; (10c <xme_hal_sharedPtr_realloc+0x64>)
+  cc:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  d0:	18d3      	adds	r3, r2, r3
+  d2:	889b      	ldrh	r3, [r3, #4]
+  d4:	81fb      	strh	r3, [r7, #14]
+	newBuffer = xme_hal_sharedPtr_createFromPointer( oldSize > size ? size : oldSize, xme_hal_sharedPtr_getPointer(sharedPointer) );
+  d6:	89fa      	ldrh	r2, [r7, #14]
+  d8:	88bb      	ldrh	r3, [r7, #4]
+  da:	429a      	cmp	r2, r3
+  dc:	bf38      	it	cc
+  de:	4613      	movcc	r3, r2
+  e0:	b29c      	uxth	r4, r3
+  e2:	88fb      	ldrh	r3, [r7, #6]
+  e4:	4618      	mov	r0, r3
+  e6:	f7ff fffe 	bl	2ac <xme_hal_sharedPtr_getPointer>
+			e6: R_ARM_THM_CALL	xme_hal_sharedPtr_getPointer
+  ea:	4603      	mov	r3, r0
+  ec:	4620      	mov	r0, r4
+  ee:	4619      	mov	r1, r3
+  f0:	f7ff fffe 	bl	1f0 <xme_hal_sharedPtr_createFromPointer>
+			f0: R_ARM_THM_CALL	xme_hal_sharedPtr_createFromPointer
+  f4:	4603      	mov	r3, r0
+  f6:	81bb      	strh	r3, [r7, #12]
+	xme_hal_sharedPtr_destroy( sharedPointer );
+  f8:	88fb      	ldrh	r3, [r7, #6]
+  fa:	4618      	mov	r0, r3
+  fc:	f7ff fffe 	bl	174 <xme_hal_sharedPtr_destroy>
+			fc: R_ARM_THM_CALL	xme_hal_sharedPtr_destroy
+
+	return newBuffer;
+ 100:	89bb      	ldrh	r3, [r7, #12]
+}
+ 102:	4618      	mov	r0, r3
+ 104:	f107 0714 	add.w	r7, r7, #20
+ 108:	46bd      	mov	sp, r7
+ 10a:	bd90      	pop	{r4, r7, pc}
+ 10c:	00000000 	.word	0x00000000
+			10c: R_ARM_ABS32	xme_hal_sharedPtr_buffer
+
+00000110 <xme_hal_sharedPtr_retain>:
+xme_hal_sharedPtr_t
+xme_hal_sharedPtr_retain
+(
+	xme_hal_sharedPtr_t sharedPointer
+)
+{
+ 110:	b480      	push	{r7}
+ 112:	b083      	sub	sp, #12
+ 114:	af00      	add	r7, sp, #0
+ 116:	4603      	mov	r3, r0
+ 118:	80fb      	strh	r3, [r7, #6]
+	if (sharedPointer <= 0)
+ 11a:	88fb      	ldrh	r3, [r7, #6]
+ 11c:	2b00      	cmp	r3, #0
+ 11e:	d102      	bne.n	126 <xme_hal_sharedPtr_retain+0x16>
+	{
+		return XME_HAL_SHAREDPTR_INVALID_POINTER;
+ 120:	f04f 0300 	mov.w	r3, #0
+ 124:	e01e      	b.n	164 <xme_hal_sharedPtr_retain+0x54>
+	}
+	else
+	{
+		if (xme_hal_sharedPtr_buffer[sharedPointer-1].referenceCount > 0)
+ 126:	88fb      	ldrh	r3, [r7, #6]
+ 128:	f103 33ff 	add.w	r3, r3, #4294967295
+ 12c:	4a10      	ldr	r2, [pc, #64]	; (170 <xme_hal_sharedPtr_retain+0x60>)
+ 12e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 132:	18d3      	adds	r3, r2, r3
+ 134:	88db      	ldrh	r3, [r3, #6]
+ 136:	2b00      	cmp	r3, #0
+ 138:	d012      	beq.n	160 <xme_hal_sharedPtr_retain+0x50>
+		{
+			xme_hal_sharedPtr_buffer[sharedPointer-1].referenceCount++;
+ 13a:	88fb      	ldrh	r3, [r7, #6]
+ 13c:	f103 32ff 	add.w	r2, r3, #4294967295
+ 140:	490b      	ldr	r1, [pc, #44]	; (170 <xme_hal_sharedPtr_retain+0x60>)
+ 142:	ea4f 03c2 	mov.w	r3, r2, lsl #3
+ 146:	18cb      	adds	r3, r1, r3
+ 148:	88db      	ldrh	r3, [r3, #6]
+ 14a:	f103 0301 	add.w	r3, r3, #1
+ 14e:	b299      	uxth	r1, r3
+ 150:	4807      	ldr	r0, [pc, #28]	; (170 <xme_hal_sharedPtr_retain+0x60>)
+ 152:	ea4f 03c2 	mov.w	r3, r2, lsl #3
+ 156:	18c3      	adds	r3, r0, r3
+ 158:	460a      	mov	r2, r1
+ 15a:	80da      	strh	r2, [r3, #6]
+			
+			return sharedPointer;
+ 15c:	88fb      	ldrh	r3, [r7, #6]
+ 15e:	e001      	b.n	164 <xme_hal_sharedPtr_retain+0x54>
+		}
+		return XME_HAL_SHAREDPTR_INVALID_POINTER;
+ 160:	f04f 0300 	mov.w	r3, #0
+	}
+
+	return XME_HAL_SHAREDPTR_INVALID_POINTER;
+}
+ 164:	4618      	mov	r0, r3
+ 166:	f107 070c 	add.w	r7, r7, #12
+ 16a:	46bd      	mov	sp, r7
+ 16c:	bc80      	pop	{r7}
+ 16e:	4770      	bx	lr
+ 170:	00000000 	.word	0x00000000
+			170: R_ARM_ABS32	xme_hal_sharedPtr_buffer
+
+00000174 <xme_hal_sharedPtr_destroy>:
+void
+xme_hal_sharedPtr_destroy
+(
+	xme_hal_sharedPtr_t sharedPointer
+)
+{
+ 174:	b580      	push	{r7, lr}
+ 176:	b082      	sub	sp, #8
+ 178:	af00      	add	r7, sp, #0
+ 17a:	4603      	mov	r3, r0
+ 17c:	80fb      	strh	r3, [r7, #6]
+	if (sharedPointer <= 0)
+ 17e:	88fb      	ldrh	r3, [r7, #6]
+ 180:	2b00      	cmp	r3, #0
+ 182:	d02e      	beq.n	1e2 <xme_hal_sharedPtr_destroy+0x6e>
+	{
+		return;
+	}
+	else
+	{
+		xme_hal_sharedPtr_buffer[sharedPointer-1].referenceCount--;
+ 184:	88fb      	ldrh	r3, [r7, #6]
+ 186:	f103 32ff 	add.w	r2, r3, #4294967295
+ 18a:	4918      	ldr	r1, [pc, #96]	; (1ec <xme_hal_sharedPtr_destroy+0x78>)
+ 18c:	ea4f 03c2 	mov.w	r3, r2, lsl #3
+ 190:	18cb      	adds	r3, r1, r3
+ 192:	88db      	ldrh	r3, [r3, #6]
+ 194:	f103 33ff 	add.w	r3, r3, #4294967295
+ 198:	b299      	uxth	r1, r3
+ 19a:	4814      	ldr	r0, [pc, #80]	; (1ec <xme_hal_sharedPtr_destroy+0x78>)
+ 19c:	ea4f 03c2 	mov.w	r3, r2, lsl #3
+ 1a0:	18c3      	adds	r3, r0, r3
+ 1a2:	460a      	mov	r2, r1
+ 1a4:	80da      	strh	r2, [r3, #6]
+		if (xme_hal_sharedPtr_buffer[sharedPointer-1].referenceCount == 0)
+ 1a6:	88fb      	ldrh	r3, [r7, #6]
+ 1a8:	f103 33ff 	add.w	r3, r3, #4294967295
+ 1ac:	4a0f      	ldr	r2, [pc, #60]	; (1ec <xme_hal_sharedPtr_destroy+0x78>)
+ 1ae:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 1b2:	18d3      	adds	r3, r2, r3
+ 1b4:	88db      	ldrh	r3, [r3, #6]
+ 1b6:	2b00      	cmp	r3, #0
+ 1b8:	d114      	bne.n	1e4 <xme_hal_sharedPtr_destroy+0x70>
+		{
+			xme_hal_mem_free(xme_hal_sharedPtr_buffer[sharedPointer-1].slot_data);
+ 1ba:	88fb      	ldrh	r3, [r7, #6]
+ 1bc:	f103 32ff 	add.w	r2, r3, #4294967295
+ 1c0:	4b0a      	ldr	r3, [pc, #40]	; (1ec <xme_hal_sharedPtr_destroy+0x78>)
+ 1c2:	f853 3032 	ldr.w	r3, [r3, r2, lsl #3]
+ 1c6:	4618      	mov	r0, r3
+ 1c8:	f7ff fffe 	bl	0 <xme_hal_mem_free>
+			1c8: R_ARM_THM_CALL	xme_hal_mem_free
+			xme_hal_sharedPtr_buffer[sharedPointer-1].size = 0;
+ 1cc:	88fb      	ldrh	r3, [r7, #6]
+ 1ce:	f103 33ff 	add.w	r3, r3, #4294967295
+ 1d2:	4a06      	ldr	r2, [pc, #24]	; (1ec <xme_hal_sharedPtr_destroy+0x78>)
+ 1d4:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 1d8:	18d3      	adds	r3, r2, r3
+ 1da:	f04f 0200 	mov.w	r2, #0
+ 1de:	809a      	strh	r2, [r3, #4]
+ 1e0:	e000      	b.n	1e4 <xme_hal_sharedPtr_destroy+0x70>
+	xme_hal_sharedPtr_t sharedPointer
+)
+{
+	if (sharedPointer <= 0)
+	{
+		return;
+ 1e2:	bf00      	nop
+		{
+			xme_hal_mem_free(xme_hal_sharedPtr_buffer[sharedPointer-1].slot_data);
+			xme_hal_sharedPtr_buffer[sharedPointer-1].size = 0;
+		}
+	}
+}
+ 1e4:	f107 0708 	add.w	r7, r7, #8
+ 1e8:	46bd      	mov	sp, r7
+ 1ea:	bd80      	pop	{r7, pc}
+ 1ec:	00000000 	.word	0x00000000
+			1ec: R_ARM_ABS32	xme_hal_sharedPtr_buffer
+
+000001f0 <xme_hal_sharedPtr_createFromPointer>:
+xme_hal_sharedPtr_createFromPointer
+(
+	uint16_t size,
+	void *data
+)
+{
+ 1f0:	b580      	push	{r7, lr}
+ 1f2:	b084      	sub	sp, #16
+ 1f4:	af00      	add	r7, sp, #0
+ 1f6:	4603      	mov	r3, r0
+ 1f8:	6039      	str	r1, [r7, #0]
+ 1fa:	80fb      	strh	r3, [r7, #6]
+	xme_hal_sharedPtr_t sharedPointer;
+
+	if (XME_HAL_SHAREDPTR_INVALID_POINTER != (sharedPointer = xme_hal_sharedPtr_create(size)))
+ 1fc:	88fb      	ldrh	r3, [r7, #6]
+ 1fe:	4618      	mov	r0, r3
+ 200:	f7ff fffe 	bl	1c <xme_hal_sharedPtr_create>
+			200: R_ARM_THM_CALL	xme_hal_sharedPtr_create
+ 204:	4603      	mov	r3, r0
+ 206:	81fb      	strh	r3, [r7, #14]
+ 208:	89fb      	ldrh	r3, [r7, #14]
+ 20a:	2b00      	cmp	r3, #0
+ 20c:	d00d      	beq.n	22a <xme_hal_sharedPtr_createFromPointer+0x3a>
+	{
+		memcpy((xme_hal_sharedPtr_buffer[sharedPointer-1].slot_data), data, size);
+ 20e:	89fb      	ldrh	r3, [r7, #14]
+ 210:	f103 32ff 	add.w	r2, r3, #4294967295
+ 214:	4b08      	ldr	r3, [pc, #32]	; (238 <xme_hal_sharedPtr_createFromPointer+0x48>)
+ 216:	f853 2032 	ldr.w	r2, [r3, r2, lsl #3]
+ 21a:	88fb      	ldrh	r3, [r7, #6]
+ 21c:	4610      	mov	r0, r2
+ 21e:	6839      	ldr	r1, [r7, #0]
+ 220:	461a      	mov	r2, r3
+ 222:	f7ff fffe 	bl	0 <memcpy>
+			222: R_ARM_THM_CALL	memcpy
+
+		return sharedPointer;
+ 226:	89fb      	ldrh	r3, [r7, #14]
+ 228:	e001      	b.n	22e <xme_hal_sharedPtr_createFromPointer+0x3e>
+	}
+
+	return XME_HAL_SHAREDPTR_INVALID_POINTER;
+ 22a:	f04f 0300 	mov.w	r3, #0
+}
+ 22e:	4618      	mov	r0, r3
+ 230:	f107 0710 	add.w	r7, r7, #16
+ 234:	46bd      	mov	sp, r7
+ 236:	bd80      	pop	{r7, pc}
+ 238:	00000000 	.word	0x00000000
+			238: R_ARM_ABS32	xme_hal_sharedPtr_buffer
+
+0000023c <xme_hal_sharedPtr_getSize>:
+uint16_t
+xme_hal_sharedPtr_getSize
+(
+	xme_hal_sharedPtr_t sharedPointer
+)
+{
+ 23c:	b480      	push	{r7}
+ 23e:	b083      	sub	sp, #12
+ 240:	af00      	add	r7, sp, #0
+ 242:	4603      	mov	r3, r0
+ 244:	80fb      	strh	r3, [r7, #6]
+	return xme_hal_sharedPtr_buffer[sharedPointer-1].size;
+ 246:	88fb      	ldrh	r3, [r7, #6]
+ 248:	f103 33ff 	add.w	r3, r3, #4294967295
+ 24c:	4a05      	ldr	r2, [pc, #20]	; (264 <xme_hal_sharedPtr_getSize+0x28>)
+ 24e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 252:	18d3      	adds	r3, r2, r3
+ 254:	889b      	ldrh	r3, [r3, #4]
+};
+ 256:	4618      	mov	r0, r3
+ 258:	f107 070c 	add.w	r7, r7, #12
+ 25c:	46bd      	mov	sp, r7
+ 25e:	bc80      	pop	{r7}
+ 260:	4770      	bx	lr
+ 262:	bf00      	nop
+ 264:	00000000 	.word	0x00000000
+			264: R_ARM_ABS32	xme_hal_sharedPtr_buffer
+
+00000268 <xme_hal_sharedPtr_getReferenceCount>:
+xme_hal_sharedPtr_referenceCount_t
+xme_hal_sharedPtr_getReferenceCount
+(
+	xme_hal_sharedPtr_t sharedPointer
+)
+{
+ 268:	b480      	push	{r7}
+ 26a:	b083      	sub	sp, #12
+ 26c:	af00      	add	r7, sp, #0
+ 26e:	4603      	mov	r3, r0
+ 270:	80fb      	strh	r3, [r7, #6]
+	if (xme_hal_sharedPtr_buffer[sharedPointer-1].referenceCount > 0)
+ 272:	88fb      	ldrh	r3, [r7, #6]
+ 274:	f103 33ff 	add.w	r3, r3, #4294967295
+ 278:	4a0b      	ldr	r2, [pc, #44]	; (2a8 <xme_hal_sharedPtr_getReferenceCount+0x40>)
+ 27a:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 27e:	18d3      	adds	r3, r2, r3
+ 280:	88db      	ldrh	r3, [r3, #6]
+ 282:	2b00      	cmp	r3, #0
+ 284:	d008      	beq.n	298 <xme_hal_sharedPtr_getReferenceCount+0x30>
+	{
+		return xme_hal_sharedPtr_buffer[sharedPointer-1].referenceCount;
+ 286:	88fb      	ldrh	r3, [r7, #6]
+ 288:	f103 33ff 	add.w	r3, r3, #4294967295
+ 28c:	4a06      	ldr	r2, [pc, #24]	; (2a8 <xme_hal_sharedPtr_getReferenceCount+0x40>)
+ 28e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 292:	18d3      	adds	r3, r2, r3
+ 294:	88db      	ldrh	r3, [r3, #6]
+ 296:	e001      	b.n	29c <xme_hal_sharedPtr_getReferenceCount+0x34>
+	}
+	else
+	{
+		return XME_HAL_SHAREDPTR_INVALID_POINTER;
+ 298:	f04f 0300 	mov.w	r3, #0
+	}
+
+	return XME_HAL_SHAREDPTR_INVALID_POINTER;
+}
+ 29c:	4618      	mov	r0, r3
+ 29e:	f107 070c 	add.w	r7, r7, #12
+ 2a2:	46bd      	mov	sp, r7
+ 2a4:	bc80      	pop	{r7}
+ 2a6:	4770      	bx	lr
+ 2a8:	00000000 	.word	0x00000000
+			2a8: R_ARM_ABS32	xme_hal_sharedPtr_buffer
+
+000002ac <xme_hal_sharedPtr_getPointer>:
+void*
+xme_hal_sharedPtr_getPointer
+(
+	xme_hal_sharedPtr_t sharedPointer
+)
+{
+ 2ac:	b480      	push	{r7}
+ 2ae:	b083      	sub	sp, #12
+ 2b0:	af00      	add	r7, sp, #0
+ 2b2:	4603      	mov	r3, r0
+ 2b4:	80fb      	strh	r3, [r7, #6]
+	return xme_hal_sharedPtr_buffer[sharedPointer-1].slot_data;
+ 2b6:	88fb      	ldrh	r3, [r7, #6]
+ 2b8:	f103 32ff 	add.w	r2, r3, #4294967295
+ 2bc:	4b04      	ldr	r3, [pc, #16]	; (2d0 <xme_hal_sharedPtr_getPointer+0x24>)
+ 2be:	f853 3032 	ldr.w	r3, [r3, r2, lsl #3]
+}
+ 2c2:	4618      	mov	r0, r3
+ 2c4:	f107 070c 	add.w	r7, r7, #12
+ 2c8:	46bd      	mov	sp, r7
+ 2ca:	bc80      	pop	{r7}
+ 2cc:	4770      	bx	lr
+ 2ce:	bf00      	nop
+ 2d0:	00000000 	.word	0x00000000
+			2d0: R_ARM_ABS32	xme_hal_sharedPtr_buffer

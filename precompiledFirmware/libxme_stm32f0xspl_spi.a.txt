@@ -1,0 +1,1658 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_stm32f0xspl_spi.a:
+
+stm32f10x_spi.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0 325584 Jul 30 19:07 2021 stm32f10x_spi.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000814  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000848  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000848  2**0
+                  ALLOC
+  3 .debug_abbrev 0000015d  00000000  00000000  00000848  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000a3f  00000000  00000000  000009a5  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   000004ce  00000000  00000000  000013e4  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 0004bbb8  00000000  00000000  000018b2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    00000508  00000000  00000000  0004d46a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 000001f6  00000000  00000000  0004d972  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 000000c6  00000000  00000000  0004db68  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  0004dc2e  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    000005c7  00000000  00000000  0004dc4e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  0004e215  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  0004e240  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  0000029c  00000000  00000000  0004e274  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 stm32f10x_spi.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     F .text	00000080 SPI_I2S_DeInit
+00000000         *UND*	00000000 RCC_APB2PeriphResetCmd
+00000000         *UND*	00000000 RCC_APB1PeriphResetCmd
+00000080 g     F .text	00000098 SPI_Init
+00000118 g     F .text	00000210 I2S_Init
+00000000         *UND*	00000000 RCC_GetClocksFreq
+00000328 g     F .text	0000005a SPI_StructInit
+00000384 g     F .text	00000042 I2S_StructInit
+000003c8 g     F .text	0000003e SPI_Cmd
+00000408 g     F .text	0000003e I2S_Cmd
+00000448 g     F .text	0000006e SPI_I2S_ITConfig
+000004b8 g     F .text	0000004c SPI_I2S_DMACmd
+00000504 g     F .text	0000001c SPI_I2S_SendData
+00000520 g     F .text	0000001a SPI_I2S_ReceiveData
+0000053c g     F .text	00000042 SPI_NSSInternalSoftwareConfig
+00000580 g     F .text	0000003e SPI_SSOutputCmd
+000005c0 g     F .text	00000038 SPI_DataSizeConfig
+000005f8 g     F .text	00000022 SPI_TransmitCRC
+0000061c g     F .text	0000003e SPI_CalculateCRC
+0000065c g     F .text	00000034 SPI_GetCRC
+00000690 g     F .text	0000001a SPI_GetCRCPolynomial
+000006ac g     F .text	00000040 SPI_BiDirectionalLineConfig
+000006ec g     F .text	00000040 SPI_I2S_GetFlagStatus
+0000072c g     F .text	00000022 SPI_I2S_ClearFlag
+00000750 g     F .text	0000008c SPI_I2S_GetITStatus
+000007dc g     F .text	00000038 SPI_I2S_ClearITPendingBit
+
+
+
+Disassembly of section .text:
+
+00000000 <SPI_I2S_DeInit>:
+  *         reset values (Affects also the I2Ss).
+  * @param  SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+  * @retval None
+  */
+void SPI_I2S_DeInit(SPI_TypeDef* SPIx)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+
+  if (SPIx == SPI1)
+   8:	687a      	ldr	r2, [r7, #4]
+   a:	4b1a      	ldr	r3, [pc, #104]	; (74 <SPI_I2S_DeInit+0x74>)
+   c:	429a      	cmp	r2, r3
+   e:	d10c      	bne.n	2a <SPI_I2S_DeInit+0x2a>
+  {
+    /* Enable SPI1 reset state */
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI1, ENABLE);
+  10:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+  14:	f04f 0101 	mov.w	r1, #1
+  18:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			18: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    /* Release SPI1 from reset state */
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_SPI1, DISABLE);
+  1c:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+  20:	f04f 0100 	mov.w	r1, #0
+  24:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			24: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  28:	e020      	b.n	6c <SPI_I2S_DeInit+0x6c>
+  }
+  else if (SPIx == SPI2)
+  2a:	687a      	ldr	r2, [r7, #4]
+  2c:	4b12      	ldr	r3, [pc, #72]	; (78 <SPI_I2S_DeInit+0x78>)
+  2e:	429a      	cmp	r2, r3
+  30:	d10c      	bne.n	4c <SPI_I2S_DeInit+0x4c>
+  {
+    /* Enable SPI2 reset state */
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2, ENABLE);
+  32:	f44f 4080 	mov.w	r0, #16384	; 0x4000
+  36:	f04f 0101 	mov.w	r1, #1
+  3a:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			3a: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+    /* Release SPI2 from reset state */
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI2, DISABLE);
+  3e:	f44f 4080 	mov.w	r0, #16384	; 0x4000
+  42:	f04f 0100 	mov.w	r1, #0
+  46:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			46: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+  4a:	e00f      	b.n	6c <SPI_I2S_DeInit+0x6c>
+  }
+  else
+  {
+    if (SPIx == SPI3)
+  4c:	687a      	ldr	r2, [r7, #4]
+  4e:	4b0b      	ldr	r3, [pc, #44]	; (7c <SPI_I2S_DeInit+0x7c>)
+  50:	429a      	cmp	r2, r3
+  52:	d10b      	bne.n	6c <SPI_I2S_DeInit+0x6c>
+    {
+      /* Enable SPI3 reset state */
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, ENABLE);
+  54:	f44f 4000 	mov.w	r0, #32768	; 0x8000
+  58:	f04f 0101 	mov.w	r1, #1
+  5c:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			5c: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+      /* Release SPI3 from reset state */
+      RCC_APB1PeriphResetCmd(RCC_APB1Periph_SPI3, DISABLE);
+  60:	f44f 4000 	mov.w	r0, #32768	; 0x8000
+  64:	f04f 0100 	mov.w	r1, #0
+  68:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			68: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+    }
+  }
+}
+  6c:	f107 0708 	add.w	r7, r7, #8
+  70:	46bd      	mov	sp, r7
+  72:	bd80      	pop	{r7, pc}
+  74:	40013000 	.word	0x40013000
+  78:	40003800 	.word	0x40003800
+  7c:	40003c00 	.word	0x40003c00
+
+00000080 <SPI_Init>:
+  * @param  SPI_InitStruct: pointer to a SPI_InitTypeDef structure that
+  *         contains the configuration information for the specified SPI peripheral.
+  * @retval None
+  */
+void SPI_Init(SPI_TypeDef* SPIx, SPI_InitTypeDef* SPI_InitStruct)
+{
+  80:	b480      	push	{r7}
+  82:	b085      	sub	sp, #20
+  84:	af00      	add	r7, sp, #0
+  86:	6078      	str	r0, [r7, #4]
+  88:	6039      	str	r1, [r7, #0]
+  uint16_t tmpreg = 0;
+  8a:	f04f 0300 	mov.w	r3, #0
+  8e:	81fb      	strh	r3, [r7, #14]
+  assert_param(IS_SPI_FIRST_BIT(SPI_InitStruct->SPI_FirstBit));
+  assert_param(IS_SPI_CRC_POLYNOMIAL(SPI_InitStruct->SPI_CRCPolynomial));
+
+/*---------------------------- SPIx CR1 Configuration ------------------------*/
+  /* Get the SPIx CR1 value */
+  tmpreg = SPIx->CR1;
+  90:	687b      	ldr	r3, [r7, #4]
+  92:	881b      	ldrh	r3, [r3, #0]
+  94:	81fb      	strh	r3, [r7, #14]
+  /* Clear BIDIMode, BIDIOE, RxONLY, SSM, SSI, LSBFirst, BR, MSTR, CPOL and CPHA bits */
+  tmpreg &= CR1_CLEAR_Mask;
+  96:	89fb      	ldrh	r3, [r7, #14]
+  98:	f403 5341 	and.w	r3, r3, #12352	; 0x3040
+  9c:	81fb      	strh	r3, [r7, #14]
+  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+  /* Set LSBFirst bit according to SPI_FirstBit value */
+  /* Set BR bits according to SPI_BaudRatePrescaler value */
+  /* Set CPOL bit according to SPI_CPOL value */
+  /* Set CPHA bit according to SPI_CPHA value */
+  tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+  9e:	683b      	ldr	r3, [r7, #0]
+  a0:	881a      	ldrh	r2, [r3, #0]
+  a2:	683b      	ldr	r3, [r7, #0]
+  a4:	885b      	ldrh	r3, [r3, #2]
+  a6:	ea42 0303 	orr.w	r3, r2, r3
+  aa:	b29a      	uxth	r2, r3
+                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+  ac:	683b      	ldr	r3, [r7, #0]
+  ae:	889b      	ldrh	r3, [r3, #4]
+  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+  /* Set LSBFirst bit according to SPI_FirstBit value */
+  /* Set BR bits according to SPI_BaudRatePrescaler value */
+  /* Set CPOL bit according to SPI_CPOL value */
+  /* Set CPHA bit according to SPI_CPHA value */
+  tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+  b0:	ea42 0303 	orr.w	r3, r2, r3
+  b4:	b29a      	uxth	r2, r3
+                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+  b6:	683b      	ldr	r3, [r7, #0]
+  b8:	88db      	ldrh	r3, [r3, #6]
+  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+  /* Set LSBFirst bit according to SPI_FirstBit value */
+  /* Set BR bits according to SPI_BaudRatePrescaler value */
+  /* Set CPOL bit according to SPI_CPOL value */
+  /* Set CPHA bit according to SPI_CPHA value */
+  tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+  ba:	ea42 0303 	orr.w	r3, r2, r3
+  be:	b29a      	uxth	r2, r3
+                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+                  SPI_InitStruct->SPI_CPHA | SPI_InitStruct->SPI_NSS |  
+  c0:	683b      	ldr	r3, [r7, #0]
+  c2:	891b      	ldrh	r3, [r3, #8]
+  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+  /* Set LSBFirst bit according to SPI_FirstBit value */
+  /* Set BR bits according to SPI_BaudRatePrescaler value */
+  /* Set CPOL bit according to SPI_CPOL value */
+  /* Set CPHA bit according to SPI_CPHA value */
+  tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+  c4:	ea42 0303 	orr.w	r3, r2, r3
+  c8:	b29a      	uxth	r2, r3
+                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+                  SPI_InitStruct->SPI_CPHA | SPI_InitStruct->SPI_NSS |  
+  ca:	683b      	ldr	r3, [r7, #0]
+  cc:	895b      	ldrh	r3, [r3, #10]
+  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+  /* Set LSBFirst bit according to SPI_FirstBit value */
+  /* Set BR bits according to SPI_BaudRatePrescaler value */
+  /* Set CPOL bit according to SPI_CPOL value */
+  /* Set CPHA bit according to SPI_CPHA value */
+  tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+  ce:	ea42 0303 	orr.w	r3, r2, r3
+  d2:	b29a      	uxth	r2, r3
+                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+                  SPI_InitStruct->SPI_CPHA | SPI_InitStruct->SPI_NSS |  
+                  SPI_InitStruct->SPI_BaudRatePrescaler | SPI_InitStruct->SPI_FirstBit);
+  d4:	683b      	ldr	r3, [r7, #0]
+  d6:	899b      	ldrh	r3, [r3, #12]
+  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+  /* Set LSBFirst bit according to SPI_FirstBit value */
+  /* Set BR bits according to SPI_BaudRatePrescaler value */
+  /* Set CPOL bit according to SPI_CPOL value */
+  /* Set CPHA bit according to SPI_CPHA value */
+  tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+  d8:	ea42 0303 	orr.w	r3, r2, r3
+  dc:	b29a      	uxth	r2, r3
+                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+                  SPI_InitStruct->SPI_CPHA | SPI_InitStruct->SPI_NSS |  
+                  SPI_InitStruct->SPI_BaudRatePrescaler | SPI_InitStruct->SPI_FirstBit);
+  de:	683b      	ldr	r3, [r7, #0]
+  e0:	89db      	ldrh	r3, [r3, #14]
+  /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+  /* Set LSBFirst bit according to SPI_FirstBit value */
+  /* Set BR bits according to SPI_BaudRatePrescaler value */
+  /* Set CPOL bit according to SPI_CPOL value */
+  /* Set CPHA bit according to SPI_CPHA value */
+  tmpreg |= (uint16_t)((uint32_t)SPI_InitStruct->SPI_Direction | SPI_InitStruct->SPI_Mode |
+  e2:	ea42 0303 	orr.w	r3, r2, r3
+  e6:	b29a      	uxth	r2, r3
+  e8:	89fb      	ldrh	r3, [r7, #14]
+  ea:	ea42 0303 	orr.w	r3, r2, r3
+  ee:	81fb      	strh	r3, [r7, #14]
+                  SPI_InitStruct->SPI_DataSize | SPI_InitStruct->SPI_CPOL |  
+                  SPI_InitStruct->SPI_CPHA | SPI_InitStruct->SPI_NSS |  
+                  SPI_InitStruct->SPI_BaudRatePrescaler | SPI_InitStruct->SPI_FirstBit);
+  /* Write to SPIx CR1 */
+  SPIx->CR1 = tmpreg;
+  f0:	687b      	ldr	r3, [r7, #4]
+  f2:	89fa      	ldrh	r2, [r7, #14]
+  f4:	801a      	strh	r2, [r3, #0]
+  
+  /* Activate the SPI mode (Reset I2SMOD bit in I2SCFGR register) */
+  SPIx->I2SCFGR &= SPI_Mode_Select;		
+  f6:	687b      	ldr	r3, [r7, #4]
+  f8:	8b9b      	ldrh	r3, [r3, #28]
+  fa:	b29b      	uxth	r3, r3
+  fc:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 100:	b29a      	uxth	r2, r3
+ 102:	687b      	ldr	r3, [r7, #4]
+ 104:	839a      	strh	r2, [r3, #28]
+
+/*---------------------------- SPIx CRCPOLY Configuration --------------------*/
+  /* Write to SPIx CRCPOLY */
+  SPIx->CRCPR = SPI_InitStruct->SPI_CRCPolynomial;
+ 106:	683b      	ldr	r3, [r7, #0]
+ 108:	8a1a      	ldrh	r2, [r3, #16]
+ 10a:	687b      	ldr	r3, [r7, #4]
+ 10c:	821a      	strh	r2, [r3, #16]
+}
+ 10e:	f107 0714 	add.w	r7, r7, #20
+ 112:	46bd      	mov	sp, r7
+ 114:	bc80      	pop	{r7}
+ 116:	4770      	bx	lr
+
+00000118 <I2S_Init>:
+  *  and the product configuration). But in case the prescaler value is greater 
+  *  than 511, the default value (0x02) will be configured instead.  *   
+  * @retval None
+  */
+void I2S_Init(SPI_TypeDef* SPIx, I2S_InitTypeDef* I2S_InitStruct)
+{
+ 118:	b580      	push	{r7, lr}
+ 11a:	b08c      	sub	sp, #48	; 0x30
+ 11c:	af00      	add	r7, sp, #0
+ 11e:	6078      	str	r0, [r7, #4]
+ 120:	6039      	str	r1, [r7, #0]
+  uint16_t tmpreg = 0, i2sdiv = 2, i2sodd = 0, packetlength = 1;
+ 122:	f04f 0300 	mov.w	r3, #0
+ 126:	83fb      	strh	r3, [r7, #30]
+ 128:	f04f 0302 	mov.w	r3, #2
+ 12c:	85fb      	strh	r3, [r7, #46]	; 0x2e
+ 12e:	f04f 0300 	mov.w	r3, #0
+ 132:	85bb      	strh	r3, [r7, #44]	; 0x2c
+ 134:	f04f 0301 	mov.w	r3, #1
+ 138:	857b      	strh	r3, [r7, #42]	; 0x2a
+  uint32_t tmp = 0;
+ 13a:	f04f 0300 	mov.w	r3, #0
+ 13e:	627b      	str	r3, [r7, #36]	; 0x24
+  RCC_ClocksTypeDef RCC_Clocks;
+  uint32_t sourceclock = 0;
+ 140:	f04f 0300 	mov.w	r3, #0
+ 144:	623b      	str	r3, [r7, #32]
+  assert_param(IS_I2S_AUDIO_FREQ(I2S_InitStruct->I2S_AudioFreq));
+  assert_param(IS_I2S_CPOL(I2S_InitStruct->I2S_CPOL));  
+
+/*----------------------- SPIx I2SCFGR & I2SPR Configuration -----------------*/
+  /* Clear I2SMOD, I2SE, I2SCFG, PCMSYNC, I2SSTD, CKPOL, DATLEN and CHLEN bits */
+  SPIx->I2SCFGR &= I2SCFGR_CLEAR_Mask; 
+ 146:	687b      	ldr	r3, [r7, #4]
+ 148:	8b9b      	ldrh	r3, [r3, #28]
+ 14a:	b29b      	uxth	r3, r3
+ 14c:	f423 637a 	bic.w	r3, r3, #4000	; 0xfa0
+ 150:	f023 031f 	bic.w	r3, r3, #31
+ 154:	b29a      	uxth	r2, r3
+ 156:	687b      	ldr	r3, [r7, #4]
+ 158:	839a      	strh	r2, [r3, #28]
+  SPIx->I2SPR = 0x0002;
+ 15a:	687b      	ldr	r3, [r7, #4]
+ 15c:	f04f 0202 	mov.w	r2, #2
+ 160:	841a      	strh	r2, [r3, #32]
+  
+  /* Get the I2SCFGR register value */
+  tmpreg = SPIx->I2SCFGR;
+ 162:	687b      	ldr	r3, [r7, #4]
+ 164:	8b9b      	ldrh	r3, [r3, #28]
+ 166:	83fb      	strh	r3, [r7, #30]
+  
+  /* If the default value has to be written, reinitialize i2sdiv and i2sodd*/
+  if(I2S_InitStruct->I2S_AudioFreq == I2S_AudioFreq_Default)
+ 168:	683b      	ldr	r3, [r7, #0]
+ 16a:	689b      	ldr	r3, [r3, #8]
+ 16c:	2b02      	cmp	r3, #2
+ 16e:	d106      	bne.n	17e <I2S_Init+0x66>
+  {
+    i2sodd = (uint16_t)0;
+ 170:	f04f 0300 	mov.w	r3, #0
+ 174:	85bb      	strh	r3, [r7, #44]	; 0x2c
+    i2sdiv = (uint16_t)2;   
+ 176:	f04f 0302 	mov.w	r3, #2
+ 17a:	85fb      	strh	r3, [r7, #46]	; 0x2e
+ 17c:	e094      	b.n	2a8 <I2S_Init+0x190>
+  }
+  /* If the requested audio frequency is not the default, compute the prescaler */
+  else
+  {
+    /* Check the frame length (For the Prescaler computing) */
+    if(I2S_InitStruct->I2S_DataFormat == I2S_DataFormat_16b)
+ 17e:	683b      	ldr	r3, [r7, #0]
+ 180:	889b      	ldrh	r3, [r3, #4]
+ 182:	2b00      	cmp	r3, #0
+ 184:	d103      	bne.n	18e <I2S_Init+0x76>
+    {
+      /* Packet length is 16 bits */
+      packetlength = 1;
+ 186:	f04f 0301 	mov.w	r3, #1
+ 18a:	857b      	strh	r3, [r7, #42]	; 0x2a
+ 18c:	e002      	b.n	194 <I2S_Init+0x7c>
+    }
+    else
+    {
+      /* Packet length is 32 bits */
+      packetlength = 2;
+ 18e:	f04f 0302 	mov.w	r3, #2
+ 192:	857b      	strh	r3, [r7, #42]	; 0x2a
+    }
+
+    /* Get the I2S clock source mask depending on the peripheral number */
+    if(((uint32_t)SPIx) == SPI2_BASE)
+ 194:	687a      	ldr	r2, [r7, #4]
+ 196:	4b60      	ldr	r3, [pc, #384]	; (318 <I2S_Init+0x200>)
+ 198:	429a      	cmp	r2, r3
+ 19a:	d103      	bne.n	1a4 <I2S_Init+0x8c>
+    {
+      /* The mask is relative to I2S2 */
+      tmp = I2S2_CLOCK_SRC;
+ 19c:	f44f 3300 	mov.w	r3, #131072	; 0x20000
+ 1a0:	627b      	str	r3, [r7, #36]	; 0x24
+ 1a2:	e002      	b.n	1aa <I2S_Init+0x92>
+    }
+    else 
+    {
+      /* The mask is relative to I2S3 */      
+      tmp = I2S3_CLOCK_SRC;
+ 1a4:	f44f 2380 	mov.w	r3, #262144	; 0x40000
+ 1a8:	627b      	str	r3, [r7, #36]	; 0x24
+    }
+
+    /* Check the I2S clock source configuration depending on the Device:
+       Only Connectivity line devices have the PLL3 VCO clock */
+#ifdef STM32F10X_CL
+    if((RCC->CFGR2 & tmp) != 0)
+ 1aa:	4b5c      	ldr	r3, [pc, #368]	; (31c <I2S_Init+0x204>)
+ 1ac:	6ada      	ldr	r2, [r3, #44]	; 0x2c
+ 1ae:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 1b0:	ea02 0303 	and.w	r3, r2, r3
+ 1b4:	2b00      	cmp	r3, #0
+ 1b6:	d02b      	beq.n	210 <I2S_Init+0xf8>
+    {
+      /* Get the configuration bits of RCC PLL3 multiplier */
+      tmp = (uint32_t)((RCC->CFGR2 & I2S_MUL_MASK) >> 12);
+ 1b8:	4b58      	ldr	r3, [pc, #352]	; (31c <I2S_Init+0x204>)
+ 1ba:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+ 1bc:	f403 4370 	and.w	r3, r3, #61440	; 0xf000
+ 1c0:	ea4f 3313 	mov.w	r3, r3, lsr #12
+ 1c4:	627b      	str	r3, [r7, #36]	; 0x24
+
+      /* Get the value of the PLL3 multiplier */      
+      if((tmp > 5) && (tmp < 15))
+ 1c6:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 1c8:	2b05      	cmp	r3, #5
+ 1ca:	d907      	bls.n	1dc <I2S_Init+0xc4>
+ 1cc:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 1ce:	2b0e      	cmp	r3, #14
+ 1d0:	d804      	bhi.n	1dc <I2S_Init+0xc4>
+      {
+        /* Multiplier is between 8 and 14 (value 15 is forbidden) */
+        tmp += 2;
+ 1d2:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 1d4:	f103 0302 	add.w	r3, r3, #2
+ 1d8:	627b      	str	r3, [r7, #36]	; 0x24
+ 1da:	e005      	b.n	1e8 <I2S_Init+0xd0>
+      }
+      else
+      {
+        if (tmp == 15)
+ 1dc:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 1de:	2b0f      	cmp	r3, #15
+ 1e0:	d102      	bne.n	1e8 <I2S_Init+0xd0>
+        {
+          /* Multiplier is 20 */
+          tmp = 20;
+ 1e2:	f04f 0314 	mov.w	r3, #20
+ 1e6:	627b      	str	r3, [r7, #36]	; 0x24
+        }
+      }      
+      /* Get the PREDIV2 value */
+      sourceclock = (uint32_t)(((RCC->CFGR2 & I2S_DIV_MASK) >> 4) + 1);
+ 1e8:	4b4c      	ldr	r3, [pc, #304]	; (31c <I2S_Init+0x204>)
+ 1ea:	6adb      	ldr	r3, [r3, #44]	; 0x2c
+ 1ec:	f003 03f0 	and.w	r3, r3, #240	; 0xf0
+ 1f0:	ea4f 1313 	mov.w	r3, r3, lsr #4
+ 1f4:	f103 0301 	add.w	r3, r3, #1
+ 1f8:	623b      	str	r3, [r7, #32]
+      
+      /* Calculate the Source Clock frequency based on PLL3 and PREDIV2 values */
+      sourceclock = (uint32_t) ((HSE_Value / sourceclock) * tmp * 2); 
+ 1fa:	4a49      	ldr	r2, [pc, #292]	; (320 <I2S_Init+0x208>)
+ 1fc:	6a3b      	ldr	r3, [r7, #32]
+ 1fe:	fbb2 f3f3 	udiv	r3, r2, r3
+ 202:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 204:	fb02 f303 	mul.w	r3, r2, r3
+ 208:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 20c:	623b      	str	r3, [r7, #32]
+ 20e:	e006      	b.n	21e <I2S_Init+0x106>
+    }
+    else
+    {
+      /* I2S Clock source is System clock: Get System Clock frequency */
+      RCC_GetClocksFreq(&RCC_Clocks);      
+ 210:	f107 0308 	add.w	r3, r7, #8
+ 214:	4618      	mov	r0, r3
+ 216:	f7ff fffe 	bl	0 <RCC_GetClocksFreq>
+			216: R_ARM_THM_CALL	RCC_GetClocksFreq
+      
+      /* Get the source clock value: based on System Clock value */
+      sourceclock = RCC_Clocks.SYSCLK_Frequency;
+ 21a:	68bb      	ldr	r3, [r7, #8]
+ 21c:	623b      	str	r3, [r7, #32]
+    /* Get the source clock value: based on System Clock value */
+    sourceclock = RCC_Clocks.SYSCLK_Frequency;    
+#endif /* STM32F10X_CL */    
+
+    /* Compute the Real divider depending on the MCLK output state with a floating point */
+    if(I2S_InitStruct->I2S_MCLKOutput == I2S_MCLKOutput_Enable)
+ 21e:	683b      	ldr	r3, [r7, #0]
+ 220:	88db      	ldrh	r3, [r3, #6]
+ 222:	f5b3 7f00 	cmp.w	r3, #512	; 0x200
+ 226:	d113      	bne.n	250 <I2S_Init+0x138>
+    {
+      /* MCLK output is enabled */
+      tmp = (uint16_t)(((((sourceclock / 256) * 10) / I2S_InitStruct->I2S_AudioFreq)) + 5);
+ 228:	6a3b      	ldr	r3, [r7, #32]
+ 22a:	ea4f 2213 	mov.w	r2, r3, lsr #8
+ 22e:	4613      	mov	r3, r2
+ 230:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 234:	189b      	adds	r3, r3, r2
+ 236:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 23a:	461a      	mov	r2, r3
+ 23c:	683b      	ldr	r3, [r7, #0]
+ 23e:	689b      	ldr	r3, [r3, #8]
+ 240:	fbb2 f3f3 	udiv	r3, r2, r3
+ 244:	b29b      	uxth	r3, r3
+ 246:	f103 0305 	add.w	r3, r3, #5
+ 24a:	b29b      	uxth	r3, r3
+ 24c:	627b      	str	r3, [r7, #36]	; 0x24
+ 24e:	e015      	b.n	27c <I2S_Init+0x164>
+    }
+    else
+    {
+      /* MCLK output is disabled */
+      tmp = (uint16_t)(((((sourceclock / (32 * packetlength)) *10 ) / I2S_InitStruct->I2S_AudioFreq)) + 5);
+ 250:	8d7b      	ldrh	r3, [r7, #42]	; 0x2a
+ 252:	ea4f 1343 	mov.w	r3, r3, lsl #5
+ 256:	6a3a      	ldr	r2, [r7, #32]
+ 258:	fbb2 f2f3 	udiv	r2, r2, r3
+ 25c:	4613      	mov	r3, r2
+ 25e:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 262:	189b      	adds	r3, r3, r2
+ 264:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 268:	461a      	mov	r2, r3
+ 26a:	683b      	ldr	r3, [r7, #0]
+ 26c:	689b      	ldr	r3, [r3, #8]
+ 26e:	fbb2 f3f3 	udiv	r3, r2, r3
+ 272:	b29b      	uxth	r3, r3
+ 274:	f103 0305 	add.w	r3, r3, #5
+ 278:	b29b      	uxth	r3, r3
+ 27a:	627b      	str	r3, [r7, #36]	; 0x24
+    }
+    
+    /* Remove the floating point */
+    tmp = tmp / 10;  
+ 27c:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 27e:	4b29      	ldr	r3, [pc, #164]	; (324 <I2S_Init+0x20c>)
+ 280:	fba3 1302 	umull	r1, r3, r3, r2
+ 284:	ea4f 03d3 	mov.w	r3, r3, lsr #3
+ 288:	627b      	str	r3, [r7, #36]	; 0x24
+      
+    /* Check the parity of the divider */
+    i2sodd = (uint16_t)(tmp & (uint16_t)0x0001);
+ 28a:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 28c:	b29b      	uxth	r3, r3
+ 28e:	f003 0301 	and.w	r3, r3, #1
+ 292:	85bb      	strh	r3, [r7, #44]	; 0x2c
+   
+    /* Compute the i2sdiv prescaler */
+    i2sdiv = (uint16_t)((tmp - i2sodd) / 2);
+ 294:	8dbb      	ldrh	r3, [r7, #44]	; 0x2c
+ 296:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+ 298:	1ad3      	subs	r3, r2, r3
+ 29a:	ea4f 0353 	mov.w	r3, r3, lsr #1
+ 29e:	85fb      	strh	r3, [r7, #46]	; 0x2e
+   
+    /* Get the Mask for the Odd bit (SPI_I2SPR[8]) register */
+    i2sodd = (uint16_t) (i2sodd << 8);
+ 2a0:	8dbb      	ldrh	r3, [r7, #44]	; 0x2c
+ 2a2:	ea4f 2303 	mov.w	r3, r3, lsl #8
+ 2a6:	85bb      	strh	r3, [r7, #44]	; 0x2c
+  }
+  
+  /* Test if the divider is 1 or 0 or greater than 0xFF */
+  if ((i2sdiv < 2) || (i2sdiv > 0xFF))
+ 2a8:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+ 2aa:	2b01      	cmp	r3, #1
+ 2ac:	d902      	bls.n	2b4 <I2S_Init+0x19c>
+ 2ae:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+ 2b0:	2bff      	cmp	r3, #255	; 0xff
+ 2b2:	d905      	bls.n	2c0 <I2S_Init+0x1a8>
+  {
+    /* Set the default values */
+    i2sdiv = 2;
+ 2b4:	f04f 0302 	mov.w	r3, #2
+ 2b8:	85fb      	strh	r3, [r7, #46]	; 0x2e
+    i2sodd = 0;
+ 2ba:	f04f 0300 	mov.w	r3, #0
+ 2be:	85bb      	strh	r3, [r7, #44]	; 0x2c
+  }
+
+  /* Write to SPIx I2SPR register the computed value */
+  SPIx->I2SPR = (uint16_t)(i2sdiv | (uint16_t)(i2sodd | (uint16_t)I2S_InitStruct->I2S_MCLKOutput));  
+ 2c0:	683b      	ldr	r3, [r7, #0]
+ 2c2:	88da      	ldrh	r2, [r3, #6]
+ 2c4:	8dbb      	ldrh	r3, [r7, #44]	; 0x2c
+ 2c6:	ea42 0303 	orr.w	r3, r2, r3
+ 2ca:	b29a      	uxth	r2, r3
+ 2cc:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+ 2ce:	ea42 0303 	orr.w	r3, r2, r3
+ 2d2:	b29a      	uxth	r2, r3
+ 2d4:	687b      	ldr	r3, [r7, #4]
+ 2d6:	841a      	strh	r2, [r3, #32]
+ 
+  /* Configure the I2S with the SPI_InitStruct values */
+  tmpreg |= (uint16_t)(I2S_Mode_Select | (uint16_t)(I2S_InitStruct->I2S_Mode | \
+ 2d8:	683b      	ldr	r3, [r7, #0]
+ 2da:	881a      	ldrh	r2, [r3, #0]
+                  (uint16_t)(I2S_InitStruct->I2S_Standard | (uint16_t)(I2S_InitStruct->I2S_DataFormat | \
+ 2dc:	683b      	ldr	r3, [r7, #0]
+ 2de:	8859      	ldrh	r1, [r3, #2]
+ 2e0:	683b      	ldr	r3, [r7, #0]
+ 2e2:	8898      	ldrh	r0, [r3, #4]
+                  (uint16_t)I2S_InitStruct->I2S_CPOL))));
+ 2e4:	683b      	ldr	r3, [r7, #0]
+ 2e6:	899b      	ldrh	r3, [r3, #12]
+  /* Write to SPIx I2SPR register the computed value */
+  SPIx->I2SPR = (uint16_t)(i2sdiv | (uint16_t)(i2sodd | (uint16_t)I2S_InitStruct->I2S_MCLKOutput));  
+ 
+  /* Configure the I2S with the SPI_InitStruct values */
+  tmpreg |= (uint16_t)(I2S_Mode_Select | (uint16_t)(I2S_InitStruct->I2S_Mode | \
+                  (uint16_t)(I2S_InitStruct->I2S_Standard | (uint16_t)(I2S_InitStruct->I2S_DataFormat | \
+ 2e8:	ea40 0303 	orr.w	r3, r0, r3
+ 2ec:	b29b      	uxth	r3, r3
+ 2ee:	ea41 0303 	orr.w	r3, r1, r3
+ 2f2:	b29b      	uxth	r3, r3
+
+  /* Write to SPIx I2SPR register the computed value */
+  SPIx->I2SPR = (uint16_t)(i2sdiv | (uint16_t)(i2sodd | (uint16_t)I2S_InitStruct->I2S_MCLKOutput));  
+ 
+  /* Configure the I2S with the SPI_InitStruct values */
+  tmpreg |= (uint16_t)(I2S_Mode_Select | (uint16_t)(I2S_InitStruct->I2S_Mode | \
+ 2f4:	ea42 0303 	orr.w	r3, r2, r3
+ 2f8:	b29a      	uxth	r2, r3
+ 2fa:	8bfb      	ldrh	r3, [r7, #30]
+ 2fc:	ea42 0303 	orr.w	r3, r2, r3
+ 300:	b29b      	uxth	r3, r3
+ 302:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+ 306:	83fb      	strh	r3, [r7, #30]
+                  (uint16_t)(I2S_InitStruct->I2S_Standard | (uint16_t)(I2S_InitStruct->I2S_DataFormat | \
+                  (uint16_t)I2S_InitStruct->I2S_CPOL))));
+ 
+  /* Write to SPIx I2SCFGR */  
+  SPIx->I2SCFGR = tmpreg;   
+ 308:	687b      	ldr	r3, [r7, #4]
+ 30a:	8bfa      	ldrh	r2, [r7, #30]
+ 30c:	839a      	strh	r2, [r3, #28]
+}
+ 30e:	f107 0730 	add.w	r7, r7, #48	; 0x30
+ 312:	46bd      	mov	sp, r7
+ 314:	bd80      	pop	{r7, pc}
+ 316:	bf00      	nop
+ 318:	40003800 	.word	0x40003800
+ 31c:	40021000 	.word	0x40021000
+ 320:	017d7840 	.word	0x017d7840
+ 324:	cccccccd 	.word	0xcccccccd
+
+00000328 <SPI_StructInit>:
+  * @brief  Fills each SPI_InitStruct member with its default value.
+  * @param  SPI_InitStruct : pointer to a SPI_InitTypeDef structure which will be initialized.
+  * @retval None
+  */
+void SPI_StructInit(SPI_InitTypeDef* SPI_InitStruct)
+{
+ 328:	b480      	push	{r7}
+ 32a:	b083      	sub	sp, #12
+ 32c:	af00      	add	r7, sp, #0
+ 32e:	6078      	str	r0, [r7, #4]
+/*--------------- Reset SPI init structure parameters values -----------------*/
+  /* Initialize the SPI_Direction member */
+  SPI_InitStruct->SPI_Direction = SPI_Direction_2Lines_FullDuplex;
+ 330:	687b      	ldr	r3, [r7, #4]
+ 332:	f04f 0200 	mov.w	r2, #0
+ 336:	801a      	strh	r2, [r3, #0]
+  /* initialize the SPI_Mode member */
+  SPI_InitStruct->SPI_Mode = SPI_Mode_Slave;
+ 338:	687b      	ldr	r3, [r7, #4]
+ 33a:	f04f 0200 	mov.w	r2, #0
+ 33e:	805a      	strh	r2, [r3, #2]
+  /* initialize the SPI_DataSize member */
+  SPI_InitStruct->SPI_DataSize = SPI_DataSize_8b;
+ 340:	687b      	ldr	r3, [r7, #4]
+ 342:	f04f 0200 	mov.w	r2, #0
+ 346:	809a      	strh	r2, [r3, #4]
+  /* Initialize the SPI_CPOL member */
+  SPI_InitStruct->SPI_CPOL = SPI_CPOL_Low;
+ 348:	687b      	ldr	r3, [r7, #4]
+ 34a:	f04f 0200 	mov.w	r2, #0
+ 34e:	80da      	strh	r2, [r3, #6]
+  /* Initialize the SPI_CPHA member */
+  SPI_InitStruct->SPI_CPHA = SPI_CPHA_1Edge;
+ 350:	687b      	ldr	r3, [r7, #4]
+ 352:	f04f 0200 	mov.w	r2, #0
+ 356:	811a      	strh	r2, [r3, #8]
+  /* Initialize the SPI_NSS member */
+  SPI_InitStruct->SPI_NSS = SPI_NSS_Hard;
+ 358:	687b      	ldr	r3, [r7, #4]
+ 35a:	f04f 0200 	mov.w	r2, #0
+ 35e:	815a      	strh	r2, [r3, #10]
+  /* Initialize the SPI_BaudRatePrescaler member */
+  SPI_InitStruct->SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_2;
+ 360:	687b      	ldr	r3, [r7, #4]
+ 362:	f04f 0200 	mov.w	r2, #0
+ 366:	819a      	strh	r2, [r3, #12]
+  /* Initialize the SPI_FirstBit member */
+  SPI_InitStruct->SPI_FirstBit = SPI_FirstBit_MSB;
+ 368:	687b      	ldr	r3, [r7, #4]
+ 36a:	f04f 0200 	mov.w	r2, #0
+ 36e:	81da      	strh	r2, [r3, #14]
+  /* Initialize the SPI_CRCPolynomial member */
+  SPI_InitStruct->SPI_CRCPolynomial = 7;
+ 370:	687b      	ldr	r3, [r7, #4]
+ 372:	f04f 0207 	mov.w	r2, #7
+ 376:	821a      	strh	r2, [r3, #16]
+}
+ 378:	f107 070c 	add.w	r7, r7, #12
+ 37c:	46bd      	mov	sp, r7
+ 37e:	bc80      	pop	{r7}
+ 380:	4770      	bx	lr
+ 382:	bf00      	nop
+
+00000384 <I2S_StructInit>:
+  * @brief  Fills each I2S_InitStruct member with its default value.
+  * @param  I2S_InitStruct : pointer to a I2S_InitTypeDef structure which will be initialized.
+  * @retval None
+  */
+void I2S_StructInit(I2S_InitTypeDef* I2S_InitStruct)
+{
+ 384:	b480      	push	{r7}
+ 386:	b083      	sub	sp, #12
+ 388:	af00      	add	r7, sp, #0
+ 38a:	6078      	str	r0, [r7, #4]
+/*--------------- Reset I2S init structure parameters values -----------------*/
+  /* Initialize the I2S_Mode member */
+  I2S_InitStruct->I2S_Mode = I2S_Mode_SlaveTx;
+ 38c:	687b      	ldr	r3, [r7, #4]
+ 38e:	f04f 0200 	mov.w	r2, #0
+ 392:	801a      	strh	r2, [r3, #0]
+  
+  /* Initialize the I2S_Standard member */
+  I2S_InitStruct->I2S_Standard = I2S_Standard_Phillips;
+ 394:	687b      	ldr	r3, [r7, #4]
+ 396:	f04f 0200 	mov.w	r2, #0
+ 39a:	805a      	strh	r2, [r3, #2]
+  
+  /* Initialize the I2S_DataFormat member */
+  I2S_InitStruct->I2S_DataFormat = I2S_DataFormat_16b;
+ 39c:	687b      	ldr	r3, [r7, #4]
+ 39e:	f04f 0200 	mov.w	r2, #0
+ 3a2:	809a      	strh	r2, [r3, #4]
+  
+  /* Initialize the I2S_MCLKOutput member */
+  I2S_InitStruct->I2S_MCLKOutput = I2S_MCLKOutput_Disable;
+ 3a4:	687b      	ldr	r3, [r7, #4]
+ 3a6:	f04f 0200 	mov.w	r2, #0
+ 3aa:	80da      	strh	r2, [r3, #6]
+  
+  /* Initialize the I2S_AudioFreq member */
+  I2S_InitStruct->I2S_AudioFreq = I2S_AudioFreq_Default;
+ 3ac:	687b      	ldr	r3, [r7, #4]
+ 3ae:	f04f 0202 	mov.w	r2, #2
+ 3b2:	609a      	str	r2, [r3, #8]
+  
+  /* Initialize the I2S_CPOL member */
+  I2S_InitStruct->I2S_CPOL = I2S_CPOL_Low;
+ 3b4:	687b      	ldr	r3, [r7, #4]
+ 3b6:	f04f 0200 	mov.w	r2, #0
+ 3ba:	819a      	strh	r2, [r3, #12]
+}
+ 3bc:	f107 070c 	add.w	r7, r7, #12
+ 3c0:	46bd      	mov	sp, r7
+ 3c2:	bc80      	pop	{r7}
+ 3c4:	4770      	bx	lr
+ 3c6:	bf00      	nop
+
+000003c8 <SPI_Cmd>:
+  * @param  NewState: new state of the SPIx peripheral. 
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void SPI_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)
+{
+ 3c8:	b480      	push	{r7}
+ 3ca:	b083      	sub	sp, #12
+ 3cc:	af00      	add	r7, sp, #0
+ 3ce:	6078      	str	r0, [r7, #4]
+ 3d0:	460b      	mov	r3, r1
+ 3d2:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 3d4:	78fb      	ldrb	r3, [r7, #3]
+ 3d6:	2b00      	cmp	r3, #0
+ 3d8:	d008      	beq.n	3ec <SPI_Cmd+0x24>
+  {
+    /* Enable the selected SPI peripheral */
+    SPIx->CR1 |= CR1_SPE_Set;
+ 3da:	687b      	ldr	r3, [r7, #4]
+ 3dc:	881b      	ldrh	r3, [r3, #0]
+ 3de:	b29b      	uxth	r3, r3
+ 3e0:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+ 3e4:	b29a      	uxth	r2, r3
+ 3e6:	687b      	ldr	r3, [r7, #4]
+ 3e8:	801a      	strh	r2, [r3, #0]
+ 3ea:	e007      	b.n	3fc <SPI_Cmd+0x34>
+  }
+  else
+  {
+    /* Disable the selected SPI peripheral */
+    SPIx->CR1 &= CR1_SPE_Reset;
+ 3ec:	687b      	ldr	r3, [r7, #4]
+ 3ee:	881b      	ldrh	r3, [r3, #0]
+ 3f0:	b29b      	uxth	r3, r3
+ 3f2:	f023 0340 	bic.w	r3, r3, #64	; 0x40
+ 3f6:	b29a      	uxth	r2, r3
+ 3f8:	687b      	ldr	r3, [r7, #4]
+ 3fa:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 3fc:	f107 070c 	add.w	r7, r7, #12
+ 400:	46bd      	mov	sp, r7
+ 402:	bc80      	pop	{r7}
+ 404:	4770      	bx	lr
+ 406:	bf00      	nop
+
+00000408 <I2S_Cmd>:
+  * @param  NewState: new state of the SPIx peripheral. 
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2S_Cmd(SPI_TypeDef* SPIx, FunctionalState NewState)
+{
+ 408:	b480      	push	{r7}
+ 40a:	b083      	sub	sp, #12
+ 40c:	af00      	add	r7, sp, #0
+ 40e:	6078      	str	r0, [r7, #4]
+ 410:	460b      	mov	r3, r1
+ 412:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_SPI_23_PERIPH(SPIx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 414:	78fb      	ldrb	r3, [r7, #3]
+ 416:	2b00      	cmp	r3, #0
+ 418:	d008      	beq.n	42c <I2S_Cmd+0x24>
+  {
+    /* Enable the selected SPI peripheral (in I2S mode) */
+    SPIx->I2SCFGR |= I2SCFGR_I2SE_Set;
+ 41a:	687b      	ldr	r3, [r7, #4]
+ 41c:	8b9b      	ldrh	r3, [r3, #28]
+ 41e:	b29b      	uxth	r3, r3
+ 420:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
+ 424:	b29a      	uxth	r2, r3
+ 426:	687b      	ldr	r3, [r7, #4]
+ 428:	839a      	strh	r2, [r3, #28]
+ 42a:	e007      	b.n	43c <I2S_Cmd+0x34>
+  }
+  else
+  {
+    /* Disable the selected SPI peripheral (in I2S mode) */
+    SPIx->I2SCFGR &= I2SCFGR_I2SE_Reset;
+ 42c:	687b      	ldr	r3, [r7, #4]
+ 42e:	8b9b      	ldrh	r3, [r3, #28]
+ 430:	b29b      	uxth	r3, r3
+ 432:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+ 436:	b29a      	uxth	r2, r3
+ 438:	687b      	ldr	r3, [r7, #4]
+ 43a:	839a      	strh	r2, [r3, #28]
+  }
+}
+ 43c:	f107 070c 	add.w	r7, r7, #12
+ 440:	46bd      	mov	sp, r7
+ 442:	bc80      	pop	{r7}
+ 444:	4770      	bx	lr
+ 446:	bf00      	nop
+
+00000448 <SPI_I2S_ITConfig>:
+  * @param  NewState: new state of the specified SPI/I2S interrupt.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void SPI_I2S_ITConfig(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT, FunctionalState NewState)
+{
+ 448:	b480      	push	{r7}
+ 44a:	b085      	sub	sp, #20
+ 44c:	af00      	add	r7, sp, #0
+ 44e:	6078      	str	r0, [r7, #4]
+ 450:	4613      	mov	r3, r2
+ 452:	460a      	mov	r2, r1
+ 454:	70fa      	strb	r2, [r7, #3]
+ 456:	70bb      	strb	r3, [r7, #2]
+  uint16_t itpos = 0, itmask = 0 ;
+ 458:	f04f 0300 	mov.w	r3, #0
+ 45c:	81fb      	strh	r3, [r7, #14]
+ 45e:	f04f 0300 	mov.w	r3, #0
+ 462:	81bb      	strh	r3, [r7, #12]
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  assert_param(IS_SPI_I2S_CONFIG_IT(SPI_I2S_IT));
+
+  /* Get the SPI/I2S IT index */
+  itpos = SPI_I2S_IT >> 4;
+ 464:	78fb      	ldrb	r3, [r7, #3]
+ 466:	ea4f 1313 	mov.w	r3, r3, lsr #4
+ 46a:	b2db      	uxtb	r3, r3
+ 46c:	81fb      	strh	r3, [r7, #14]
+
+  /* Set the IT mask */
+  itmask = (uint16_t)1 << (uint16_t)itpos;
+ 46e:	89fb      	ldrh	r3, [r7, #14]
+ 470:	f04f 0201 	mov.w	r2, #1
+ 474:	fa02 f303 	lsl.w	r3, r2, r3
+ 478:	81bb      	strh	r3, [r7, #12]
+
+  if (NewState != DISABLE)
+ 47a:	78bb      	ldrb	r3, [r7, #2]
+ 47c:	2b00      	cmp	r3, #0
+ 47e:	d009      	beq.n	494 <SPI_I2S_ITConfig+0x4c>
+  {
+    /* Enable the selected SPI/I2S interrupt */
+    SPIx->CR2 |= itmask;
+ 480:	687b      	ldr	r3, [r7, #4]
+ 482:	889b      	ldrh	r3, [r3, #4]
+ 484:	b29a      	uxth	r2, r3
+ 486:	89bb      	ldrh	r3, [r7, #12]
+ 488:	ea42 0303 	orr.w	r3, r2, r3
+ 48c:	b29a      	uxth	r2, r3
+ 48e:	687b      	ldr	r3, [r7, #4]
+ 490:	809a      	strh	r2, [r3, #4]
+ 492:	e00b      	b.n	4ac <SPI_I2S_ITConfig+0x64>
+  }
+  else
+  {
+    /* Disable the selected SPI/I2S interrupt */
+    SPIx->CR2 &= (uint16_t)~itmask;
+ 494:	687b      	ldr	r3, [r7, #4]
+ 496:	889b      	ldrh	r3, [r3, #4]
+ 498:	b29a      	uxth	r2, r3
+ 49a:	89bb      	ldrh	r3, [r7, #12]
+ 49c:	ea6f 0303 	mvn.w	r3, r3
+ 4a0:	b29b      	uxth	r3, r3
+ 4a2:	ea02 0303 	and.w	r3, r2, r3
+ 4a6:	b29a      	uxth	r2, r3
+ 4a8:	687b      	ldr	r3, [r7, #4]
+ 4aa:	809a      	strh	r2, [r3, #4]
+  }
+}
+ 4ac:	f107 0714 	add.w	r7, r7, #20
+ 4b0:	46bd      	mov	sp, r7
+ 4b2:	bc80      	pop	{r7}
+ 4b4:	4770      	bx	lr
+ 4b6:	bf00      	nop
+
+000004b8 <SPI_I2S_DMACmd>:
+  * @param  NewState: new state of the selected SPI/I2S DMA transfer request.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void SPI_I2S_DMACmd(SPI_TypeDef* SPIx, uint16_t SPI_I2S_DMAReq, FunctionalState NewState)
+{
+ 4b8:	b480      	push	{r7}
+ 4ba:	b083      	sub	sp, #12
+ 4bc:	af00      	add	r7, sp, #0
+ 4be:	6078      	str	r0, [r7, #4]
+ 4c0:	4613      	mov	r3, r2
+ 4c2:	460a      	mov	r2, r1
+ 4c4:	807a      	strh	r2, [r7, #2]
+ 4c6:	707b      	strb	r3, [r7, #1]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  assert_param(IS_SPI_I2S_DMAREQ(SPI_I2S_DMAReq));
+  if (NewState != DISABLE)
+ 4c8:	787b      	ldrb	r3, [r7, #1]
+ 4ca:	2b00      	cmp	r3, #0
+ 4cc:	d009      	beq.n	4e2 <SPI_I2S_DMACmd+0x2a>
+  {
+    /* Enable the selected SPI/I2S DMA requests */
+    SPIx->CR2 |= SPI_I2S_DMAReq;
+ 4ce:	687b      	ldr	r3, [r7, #4]
+ 4d0:	889b      	ldrh	r3, [r3, #4]
+ 4d2:	b29a      	uxth	r2, r3
+ 4d4:	887b      	ldrh	r3, [r7, #2]
+ 4d6:	ea42 0303 	orr.w	r3, r2, r3
+ 4da:	b29a      	uxth	r2, r3
+ 4dc:	687b      	ldr	r3, [r7, #4]
+ 4de:	809a      	strh	r2, [r3, #4]
+ 4e0:	e00b      	b.n	4fa <SPI_I2S_DMACmd+0x42>
+  }
+  else
+  {
+    /* Disable the selected SPI/I2S DMA requests */
+    SPIx->CR2 &= (uint16_t)~SPI_I2S_DMAReq;
+ 4e2:	687b      	ldr	r3, [r7, #4]
+ 4e4:	889b      	ldrh	r3, [r3, #4]
+ 4e6:	b29a      	uxth	r2, r3
+ 4e8:	887b      	ldrh	r3, [r7, #2]
+ 4ea:	ea6f 0303 	mvn.w	r3, r3
+ 4ee:	b29b      	uxth	r3, r3
+ 4f0:	ea02 0303 	and.w	r3, r2, r3
+ 4f4:	b29a      	uxth	r2, r3
+ 4f6:	687b      	ldr	r3, [r7, #4]
+ 4f8:	809a      	strh	r2, [r3, #4]
+  }
+}
+ 4fa:	f107 070c 	add.w	r7, r7, #12
+ 4fe:	46bd      	mov	sp, r7
+ 500:	bc80      	pop	{r7}
+ 502:	4770      	bx	lr
+
+00000504 <SPI_I2S_SendData>:
+  *   - 2 or 3 in I2S mode
+  * @param  Data : Data to be transmitted.
+  * @retval None
+  */
+void SPI_I2S_SendData(SPI_TypeDef* SPIx, uint16_t Data)
+{
+ 504:	b480      	push	{r7}
+ 506:	b083      	sub	sp, #12
+ 508:	af00      	add	r7, sp, #0
+ 50a:	6078      	str	r0, [r7, #4]
+ 50c:	460b      	mov	r3, r1
+ 50e:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  
+  /* Write in the DR register the data to be sent */
+  SPIx->DR = Data;
+ 510:	687b      	ldr	r3, [r7, #4]
+ 512:	887a      	ldrh	r2, [r7, #2]
+ 514:	819a      	strh	r2, [r3, #12]
+}
+ 516:	f107 070c 	add.w	r7, r7, #12
+ 51a:	46bd      	mov	sp, r7
+ 51c:	bc80      	pop	{r7}
+ 51e:	4770      	bx	lr
+
+00000520 <SPI_I2S_ReceiveData>:
+  *   - 1, 2 or 3 in SPI mode 
+  *   - 2 or 3 in I2S mode
+  * @retval The value of the received data.
+  */
+uint16_t SPI_I2S_ReceiveData(SPI_TypeDef* SPIx)
+{
+ 520:	b480      	push	{r7}
+ 522:	b083      	sub	sp, #12
+ 524:	af00      	add	r7, sp, #0
+ 526:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  
+  /* Return the data in the DR register */
+  return SPIx->DR;
+ 528:	687b      	ldr	r3, [r7, #4]
+ 52a:	899b      	ldrh	r3, [r3, #12]
+ 52c:	b29b      	uxth	r3, r3
+}
+ 52e:	4618      	mov	r0, r3
+ 530:	f107 070c 	add.w	r7, r7, #12
+ 534:	46bd      	mov	sp, r7
+ 536:	bc80      	pop	{r7}
+ 538:	4770      	bx	lr
+ 53a:	bf00      	nop
+
+0000053c <SPI_NSSInternalSoftwareConfig>:
+  *     @arg SPI_NSSInternalSoft_Set: Set NSS pin internally
+  *     @arg SPI_NSSInternalSoft_Reset: Reset NSS pin internally
+  * @retval None
+  */
+void SPI_NSSInternalSoftwareConfig(SPI_TypeDef* SPIx, uint16_t SPI_NSSInternalSoft)
+{
+ 53c:	b480      	push	{r7}
+ 53e:	b083      	sub	sp, #12
+ 540:	af00      	add	r7, sp, #0
+ 542:	6078      	str	r0, [r7, #4]
+ 544:	460b      	mov	r3, r1
+ 546:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_NSS_INTERNAL(SPI_NSSInternalSoft));
+  if (SPI_NSSInternalSoft != SPI_NSSInternalSoft_Reset)
+ 548:	887a      	ldrh	r2, [r7, #2]
+ 54a:	f64f 63ff 	movw	r3, #65279	; 0xfeff
+ 54e:	429a      	cmp	r2, r3
+ 550:	d008      	beq.n	564 <SPI_NSSInternalSoftwareConfig+0x28>
+  {
+    /* Set NSS pin internally by software */
+    SPIx->CR1 |= SPI_NSSInternalSoft_Set;
+ 552:	687b      	ldr	r3, [r7, #4]
+ 554:	881b      	ldrh	r3, [r3, #0]
+ 556:	b29b      	uxth	r3, r3
+ 558:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 55c:	b29a      	uxth	r2, r3
+ 55e:	687b      	ldr	r3, [r7, #4]
+ 560:	801a      	strh	r2, [r3, #0]
+ 562:	e007      	b.n	574 <SPI_NSSInternalSoftwareConfig+0x38>
+  }
+  else
+  {
+    /* Reset NSS pin internally by software */
+    SPIx->CR1 &= SPI_NSSInternalSoft_Reset;
+ 564:	687b      	ldr	r3, [r7, #4]
+ 566:	881b      	ldrh	r3, [r3, #0]
+ 568:	b29b      	uxth	r3, r3
+ 56a:	f423 7380 	bic.w	r3, r3, #256	; 0x100
+ 56e:	b29a      	uxth	r2, r3
+ 570:	687b      	ldr	r3, [r7, #4]
+ 572:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 574:	f107 070c 	add.w	r7, r7, #12
+ 578:	46bd      	mov	sp, r7
+ 57a:	bc80      	pop	{r7}
+ 57c:	4770      	bx	lr
+ 57e:	bf00      	nop
+
+00000580 <SPI_SSOutputCmd>:
+  * @param  NewState: new state of the SPIx SS output. 
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void SPI_SSOutputCmd(SPI_TypeDef* SPIx, FunctionalState NewState)
+{
+ 580:	b480      	push	{r7}
+ 582:	b083      	sub	sp, #12
+ 584:	af00      	add	r7, sp, #0
+ 586:	6078      	str	r0, [r7, #4]
+ 588:	460b      	mov	r3, r1
+ 58a:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 58c:	78fb      	ldrb	r3, [r7, #3]
+ 58e:	2b00      	cmp	r3, #0
+ 590:	d008      	beq.n	5a4 <SPI_SSOutputCmd+0x24>
+  {
+    /* Enable the selected SPI SS output */
+    SPIx->CR2 |= CR2_SSOE_Set;
+ 592:	687b      	ldr	r3, [r7, #4]
+ 594:	889b      	ldrh	r3, [r3, #4]
+ 596:	b29b      	uxth	r3, r3
+ 598:	f043 0304 	orr.w	r3, r3, #4
+ 59c:	b29a      	uxth	r2, r3
+ 59e:	687b      	ldr	r3, [r7, #4]
+ 5a0:	809a      	strh	r2, [r3, #4]
+ 5a2:	e007      	b.n	5b4 <SPI_SSOutputCmd+0x34>
+  }
+  else
+  {
+    /* Disable the selected SPI SS output */
+    SPIx->CR2 &= CR2_SSOE_Reset;
+ 5a4:	687b      	ldr	r3, [r7, #4]
+ 5a6:	889b      	ldrh	r3, [r3, #4]
+ 5a8:	b29b      	uxth	r3, r3
+ 5aa:	f023 0304 	bic.w	r3, r3, #4
+ 5ae:	b29a      	uxth	r2, r3
+ 5b0:	687b      	ldr	r3, [r7, #4]
+ 5b2:	809a      	strh	r2, [r3, #4]
+  }
+}
+ 5b4:	f107 070c 	add.w	r7, r7, #12
+ 5b8:	46bd      	mov	sp, r7
+ 5ba:	bc80      	pop	{r7}
+ 5bc:	4770      	bx	lr
+ 5be:	bf00      	nop
+
+000005c0 <SPI_DataSizeConfig>:
+  *     @arg SPI_DataSize_16b: Set data frame format to 16bit
+  *     @arg SPI_DataSize_8b: Set data frame format to 8bit
+  * @retval None
+  */
+void SPI_DataSizeConfig(SPI_TypeDef* SPIx, uint16_t SPI_DataSize)
+{
+ 5c0:	b480      	push	{r7}
+ 5c2:	b083      	sub	sp, #12
+ 5c4:	af00      	add	r7, sp, #0
+ 5c6:	6078      	str	r0, [r7, #4]
+ 5c8:	460b      	mov	r3, r1
+ 5ca:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_DATASIZE(SPI_DataSize));
+  /* Clear DFF bit */
+  SPIx->CR1 &= (uint16_t)~SPI_DataSize_16b;
+ 5cc:	687b      	ldr	r3, [r7, #4]
+ 5ce:	881b      	ldrh	r3, [r3, #0]
+ 5d0:	b29b      	uxth	r3, r3
+ 5d2:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 5d6:	b29a      	uxth	r2, r3
+ 5d8:	687b      	ldr	r3, [r7, #4]
+ 5da:	801a      	strh	r2, [r3, #0]
+  /* Set new DFF bit value */
+  SPIx->CR1 |= SPI_DataSize;
+ 5dc:	687b      	ldr	r3, [r7, #4]
+ 5de:	881b      	ldrh	r3, [r3, #0]
+ 5e0:	b29a      	uxth	r2, r3
+ 5e2:	887b      	ldrh	r3, [r7, #2]
+ 5e4:	ea42 0303 	orr.w	r3, r2, r3
+ 5e8:	b29a      	uxth	r2, r3
+ 5ea:	687b      	ldr	r3, [r7, #4]
+ 5ec:	801a      	strh	r2, [r3, #0]
+}
+ 5ee:	f107 070c 	add.w	r7, r7, #12
+ 5f2:	46bd      	mov	sp, r7
+ 5f4:	bc80      	pop	{r7}
+ 5f6:	4770      	bx	lr
+
+000005f8 <SPI_TransmitCRC>:
+  * @brief  Transmit the SPIx CRC value.
+  * @param  SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+  * @retval None
+  */
+void SPI_TransmitCRC(SPI_TypeDef* SPIx)
+{
+ 5f8:	b480      	push	{r7}
+ 5fa:	b083      	sub	sp, #12
+ 5fc:	af00      	add	r7, sp, #0
+ 5fe:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  
+  /* Enable the selected SPI CRC transmission */
+  SPIx->CR1 |= CR1_CRCNext_Set;
+ 600:	687b      	ldr	r3, [r7, #4]
+ 602:	881b      	ldrh	r3, [r3, #0]
+ 604:	b29b      	uxth	r3, r3
+ 606:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 60a:	b29a      	uxth	r2, r3
+ 60c:	687b      	ldr	r3, [r7, #4]
+ 60e:	801a      	strh	r2, [r3, #0]
+}
+ 610:	f107 070c 	add.w	r7, r7, #12
+ 614:	46bd      	mov	sp, r7
+ 616:	bc80      	pop	{r7}
+ 618:	4770      	bx	lr
+ 61a:	bf00      	nop
+
+0000061c <SPI_CalculateCRC>:
+  * @param  NewState: new state of the SPIx CRC value calculation.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void SPI_CalculateCRC(SPI_TypeDef* SPIx, FunctionalState NewState)
+{
+ 61c:	b480      	push	{r7}
+ 61e:	b083      	sub	sp, #12
+ 620:	af00      	add	r7, sp, #0
+ 622:	6078      	str	r0, [r7, #4]
+ 624:	460b      	mov	r3, r1
+ 626:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 628:	78fb      	ldrb	r3, [r7, #3]
+ 62a:	2b00      	cmp	r3, #0
+ 62c:	d008      	beq.n	640 <SPI_CalculateCRC+0x24>
+  {
+    /* Enable the selected SPI CRC calculation */
+    SPIx->CR1 |= CR1_CRCEN_Set;
+ 62e:	687b      	ldr	r3, [r7, #4]
+ 630:	881b      	ldrh	r3, [r3, #0]
+ 632:	b29b      	uxth	r3, r3
+ 634:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
+ 638:	b29a      	uxth	r2, r3
+ 63a:	687b      	ldr	r3, [r7, #4]
+ 63c:	801a      	strh	r2, [r3, #0]
+ 63e:	e007      	b.n	650 <SPI_CalculateCRC+0x34>
+  }
+  else
+  {
+    /* Disable the selected SPI CRC calculation */
+    SPIx->CR1 &= CR1_CRCEN_Reset;
+ 640:	687b      	ldr	r3, [r7, #4]
+ 642:	881b      	ldrh	r3, [r3, #0]
+ 644:	b29b      	uxth	r3, r3
+ 646:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+ 64a:	b29a      	uxth	r2, r3
+ 64c:	687b      	ldr	r3, [r7, #4]
+ 64e:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 650:	f107 070c 	add.w	r7, r7, #12
+ 654:	46bd      	mov	sp, r7
+ 656:	bc80      	pop	{r7}
+ 658:	4770      	bx	lr
+ 65a:	bf00      	nop
+
+0000065c <SPI_GetCRC>:
+  *     @arg SPI_CRC_Tx: Selects Tx CRC register
+  *     @arg SPI_CRC_Rx: Selects Rx CRC register
+  * @retval The selected CRC register value..
+  */
+uint16_t SPI_GetCRC(SPI_TypeDef* SPIx, uint8_t SPI_CRC)
+{
+ 65c:	b480      	push	{r7}
+ 65e:	b085      	sub	sp, #20
+ 660:	af00      	add	r7, sp, #0
+ 662:	6078      	str	r0, [r7, #4]
+ 664:	460b      	mov	r3, r1
+ 666:	70fb      	strb	r3, [r7, #3]
+  uint16_t crcreg = 0;
+ 668:	f04f 0300 	mov.w	r3, #0
+ 66c:	81fb      	strh	r3, [r7, #14]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_CRC(SPI_CRC));
+  if (SPI_CRC != SPI_CRC_Rx)
+ 66e:	78fb      	ldrb	r3, [r7, #3]
+ 670:	2b01      	cmp	r3, #1
+ 672:	d003      	beq.n	67c <SPI_GetCRC+0x20>
+  {
+    /* Get the Tx CRC register */
+    crcreg = SPIx->TXCRCR;
+ 674:	687b      	ldr	r3, [r7, #4]
+ 676:	8b1b      	ldrh	r3, [r3, #24]
+ 678:	81fb      	strh	r3, [r7, #14]
+ 67a:	e002      	b.n	682 <SPI_GetCRC+0x26>
+  }
+  else
+  {
+    /* Get the Rx CRC register */
+    crcreg = SPIx->RXCRCR;
+ 67c:	687b      	ldr	r3, [r7, #4]
+ 67e:	8a9b      	ldrh	r3, [r3, #20]
+ 680:	81fb      	strh	r3, [r7, #14]
+  }
+  /* Return the selected CRC register */
+  return crcreg;
+ 682:	89fb      	ldrh	r3, [r7, #14]
+}
+ 684:	4618      	mov	r0, r3
+ 686:	f107 0714 	add.w	r7, r7, #20
+ 68a:	46bd      	mov	sp, r7
+ 68c:	bc80      	pop	{r7}
+ 68e:	4770      	bx	lr
+
+00000690 <SPI_GetCRCPolynomial>:
+  * @brief  Returns the CRC Polynomial register value for the specified SPI.
+  * @param  SPIx: where x can be 1, 2 or 3 to select the SPI peripheral.
+  * @retval The CRC Polynomial register value.
+  */
+uint16_t SPI_GetCRCPolynomial(SPI_TypeDef* SPIx)
+{
+ 690:	b480      	push	{r7}
+ 692:	b083      	sub	sp, #12
+ 694:	af00      	add	r7, sp, #0
+ 696:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  
+  /* Return the CRC polynomial register */
+  return SPIx->CRCPR;
+ 698:	687b      	ldr	r3, [r7, #4]
+ 69a:	8a1b      	ldrh	r3, [r3, #16]
+ 69c:	b29b      	uxth	r3, r3
+}
+ 69e:	4618      	mov	r0, r3
+ 6a0:	f107 070c 	add.w	r7, r7, #12
+ 6a4:	46bd      	mov	sp, r7
+ 6a6:	bc80      	pop	{r7}
+ 6a8:	4770      	bx	lr
+ 6aa:	bf00      	nop
+
+000006ac <SPI_BiDirectionalLineConfig>:
+  *     @arg SPI_Direction_Tx: Selects Tx transmission direction
+  *     @arg SPI_Direction_Rx: Selects Rx receive direction
+  * @retval None
+  */
+void SPI_BiDirectionalLineConfig(SPI_TypeDef* SPIx, uint16_t SPI_Direction)
+{
+ 6ac:	b480      	push	{r7}
+ 6ae:	b083      	sub	sp, #12
+ 6b0:	af00      	add	r7, sp, #0
+ 6b2:	6078      	str	r0, [r7, #4]
+ 6b4:	460b      	mov	r3, r1
+ 6b6:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_DIRECTION(SPI_Direction));
+  if (SPI_Direction == SPI_Direction_Tx)
+ 6b8:	887b      	ldrh	r3, [r7, #2]
+ 6ba:	f5b3 4f80 	cmp.w	r3, #16384	; 0x4000
+ 6be:	d108      	bne.n	6d2 <SPI_BiDirectionalLineConfig+0x26>
+  {
+    /* Set the Tx only mode */
+    SPIx->CR1 |= SPI_Direction_Tx;
+ 6c0:	687b      	ldr	r3, [r7, #4]
+ 6c2:	881b      	ldrh	r3, [r3, #0]
+ 6c4:	b29b      	uxth	r3, r3
+ 6c6:	f443 4380 	orr.w	r3, r3, #16384	; 0x4000
+ 6ca:	b29a      	uxth	r2, r3
+ 6cc:	687b      	ldr	r3, [r7, #4]
+ 6ce:	801a      	strh	r2, [r3, #0]
+ 6d0:	e007      	b.n	6e2 <SPI_BiDirectionalLineConfig+0x36>
+  }
+  else
+  {
+    /* Set the Rx only mode */
+    SPIx->CR1 &= SPI_Direction_Rx;
+ 6d2:	687b      	ldr	r3, [r7, #4]
+ 6d4:	881b      	ldrh	r3, [r3, #0]
+ 6d6:	b29b      	uxth	r3, r3
+ 6d8:	f423 4380 	bic.w	r3, r3, #16384	; 0x4000
+ 6dc:	b29a      	uxth	r2, r3
+ 6de:	687b      	ldr	r3, [r7, #4]
+ 6e0:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 6e2:	f107 070c 	add.w	r7, r7, #12
+ 6e6:	46bd      	mov	sp, r7
+ 6e8:	bc80      	pop	{r7}
+ 6ea:	4770      	bx	lr
+
+000006ec <SPI_I2S_GetFlagStatus>:
+  *     @arg I2S_FLAG_UDR: Underrun Error flag.
+  *     @arg I2S_FLAG_CHSIDE: Channel Side flag.
+  * @retval The new state of SPI_I2S_FLAG (SET or RESET).
+  */
+FlagStatus SPI_I2S_GetFlagStatus(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG)
+{
+ 6ec:	b480      	push	{r7}
+ 6ee:	b085      	sub	sp, #20
+ 6f0:	af00      	add	r7, sp, #0
+ 6f2:	6078      	str	r0, [r7, #4]
+ 6f4:	460b      	mov	r3, r1
+ 6f6:	807b      	strh	r3, [r7, #2]
+  FlagStatus bitstatus = RESET;
+ 6f8:	f04f 0300 	mov.w	r3, #0
+ 6fc:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_I2S_GET_FLAG(SPI_I2S_FLAG));
+  /* Check the status of the specified SPI/I2S flag */
+  if ((SPIx->SR & SPI_I2S_FLAG) != (uint16_t)RESET)
+ 6fe:	687b      	ldr	r3, [r7, #4]
+ 700:	891b      	ldrh	r3, [r3, #8]
+ 702:	b29a      	uxth	r2, r3
+ 704:	887b      	ldrh	r3, [r7, #2]
+ 706:	ea02 0303 	and.w	r3, r2, r3
+ 70a:	b29b      	uxth	r3, r3
+ 70c:	2b00      	cmp	r3, #0
+ 70e:	d003      	beq.n	718 <SPI_I2S_GetFlagStatus+0x2c>
+  {
+    /* SPI_I2S_FLAG is set */
+    bitstatus = SET;
+ 710:	f04f 0301 	mov.w	r3, #1
+ 714:	73fb      	strb	r3, [r7, #15]
+ 716:	e002      	b.n	71e <SPI_I2S_GetFlagStatus+0x32>
+  }
+  else
+  {
+    /* SPI_I2S_FLAG is reset */
+    bitstatus = RESET;
+ 718:	f04f 0300 	mov.w	r3, #0
+ 71c:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the SPI_I2S_FLAG status */
+  return  bitstatus;
+ 71e:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 720:	4618      	mov	r0, r3
+ 722:	f107 0714 	add.w	r7, r7, #20
+ 726:	46bd      	mov	sp, r7
+ 728:	bc80      	pop	{r7}
+ 72a:	4770      	bx	lr
+
+0000072c <SPI_I2S_ClearFlag>:
+  *     operation to SPI_SR register (SPI_I2S_GetFlagStatus()) followed by a 
+  *     write operation to SPI_CR1 register (SPI_Cmd() to enable the SPI).
+  * @retval None
+  */
+void SPI_I2S_ClearFlag(SPI_TypeDef* SPIx, uint16_t SPI_I2S_FLAG)
+{
+ 72c:	b480      	push	{r7}
+ 72e:	b083      	sub	sp, #12
+ 730:	af00      	add	r7, sp, #0
+ 732:	6078      	str	r0, [r7, #4]
+ 734:	460b      	mov	r3, r1
+ 736:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_I2S_CLEAR_FLAG(SPI_I2S_FLAG));
+    
+    /* Clear the selected SPI CRC Error (CRCERR) flag */
+    SPIx->SR = (uint16_t)~SPI_I2S_FLAG;
+ 738:	887b      	ldrh	r3, [r7, #2]
+ 73a:	ea6f 0303 	mvn.w	r3, r3
+ 73e:	b29a      	uxth	r2, r3
+ 740:	687b      	ldr	r3, [r7, #4]
+ 742:	811a      	strh	r2, [r3, #8]
+}
+ 744:	f107 070c 	add.w	r7, r7, #12
+ 748:	46bd      	mov	sp, r7
+ 74a:	bc80      	pop	{r7}
+ 74c:	4770      	bx	lr
+ 74e:	bf00      	nop
+
+00000750 <SPI_I2S_GetITStatus>:
+  *     @arg SPI_IT_CRCERR: CRC Error interrupt.
+  *     @arg I2S_IT_UDR: Underrun Error interrupt.
+  * @retval The new state of SPI_I2S_IT (SET or RESET).
+  */
+ITStatus SPI_I2S_GetITStatus(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)
+{
+ 750:	b480      	push	{r7}
+ 752:	b085      	sub	sp, #20
+ 754:	af00      	add	r7, sp, #0
+ 756:	6078      	str	r0, [r7, #4]
+ 758:	460b      	mov	r3, r1
+ 75a:	70fb      	strb	r3, [r7, #3]
+  ITStatus bitstatus = RESET;
+ 75c:	f04f 0300 	mov.w	r3, #0
+ 760:	73fb      	strb	r3, [r7, #15]
+  uint16_t itpos = 0, itmask = 0, enablestatus = 0;
+ 762:	f04f 0300 	mov.w	r3, #0
+ 766:	81bb      	strh	r3, [r7, #12]
+ 768:	f04f 0300 	mov.w	r3, #0
+ 76c:	817b      	strh	r3, [r7, #10]
+ 76e:	f04f 0300 	mov.w	r3, #0
+ 772:	813b      	strh	r3, [r7, #8]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_I2S_GET_IT(SPI_I2S_IT));
+
+  /* Get the SPI/I2S IT index */
+  itpos = 0x01 << (SPI_I2S_IT & 0x0F);
+ 774:	78fb      	ldrb	r3, [r7, #3]
+ 776:	f003 030f 	and.w	r3, r3, #15
+ 77a:	f04f 0201 	mov.w	r2, #1
+ 77e:	fa02 f303 	lsl.w	r3, r2, r3
+ 782:	81bb      	strh	r3, [r7, #12]
+
+  /* Get the SPI/I2S IT mask */
+  itmask = SPI_I2S_IT >> 4;
+ 784:	78fb      	ldrb	r3, [r7, #3]
+ 786:	ea4f 1313 	mov.w	r3, r3, lsr #4
+ 78a:	b2db      	uxtb	r3, r3
+ 78c:	817b      	strh	r3, [r7, #10]
+
+  /* Set the IT mask */
+  itmask = 0x01 << itmask;
+ 78e:	897b      	ldrh	r3, [r7, #10]
+ 790:	f04f 0201 	mov.w	r2, #1
+ 794:	fa02 f303 	lsl.w	r3, r2, r3
+ 798:	817b      	strh	r3, [r7, #10]
+
+  /* Get the SPI_I2S_IT enable bit status */
+  enablestatus = (SPIx->CR2 & itmask) ;
+ 79a:	687b      	ldr	r3, [r7, #4]
+ 79c:	889b      	ldrh	r3, [r3, #4]
+ 79e:	b29a      	uxth	r2, r3
+ 7a0:	897b      	ldrh	r3, [r7, #10]
+ 7a2:	ea02 0303 	and.w	r3, r2, r3
+ 7a6:	813b      	strh	r3, [r7, #8]
+
+  /* Check the status of the specified SPI/I2S interrupt */
+  if (((SPIx->SR & itpos) != (uint16_t)RESET) && enablestatus)
+ 7a8:	687b      	ldr	r3, [r7, #4]
+ 7aa:	891b      	ldrh	r3, [r3, #8]
+ 7ac:	b29a      	uxth	r2, r3
+ 7ae:	89bb      	ldrh	r3, [r7, #12]
+ 7b0:	ea02 0303 	and.w	r3, r2, r3
+ 7b4:	b29b      	uxth	r3, r3
+ 7b6:	2b00      	cmp	r3, #0
+ 7b8:	d006      	beq.n	7c8 <SPI_I2S_GetITStatus+0x78>
+ 7ba:	893b      	ldrh	r3, [r7, #8]
+ 7bc:	2b00      	cmp	r3, #0
+ 7be:	d003      	beq.n	7c8 <SPI_I2S_GetITStatus+0x78>
+  {
+    /* SPI_I2S_IT is set */
+    bitstatus = SET;
+ 7c0:	f04f 0301 	mov.w	r3, #1
+ 7c4:	73fb      	strb	r3, [r7, #15]
+ 7c6:	e002      	b.n	7ce <SPI_I2S_GetITStatus+0x7e>
+  }
+  else
+  {
+    /* SPI_I2S_IT is reset */
+    bitstatus = RESET;
+ 7c8:	f04f 0300 	mov.w	r3, #0
+ 7cc:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the SPI_I2S_IT status */
+  return bitstatus;
+ 7ce:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 7d0:	4618      	mov	r0, r3
+ 7d2:	f107 0714 	add.w	r7, r7, #20
+ 7d6:	46bd      	mov	sp, r7
+ 7d8:	bc80      	pop	{r7}
+ 7da:	4770      	bx	lr
+
+000007dc <SPI_I2S_ClearITPendingBit>:
+  *     followed by a write operation to SPI_CR1 register (SPI_Cmd() to enable 
+  *     the SPI).
+  * @retval None
+  */
+void SPI_I2S_ClearITPendingBit(SPI_TypeDef* SPIx, uint8_t SPI_I2S_IT)
+{
+ 7dc:	b480      	push	{r7}
+ 7de:	b085      	sub	sp, #20
+ 7e0:	af00      	add	r7, sp, #0
+ 7e2:	6078      	str	r0, [r7, #4]
+ 7e4:	460b      	mov	r3, r1
+ 7e6:	70fb      	strb	r3, [r7, #3]
+  uint16_t itpos = 0;
+ 7e8:	f04f 0300 	mov.w	r3, #0
+ 7ec:	81fb      	strh	r3, [r7, #14]
+  /* Check the parameters */
+  assert_param(IS_SPI_ALL_PERIPH(SPIx));
+  assert_param(IS_SPI_I2S_CLEAR_IT(SPI_I2S_IT));
+
+  /* Get the SPI IT index */
+  itpos = 0x01 << (SPI_I2S_IT & 0x0F);
+ 7ee:	78fb      	ldrb	r3, [r7, #3]
+ 7f0:	f003 030f 	and.w	r3, r3, #15
+ 7f4:	f04f 0201 	mov.w	r2, #1
+ 7f8:	fa02 f303 	lsl.w	r3, r2, r3
+ 7fc:	81fb      	strh	r3, [r7, #14]
+
+  /* Clear the selected SPI CRC Error (CRCERR) interrupt pending bit */
+  SPIx->SR = (uint16_t)~itpos;
+ 7fe:	89fb      	ldrh	r3, [r7, #14]
+ 800:	ea6f 0303 	mvn.w	r3, r3
+ 804:	b29a      	uxth	r2, r3
+ 806:	687b      	ldr	r3, [r7, #4]
+ 808:	811a      	strh	r2, [r3, #8]
+}
+ 80a:	f107 0714 	add.w	r7, r7, #20
+ 80e:	46bd      	mov	sp, r7
+ 810:	bc80      	pop	{r7}
+ 812:	4770      	bx	lr

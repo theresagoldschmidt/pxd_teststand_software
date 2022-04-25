@@ -1,0 +1,650 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_target_startup.a:
+
+startup_stm32f10x_cl.S.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0   6280 Jul 30 19:07 2021 startup_stm32f10x_cl.S.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000014  00000000  00000000  00000034  2**1
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000048  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000048  2**0
+                  ALLOC
+  3 .text.Reset_Handler 00000044  00000000  00000000  00000048  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  4 .text.Default_Handler 00000002  00000000  00000000  0000008c  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  5 .isr_vector   000001e4  00000000  00000000  0000008e  2**0
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, DATA
+  6 .ARM.attributes 00000021  00000000  00000000  00000272  2**0
+                  CONTENTS, READONLY
+  7 .debug_line   000000e2  00000000  00000000  00000293  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  8 .debug_info   000000e1  00000000  00000000  00000375  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_abbrev 00000012  00000000  00000000  00000456  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_aranges 00000028  00000000  00000000  00000468  2**3
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_ranges 00000020  00000000  00000000  00000490  2**3
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+f1e0f85f l       *ABS*	00000000 BootRAM
+00000000 l    d  .text.Reset_Handler	00000000 .text.Reset_Handler
+0000000c l       .text.Reset_Handler	00000000 LoopCopyDataInit
+00000004 l       .text.Reset_Handler	00000000 CopyDataInit
+00000020 l       .text.Reset_Handler	00000000 LoopFillZerobss
+0000001a l       .text.Reset_Handler	00000000 FillZerobss
+00000000 l    d  .text.Default_Handler	00000000 .text.Default_Handler
+00000000 l       .text.Default_Handler	00000000 Infinite_Loop
+00000000 l    d  .isr_vector	00000000 .isr_vector
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     O .isr_vector	00000000 g_pfnVectors
+00000000 g       .text.Default_Handler	00000002 Default_Handler
+00000000         *UND*	00000000 _sidata
+00000000         *UND*	00000000 _sdata
+00000000         *UND*	00000000 _edata
+00000000         *UND*	00000000 _sbss
+00000000         *UND*	00000000 _ebss
+00000000  w    F .text.Reset_Handler	00000030 Reset_Handler
+00000000         *UND*	00000000 SystemInit
+00000000         *UND*	00000000 main
+00000000         *UND*	00000000 _estack
+00000000  w    F .text.Default_Handler	00000002 NMI_Handler
+00000000  w    F .text.Default_Handler	00000002 HardFault_Handler
+00000000  w    F .text.Default_Handler	00000002 MemManage_Handler
+00000000  w    F .text.Default_Handler	00000002 BusFault_Handler
+00000000  w    F .text.Default_Handler	00000002 UsageFault_Handler
+00000000  w    F .text.Default_Handler	00000002 SVC_Handler
+00000000  w    F .text.Default_Handler	00000002 DebugMon_Handler
+00000000  w    F .text.Default_Handler	00000002 PendSV_Handler
+00000000  w    F .text.Default_Handler	00000002 SysTick_Handler
+00000000  w    F .text.Default_Handler	00000002 WWDG_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 PVD_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TAMPER_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 RTC_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 FLASH_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 RCC_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 EXTI0_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 EXTI1_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 EXTI2_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 EXTI3_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 EXTI4_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA1_Channel1_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA1_Channel2_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA1_Channel3_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA1_Channel4_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA1_Channel5_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA1_Channel6_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA1_Channel7_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 ADC1_2_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN1_TX_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN1_RX0_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN1_RX1_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN1_SCE_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 EXTI9_5_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM1_BRK_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM1_UP_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM1_TRG_COM_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM1_CC_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM2_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM3_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM4_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 I2C1_EV_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 I2C1_ER_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 I2C2_EV_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 I2C2_ER_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 SPI1_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 SPI2_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 USART1_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 USART2_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 USART3_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 EXTI15_10_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 RTCAlarm_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 OTG_FS_WKUP_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM5_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 SPI3_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 UART4_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 UART5_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM6_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 TIM7_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA2_Channel1_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA2_Channel2_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA2_Channel3_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA2_Channel4_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 DMA2_Channel5_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 ETH_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 ETH_WKUP_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN2_TX_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN2_RX0_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN2_RX1_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 CAN2_SCE_IRQHandler
+00000000  w    F .text.Default_Handler	00000002 OTG_FS_IRQHandler
+
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+	...
+			0: R_ARM_ABS32	_sidata
+			4: R_ARM_ABS32	_sdata
+			8: R_ARM_ABS32	_edata
+			c: R_ARM_ABS32	_sbss
+			10: R_ARM_ABS32	_ebss
+
+Disassembly of section .text.Reset_Handler:
+
+00000000 <Reset_Handler>:
+  .weak  Reset_Handler
+  .type  Reset_Handler, %function
+Reset_Handler:
+
+/* Copy the data segment initializers from flash to SRAM */
+  movs  r1, #0
+   0:	2100      	movs	r1, #0
+  b     LoopCopyDataInit
+   2:	e003      	b.n	c <LoopCopyDataInit>
+
+00000004 <CopyDataInit>:
+
+CopyDataInit:
+  ldr   r3, =_sidata
+   4:	4b0a      	ldr	r3, [pc, #40]	; (30 <LoopFillZerobss+0x10>)
+  ldr   r3, [r3, r1]
+   6:	585b      	ldr	r3, [r3, r1]
+  str   r3, [r0, r1]
+   8:	5043      	str	r3, [r0, r1]
+  adds  r1, r1, #4
+   a:	3104      	adds	r1, #4
+
+0000000c <LoopCopyDataInit>:
+    
+LoopCopyDataInit:
+  ldr   r0, =_sdata
+   c:	4809      	ldr	r0, [pc, #36]	; (34 <LoopFillZerobss+0x14>)
+  ldr   r3, =_edata
+   e:	4b0a      	ldr	r3, [pc, #40]	; (38 <LoopFillZerobss+0x18>)
+  adds  r2, r0, r1
+  10:	1842      	adds	r2, r0, r1
+  cmp   r2, r3
+  12:	429a      	cmp	r2, r3
+  bcc   CopyDataInit
+  14:	d3f6      	bcc.n	4 <CopyDataInit>
+  ldr   r2, =_sbss
+  16:	4a09      	ldr	r2, [pc, #36]	; (3c <LoopFillZerobss+0x1c>)
+  b     LoopFillZerobss
+  18:	e002      	b.n	20 <LoopFillZerobss>
+
+0000001a <FillZerobss>:
+
+/* Zero fill the bss segment. */
+FillZerobss:
+  movs  r3, #0
+  1a:	2300      	movs	r3, #0
+  str   r3, [r2], #4
+  1c:	f842 3b04 	str.w	r3, [r2], #4
+
+00000020 <LoopFillZerobss>:
+    
+LoopFillZerobss:
+  ldr   r3, = _ebss
+  20:	4b07      	ldr	r3, [pc, #28]	; (40 <LoopFillZerobss+0x20>)
+  cmp   r2, r3
+  22:	429a      	cmp	r2, r3
+  bcc   FillZerobss
+  24:	d3f9      	bcc.n	1a <FillZerobss>
+/* Call the clock system intitialization function.*/
+  bl  SystemInit  
+  26:	f7ff fffe 	bl	0 <SystemInit>
+			26: R_ARM_THM_CALL	SystemInit
+/* Call the application's entry point.*/
+  bl    main
+  2a:	f7ff fffe 	bl	0 <main>
+			2a: R_ARM_THM_CALL	main
+  bx    lr
+  2e:	4770      	bx	lr
+	...
+			30: R_ARM_ABS32	_sidata
+			34: R_ARM_ABS32	_sdata
+			38: R_ARM_ABS32	_edata
+			3c: R_ARM_ABS32	_sbss
+			40: R_ARM_ABS32	_ebss
+
+Disassembly of section .text.Default_Handler:
+
+00000000 <ADC1_2_IRQHandler>:
+ * @retval None
+*/
+    .section  .text.Default_Handler,"ax",%progbits
+Default_Handler:
+Infinite_Loop:
+  b  Infinite_Loop
+   0:	e7fe      	b.n	0 <ADC1_2_IRQHandler>
+
+port.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  25004 Jul 30 19:07 2021 port.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001d8  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000004  00000000  00000000  0000020c  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000210  2**0
+                  ALLOC
+  3 .debug_abbrev 00000120  00000000  00000000  00000210  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000001d8  00000000  00000000  00000330  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   0000028e  00000000  00000000  00000508  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 000046f6  00000000  00000000  00000796  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .rodata       00000004  00000000  00000000  00004e8c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .debug_loc    00000178  00000000  00000000  00004e90  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_pubnames 00000101  00000000  00000000  00005008  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_pubtypes 00000033  00000000  00000000  00005109  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_aranges 00000020  00000000  00000000  0000513c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_str    000001e6  00000000  00000000  0000515c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .comment      0000002b  00000000  00000000  00005342  2**0
+                  CONTENTS, READONLY
+ 14 .ARM.attributes 00000031  00000000  00000000  0000536d  2**0
+                  CONTENTS, READONLY
+ 15 .debug_frame  00000110  00000000  00000000  000053a0  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 port.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l    d  .rodata	00000000 .rodata
+00000000 l     O .data	00000004 uxCriticalNesting
+0000007c l       .text	00000000 pxCurrentTCBConst2
+000001b0 l     F .text	00000024 prvSetupTimerInterrupt
+00000178 l       .text	00000000 pxCurrentTCBConst
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     O .rodata	00000004 ulKernelPriority
+00000000 g     F .text	0000005e pxPortInitialiseStack
+00000060 g     F .text	00000020 SVC_Handler
+00000000         *UND*	00000000 pxCurrentTCB
+00000080 g     F .text	00000010 vPortStartFirstTask
+00000090 g     F .text	0000003c xPortStartScheduler
+000000cc g     F .text	0000000a vPortEndScheduler
+000000d8 g     F .text	00000018 vPortYieldFromISR
+000000f0 g     F .text	00000024 vPortEnterCritical
+00000114 g     F .text	0000002c vPortExitCritical
+00000140 g     F .text	0000003c PendSV_Handler
+00000000         *UND*	00000000 vTaskSwitchContext
+0000017c g     F .text	00000034 SysTick_Handler
+00000000         *UND*	00000000 vTaskIncrementTick
+
+
+
+Disassembly of section .text:
+
+00000000 <pxPortInitialiseStack>:
+
+/*
+ * See header file for description.
+ */
+portSTACK_TYPE *pxPortInitialiseStack( portSTACK_TYPE *pxTopOfStack, pdTASK_CODE pxCode, void *pvParameters )
+{
+   0:	b480      	push	{r7}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	60f8      	str	r0, [r7, #12]
+   8:	60b9      	str	r1, [r7, #8]
+   a:	607a      	str	r2, [r7, #4]
+	/* Simulate the stack frame as it would be created by a context switch
+	interrupt. */
+	pxTopOfStack--; /* Offset added to account for the way the MCU uses the stack on entry/exit of interrupts. */
+   c:	68fb      	ldr	r3, [r7, #12]
+   e:	f1a3 0304 	sub.w	r3, r3, #4
+  12:	60fb      	str	r3, [r7, #12]
+	*pxTopOfStack = portINITIAL_XPSR;	/* xPSR */
+  14:	68fb      	ldr	r3, [r7, #12]
+  16:	f04f 7280 	mov.w	r2, #16777216	; 0x1000000
+  1a:	601a      	str	r2, [r3, #0]
+	pxTopOfStack--;
+  1c:	68fb      	ldr	r3, [r7, #12]
+  1e:	f1a3 0304 	sub.w	r3, r3, #4
+  22:	60fb      	str	r3, [r7, #12]
+	*pxTopOfStack = ( portSTACK_TYPE ) pxCode;	/* PC */
+  24:	68ba      	ldr	r2, [r7, #8]
+  26:	68fb      	ldr	r3, [r7, #12]
+  28:	601a      	str	r2, [r3, #0]
+	pxTopOfStack--;
+  2a:	68fb      	ldr	r3, [r7, #12]
+  2c:	f1a3 0304 	sub.w	r3, r3, #4
+  30:	60fb      	str	r3, [r7, #12]
+	*pxTopOfStack = 0;	/* LR */
+  32:	68fb      	ldr	r3, [r7, #12]
+  34:	f04f 0200 	mov.w	r2, #0
+  38:	601a      	str	r2, [r3, #0]
+	pxTopOfStack -= 5;	/* R12, R3, R2 and R1. */
+  3a:	68fb      	ldr	r3, [r7, #12]
+  3c:	f1a3 0314 	sub.w	r3, r3, #20
+  40:	60fb      	str	r3, [r7, #12]
+	*pxTopOfStack = ( portSTACK_TYPE ) pvParameters;	/* R0 */
+  42:	687a      	ldr	r2, [r7, #4]
+  44:	68fb      	ldr	r3, [r7, #12]
+  46:	601a      	str	r2, [r3, #0]
+	pxTopOfStack -= 8;	/* R11, R10, R9, R8, R7, R6, R5 and R4. */
+  48:	68fb      	ldr	r3, [r7, #12]
+  4a:	f1a3 0320 	sub.w	r3, r3, #32
+  4e:	60fb      	str	r3, [r7, #12]
+
+	return pxTopOfStack;
+  50:	68fb      	ldr	r3, [r7, #12]
+}
+  52:	4618      	mov	r0, r3
+  54:	f107 0714 	add.w	r7, r7, #20
+  58:	46bd      	mov	sp, r7
+  5a:	bc80      	pop	{r7}
+  5c:	4770      	bx	lr
+  5e:	bf00      	nop
+
+00000060 <SVC_Handler>:
+void SVC_Handler(void)
+#else
+void vPortSVCHandler( void )
+#endif
+{
+	__asm volatile (
+  60:	4b06      	ldr	r3, [pc, #24]	; (7c <pxCurrentTCBConst2>)
+  62:	6819      	ldr	r1, [r3, #0]
+  64:	6808      	ldr	r0, [r1, #0]
+  66:	e8b0 0ff0 	ldmia.w	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
+  6a:	f380 8809 	msr	PSP, r0
+  6e:	f04f 0000 	mov.w	r0, #0
+  72:	f380 8811 	msr	BASEPRI, r0
+  76:	f04e 0e0d 	orr.w	lr, lr, #13
+  7a:	4770      	bx	lr
+
+0000007c <pxCurrentTCBConst2>:
+  7c:	00000000 	.word	0x00000000
+			7c: R_ARM_ABS32	pxCurrentTCB
+
+00000080 <vPortStartFirstTask>:
+}
+/*-----------------------------------------------------------*/
+
+void vPortStartFirstTask( void )
+{
+	__asm volatile(
+  80:	4854      	ldr	r0, [pc, #336]	; (1d4 <prvSetupTimerInterrupt+0x24>)
+  82:	6800      	ldr	r0, [r0, #0]
+  84:	6800      	ldr	r0, [r0, #0]
+  86:	f380 8808 	msr	MSP, r0
+  8a:	b662      	cpsie	i
+  8c:	df00      	svc	0
+  8e:	bf00      	nop
+
+00000090 <xPortStartScheduler>:
+
+/*
+ * See header file for description.
+ */
+portBASE_TYPE xPortStartScheduler( void )
+{
+  90:	b580      	push	{r7, lr}
+  92:	af00      	add	r7, sp, #0
+	/* Make PendSV, CallSV and SysTick the same priroity as the kernel. */
+	*(portNVIC_SYSPRI2) |= portNVIC_PENDSV_PRI;
+  94:	4b0b      	ldr	r3, [pc, #44]	; (c4 <xPortStartScheduler+0x34>)
+  96:	4a0b      	ldr	r2, [pc, #44]	; (c4 <xPortStartScheduler+0x34>)
+  98:	6812      	ldr	r2, [r2, #0]
+  9a:	f442 027f 	orr.w	r2, r2, #16711680	; 0xff0000
+  9e:	601a      	str	r2, [r3, #0]
+	*(portNVIC_SYSPRI2) |= portNVIC_SYSTICK_PRI;
+  a0:	4b08      	ldr	r3, [pc, #32]	; (c4 <xPortStartScheduler+0x34>)
+  a2:	4a08      	ldr	r2, [pc, #32]	; (c4 <xPortStartScheduler+0x34>)
+  a4:	6812      	ldr	r2, [r2, #0]
+  a6:	f042 427f 	orr.w	r2, r2, #4278190080	; 0xff000000
+  aa:	601a      	str	r2, [r3, #0]
+
+	/* Start the timer that generates the tick ISR.  Interrupts are disabled
+	here already. */
+	prvSetupTimerInterrupt();
+  ac:	f000 f880 	bl	1b0 <prvSetupTimerInterrupt>
+
+	/* Initialise the critical nesting count ready for the first task. */
+	uxCriticalNesting = 0;
+  b0:	4b05      	ldr	r3, [pc, #20]	; (c8 <xPortStartScheduler+0x38>)
+  b2:	f04f 0200 	mov.w	r2, #0
+  b6:	601a      	str	r2, [r3, #0]
+
+	/* Start the first task. */
+	vPortStartFirstTask();
+  b8:	f7ff fffe 	bl	80 <vPortStartFirstTask>
+			b8: R_ARM_THM_CALL	vPortStartFirstTask
+
+	/* Should not get here! */
+	return 0;
+  bc:	f04f 0300 	mov.w	r3, #0
+}
+  c0:	4618      	mov	r0, r3
+  c2:	bd80      	pop	{r7, pc}
+  c4:	e000ed20 	.word	0xe000ed20
+  c8:	00000000 	.word	0x00000000
+			c8: R_ARM_ABS32	.data
+
+000000cc <vPortEndScheduler>:
+/*-----------------------------------------------------------*/
+
+void vPortEndScheduler( void )
+{
+  cc:	b480      	push	{r7}
+  ce:	af00      	add	r7, sp, #0
+	/* It is unlikely that the CM3 port will require this function as there
+	is nothing to return to.  */
+}
+  d0:	46bd      	mov	sp, r7
+  d2:	bc80      	pop	{r7}
+  d4:	4770      	bx	lr
+  d6:	bf00      	nop
+
+000000d8 <vPortYieldFromISR>:
+/*-----------------------------------------------------------*/
+
+void vPortYieldFromISR( void )
+{
+  d8:	b480      	push	{r7}
+  da:	af00      	add	r7, sp, #0
+	/* Set a PendSV to request a context switch. */
+	*(portNVIC_INT_CTRL) = portNVIC_PENDSVSET;
+  dc:	4b03      	ldr	r3, [pc, #12]	; (ec <vPortYieldFromISR+0x14>)
+  de:	f04f 5280 	mov.w	r2, #268435456	; 0x10000000
+  e2:	601a      	str	r2, [r3, #0]
+}
+  e4:	46bd      	mov	sp, r7
+  e6:	bc80      	pop	{r7}
+  e8:	4770      	bx	lr
+  ea:	bf00      	nop
+  ec:	e000ed04 	.word	0xe000ed04
+
+000000f0 <vPortEnterCritical>:
+/*-----------------------------------------------------------*/
+
+void vPortEnterCritical( void )
+{
+  f0:	b480      	push	{r7}
+  f2:	af00      	add	r7, sp, #0
+	portDISABLE_INTERRUPTS();
+  f4:	f04f 0040 	mov.w	r0, #64	; 0x40
+  f8:	f380 8811 	msr	BASEPRI, r0
+	uxCriticalNesting++;
+  fc:	4b04      	ldr	r3, [pc, #16]	; (110 <vPortEnterCritical+0x20>)
+  fe:	681b      	ldr	r3, [r3, #0]
+ 100:	f103 0201 	add.w	r2, r3, #1
+ 104:	4b02      	ldr	r3, [pc, #8]	; (110 <vPortEnterCritical+0x20>)
+ 106:	601a      	str	r2, [r3, #0]
+}
+ 108:	46bd      	mov	sp, r7
+ 10a:	bc80      	pop	{r7}
+ 10c:	4770      	bx	lr
+ 10e:	bf00      	nop
+ 110:	00000000 	.word	0x00000000
+			110: R_ARM_ABS32	.data
+
+00000114 <vPortExitCritical>:
+/*-----------------------------------------------------------*/
+
+void vPortExitCritical( void )
+{
+ 114:	b480      	push	{r7}
+ 116:	af00      	add	r7, sp, #0
+	uxCriticalNesting--;
+ 118:	4b08      	ldr	r3, [pc, #32]	; (13c <vPortExitCritical+0x28>)
+ 11a:	681b      	ldr	r3, [r3, #0]
+ 11c:	f103 32ff 	add.w	r2, r3, #4294967295
+ 120:	4b06      	ldr	r3, [pc, #24]	; (13c <vPortExitCritical+0x28>)
+ 122:	601a      	str	r2, [r3, #0]
+	if( uxCriticalNesting == 0 )
+ 124:	4b05      	ldr	r3, [pc, #20]	; (13c <vPortExitCritical+0x28>)
+ 126:	681b      	ldr	r3, [r3, #0]
+ 128:	2b00      	cmp	r3, #0
+ 12a:	d103      	bne.n	134 <vPortExitCritical+0x20>
+	{
+		portENABLE_INTERRUPTS();
+ 12c:	f04f 0000 	mov.w	r0, #0
+ 130:	f380 8811 	msr	BASEPRI, r0
+	}
+}
+ 134:	46bd      	mov	sp, r7
+ 136:	bc80      	pop	{r7}
+ 138:	4770      	bx	lr
+ 13a:	bf00      	nop
+ 13c:	00000000 	.word	0x00000000
+			13c: R_ARM_ABS32	.data
+
+00000140 <PendSV_Handler>:
+void xPortPendSVHandler( void )
+#endif
+{
+	/* This is a naked function. */
+
+	__asm volatile
+ 140:	f3ef 8009 	mrs	r0, PSP
+ 144:	4b0c      	ldr	r3, [pc, #48]	; (178 <pxCurrentTCBConst>)
+ 146:	681a      	ldr	r2, [r3, #0]
+ 148:	e920 0ff0 	stmdb	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
+ 14c:	6010      	str	r0, [r2, #0]
+ 14e:	e92d 4008 	stmdb	sp!, {r3, lr}
+ 152:	f04f 0040 	mov.w	r0, #64	; 0x40
+ 156:	f380 8811 	msr	BASEPRI, r0
+ 15a:	f7ff fffe 	bl	0 <vTaskSwitchContext>
+			15a: R_ARM_THM_CALL	vTaskSwitchContext
+ 15e:	f04f 0000 	mov.w	r0, #0
+ 162:	f380 8811 	msr	BASEPRI, r0
+ 166:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+ 16a:	6819      	ldr	r1, [r3, #0]
+ 16c:	6808      	ldr	r0, [r1, #0]
+ 16e:	e8b0 0ff0 	ldmia.w	r0!, {r4, r5, r6, r7, r8, r9, sl, fp}
+ 172:	f380 8809 	msr	PSP, r0
+ 176:	4770      	bx	lr
+
+00000178 <pxCurrentTCBConst>:
+ 178:	00000000 	.word	0x00000000
+			178: R_ARM_ABS32	pxCurrentTCB
+
+0000017c <SysTick_Handler>:
+//#ifdef LWIP_PLATFORM_FREERTOS
+void SysTick_Handler(void)
+//#else
+//void xPortSysTickHandler( void )
+//#endif
+{
+ 17c:	b580      	push	{r7, lr}
+ 17e:	b082      	sub	sp, #8
+ 180:	af00      	add	r7, sp, #0
+unsigned long ulDummy;
+
+	/* If using preemption, also force a context switch. */
+	#if configUSE_PREEMPTION == 1
+		*(portNVIC_INT_CTRL) = portNVIC_PENDSVSET;
+ 182:	4b0a      	ldr	r3, [pc, #40]	; (1ac <SysTick_Handler+0x30>)
+ 184:	f04f 5280 	mov.w	r2, #268435456	; 0x10000000
+ 188:	601a      	str	r2, [r3, #0]
+	#endif
+
+	ulDummy = portSET_INTERRUPT_MASK_FROM_ISR();
+ 18a:	f04f 0300 	mov.w	r3, #0
+ 18e:	607b      	str	r3, [r7, #4]
+ 190:	f04f 0040 	mov.w	r0, #64	; 0x40
+ 194:	f380 8811 	msr	BASEPRI, r0
+	{
+		vTaskIncrementTick();
+ 198:	f7ff fffe 	bl	0 <vTaskIncrementTick>
+			198: R_ARM_THM_CALL	vTaskIncrementTick
+	}
+	portCLEAR_INTERRUPT_MASK_FROM_ISR( ulDummy );
+ 19c:	f04f 0000 	mov.w	r0, #0
+ 1a0:	f380 8811 	msr	BASEPRI, r0
+}
+ 1a4:	f107 0708 	add.w	r7, r7, #8
+ 1a8:	46bd      	mov	sp, r7
+ 1aa:	bd80      	pop	{r7, pc}
+ 1ac:	e000ed04 	.word	0xe000ed04
+
+000001b0 <prvSetupTimerInterrupt>:
+/*
+ * Setup the systick timer to generate the tick interrupts at the required
+ * frequency.
+ */
+void prvSetupTimerInterrupt( void )
+{
+ 1b0:	b480      	push	{r7}
+ 1b2:	af00      	add	r7, sp, #0
+	/* Configure SysTick to interrupt at the requested rate. */
+	*(portNVIC_SYSTICK_LOAD) = ( configCPU_CLOCK_HZ / configTICK_RATE_HZ ) - 1UL;
+ 1b4:	4b04      	ldr	r3, [pc, #16]	; (1c8 <prvSetupTimerInterrupt+0x18>)
+ 1b6:	4a05      	ldr	r2, [pc, #20]	; (1cc <prvSetupTimerInterrupt+0x1c>)
+ 1b8:	601a      	str	r2, [r3, #0]
+	*(portNVIC_SYSTICK_CTRL) = portNVIC_SYSTICK_CLK | portNVIC_SYSTICK_INT | portNVIC_SYSTICK_ENABLE;
+ 1ba:	4b05      	ldr	r3, [pc, #20]	; (1d0 <prvSetupTimerInterrupt+0x20>)
+ 1bc:	f04f 0207 	mov.w	r2, #7
+ 1c0:	601a      	str	r2, [r3, #0]
+}
+ 1c2:	46bd      	mov	sp, r7
+ 1c4:	bc80      	pop	{r7}
+ 1c6:	4770      	bx	lr
+ 1c8:	e000e014 	.word	0xe000e014
+ 1cc:	0001193f 	.word	0x0001193f
+ 1d0:	e000e010 	.word	0xe000e010
+ 1d4:	e000ed08 	.word	0xe000ed08

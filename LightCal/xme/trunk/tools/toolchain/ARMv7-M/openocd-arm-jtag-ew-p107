@@ -1,0 +1,26 @@
+# Use Olimex ARM-JTAG-EW debug adapter
+source [find interface/arm-jtag-ew.cfg]
+
+# Use Olimex P107 board
+source [find board/olimex_stm32_h107.cfg]
+
+# Enable PLL2 and PLL (as in CMSIS system_stm32f10x.c)
+# and clock system with 72 Mhz
+#
+# Set JTAG clock to 6 MHz	
+source [find stm32f10x_cl_72MHz.cfg]
+
+# Ensure that JTAG speed lowered when target starts up
+#
+# TODO: Maybe due to a parser bug this cannot be a part of stm32f10x_cl_72MHz.cfg
+$_TARGETNAME configure -event reset-start {
+	adapter_khz 500
+}
+
+$_TARGETNAME configure -rtos auto
+
+# End of configuration stage
+init
+
+# Reset targets
+reset init

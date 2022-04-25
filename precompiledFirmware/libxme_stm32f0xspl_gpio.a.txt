@@ -1,0 +1,1237 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_stm32f0xspl_gpio.a:
+
+stm32f10x_gpio.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0 323024 Jul 30 19:07 2021 stm32f10x_gpio.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000006cc  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000700  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000700  2**0
+                  ALLOC
+  3 .debug_abbrev 000001a4  00000000  00000000  00000700  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000723  00000000  00000000  000008a4  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   000004a3  00000000  00000000  00000fc7  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 0004bb94  00000000  00000000  0000146a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    000003e4  00000000  00000000  0004cffe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 0000019d  00000000  00000000  0004d3e2  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 000000c3  00000000  00000000  0004d57f  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  0004d642  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    00000496  00000000  00000000  0004d662  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  0004daf8  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  0004db23  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  00000210  00000000  00000000  0004db54  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 stm32f10x_gpio.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     F .text	00000118 GPIO_DeInit
+00000000         *UND*	00000000 RCC_APB2PeriphResetCmd
+00000118 g     F .text	0000001e GPIO_AFIODeInit
+00000138 g     F .text	000001c0 GPIO_Init
+000002f8 g     F .text	0000002a GPIO_StructInit
+00000324 g     F .text	0000003c GPIO_ReadInputDataBit
+00000360 g     F .text	0000001a GPIO_ReadInputData
+0000037c g     F .text	0000003c GPIO_ReadOutputDataBit
+000003b8 g     F .text	0000001a GPIO_ReadOutputData
+000003d4 g     F .text	0000001c GPIO_SetBits
+000003f0 g     F .text	0000001c GPIO_ResetBits
+0000040c g     F .text	0000002e GPIO_WriteBit
+0000043c g     F .text	0000001c GPIO_Write
+00000458 g     F .text	00000044 GPIO_PinLockConfig
+0000049c g     F .text	00000054 GPIO_EventOutputConfig
+000004f0 g     F .text	00000020 GPIO_EventOutputCmd
+00000510 g     F .text	00000104 GPIO_PinRemapConfig
+00000614 g     F .text	0000009c GPIO_EXTILineConfig
+000006b0 g     F .text	0000001c GPIO_ETH_MediaInterfaceConfig
+
+
+
+Disassembly of section .text:
+
+00000000 <GPIO_DeInit>:
+  * @brief  Deinitializes the GPIOx peripheral registers to their default reset values.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @retval None
+  */
+void GPIO_DeInit(GPIO_TypeDef* GPIOx)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  
+  if (GPIOx == GPIOA)
+   8:	687a      	ldr	r2, [r7, #4]
+   a:	4b3c      	ldr	r3, [pc, #240]	; (fc <GPIO_DeInit+0xfc>)
+   c:	429a      	cmp	r2, r3
+   e:	d10c      	bne.n	2a <GPIO_DeInit+0x2a>
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOA, ENABLE);
+  10:	f04f 0004 	mov.w	r0, #4
+  14:	f04f 0101 	mov.w	r1, #1
+  18:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			18: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOA, DISABLE);
+  1c:	f04f 0004 	mov.w	r0, #4
+  20:	f04f 0100 	mov.w	r1, #0
+  24:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			24: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  28:	e064      	b.n	f4 <GPIO_DeInit+0xf4>
+  }
+  else if (GPIOx == GPIOB)
+  2a:	687a      	ldr	r2, [r7, #4]
+  2c:	4b34      	ldr	r3, [pc, #208]	; (100 <GPIO_DeInit+0x100>)
+  2e:	429a      	cmp	r2, r3
+  30:	d10c      	bne.n	4c <GPIO_DeInit+0x4c>
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOB, ENABLE);
+  32:	f04f 0008 	mov.w	r0, #8
+  36:	f04f 0101 	mov.w	r1, #1
+  3a:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			3a: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOB, DISABLE);
+  3e:	f04f 0008 	mov.w	r0, #8
+  42:	f04f 0100 	mov.w	r1, #0
+  46:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			46: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  4a:	e053      	b.n	f4 <GPIO_DeInit+0xf4>
+  }
+  else if (GPIOx == GPIOC)
+  4c:	687a      	ldr	r2, [r7, #4]
+  4e:	4b2d      	ldr	r3, [pc, #180]	; (104 <GPIO_DeInit+0x104>)
+  50:	429a      	cmp	r2, r3
+  52:	d10c      	bne.n	6e <GPIO_DeInit+0x6e>
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOC, ENABLE);
+  54:	f04f 0010 	mov.w	r0, #16
+  58:	f04f 0101 	mov.w	r1, #1
+  5c:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			5c: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOC, DISABLE);
+  60:	f04f 0010 	mov.w	r0, #16
+  64:	f04f 0100 	mov.w	r1, #0
+  68:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			68: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  6c:	e042      	b.n	f4 <GPIO_DeInit+0xf4>
+  }
+  else if (GPIOx == GPIOD)
+  6e:	687a      	ldr	r2, [r7, #4]
+  70:	4b25      	ldr	r3, [pc, #148]	; (108 <GPIO_DeInit+0x108>)
+  72:	429a      	cmp	r2, r3
+  74:	d10c      	bne.n	90 <GPIO_DeInit+0x90>
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOD, ENABLE);
+  76:	f04f 0020 	mov.w	r0, #32
+  7a:	f04f 0101 	mov.w	r1, #1
+  7e:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			7e: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOD, DISABLE);
+  82:	f04f 0020 	mov.w	r0, #32
+  86:	f04f 0100 	mov.w	r1, #0
+  8a:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			8a: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  8e:	e031      	b.n	f4 <GPIO_DeInit+0xf4>
+  }    
+  else if (GPIOx == GPIOE)
+  90:	687a      	ldr	r2, [r7, #4]
+  92:	4b1e      	ldr	r3, [pc, #120]	; (10c <GPIO_DeInit+0x10c>)
+  94:	429a      	cmp	r2, r3
+  96:	d10c      	bne.n	b2 <GPIO_DeInit+0xb2>
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOE, ENABLE);
+  98:	f04f 0040 	mov.w	r0, #64	; 0x40
+  9c:	f04f 0101 	mov.w	r1, #1
+  a0:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			a0: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOE, DISABLE);
+  a4:	f04f 0040 	mov.w	r0, #64	; 0x40
+  a8:	f04f 0100 	mov.w	r1, #0
+  ac:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			ac: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  b0:	e020      	b.n	f4 <GPIO_DeInit+0xf4>
+  } 
+  else if (GPIOx == GPIOF)
+  b2:	687a      	ldr	r2, [r7, #4]
+  b4:	4b16      	ldr	r3, [pc, #88]	; (110 <GPIO_DeInit+0x110>)
+  b6:	429a      	cmp	r2, r3
+  b8:	d10c      	bne.n	d4 <GPIO_DeInit+0xd4>
+  {
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOF, ENABLE);
+  ba:	f04f 0080 	mov.w	r0, #128	; 0x80
+  be:	f04f 0101 	mov.w	r1, #1
+  c2:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			c2: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOF, DISABLE);
+  c6:	f04f 0080 	mov.w	r0, #128	; 0x80
+  ca:	f04f 0100 	mov.w	r1, #0
+  ce:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			ce: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  d2:	e00f      	b.n	f4 <GPIO_DeInit+0xf4>
+  }
+  else
+  {
+    if (GPIOx == GPIOG)
+  d4:	687a      	ldr	r2, [r7, #4]
+  d6:	4b0f      	ldr	r3, [pc, #60]	; (114 <GPIO_DeInit+0x114>)
+  d8:	429a      	cmp	r2, r3
+  da:	d10b      	bne.n	f4 <GPIO_DeInit+0xf4>
+    {
+      RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOG, ENABLE);
+  dc:	f44f 7080 	mov.w	r0, #256	; 0x100
+  e0:	f04f 0101 	mov.w	r1, #1
+  e4:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			e4: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+      RCC_APB2PeriphResetCmd(RCC_APB2Periph_GPIOG, DISABLE);
+  e8:	f44f 7080 	mov.w	r0, #256	; 0x100
+  ec:	f04f 0100 	mov.w	r1, #0
+  f0:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			f0: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+    }
+  }
+}
+  f4:	f107 0708 	add.w	r7, r7, #8
+  f8:	46bd      	mov	sp, r7
+  fa:	bd80      	pop	{r7, pc}
+  fc:	40010800 	.word	0x40010800
+ 100:	40010c00 	.word	0x40010c00
+ 104:	40011000 	.word	0x40011000
+ 108:	40011400 	.word	0x40011400
+ 10c:	40011800 	.word	0x40011800
+ 110:	40011c00 	.word	0x40011c00
+ 114:	40012000 	.word	0x40012000
+
+00000118 <GPIO_AFIODeInit>:
+  *   and EXTI configuration) registers to their default reset values.
+  * @param  None
+  * @retval None
+  */
+void GPIO_AFIODeInit(void)
+{
+ 118:	b580      	push	{r7, lr}
+ 11a:	af00      	add	r7, sp, #0
+  RCC_APB2PeriphResetCmd(RCC_APB2Periph_AFIO, ENABLE);
+ 11c:	f04f 0001 	mov.w	r0, #1
+ 120:	f04f 0101 	mov.w	r1, #1
+ 124:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			124: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+  RCC_APB2PeriphResetCmd(RCC_APB2Periph_AFIO, DISABLE);
+ 128:	f04f 0001 	mov.w	r0, #1
+ 12c:	f04f 0100 	mov.w	r1, #0
+ 130:	f7ff fffe 	bl	0 <RCC_APB2PeriphResetCmd>
+			130: R_ARM_THM_CALL	RCC_APB2PeriphResetCmd
+}
+ 134:	bd80      	pop	{r7, pc}
+ 136:	bf00      	nop
+
+00000138 <GPIO_Init>:
+  * @param  GPIO_InitStruct: pointer to a GPIO_InitTypeDef structure that
+  *         contains the configuration information for the specified GPIO peripheral.
+  * @retval None
+  */
+void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_InitTypeDef* GPIO_InitStruct)
+{
+ 138:	b480      	push	{r7}
+ 13a:	b089      	sub	sp, #36	; 0x24
+ 13c:	af00      	add	r7, sp, #0
+ 13e:	6078      	str	r0, [r7, #4]
+ 140:	6039      	str	r1, [r7, #0]
+  uint32_t currentmode = 0x00, currentpin = 0x00, pinpos = 0x00, pos = 0x00;
+ 142:	f04f 0300 	mov.w	r3, #0
+ 146:	61fb      	str	r3, [r7, #28]
+ 148:	f04f 0300 	mov.w	r3, #0
+ 14c:	613b      	str	r3, [r7, #16]
+ 14e:	f04f 0300 	mov.w	r3, #0
+ 152:	61bb      	str	r3, [r7, #24]
+ 154:	f04f 0300 	mov.w	r3, #0
+ 158:	60fb      	str	r3, [r7, #12]
+  uint32_t tmpreg = 0x00, pinmask = 0x00;
+ 15a:	f04f 0300 	mov.w	r3, #0
+ 15e:	617b      	str	r3, [r7, #20]
+ 160:	f04f 0300 	mov.w	r3, #0
+ 164:	60bb      	str	r3, [r7, #8]
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GPIO_MODE(GPIO_InitStruct->GPIO_Mode));
+  assert_param(IS_GPIO_PIN(GPIO_InitStruct->GPIO_Pin));  
+  
+/*---------------------------- GPIO Mode Configuration -----------------------*/
+  currentmode = ((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x0F);
+ 166:	683b      	ldr	r3, [r7, #0]
+ 168:	78db      	ldrb	r3, [r3, #3]
+ 16a:	f003 030f 	and.w	r3, r3, #15
+ 16e:	61fb      	str	r3, [r7, #28]
+  if ((((uint32_t)GPIO_InitStruct->GPIO_Mode) & ((uint32_t)0x10)) != 0x00)
+ 170:	683b      	ldr	r3, [r7, #0]
+ 172:	78db      	ldrb	r3, [r3, #3]
+ 174:	f003 0310 	and.w	r3, r3, #16
+ 178:	2b00      	cmp	r3, #0
+ 17a:	d005      	beq.n	188 <GPIO_Init+0x50>
+  { 
+    /* Check the parameters */
+    assert_param(IS_GPIO_SPEED(GPIO_InitStruct->GPIO_Speed));
+    /* Output mode */
+    currentmode |= (uint32_t)GPIO_InitStruct->GPIO_Speed;
+ 17c:	683b      	ldr	r3, [r7, #0]
+ 17e:	789b      	ldrb	r3, [r3, #2]
+ 180:	69fa      	ldr	r2, [r7, #28]
+ 182:	ea42 0303 	orr.w	r3, r2, r3
+ 186:	61fb      	str	r3, [r7, #28]
+  }
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+ 188:	683b      	ldr	r3, [r7, #0]
+ 18a:	881b      	ldrh	r3, [r3, #0]
+ 18c:	f003 03ff 	and.w	r3, r3, #255	; 0xff
+ 190:	2b00      	cmp	r3, #0
+ 192:	d051      	beq.n	238 <GPIO_Init+0x100>
+  {
+    tmpreg = GPIOx->CRL;
+ 194:	687b      	ldr	r3, [r7, #4]
+ 196:	681b      	ldr	r3, [r3, #0]
+ 198:	617b      	str	r3, [r7, #20]
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+ 19a:	f04f 0300 	mov.w	r3, #0
+ 19e:	61bb      	str	r3, [r7, #24]
+ 1a0:	e044      	b.n	22c <GPIO_Init+0xf4>
+    {
+      pos = ((uint32_t)0x01) << pinpos;
+ 1a2:	69bb      	ldr	r3, [r7, #24]
+ 1a4:	f04f 0201 	mov.w	r2, #1
+ 1a8:	fa02 f303 	lsl.w	r3, r2, r3
+ 1ac:	60fb      	str	r3, [r7, #12]
+      /* Get the port pins position */
+      currentpin = (GPIO_InitStruct->GPIO_Pin) & pos;
+ 1ae:	683b      	ldr	r3, [r7, #0]
+ 1b0:	881b      	ldrh	r3, [r3, #0]
+ 1b2:	461a      	mov	r2, r3
+ 1b4:	68fb      	ldr	r3, [r7, #12]
+ 1b6:	ea02 0303 	and.w	r3, r2, r3
+ 1ba:	613b      	str	r3, [r7, #16]
+      if (currentpin == pos)
+ 1bc:	693a      	ldr	r2, [r7, #16]
+ 1be:	68fb      	ldr	r3, [r7, #12]
+ 1c0:	429a      	cmp	r2, r3
+ 1c2:	d12f      	bne.n	224 <GPIO_Init+0xec>
+      {
+        pos = pinpos << 2;
+ 1c4:	69bb      	ldr	r3, [r7, #24]
+ 1c6:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 1ca:	60fb      	str	r3, [r7, #12]
+        /* Clear the corresponding low control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+ 1cc:	68fb      	ldr	r3, [r7, #12]
+ 1ce:	f04f 020f 	mov.w	r2, #15
+ 1d2:	fa02 f303 	lsl.w	r3, r2, r3
+ 1d6:	60bb      	str	r3, [r7, #8]
+        tmpreg &= ~pinmask;
+ 1d8:	68bb      	ldr	r3, [r7, #8]
+ 1da:	ea6f 0303 	mvn.w	r3, r3
+ 1de:	697a      	ldr	r2, [r7, #20]
+ 1e0:	ea02 0303 	and.w	r3, r2, r3
+ 1e4:	617b      	str	r3, [r7, #20]
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+ 1e6:	68fb      	ldr	r3, [r7, #12]
+ 1e8:	69fa      	ldr	r2, [r7, #28]
+ 1ea:	fa02 f303 	lsl.w	r3, r2, r3
+ 1ee:	697a      	ldr	r2, [r7, #20]
+ 1f0:	ea42 0303 	orr.w	r3, r2, r3
+ 1f4:	617b      	str	r3, [r7, #20]
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+ 1f6:	683b      	ldr	r3, [r7, #0]
+ 1f8:	78db      	ldrb	r3, [r3, #3]
+ 1fa:	2b28      	cmp	r3, #40	; 0x28
+ 1fc:	d107      	bne.n	20e <GPIO_Init+0xd6>
+        {
+          GPIOx->BRR = (((uint32_t)0x01) << pinpos);
+ 1fe:	69bb      	ldr	r3, [r7, #24]
+ 200:	f04f 0201 	mov.w	r2, #1
+ 204:	fa02 f203 	lsl.w	r2, r2, r3
+ 208:	687b      	ldr	r3, [r7, #4]
+ 20a:	615a      	str	r2, [r3, #20]
+ 20c:	e00a      	b.n	224 <GPIO_Init+0xec>
+        }
+        else
+        {
+          /* Set the corresponding ODR bit */
+          if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPU)
+ 20e:	683b      	ldr	r3, [r7, #0]
+ 210:	78db      	ldrb	r3, [r3, #3]
+ 212:	2b48      	cmp	r3, #72	; 0x48
+ 214:	d106      	bne.n	224 <GPIO_Init+0xec>
+          {
+            GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+ 216:	69bb      	ldr	r3, [r7, #24]
+ 218:	f04f 0201 	mov.w	r2, #1
+ 21c:	fa02 f203 	lsl.w	r2, r2, r3
+ 220:	687b      	ldr	r3, [r7, #4]
+ 222:	611a      	str	r2, [r3, #16]
+/*---------------------------- GPIO CRL Configuration ------------------------*/
+  /* Configure the eight low port pins */
+  if (((uint32_t)GPIO_InitStruct->GPIO_Pin & ((uint32_t)0x00FF)) != 0x00)
+  {
+    tmpreg = GPIOx->CRL;
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+ 224:	69bb      	ldr	r3, [r7, #24]
+ 226:	f103 0301 	add.w	r3, r3, #1
+ 22a:	61bb      	str	r3, [r7, #24]
+ 22c:	69bb      	ldr	r3, [r7, #24]
+ 22e:	2b07      	cmp	r3, #7
+ 230:	d9b7      	bls.n	1a2 <GPIO_Init+0x6a>
+            GPIOx->BSRR = (((uint32_t)0x01) << pinpos);
+          }
+        }
+      }
+    }
+    GPIOx->CRL = tmpreg;
+ 232:	687b      	ldr	r3, [r7, #4]
+ 234:	697a      	ldr	r2, [r7, #20]
+ 236:	601a      	str	r2, [r3, #0]
+  }
+/*---------------------------- GPIO CRH Configuration ------------------------*/
+  /* Configure the eight high port pins */
+  if (GPIO_InitStruct->GPIO_Pin > 0x00FF)
+ 238:	683b      	ldr	r3, [r7, #0]
+ 23a:	881b      	ldrh	r3, [r3, #0]
+ 23c:	2bff      	cmp	r3, #255	; 0xff
+ 23e:	d956      	bls.n	2ee <GPIO_Init+0x1b6>
+  {
+    tmpreg = GPIOx->CRH;
+ 240:	687b      	ldr	r3, [r7, #4]
+ 242:	685b      	ldr	r3, [r3, #4]
+ 244:	617b      	str	r3, [r7, #20]
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+ 246:	f04f 0300 	mov.w	r3, #0
+ 24a:	61bb      	str	r3, [r7, #24]
+ 24c:	e049      	b.n	2e2 <GPIO_Init+0x1aa>
+    {
+      pos = (((uint32_t)0x01) << (pinpos + 0x08));
+ 24e:	69bb      	ldr	r3, [r7, #24]
+ 250:	f103 0308 	add.w	r3, r3, #8
+ 254:	f04f 0201 	mov.w	r2, #1
+ 258:	fa02 f303 	lsl.w	r3, r2, r3
+ 25c:	60fb      	str	r3, [r7, #12]
+      /* Get the port pins position */
+      currentpin = ((GPIO_InitStruct->GPIO_Pin) & pos);
+ 25e:	683b      	ldr	r3, [r7, #0]
+ 260:	881b      	ldrh	r3, [r3, #0]
+ 262:	461a      	mov	r2, r3
+ 264:	68fb      	ldr	r3, [r7, #12]
+ 266:	ea02 0303 	and.w	r3, r2, r3
+ 26a:	613b      	str	r3, [r7, #16]
+      if (currentpin == pos)
+ 26c:	693a      	ldr	r2, [r7, #16]
+ 26e:	68fb      	ldr	r3, [r7, #12]
+ 270:	429a      	cmp	r2, r3
+ 272:	d132      	bne.n	2da <GPIO_Init+0x1a2>
+      {
+        pos = pinpos << 2;
+ 274:	69bb      	ldr	r3, [r7, #24]
+ 276:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 27a:	60fb      	str	r3, [r7, #12]
+        /* Clear the corresponding high control register bits */
+        pinmask = ((uint32_t)0x0F) << pos;
+ 27c:	68fb      	ldr	r3, [r7, #12]
+ 27e:	f04f 020f 	mov.w	r2, #15
+ 282:	fa02 f303 	lsl.w	r3, r2, r3
+ 286:	60bb      	str	r3, [r7, #8]
+        tmpreg &= ~pinmask;
+ 288:	68bb      	ldr	r3, [r7, #8]
+ 28a:	ea6f 0303 	mvn.w	r3, r3
+ 28e:	697a      	ldr	r2, [r7, #20]
+ 290:	ea02 0303 	and.w	r3, r2, r3
+ 294:	617b      	str	r3, [r7, #20]
+        /* Write the mode configuration in the corresponding bits */
+        tmpreg |= (currentmode << pos);
+ 296:	68fb      	ldr	r3, [r7, #12]
+ 298:	69fa      	ldr	r2, [r7, #28]
+ 29a:	fa02 f303 	lsl.w	r3, r2, r3
+ 29e:	697a      	ldr	r2, [r7, #20]
+ 2a0:	ea42 0303 	orr.w	r3, r2, r3
+ 2a4:	617b      	str	r3, [r7, #20]
+        /* Reset the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPD)
+ 2a6:	683b      	ldr	r3, [r7, #0]
+ 2a8:	78db      	ldrb	r3, [r3, #3]
+ 2aa:	2b28      	cmp	r3, #40	; 0x28
+ 2ac:	d108      	bne.n	2c0 <GPIO_Init+0x188>
+        {
+          GPIOx->BRR = (((uint32_t)0x01) << (pinpos + 0x08));
+ 2ae:	69bb      	ldr	r3, [r7, #24]
+ 2b0:	f103 0308 	add.w	r3, r3, #8
+ 2b4:	f04f 0201 	mov.w	r2, #1
+ 2b8:	fa02 f203 	lsl.w	r2, r2, r3
+ 2bc:	687b      	ldr	r3, [r7, #4]
+ 2be:	615a      	str	r2, [r3, #20]
+        }
+        /* Set the corresponding ODR bit */
+        if (GPIO_InitStruct->GPIO_Mode == GPIO_Mode_IPU)
+ 2c0:	683b      	ldr	r3, [r7, #0]
+ 2c2:	78db      	ldrb	r3, [r3, #3]
+ 2c4:	2b48      	cmp	r3, #72	; 0x48
+ 2c6:	d108      	bne.n	2da <GPIO_Init+0x1a2>
+        {
+          GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+ 2c8:	69bb      	ldr	r3, [r7, #24]
+ 2ca:	f103 0308 	add.w	r3, r3, #8
+ 2ce:	f04f 0201 	mov.w	r2, #1
+ 2d2:	fa02 f203 	lsl.w	r2, r2, r3
+ 2d6:	687b      	ldr	r3, [r7, #4]
+ 2d8:	611a      	str	r2, [r3, #16]
+/*---------------------------- GPIO CRH Configuration ------------------------*/
+  /* Configure the eight high port pins */
+  if (GPIO_InitStruct->GPIO_Pin > 0x00FF)
+  {
+    tmpreg = GPIOx->CRH;
+    for (pinpos = 0x00; pinpos < 0x08; pinpos++)
+ 2da:	69bb      	ldr	r3, [r7, #24]
+ 2dc:	f103 0301 	add.w	r3, r3, #1
+ 2e0:	61bb      	str	r3, [r7, #24]
+ 2e2:	69bb      	ldr	r3, [r7, #24]
+ 2e4:	2b07      	cmp	r3, #7
+ 2e6:	d9b2      	bls.n	24e <GPIO_Init+0x116>
+        {
+          GPIOx->BSRR = (((uint32_t)0x01) << (pinpos + 0x08));
+        }
+      }
+    }
+    GPIOx->CRH = tmpreg;
+ 2e8:	687b      	ldr	r3, [r7, #4]
+ 2ea:	697a      	ldr	r2, [r7, #20]
+ 2ec:	605a      	str	r2, [r3, #4]
+  }
+}
+ 2ee:	f107 0724 	add.w	r7, r7, #36	; 0x24
+ 2f2:	46bd      	mov	sp, r7
+ 2f4:	bc80      	pop	{r7}
+ 2f6:	4770      	bx	lr
+
+000002f8 <GPIO_StructInit>:
+  * @param  GPIO_InitStruct : pointer to a GPIO_InitTypeDef structure which will
+  *         be initialized.
+  * @retval None
+  */
+void GPIO_StructInit(GPIO_InitTypeDef* GPIO_InitStruct)
+{
+ 2f8:	b480      	push	{r7}
+ 2fa:	b083      	sub	sp, #12
+ 2fc:	af00      	add	r7, sp, #0
+ 2fe:	6078      	str	r0, [r7, #4]
+  /* Reset GPIO init structure parameters values */
+  GPIO_InitStruct->GPIO_Pin  = GPIO_Pin_All;
+ 300:	687b      	ldr	r3, [r7, #4]
+ 302:	f64f 72ff 	movw	r2, #65535	; 0xffff
+ 306:	801a      	strh	r2, [r3, #0]
+  GPIO_InitStruct->GPIO_Speed = GPIO_Speed_2MHz;
+ 308:	687b      	ldr	r3, [r7, #4]
+ 30a:	f04f 0202 	mov.w	r2, #2
+ 30e:	709a      	strb	r2, [r3, #2]
+  GPIO_InitStruct->GPIO_Mode = GPIO_Mode_IN_FLOATING;
+ 310:	687b      	ldr	r3, [r7, #4]
+ 312:	f04f 0204 	mov.w	r2, #4
+ 316:	70da      	strb	r2, [r3, #3]
+}
+ 318:	f107 070c 	add.w	r7, r7, #12
+ 31c:	46bd      	mov	sp, r7
+ 31e:	bc80      	pop	{r7}
+ 320:	4770      	bx	lr
+ 322:	bf00      	nop
+
+00000324 <GPIO_ReadInputDataBit>:
+  * @param  GPIO_Pin:  specifies the port bit to read.
+  *   This parameter can be GPIO_Pin_x where x can be (0..15).
+  * @retval The input port pin value.
+  */
+uint8_t GPIO_ReadInputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+ 324:	b480      	push	{r7}
+ 326:	b085      	sub	sp, #20
+ 328:	af00      	add	r7, sp, #0
+ 32a:	6078      	str	r0, [r7, #4]
+ 32c:	460b      	mov	r3, r1
+ 32e:	807b      	strh	r3, [r7, #2]
+  uint8_t bitstatus = 0x00;
+ 330:	f04f 0300 	mov.w	r3, #0
+ 334:	73fb      	strb	r3, [r7, #15]
+  
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GET_GPIO_PIN(GPIO_Pin)); 
+  
+  if ((GPIOx->IDR & GPIO_Pin) != (uint32_t)Bit_RESET)
+ 336:	687b      	ldr	r3, [r7, #4]
+ 338:	689a      	ldr	r2, [r3, #8]
+ 33a:	887b      	ldrh	r3, [r7, #2]
+ 33c:	ea02 0303 	and.w	r3, r2, r3
+ 340:	2b00      	cmp	r3, #0
+ 342:	d003      	beq.n	34c <GPIO_ReadInputDataBit+0x28>
+  {
+    bitstatus = (uint8_t)Bit_SET;
+ 344:	f04f 0301 	mov.w	r3, #1
+ 348:	73fb      	strb	r3, [r7, #15]
+ 34a:	e002      	b.n	352 <GPIO_ReadInputDataBit+0x2e>
+  }
+  else
+  {
+    bitstatus = (uint8_t)Bit_RESET;
+ 34c:	f04f 0300 	mov.w	r3, #0
+ 350:	73fb      	strb	r3, [r7, #15]
+  }
+  return bitstatus;
+ 352:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 354:	4618      	mov	r0, r3
+ 356:	f107 0714 	add.w	r7, r7, #20
+ 35a:	46bd      	mov	sp, r7
+ 35c:	bc80      	pop	{r7}
+ 35e:	4770      	bx	lr
+
+00000360 <GPIO_ReadInputData>:
+  * @brief  Reads the specified GPIO input data port.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @retval GPIO input data port value.
+  */
+uint16_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx)
+{
+ 360:	b480      	push	{r7}
+ 362:	b083      	sub	sp, #12
+ 364:	af00      	add	r7, sp, #0
+ 366:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  
+  return ((uint16_t)GPIOx->IDR);
+ 368:	687b      	ldr	r3, [r7, #4]
+ 36a:	689b      	ldr	r3, [r3, #8]
+ 36c:	b29b      	uxth	r3, r3
+}
+ 36e:	4618      	mov	r0, r3
+ 370:	f107 070c 	add.w	r7, r7, #12
+ 374:	46bd      	mov	sp, r7
+ 376:	bc80      	pop	{r7}
+ 378:	4770      	bx	lr
+ 37a:	bf00      	nop
+
+0000037c <GPIO_ReadOutputDataBit>:
+  * @param  GPIO_Pin:  specifies the port bit to read.
+  *   This parameter can be GPIO_Pin_x where x can be (0..15).
+  * @retval The output port pin value.
+  */
+uint8_t GPIO_ReadOutputDataBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+ 37c:	b480      	push	{r7}
+ 37e:	b085      	sub	sp, #20
+ 380:	af00      	add	r7, sp, #0
+ 382:	6078      	str	r0, [r7, #4]
+ 384:	460b      	mov	r3, r1
+ 386:	807b      	strh	r3, [r7, #2]
+  uint8_t bitstatus = 0x00;
+ 388:	f04f 0300 	mov.w	r3, #0
+ 38c:	73fb      	strb	r3, [r7, #15]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GET_GPIO_PIN(GPIO_Pin)); 
+  
+  if ((GPIOx->ODR & GPIO_Pin) != (uint32_t)Bit_RESET)
+ 38e:	687b      	ldr	r3, [r7, #4]
+ 390:	68da      	ldr	r2, [r3, #12]
+ 392:	887b      	ldrh	r3, [r7, #2]
+ 394:	ea02 0303 	and.w	r3, r2, r3
+ 398:	2b00      	cmp	r3, #0
+ 39a:	d003      	beq.n	3a4 <GPIO_ReadOutputDataBit+0x28>
+  {
+    bitstatus = (uint8_t)Bit_SET;
+ 39c:	f04f 0301 	mov.w	r3, #1
+ 3a0:	73fb      	strb	r3, [r7, #15]
+ 3a2:	e002      	b.n	3aa <GPIO_ReadOutputDataBit+0x2e>
+  }
+  else
+  {
+    bitstatus = (uint8_t)Bit_RESET;
+ 3a4:	f04f 0300 	mov.w	r3, #0
+ 3a8:	73fb      	strb	r3, [r7, #15]
+  }
+  return bitstatus;
+ 3aa:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 3ac:	4618      	mov	r0, r3
+ 3ae:	f107 0714 	add.w	r7, r7, #20
+ 3b2:	46bd      	mov	sp, r7
+ 3b4:	bc80      	pop	{r7}
+ 3b6:	4770      	bx	lr
+
+000003b8 <GPIO_ReadOutputData>:
+  * @brief  Reads the specified GPIO output data port.
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @retval GPIO output data port value.
+  */
+uint16_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx)
+{
+ 3b8:	b480      	push	{r7}
+ 3ba:	b083      	sub	sp, #12
+ 3bc:	af00      	add	r7, sp, #0
+ 3be:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+    
+  return ((uint16_t)GPIOx->ODR);
+ 3c0:	687b      	ldr	r3, [r7, #4]
+ 3c2:	68db      	ldr	r3, [r3, #12]
+ 3c4:	b29b      	uxth	r3, r3
+}
+ 3c6:	4618      	mov	r0, r3
+ 3c8:	f107 070c 	add.w	r7, r7, #12
+ 3cc:	46bd      	mov	sp, r7
+ 3ce:	bc80      	pop	{r7}
+ 3d0:	4770      	bx	lr
+ 3d2:	bf00      	nop
+
+000003d4 <GPIO_SetBits>:
+  * @param  GPIO_Pin: specifies the port bits to be written.
+  *   This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+  * @retval None
+  */
+void GPIO_SetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+ 3d4:	b480      	push	{r7}
+ 3d6:	b083      	sub	sp, #12
+ 3d8:	af00      	add	r7, sp, #0
+ 3da:	6078      	str	r0, [r7, #4]
+ 3dc:	460b      	mov	r3, r1
+ 3de:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GPIO_PIN(GPIO_Pin));
+  
+  GPIOx->BSRR = GPIO_Pin;
+ 3e0:	887a      	ldrh	r2, [r7, #2]
+ 3e2:	687b      	ldr	r3, [r7, #4]
+ 3e4:	611a      	str	r2, [r3, #16]
+}
+ 3e6:	f107 070c 	add.w	r7, r7, #12
+ 3ea:	46bd      	mov	sp, r7
+ 3ec:	bc80      	pop	{r7}
+ 3ee:	4770      	bx	lr
+
+000003f0 <GPIO_ResetBits>:
+  * @param  GPIO_Pin: specifies the port bits to be written.
+  *   This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+  * @retval None
+  */
+void GPIO_ResetBits(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+ 3f0:	b480      	push	{r7}
+ 3f2:	b083      	sub	sp, #12
+ 3f4:	af00      	add	r7, sp, #0
+ 3f6:	6078      	str	r0, [r7, #4]
+ 3f8:	460b      	mov	r3, r1
+ 3fa:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GPIO_PIN(GPIO_Pin));
+  
+  GPIOx->BRR = GPIO_Pin;
+ 3fc:	887a      	ldrh	r2, [r7, #2]
+ 3fe:	687b      	ldr	r3, [r7, #4]
+ 400:	615a      	str	r2, [r3, #20]
+}
+ 402:	f107 070c 	add.w	r7, r7, #12
+ 406:	46bd      	mov	sp, r7
+ 408:	bc80      	pop	{r7}
+ 40a:	4770      	bx	lr
+
+0000040c <GPIO_WriteBit>:
+  *     @arg Bit_RESET: to clear the port pin
+  *     @arg Bit_SET: to set the port pin
+  * @retval None
+  */
+void GPIO_WriteBit(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, BitAction BitVal)
+{
+ 40c:	b480      	push	{r7}
+ 40e:	b083      	sub	sp, #12
+ 410:	af00      	add	r7, sp, #0
+ 412:	6078      	str	r0, [r7, #4]
+ 414:	4613      	mov	r3, r2
+ 416:	460a      	mov	r2, r1
+ 418:	807a      	strh	r2, [r7, #2]
+ 41a:	707b      	strb	r3, [r7, #1]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GET_GPIO_PIN(GPIO_Pin));
+  assert_param(IS_GPIO_BIT_ACTION(BitVal)); 
+  
+  if (BitVal != Bit_RESET)
+ 41c:	787b      	ldrb	r3, [r7, #1]
+ 41e:	2b00      	cmp	r3, #0
+ 420:	d003      	beq.n	42a <GPIO_WriteBit+0x1e>
+  {
+    GPIOx->BSRR = GPIO_Pin;
+ 422:	887a      	ldrh	r2, [r7, #2]
+ 424:	687b      	ldr	r3, [r7, #4]
+ 426:	611a      	str	r2, [r3, #16]
+ 428:	e002      	b.n	430 <GPIO_WriteBit+0x24>
+  }
+  else
+  {
+    GPIOx->BRR = GPIO_Pin;
+ 42a:	887a      	ldrh	r2, [r7, #2]
+ 42c:	687b      	ldr	r3, [r7, #4]
+ 42e:	615a      	str	r2, [r3, #20]
+  }
+}
+ 430:	f107 070c 	add.w	r7, r7, #12
+ 434:	46bd      	mov	sp, r7
+ 436:	bc80      	pop	{r7}
+ 438:	4770      	bx	lr
+ 43a:	bf00      	nop
+
+0000043c <GPIO_Write>:
+  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
+  * @param  PortVal: specifies the value to be written to the port output data register.
+  * @retval None
+  */
+void GPIO_Write(GPIO_TypeDef* GPIOx, uint16_t PortVal)
+{
+ 43c:	b480      	push	{r7}
+ 43e:	b083      	sub	sp, #12
+ 440:	af00      	add	r7, sp, #0
+ 442:	6078      	str	r0, [r7, #4]
+ 444:	460b      	mov	r3, r1
+ 446:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  
+  GPIOx->ODR = PortVal;
+ 448:	887a      	ldrh	r2, [r7, #2]
+ 44a:	687b      	ldr	r3, [r7, #4]
+ 44c:	60da      	str	r2, [r3, #12]
+}
+ 44e:	f107 070c 	add.w	r7, r7, #12
+ 452:	46bd      	mov	sp, r7
+ 454:	bc80      	pop	{r7}
+ 456:	4770      	bx	lr
+
+00000458 <GPIO_PinLockConfig>:
+  * @param  GPIO_Pin: specifies the port bit to be written.
+  *   This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+  * @retval None
+  */
+void GPIO_PinLockConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+{
+ 458:	b480      	push	{r7}
+ 45a:	b085      	sub	sp, #20
+ 45c:	af00      	add	r7, sp, #0
+ 45e:	6078      	str	r0, [r7, #4]
+ 460:	460b      	mov	r3, r1
+ 462:	807b      	strh	r3, [r7, #2]
+  uint32_t tmp = 0x00010000;
+ 464:	f44f 3380 	mov.w	r3, #65536	; 0x10000
+ 468:	60fb      	str	r3, [r7, #12]
+  
+  /* Check the parameters */
+  assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+  assert_param(IS_GPIO_PIN(GPIO_Pin));
+  
+  tmp |= GPIO_Pin;
+ 46a:	887b      	ldrh	r3, [r7, #2]
+ 46c:	68fa      	ldr	r2, [r7, #12]
+ 46e:	ea42 0303 	orr.w	r3, r2, r3
+ 472:	60fb      	str	r3, [r7, #12]
+  /* Set LCKK bit */
+  GPIOx->LCKR = tmp;
+ 474:	687b      	ldr	r3, [r7, #4]
+ 476:	68fa      	ldr	r2, [r7, #12]
+ 478:	619a      	str	r2, [r3, #24]
+  /* Reset LCKK bit */
+  GPIOx->LCKR =  GPIO_Pin;
+ 47a:	887a      	ldrh	r2, [r7, #2]
+ 47c:	687b      	ldr	r3, [r7, #4]
+ 47e:	619a      	str	r2, [r3, #24]
+  /* Set LCKK bit */
+  GPIOx->LCKR = tmp;
+ 480:	687b      	ldr	r3, [r7, #4]
+ 482:	68fa      	ldr	r2, [r7, #12]
+ 484:	619a      	str	r2, [r3, #24]
+  /* Read LCKK bit*/
+  tmp = GPIOx->LCKR;
+ 486:	687b      	ldr	r3, [r7, #4]
+ 488:	699b      	ldr	r3, [r3, #24]
+ 48a:	60fb      	str	r3, [r7, #12]
+  /* Read LCKK bit*/
+  tmp = GPIOx->LCKR;
+ 48c:	687b      	ldr	r3, [r7, #4]
+ 48e:	699b      	ldr	r3, [r3, #24]
+ 490:	60fb      	str	r3, [r7, #12]
+}
+ 492:	f107 0714 	add.w	r7, r7, #20
+ 496:	46bd      	mov	sp, r7
+ 498:	bc80      	pop	{r7}
+ 49a:	4770      	bx	lr
+
+0000049c <GPIO_EventOutputConfig>:
+  * @param  GPIO_PinSource: specifies the pin for the Event output.
+  *   This parameter can be GPIO_PinSourcex where x can be (0..15).
+  * @retval None
+  */
+void GPIO_EventOutputConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
+{
+ 49c:	b480      	push	{r7}
+ 49e:	b085      	sub	sp, #20
+ 4a0:	af00      	add	r7, sp, #0
+ 4a2:	4602      	mov	r2, r0
+ 4a4:	460b      	mov	r3, r1
+ 4a6:	71fa      	strb	r2, [r7, #7]
+ 4a8:	71bb      	strb	r3, [r7, #6]
+  uint32_t tmpreg = 0x00;
+ 4aa:	f04f 0300 	mov.w	r3, #0
+ 4ae:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_GPIO_EVENTOUT_PORT_SOURCE(GPIO_PortSource));
+  assert_param(IS_GPIO_PIN_SOURCE(GPIO_PinSource));
+    
+  tmpreg = AFIO->EVCR;
+ 4b0:	4b0e      	ldr	r3, [pc, #56]	; (4ec <GPIO_EventOutputConfig+0x50>)
+ 4b2:	681b      	ldr	r3, [r3, #0]
+ 4b4:	60fb      	str	r3, [r7, #12]
+  /* Clear the PORT[6:4] and PIN[3:0] bits */
+  tmpreg &= EVCR_PORTPINCONFIG_MASK;
+ 4b6:	68fa      	ldr	r2, [r7, #12]
+ 4b8:	f64f 7380 	movw	r3, #65408	; 0xff80
+ 4bc:	ea02 0303 	and.w	r3, r2, r3
+ 4c0:	60fb      	str	r3, [r7, #12]
+  tmpreg |= (uint32_t)GPIO_PortSource << 0x04;
+ 4c2:	79fb      	ldrb	r3, [r7, #7]
+ 4c4:	ea4f 1303 	mov.w	r3, r3, lsl #4
+ 4c8:	68fa      	ldr	r2, [r7, #12]
+ 4ca:	ea42 0303 	orr.w	r3, r2, r3
+ 4ce:	60fb      	str	r3, [r7, #12]
+  tmpreg |= GPIO_PinSource;
+ 4d0:	79bb      	ldrb	r3, [r7, #6]
+ 4d2:	68fa      	ldr	r2, [r7, #12]
+ 4d4:	ea42 0303 	orr.w	r3, r2, r3
+ 4d8:	60fb      	str	r3, [r7, #12]
+  AFIO->EVCR = tmpreg;
+ 4da:	4b04      	ldr	r3, [pc, #16]	; (4ec <GPIO_EventOutputConfig+0x50>)
+ 4dc:	68fa      	ldr	r2, [r7, #12]
+ 4de:	601a      	str	r2, [r3, #0]
+}
+ 4e0:	f107 0714 	add.w	r7, r7, #20
+ 4e4:	46bd      	mov	sp, r7
+ 4e6:	bc80      	pop	{r7}
+ 4e8:	4770      	bx	lr
+ 4ea:	bf00      	nop
+ 4ec:	40010000 	.word	0x40010000
+
+000004f0 <GPIO_EventOutputCmd>:
+  * @param  NewState: new state of the Event output.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void GPIO_EventOutputCmd(FunctionalState NewState)
+{
+ 4f0:	b480      	push	{r7}
+ 4f2:	b083      	sub	sp, #12
+ 4f4:	af00      	add	r7, sp, #0
+ 4f6:	4603      	mov	r3, r0
+ 4f8:	71fb      	strb	r3, [r7, #7]
+  /* Check the parameters */
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  
+  *(__IO uint32_t *) EVCR_EVOE_BB = (uint32_t)NewState;
+ 4fa:	4b04      	ldr	r3, [pc, #16]	; (50c <GPIO_EventOutputCmd+0x1c>)
+ 4fc:	79fa      	ldrb	r2, [r7, #7]
+ 4fe:	601a      	str	r2, [r3, #0]
+}
+ 500:	f107 070c 	add.w	r7, r7, #12
+ 504:	46bd      	mov	sp, r7
+ 506:	bc80      	pop	{r7}
+ 508:	4770      	bx	lr
+ 50a:	bf00      	nop
+ 50c:	4220001c 	.word	0x4220001c
+
+00000510 <GPIO_PinRemapConfig>:
+  * @param  NewState: new state of the port pin remapping.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void GPIO_PinRemapConfig(uint32_t GPIO_Remap, FunctionalState NewState)
+{
+ 510:	b480      	push	{r7}
+ 512:	b087      	sub	sp, #28
+ 514:	af00      	add	r7, sp, #0
+ 516:	6078      	str	r0, [r7, #4]
+ 518:	460b      	mov	r3, r1
+ 51a:	70fb      	strb	r3, [r7, #3]
+  uint32_t tmp = 0x00, tmp1 = 0x00, tmpreg = 0x00, tmpmask = 0x00;
+ 51c:	f04f 0300 	mov.w	r3, #0
+ 520:	613b      	str	r3, [r7, #16]
+ 522:	f04f 0300 	mov.w	r3, #0
+ 526:	60fb      	str	r3, [r7, #12]
+ 528:	f04f 0300 	mov.w	r3, #0
+ 52c:	617b      	str	r3, [r7, #20]
+ 52e:	f04f 0300 	mov.w	r3, #0
+ 532:	60bb      	str	r3, [r7, #8]
+
+  /* Check the parameters */
+  assert_param(IS_GPIO_REMAP(GPIO_Remap));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));  
+  
+  if((GPIO_Remap & 0x80000000) == 0x80000000)
+ 534:	687b      	ldr	r3, [r7, #4]
+ 536:	2b00      	cmp	r3, #0
+ 538:	da03      	bge.n	542 <GPIO_PinRemapConfig+0x32>
+  {
+    tmpreg = AFIO->MAPR2;
+ 53a:	4b35      	ldr	r3, [pc, #212]	; (610 <GPIO_PinRemapConfig+0x100>)
+ 53c:	69db      	ldr	r3, [r3, #28]
+ 53e:	617b      	str	r3, [r7, #20]
+ 540:	e002      	b.n	548 <GPIO_PinRemapConfig+0x38>
+  }
+  else
+  {
+    tmpreg = AFIO->MAPR;
+ 542:	4b33      	ldr	r3, [pc, #204]	; (610 <GPIO_PinRemapConfig+0x100>)
+ 544:	685b      	ldr	r3, [r3, #4]
+ 546:	617b      	str	r3, [r7, #20]
+  }
+
+  tmpmask = (GPIO_Remap & DBGAFR_POSITION_MASK) >> 0x10;
+ 548:	687b      	ldr	r3, [r7, #4]
+ 54a:	f403 2370 	and.w	r3, r3, #983040	; 0xf0000
+ 54e:	ea4f 4313 	mov.w	r3, r3, lsr #16
+ 552:	60bb      	str	r3, [r7, #8]
+  tmp = GPIO_Remap & LSB_MASK;
+ 554:	687b      	ldr	r3, [r7, #4]
+ 556:	ea4f 4303 	mov.w	r3, r3, lsl #16
+ 55a:	ea4f 4313 	mov.w	r3, r3, lsr #16
+ 55e:	613b      	str	r3, [r7, #16]
+
+  if ((GPIO_Remap & (DBGAFR_LOCATION_MASK | DBGAFR_NUMBITS_MASK)) == (DBGAFR_LOCATION_MASK | DBGAFR_NUMBITS_MASK))
+ 560:	687b      	ldr	r3, [r7, #4]
+ 562:	f403 1340 	and.w	r3, r3, #3145728	; 0x300000
+ 566:	f5b3 1f40 	cmp.w	r3, #3145728	; 0x300000
+ 56a:	d10a      	bne.n	582 <GPIO_PinRemapConfig+0x72>
+  {
+    tmpreg &= DBGAFR_SWJCFG_MASK;
+ 56c:	697b      	ldr	r3, [r7, #20]
+ 56e:	f023 6370 	bic.w	r3, r3, #251658240	; 0xf000000
+ 572:	617b      	str	r3, [r7, #20]
+    AFIO->MAPR &= DBGAFR_SWJCFG_MASK;
+ 574:	4b26      	ldr	r3, [pc, #152]	; (610 <GPIO_PinRemapConfig+0x100>)
+ 576:	4a26      	ldr	r2, [pc, #152]	; (610 <GPIO_PinRemapConfig+0x100>)
+ 578:	6852      	ldr	r2, [r2, #4]
+ 57a:	f022 6270 	bic.w	r2, r2, #251658240	; 0xf000000
+ 57e:	605a      	str	r2, [r3, #4]
+ 580:	e028      	b.n	5d4 <GPIO_PinRemapConfig+0xc4>
+  }
+  else if ((GPIO_Remap & DBGAFR_NUMBITS_MASK) == DBGAFR_NUMBITS_MASK)
+ 582:	687b      	ldr	r3, [r7, #4]
+ 584:	f403 1380 	and.w	r3, r3, #1048576	; 0x100000
+ 588:	2b00      	cmp	r3, #0
+ 58a:	d011      	beq.n	5b0 <GPIO_PinRemapConfig+0xa0>
+  {
+    tmp1 = ((uint32_t)0x03) << tmpmask;
+ 58c:	68bb      	ldr	r3, [r7, #8]
+ 58e:	f04f 0203 	mov.w	r2, #3
+ 592:	fa02 f303 	lsl.w	r3, r2, r3
+ 596:	60fb      	str	r3, [r7, #12]
+    tmpreg &= ~tmp1;
+ 598:	68fb      	ldr	r3, [r7, #12]
+ 59a:	ea6f 0303 	mvn.w	r3, r3
+ 59e:	697a      	ldr	r2, [r7, #20]
+ 5a0:	ea02 0303 	and.w	r3, r2, r3
+ 5a4:	617b      	str	r3, [r7, #20]
+    tmpreg |= ~DBGAFR_SWJCFG_MASK;
+ 5a6:	697b      	ldr	r3, [r7, #20]
+ 5a8:	f043 6370 	orr.w	r3, r3, #251658240	; 0xf000000
+ 5ac:	617b      	str	r3, [r7, #20]
+ 5ae:	e011      	b.n	5d4 <GPIO_PinRemapConfig+0xc4>
+  }
+  else
+  {
+    tmpreg &= ~(tmp << ((GPIO_Remap >> 0x15)*0x10));
+ 5b0:	687b      	ldr	r3, [r7, #4]
+ 5b2:	ea4f 5353 	mov.w	r3, r3, lsr #21
+ 5b6:	ea4f 1303 	mov.w	r3, r3, lsl #4
+ 5ba:	693a      	ldr	r2, [r7, #16]
+ 5bc:	fa02 f303 	lsl.w	r3, r2, r3
+ 5c0:	ea6f 0303 	mvn.w	r3, r3
+ 5c4:	697a      	ldr	r2, [r7, #20]
+ 5c6:	ea02 0303 	and.w	r3, r2, r3
+ 5ca:	617b      	str	r3, [r7, #20]
+    tmpreg |= ~DBGAFR_SWJCFG_MASK;
+ 5cc:	697b      	ldr	r3, [r7, #20]
+ 5ce:	f043 6370 	orr.w	r3, r3, #251658240	; 0xf000000
+ 5d2:	617b      	str	r3, [r7, #20]
+  }
+
+  if (NewState != DISABLE)
+ 5d4:	78fb      	ldrb	r3, [r7, #3]
+ 5d6:	2b00      	cmp	r3, #0
+ 5d8:	d00b      	beq.n	5f2 <GPIO_PinRemapConfig+0xe2>
+  {
+    tmpreg |= (tmp << ((GPIO_Remap >> 0x15)*0x10));
+ 5da:	687b      	ldr	r3, [r7, #4]
+ 5dc:	ea4f 5353 	mov.w	r3, r3, lsr #21
+ 5e0:	ea4f 1303 	mov.w	r3, r3, lsl #4
+ 5e4:	693a      	ldr	r2, [r7, #16]
+ 5e6:	fa02 f303 	lsl.w	r3, r2, r3
+ 5ea:	697a      	ldr	r2, [r7, #20]
+ 5ec:	ea42 0303 	orr.w	r3, r2, r3
+ 5f0:	617b      	str	r3, [r7, #20]
+  }
+
+  if((GPIO_Remap & 0x80000000) == 0x80000000)
+ 5f2:	687b      	ldr	r3, [r7, #4]
+ 5f4:	2b00      	cmp	r3, #0
+ 5f6:	da03      	bge.n	600 <GPIO_PinRemapConfig+0xf0>
+  {
+    AFIO->MAPR2 = tmpreg;
+ 5f8:	4b05      	ldr	r3, [pc, #20]	; (610 <GPIO_PinRemapConfig+0x100>)
+ 5fa:	697a      	ldr	r2, [r7, #20]
+ 5fc:	61da      	str	r2, [r3, #28]
+ 5fe:	e002      	b.n	606 <GPIO_PinRemapConfig+0xf6>
+  }
+  else
+  {
+    AFIO->MAPR = tmpreg;
+ 600:	4b03      	ldr	r3, [pc, #12]	; (610 <GPIO_PinRemapConfig+0x100>)
+ 602:	697a      	ldr	r2, [r7, #20]
+ 604:	605a      	str	r2, [r3, #4]
+  }  
+}
+ 606:	f107 071c 	add.w	r7, r7, #28
+ 60a:	46bd      	mov	sp, r7
+ 60c:	bc80      	pop	{r7}
+ 60e:	4770      	bx	lr
+ 610:	40010000 	.word	0x40010000
+
+00000614 <GPIO_EXTILineConfig>:
+  * @param  GPIO_PinSource: specifies the EXTI line to be configured.
+  *   This parameter can be GPIO_PinSourcex where x can be (0..15).
+  * @retval None
+  */
+void GPIO_EXTILineConfig(uint8_t GPIO_PortSource, uint8_t GPIO_PinSource)
+{
+ 614:	b490      	push	{r4, r7}
+ 616:	b084      	sub	sp, #16
+ 618:	af00      	add	r7, sp, #0
+ 61a:	4602      	mov	r2, r0
+ 61c:	460b      	mov	r3, r1
+ 61e:	71fa      	strb	r2, [r7, #7]
+ 620:	71bb      	strb	r3, [r7, #6]
+  uint32_t tmp = 0x00;
+ 622:	f04f 0300 	mov.w	r3, #0
+ 626:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_GPIO_EXTI_PORT_SOURCE(GPIO_PortSource));
+  assert_param(IS_GPIO_PIN_SOURCE(GPIO_PinSource));
+  
+  tmp = ((uint32_t)0x0F) << (0x04 * (GPIO_PinSource & (uint8_t)0x03));
+ 628:	79bb      	ldrb	r3, [r7, #6]
+ 62a:	f003 0303 	and.w	r3, r3, #3
+ 62e:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 632:	f04f 020f 	mov.w	r2, #15
+ 636:	fa02 f303 	lsl.w	r3, r2, r3
+ 63a:	60fb      	str	r3, [r7, #12]
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] &= ~tmp;
+ 63c:	4b1b      	ldr	r3, [pc, #108]	; (6ac <GPIO_EXTILineConfig+0x98>)
+ 63e:	79ba      	ldrb	r2, [r7, #6]
+ 640:	ea4f 0292 	mov.w	r2, r2, lsr #2
+ 644:	b2d2      	uxtb	r2, r2
+ 646:	4919      	ldr	r1, [pc, #100]	; (6ac <GPIO_EXTILineConfig+0x98>)
+ 648:	79b8      	ldrb	r0, [r7, #6]
+ 64a:	ea4f 0090 	mov.w	r0, r0, lsr #2
+ 64e:	b2c0      	uxtb	r0, r0
+ 650:	f100 0002 	add.w	r0, r0, #2
+ 654:	f851 0020 	ldr.w	r0, [r1, r0, lsl #2]
+ 658:	68f9      	ldr	r1, [r7, #12]
+ 65a:	ea6f 0101 	mvn.w	r1, r1
+ 65e:	ea00 0101 	and.w	r1, r0, r1
+ 662:	f102 0202 	add.w	r2, r2, #2
+ 666:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+  AFIO->EXTICR[GPIO_PinSource >> 0x02] |= (((uint32_t)GPIO_PortSource) << (0x04 * (GPIO_PinSource & (uint8_t)0x03)));
+ 66a:	4b10      	ldr	r3, [pc, #64]	; (6ac <GPIO_EXTILineConfig+0x98>)
+ 66c:	79ba      	ldrb	r2, [r7, #6]
+ 66e:	ea4f 0292 	mov.w	r2, r2, lsr #2
+ 672:	b2d2      	uxtb	r2, r2
+ 674:	490d      	ldr	r1, [pc, #52]	; (6ac <GPIO_EXTILineConfig+0x98>)
+ 676:	79b8      	ldrb	r0, [r7, #6]
+ 678:	ea4f 0090 	mov.w	r0, r0, lsr #2
+ 67c:	b2c0      	uxtb	r0, r0
+ 67e:	f100 0002 	add.w	r0, r0, #2
+ 682:	f851 0020 	ldr.w	r0, [r1, r0, lsl #2]
+ 686:	79fc      	ldrb	r4, [r7, #7]
+ 688:	79b9      	ldrb	r1, [r7, #6]
+ 68a:	f001 0103 	and.w	r1, r1, #3
+ 68e:	ea4f 0181 	mov.w	r1, r1, lsl #2
+ 692:	fa04 f101 	lsl.w	r1, r4, r1
+ 696:	ea40 0101 	orr.w	r1, r0, r1
+ 69a:	f102 0202 	add.w	r2, r2, #2
+ 69e:	f843 1022 	str.w	r1, [r3, r2, lsl #2]
+}
+ 6a2:	f107 0710 	add.w	r7, r7, #16
+ 6a6:	46bd      	mov	sp, r7
+ 6a8:	bc90      	pop	{r4, r7}
+ 6aa:	4770      	bx	lr
+ 6ac:	40010000 	.word	0x40010000
+
+000006b0 <GPIO_ETH_MediaInterfaceConfig>:
+  *     @arg GPIO_ETH_MediaInterface_MII: MII mode
+  *     @arg GPIO_ETH_MediaInterface_RMII: RMII mode    
+  * @retval None
+  */
+void GPIO_ETH_MediaInterfaceConfig(uint32_t GPIO_ETH_MediaInterface) 
+{ 
+ 6b0:	b480      	push	{r7}
+ 6b2:	b083      	sub	sp, #12
+ 6b4:	af00      	add	r7, sp, #0
+ 6b6:	6078      	str	r0, [r7, #4]
+  assert_param(IS_GPIO_ETH_MEDIA_INTERFACE(GPIO_ETH_MediaInterface)); 
+
+  /* Configure MII_RMII selection bit */ 
+  *(__IO uint32_t *) MAPR_MII_RMII_SEL_BB = GPIO_ETH_MediaInterface; 
+ 6b8:	4b03      	ldr	r3, [pc, #12]	; (6c8 <GPIO_ETH_MediaInterfaceConfig+0x18>)
+ 6ba:	687a      	ldr	r2, [r7, #4]
+ 6bc:	601a      	str	r2, [r3, #0]
+}
+ 6be:	f107 070c 	add.w	r7, r7, #12
+ 6c2:	46bd      	mov	sp, r7
+ 6c4:	bc80      	pop	{r7}
+ 6c6:	4770      	bx	lr
+ 6c8:	422000dc 	.word	0x422000dc

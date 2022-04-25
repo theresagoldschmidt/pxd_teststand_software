@@ -1,0 +1,453 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_freertos_memmang.a:
+
+heap_2.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  32852 Jul 30 19:07 2021 heap_2.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000001f8  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000004  00000000  00000000  0000022c  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00005400  00000000  00000000  00000230  2**3
+                  ALLOC
+  3 .debug_abbrev 0000015c  00000000  00000000  00000230  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000002b3  00000000  00000000  0000038c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   0000049a  00000000  00000000  0000063f  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 00006537  00000000  00000000  00000ad9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .rodata       00000002  00000000  00000000  00007010  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .debug_loc    000000c8  00000000  00000000  00007012  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_pubnames 00000064  00000000  00000000  000070da  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_pubtypes 0000004c  00000000  00000000  0000713e  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_aranges 00000020  00000000  00000000  0000718a  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_str    00000241  00000000  00000000  000071aa  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .comment      0000002b  00000000  00000000  000073eb  2**0
+                  CONTENTS, READONLY
+ 14 .ARM.attributes 00000031  00000000  00000000  00007416  2**0
+                  CONTENTS, READONLY
+ 15 .debug_frame  00000080  00000000  00000000  00007448  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 heap_2.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xHeap
+00000000 l    d  .rodata	00000000 .rodata
+00000000 l     O .rodata	00000002 heapSTRUCT_SIZE
+000053e8 l       .bss	00000000 xStart
+000053f0 l       .bss	00000000 xEnd
+00000000 l     O .data	00000004 xFreeBytesRemaining
+000053f8 l       .bss	00000000 xHeapHasBeenInitialised.4694
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     F .text	0000015c pvPortMalloc
+00000000         *UND*	00000000 vTaskSuspendAll
+00000000         *UND*	00000000 xTaskResumeAll
+0000015c g     F .text	0000007c vPortFree
+000001d8 g     F .text	00000014 xPortGetFreeHeapSize
+000001ec g     F .text	0000000a vPortInitialiseBlocks
+
+
+
+Disassembly of section .text:
+
+00000000 <pvPortMalloc>:
+	pxFirstFreeBlock->pxNextFreeBlock = &xEnd;										\
+}
+/*-----------------------------------------------------------*/
+
+void *pvPortMalloc( size_t xWantedSize )
+{
+   0:	b580      	push	{r7, lr}
+   2:	b08a      	sub	sp, #40	; 0x28
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+xBlockLink *pxBlock, *pxPreviousBlock, *pxNewBlockLink;
+static portBASE_TYPE xHeapHasBeenInitialised = pdFALSE;
+void *pvReturn = NULL;
+   8:	f04f 0300 	mov.w	r3, #0
+   c:	61fb      	str	r3, [r7, #28]
+
+	vTaskSuspendAll();
+   e:	f7ff fffe 	bl	0 <vTaskSuspendAll>
+			e: R_ARM_THM_CALL	vTaskSuspendAll
+	{
+		/* If this is the first call to malloc then the heap will require
+		initialisation to setup the list of free blocks. */
+		if( xHeapHasBeenInitialised == pdFALSE )
+  12:	4b4c      	ldr	r3, [pc, #304]	; (144 <pvPortMalloc+0x144>)
+  14:	681b      	ldr	r3, [r3, #0]
+  16:	2b00      	cmp	r3, #0
+  18:	d11b      	bne.n	52 <pvPortMalloc+0x52>
+		{
+			prvHeapInit();
+  1a:	4a4b      	ldr	r2, [pc, #300]	; (148 <pvPortMalloc+0x148>)
+  1c:	4b4b      	ldr	r3, [pc, #300]	; (14c <pvPortMalloc+0x14c>)
+  1e:	601a      	str	r2, [r3, #0]
+  20:	4b4a      	ldr	r3, [pc, #296]	; (14c <pvPortMalloc+0x14c>)
+  22:	f04f 0200 	mov.w	r2, #0
+  26:	605a      	str	r2, [r3, #4]
+  28:	4b49      	ldr	r3, [pc, #292]	; (150 <pvPortMalloc+0x150>)
+  2a:	f245 32e8 	movw	r2, #21480	; 0x53e8
+  2e:	605a      	str	r2, [r3, #4]
+  30:	4b47      	ldr	r3, [pc, #284]	; (150 <pvPortMalloc+0x150>)
+  32:	f04f 0200 	mov.w	r2, #0
+  36:	601a      	str	r2, [r3, #0]
+  38:	4b43      	ldr	r3, [pc, #268]	; (148 <pvPortMalloc+0x148>)
+  3a:	617b      	str	r3, [r7, #20]
+  3c:	697b      	ldr	r3, [r7, #20]
+  3e:	f245 32e8 	movw	r2, #21480	; 0x53e8
+  42:	605a      	str	r2, [r3, #4]
+  44:	697b      	ldr	r3, [r7, #20]
+  46:	4a42      	ldr	r2, [pc, #264]	; (150 <pvPortMalloc+0x150>)
+  48:	601a      	str	r2, [r3, #0]
+			xHeapHasBeenInitialised = pdTRUE;
+  4a:	4b3e      	ldr	r3, [pc, #248]	; (144 <pvPortMalloc+0x144>)
+  4c:	f04f 0201 	mov.w	r2, #1
+  50:	601a      	str	r2, [r3, #0]
+		}
+
+		/* The wanted size is increased so it can contain a xBlockLink
+		structure in addition to the requested amount of bytes. */
+		if( xWantedSize > 0 )
+  52:	687b      	ldr	r3, [r7, #4]
+  54:	2b00      	cmp	r3, #0
+  56:	d00f      	beq.n	78 <pvPortMalloc+0x78>
+		{
+			xWantedSize += heapSTRUCT_SIZE;
+  58:	4b3e      	ldr	r3, [pc, #248]	; (154 <pvPortMalloc+0x154>)
+  5a:	881b      	ldrh	r3, [r3, #0]
+  5c:	687a      	ldr	r2, [r7, #4]
+  5e:	18d3      	adds	r3, r2, r3
+  60:	607b      	str	r3, [r7, #4]
+
+			/* Ensure that blocks are always aligned to the required number of bytes. */
+			if( xWantedSize & portBYTE_ALIGNMENT_MASK )
+  62:	687b      	ldr	r3, [r7, #4]
+  64:	f003 0307 	and.w	r3, r3, #7
+  68:	2b00      	cmp	r3, #0
+  6a:	d005      	beq.n	78 <pvPortMalloc+0x78>
+			{
+				/* Byte alignment required. */
+				xWantedSize += ( portBYTE_ALIGNMENT - ( xWantedSize & portBYTE_ALIGNMENT_MASK ) );
+  6c:	687b      	ldr	r3, [r7, #4]
+  6e:	f023 0307 	bic.w	r3, r3, #7
+  72:	f103 0308 	add.w	r3, r3, #8
+  76:	607b      	str	r3, [r7, #4]
+			}
+		}
+
+		if( ( xWantedSize > 0 ) && ( xWantedSize < configTOTAL_HEAP_SIZE ) )
+  78:	687b      	ldr	r3, [r7, #4]
+  7a:	2b00      	cmp	r3, #0
+  7c:	d05a      	beq.n	134 <pvPortMalloc+0x134>
+  7e:	687a      	ldr	r2, [r7, #4]
+  80:	f245 33e7 	movw	r3, #21479	; 0x53e7
+  84:	429a      	cmp	r2, r3
+  86:	d855      	bhi.n	134 <pvPortMalloc+0x134>
+		{
+			/* Blocks are stored in byte order - traverse the list from the start
+			(smallest) block until one of adequate size is found. */
+			pxPreviousBlock = &xStart;
+  88:	4b30      	ldr	r3, [pc, #192]	; (14c <pvPortMalloc+0x14c>)
+  8a:	623b      	str	r3, [r7, #32]
+			pxBlock = xStart.pxNextFreeBlock;
+  8c:	4b2f      	ldr	r3, [pc, #188]	; (14c <pvPortMalloc+0x14c>)
+  8e:	681b      	ldr	r3, [r3, #0]
+  90:	627b      	str	r3, [r7, #36]	; 0x24
+			while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock ) )
+  92:	e004      	b.n	9e <pvPortMalloc+0x9e>
+			{
+				pxPreviousBlock = pxBlock;
+  94:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  96:	623b      	str	r3, [r7, #32]
+				pxBlock = pxBlock->pxNextFreeBlock;
+  98:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  9a:	681b      	ldr	r3, [r3, #0]
+  9c:	627b      	str	r3, [r7, #36]	; 0x24
+		{
+			/* Blocks are stored in byte order - traverse the list from the start
+			(smallest) block until one of adequate size is found. */
+			pxPreviousBlock = &xStart;
+			pxBlock = xStart.pxNextFreeBlock;
+			while( ( pxBlock->xBlockSize < xWantedSize ) && ( pxBlock->pxNextFreeBlock ) )
+  9e:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  a0:	685a      	ldr	r2, [r3, #4]
+  a2:	687b      	ldr	r3, [r7, #4]
+  a4:	429a      	cmp	r2, r3
+  a6:	d203      	bcs.n	b0 <pvPortMalloc+0xb0>
+  a8:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  aa:	681b      	ldr	r3, [r3, #0]
+  ac:	2b00      	cmp	r3, #0
+  ae:	d1f1      	bne.n	94 <pvPortMalloc+0x94>
+				pxPreviousBlock = pxBlock;
+				pxBlock = pxBlock->pxNextFreeBlock;
+			}
+
+			/* If we found the end marker then a block of adequate size was not found. */
+			if( pxBlock != &xEnd )
+  b0:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+  b2:	4b27      	ldr	r3, [pc, #156]	; (150 <pvPortMalloc+0x150>)
+  b4:	429a      	cmp	r2, r3
+  b6:	d03d      	beq.n	134 <pvPortMalloc+0x134>
+			{
+				/* Return the memory space - jumping over the xBlockLink structure
+				at its start. */
+				pvReturn = ( void * ) ( ( ( unsigned char * ) pxPreviousBlock->pxNextFreeBlock ) + heapSTRUCT_SIZE );
+  b8:	6a3b      	ldr	r3, [r7, #32]
+  ba:	681a      	ldr	r2, [r3, #0]
+  bc:	4b25      	ldr	r3, [pc, #148]	; (154 <pvPortMalloc+0x154>)
+  be:	881b      	ldrh	r3, [r3, #0]
+  c0:	18d3      	adds	r3, r2, r3
+  c2:	61fb      	str	r3, [r7, #28]
+
+				/* This block is being returned for use so must be taken our of the
+				list of free blocks. */
+				pxPreviousBlock->pxNextFreeBlock = pxBlock->pxNextFreeBlock;
+  c4:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  c6:	681a      	ldr	r2, [r3, #0]
+  c8:	6a3b      	ldr	r3, [r7, #32]
+  ca:	601a      	str	r2, [r3, #0]
+
+				/* If the block is larger than required it can be split into two. */
+				if( ( pxBlock->xBlockSize - xWantedSize ) > heapMINIMUM_BLOCK_SIZE )
+  cc:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  ce:	685a      	ldr	r2, [r3, #4]
+  d0:	687b      	ldr	r3, [r7, #4]
+  d2:	1ad2      	subs	r2, r2, r3
+  d4:	4b1f      	ldr	r3, [pc, #124]	; (154 <pvPortMalloc+0x154>)
+  d6:	881b      	ldrh	r3, [r3, #0]
+  d8:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  dc:	429a      	cmp	r2, r3
+  de:	d922      	bls.n	126 <pvPortMalloc+0x126>
+				{
+					/* This block is to be split into two.  Create a new block
+					following the number of bytes requested. The void cast is
+					used to prevent byte alignment warnings from the compiler. */
+					pxNewBlockLink = ( void * ) ( ( ( unsigned char * ) pxBlock ) + xWantedSize );
+  e0:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+  e2:	687b      	ldr	r3, [r7, #4]
+  e4:	18d3      	adds	r3, r2, r3
+  e6:	613b      	str	r3, [r7, #16]
+
+					/* Calculate the sizes of two blocks split from the single
+					block. */
+					pxNewBlockLink->xBlockSize = pxBlock->xBlockSize - xWantedSize;
+  e8:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  ea:	685a      	ldr	r2, [r3, #4]
+  ec:	687b      	ldr	r3, [r7, #4]
+  ee:	1ad2      	subs	r2, r2, r3
+  f0:	693b      	ldr	r3, [r7, #16]
+  f2:	605a      	str	r2, [r3, #4]
+					pxBlock->xBlockSize = xWantedSize;
+  f4:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+  f6:	687a      	ldr	r2, [r7, #4]
+  f8:	605a      	str	r2, [r3, #4]
+
+					/* Insert the new block into the list of free blocks. */
+					prvInsertBlockIntoFreeList( ( pxNewBlockLink ) );
+  fa:	693b      	ldr	r3, [r7, #16]
+  fc:	685b      	ldr	r3, [r3, #4]
+  fe:	60fb      	str	r3, [r7, #12]
+ 100:	4b12      	ldr	r3, [pc, #72]	; (14c <pvPortMalloc+0x14c>)
+ 102:	61bb      	str	r3, [r7, #24]
+ 104:	e002      	b.n	10c <pvPortMalloc+0x10c>
+ 106:	69bb      	ldr	r3, [r7, #24]
+ 108:	681b      	ldr	r3, [r3, #0]
+ 10a:	61bb      	str	r3, [r7, #24]
+ 10c:	69bb      	ldr	r3, [r7, #24]
+ 10e:	681b      	ldr	r3, [r3, #0]
+ 110:	685a      	ldr	r2, [r3, #4]
+ 112:	68fb      	ldr	r3, [r7, #12]
+ 114:	429a      	cmp	r2, r3
+ 116:	d3f6      	bcc.n	106 <pvPortMalloc+0x106>
+ 118:	69bb      	ldr	r3, [r7, #24]
+ 11a:	681a      	ldr	r2, [r3, #0]
+ 11c:	693b      	ldr	r3, [r7, #16]
+ 11e:	601a      	str	r2, [r3, #0]
+ 120:	69bb      	ldr	r3, [r7, #24]
+ 122:	693a      	ldr	r2, [r7, #16]
+ 124:	601a      	str	r2, [r3, #0]
+				}
+				
+				xFreeBytesRemaining -= pxBlock->xBlockSize;
+ 126:	4b0c      	ldr	r3, [pc, #48]	; (158 <pvPortMalloc+0x158>)
+ 128:	681a      	ldr	r2, [r3, #0]
+ 12a:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 12c:	685b      	ldr	r3, [r3, #4]
+ 12e:	1ad2      	subs	r2, r2, r3
+ 130:	4b09      	ldr	r3, [pc, #36]	; (158 <pvPortMalloc+0x158>)
+ 132:	601a      	str	r2, [r3, #0]
+			}
+		}
+	}
+	xTaskResumeAll();
+ 134:	f7ff fffe 	bl	0 <xTaskResumeAll>
+			134: R_ARM_THM_CALL	xTaskResumeAll
+			vApplicationMallocFailedHook();
+		}
+	}
+	#endif
+
+	return pvReturn;
+ 138:	69fb      	ldr	r3, [r7, #28]
+}
+ 13a:	4618      	mov	r0, r3
+ 13c:	f107 0728 	add.w	r7, r7, #40	; 0x28
+ 140:	46bd      	mov	sp, r7
+ 142:	bd80      	pop	{r7, pc}
+ 144:	000053f8 	.word	0x000053f8
+			144: R_ARM_ABS32	.bss
+ 148:	00000000 	.word	0x00000000
+			148: R_ARM_ABS32	.bss
+ 14c:	000053e8 	.word	0x000053e8
+			14c: R_ARM_ABS32	.bss
+ 150:	000053f0 	.word	0x000053f0
+			150: R_ARM_ABS32	.bss
+	...
+			154: R_ARM_ABS32	.rodata
+			158: R_ARM_ABS32	.data
+
+0000015c <vPortFree>:
+/*-----------------------------------------------------------*/
+
+void vPortFree( void *pv )
+{
+ 15c:	b580      	push	{r7, lr}
+ 15e:	b086      	sub	sp, #24
+ 160:	af00      	add	r7, sp, #0
+ 162:	6078      	str	r0, [r7, #4]
+unsigned char *puc = ( unsigned char * ) pv;
+ 164:	687b      	ldr	r3, [r7, #4]
+ 166:	613b      	str	r3, [r7, #16]
+xBlockLink *pxLink;
+
+	if( pv )
+ 168:	687b      	ldr	r3, [r7, #4]
+ 16a:	2b00      	cmp	r3, #0
+ 16c:	d029      	beq.n	1c2 <vPortFree+0x66>
+	{
+		/* The memory being freed will have an xBlockLink structure immediately
+		before it. */
+		puc -= heapSTRUCT_SIZE;
+ 16e:	4b17      	ldr	r3, [pc, #92]	; (1cc <vPortFree+0x70>)
+ 170:	881b      	ldrh	r3, [r3, #0]
+ 172:	f1c3 0300 	rsb	r3, r3, #0
+ 176:	693a      	ldr	r2, [r7, #16]
+ 178:	18d3      	adds	r3, r2, r3
+ 17a:	613b      	str	r3, [r7, #16]
+
+		/* This casting is to keep the compiler from issuing warnings. */
+		pxLink = ( void * ) puc;
+ 17c:	693b      	ldr	r3, [r7, #16]
+ 17e:	60fb      	str	r3, [r7, #12]
+
+		vTaskSuspendAll();
+ 180:	f7ff fffe 	bl	0 <vTaskSuspendAll>
+			180: R_ARM_THM_CALL	vTaskSuspendAll
+		{
+			/* Add this block to the list of free blocks. */
+			prvInsertBlockIntoFreeList( ( ( xBlockLink * ) pxLink ) );
+ 184:	68fb      	ldr	r3, [r7, #12]
+ 186:	685b      	ldr	r3, [r3, #4]
+ 188:	60bb      	str	r3, [r7, #8]
+ 18a:	4b11      	ldr	r3, [pc, #68]	; (1d0 <vPortFree+0x74>)
+ 18c:	617b      	str	r3, [r7, #20]
+ 18e:	e002      	b.n	196 <vPortFree+0x3a>
+ 190:	697b      	ldr	r3, [r7, #20]
+ 192:	681b      	ldr	r3, [r3, #0]
+ 194:	617b      	str	r3, [r7, #20]
+ 196:	697b      	ldr	r3, [r7, #20]
+ 198:	681b      	ldr	r3, [r3, #0]
+ 19a:	685a      	ldr	r2, [r3, #4]
+ 19c:	68bb      	ldr	r3, [r7, #8]
+ 19e:	429a      	cmp	r2, r3
+ 1a0:	d3f6      	bcc.n	190 <vPortFree+0x34>
+ 1a2:	697b      	ldr	r3, [r7, #20]
+ 1a4:	681a      	ldr	r2, [r3, #0]
+ 1a6:	68fb      	ldr	r3, [r7, #12]
+ 1a8:	601a      	str	r2, [r3, #0]
+ 1aa:	697b      	ldr	r3, [r7, #20]
+ 1ac:	68fa      	ldr	r2, [r7, #12]
+ 1ae:	601a      	str	r2, [r3, #0]
+			xFreeBytesRemaining += pxLink->xBlockSize;
+ 1b0:	68fb      	ldr	r3, [r7, #12]
+ 1b2:	685a      	ldr	r2, [r3, #4]
+ 1b4:	4b07      	ldr	r3, [pc, #28]	; (1d4 <vPortFree+0x78>)
+ 1b6:	681b      	ldr	r3, [r3, #0]
+ 1b8:	18d2      	adds	r2, r2, r3
+ 1ba:	4b06      	ldr	r3, [pc, #24]	; (1d4 <vPortFree+0x78>)
+ 1bc:	601a      	str	r2, [r3, #0]
+		}
+		xTaskResumeAll();
+ 1be:	f7ff fffe 	bl	0 <xTaskResumeAll>
+			1be: R_ARM_THM_CALL	xTaskResumeAll
+	}
+}
+ 1c2:	f107 0718 	add.w	r7, r7, #24
+ 1c6:	46bd      	mov	sp, r7
+ 1c8:	bd80      	pop	{r7, pc}
+ 1ca:	bf00      	nop
+ 1cc:	00000000 	.word	0x00000000
+			1cc: R_ARM_ABS32	.rodata
+ 1d0:	000053e8 	.word	0x000053e8
+			1d0: R_ARM_ABS32	.bss
+ 1d4:	00000000 	.word	0x00000000
+			1d4: R_ARM_ABS32	.data
+
+000001d8 <xPortGetFreeHeapSize>:
+/*-----------------------------------------------------------*/
+
+size_t xPortGetFreeHeapSize( void )
+{
+ 1d8:	b480      	push	{r7}
+ 1da:	af00      	add	r7, sp, #0
+	return xFreeBytesRemaining;
+ 1dc:	4b02      	ldr	r3, [pc, #8]	; (1e8 <xPortGetFreeHeapSize+0x10>)
+ 1de:	681b      	ldr	r3, [r3, #0]
+}
+ 1e0:	4618      	mov	r0, r3
+ 1e2:	46bd      	mov	sp, r7
+ 1e4:	bc80      	pop	{r7}
+ 1e6:	4770      	bx	lr
+ 1e8:	00000000 	.word	0x00000000
+			1e8: R_ARM_ABS32	.data
+
+000001ec <vPortInitialiseBlocks>:
+/*-----------------------------------------------------------*/
+
+void vPortInitialiseBlocks( void )
+{
+ 1ec:	b480      	push	{r7}
+ 1ee:	af00      	add	r7, sp, #0
+	/* This just exists to keep the linker quiet. */
+}
+ 1f0:	46bd      	mov	sp, r7
+ 1f2:	bc80      	pop	{r7}
+ 1f4:	4770      	bx	lr
+ 1f6:	bf00      	nop

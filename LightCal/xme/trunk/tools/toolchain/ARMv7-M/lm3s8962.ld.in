@@ -1,0 +1,87 @@
+/*
+ * Cortex M3 Flash Linker Command File
+ *
+ * by dave madden 
+ * modified by alexander paersch 
+ * modified by vladimir rupanov, rupanov@in.tum.de
+ *
+ *   This program is free software; you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation; version 2 of the License.
+ * 
+ *   This program is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+ *
+ *
+ *****************************************************************************/
+
+MEMORY
+{
+    flash (rx)   : ORIGIN = 0x00000000,  LENGTH = 256k  /**/
+    ram   (rw)   : ORIGIN = 0x20000000,  LENGTH = 64k   /**/
+}
+
+ENTRY(_text);
+
+SECTIONS
+{
+
+    /* Section for code, starting at 0x0 */
+    . = 0x0000000;	
+    .text :
+    {
+        _text = .;
+        KEEP(*(.isr_vector))
+        *(.text)
+        *(.text*)
+
+        *(.rodata)
+        *(.rodata*)
+
+	. = ALIGN ( 4 );
+        _etext = .;
+    } > flash
+ 
+    /* Initialized data. Will be copied at startup by the ResetISR handler. */
+    .data : AT(ADDR(.text) + SIZEOF(.text))
+    {
+        _data = .;
+        *(.data)
+        *(.data*)
+        _edata = .;
+    } > ram
+
+     /* .ARM.exidx is sorted, so has to go in its own output section. */
+    .ARM.exidx : {
+        __exidx_start = .;
+        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+        __exidx_end = .;
+    } > flash
+    
+    
+    /* Exception handling frame. XXX:: Next step is to find out WHY this is here */
+    .eh_frame : ALIGN(4)
+    {
+       KEEP (*(.eh_frame))
+    } > ram
+    
+    /* Uninitialized data  - will be filled by 0's at startup. */
+    .bss :
+    {
+        _bss = .;
+        *(.bss)
+        *(.bss*)
+        *(COMMON)
+
+        . = ALIGN( 4 );
+	_ebss = .;
+    } > ram
+
+    _sbrk = .;
+    __end__ = . ;
+    _end = .;
+    PROVIDE (end = .);
+}
+

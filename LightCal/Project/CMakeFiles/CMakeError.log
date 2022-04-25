@@ -1,0 +1,156 @@
+Determining if the Q_WS_X11 exist failed with the following output:
+Change Dir: C:/LightCal/Project/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe" "cmTC_469f6.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=10.0"
+Microsoft (R)-Buildmodul, Version 4.6.1590.0
+[Microsoft .NET Framework, Version 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+Der Buildvorgang wurde am 13.11.2017 13:47:27 gestartet.
+Projekt "C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_469f6.vcxproj" auf Knoten "1" (Standardziele).
+PrepareForBuild:
+  Das Verzeichnis "cmTC_469f6.dir\Debug\" wird erstellt.
+  Das Verzeichnis "C:\LightCal\Project\CMakeFiles\CMakeTmp\Debug\" wird erstellt.
+InitializeBuildStatus:
+  "cmTC_469f6.dir\Debug\cmTC_469f6.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Qt\4.8.4\include /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTC_469f6.dir\Debug\\" /Fd"cmTC_469f6.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:queue CheckSymbolExists.cxx
+  Microsoft (R) 32-Bit C/C++-Optimierungscompiler Version 16.00.40219.01 fr 80x86
+  Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+  
+  cl /c /IC:\Qt\4.8.4\include /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTC_469f6.dir\Debug\\" /Fd"cmTC_469f6.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:queue CheckSymbolExists.cxx
+  
+  CheckSymbolExists.cxx
+CheckSymbolExists.cxx(8): error C2065: 'Q_WS_X11': nichtdeklarierter Bezeichner [C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_469f6.vcxproj]
+Die Erstellung des Projekts "C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_469f6.vcxproj" ist abgeschlossen (Standardziele) -- FEHLER.
+
+Fehler beim Buildvorgang.
+
+"C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_469f6.vcxproj" (Standardziel) (1) ->
+(ClCompile Ziel) -> 
+  CheckSymbolExists.cxx(8): error C2065: 'Q_WS_X11': nichtdeklarierter Bezeichner [C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_469f6.vcxproj]
+
+    0 Warnung(en)
+    1 Fehler
+
+Verstrichene Zeit 00:00:00.23
+
+File C:/LightCal/Project/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_X11
+  return ((int*)(&Q_WS_X11))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: C:/LightCal/Project/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe" "cmTC_6bd0f.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=10.0"
+Microsoft (R)-Buildmodul, Version 4.6.1590.0
+[Microsoft .NET Framework, Version 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+Der Buildvorgang wurde am 13.11.2017 13:47:28 gestartet.
+Projekt "C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_6bd0f.vcxproj" auf Knoten "1" (Standardziele).
+PrepareForBuild:
+  Das Verzeichnis "cmTC_6bd0f.dir\Debug\" wird erstellt.
+  Das Verzeichnis "C:\LightCal\Project\CMakeFiles\CMakeTmp\Debug\" wird erstellt.
+InitializeBuildStatus:
+  "cmTC_6bd0f.dir\Debug\cmTC_6bd0f.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Qt\4.8.4\include /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTC_6bd0f.dir\Debug\\" /Fd"cmTC_6bd0f.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:queue CheckSymbolExists.cxx
+  Microsoft (R) 32-Bit C/C++-Optimierungscompiler Version 16.00.40219.01 fr 80x86
+  Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+  
+  cl /c /IC:\Qt\4.8.4\include /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTC_6bd0f.dir\Debug\\" /Fd"cmTC_6bd0f.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:queue CheckSymbolExists.cxx
+  
+  CheckSymbolExists.cxx
+CheckSymbolExists.cxx(8): error C2065: 'Q_WS_QWS': nichtdeklarierter Bezeichner [C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_6bd0f.vcxproj]
+Die Erstellung des Projekts "C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_6bd0f.vcxproj" ist abgeschlossen (Standardziele) -- FEHLER.
+
+Fehler beim Buildvorgang.
+
+"C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_6bd0f.vcxproj" (Standardziel) (1) ->
+(ClCompile Ziel) -> 
+  CheckSymbolExists.cxx(8): error C2065: 'Q_WS_QWS': nichtdeklarierter Bezeichner [C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_6bd0f.vcxproj]
+
+    0 Warnung(en)
+    1 Fehler
+
+Verstrichene Zeit 00:00:00.23
+
+File C:/LightCal/Project/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: C:/LightCal/Project/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe" "cmTC_a2f18.vcxproj" "/p:Configuration=Debug" "/p:VisualStudioVersion=10.0"
+Microsoft (R)-Buildmodul, Version 4.6.1590.0
+[Microsoft .NET Framework, Version 4.0.30319.42000]
+Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+
+Der Buildvorgang wurde am 13.11.2017 13:47:29 gestartet.
+Projekt "C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_a2f18.vcxproj" auf Knoten "1" (Standardziele).
+PrepareForBuild:
+  Das Verzeichnis "cmTC_a2f18.dir\Debug\" wird erstellt.
+  Das Verzeichnis "C:\LightCal\Project\CMakeFiles\CMakeTmp\Debug\" wird erstellt.
+InitializeBuildStatus:
+  "cmTC_a2f18.dir\Debug\cmTC_a2f18.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\Qt\4.8.4\include /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTC_a2f18.dir\Debug\\" /Fd"cmTC_a2f18.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:queue CheckSymbolExists.cxx
+  Microsoft (R) 32-Bit C/C++-Optimierungscompiler Version 16.00.40219.01 fr 80x86
+  Copyright (C) Microsoft Corporation. Alle Rechte vorbehalten.
+  
+  cl /c /IC:\Qt\4.8.4\include /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"cmTC_a2f18.dir\Debug\\" /Fd"cmTC_a2f18.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:queue CheckSymbolExists.cxx
+  
+  CheckSymbolExists.cxx
+CheckSymbolExists.cxx(8): error C2065: 'Q_WS_MAC': nichtdeklarierter Bezeichner [C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_a2f18.vcxproj]
+Die Erstellung des Projekts "C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_a2f18.vcxproj" ist abgeschlossen (Standardziele) -- FEHLER.
+
+Fehler beim Buildvorgang.
+
+"C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_a2f18.vcxproj" (Standardziel) (1) ->
+(ClCompile Ziel) -> 
+  CheckSymbolExists.cxx(8): error C2065: 'Q_WS_MAC': nichtdeklarierter Bezeichner [C:\LightCal\Project\CMakeFiles\CMakeTmp\cmTC_a2f18.vcxproj]
+
+    0 Warnung(en)
+    1 Fehler
+
+Verstrichene Zeit 00:00:00.23
+
+File C:/LightCal/Project/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

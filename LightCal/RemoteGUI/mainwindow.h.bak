@@ -1,0 +1,97 @@
+/*
+ * Copyright (c) 2011, fortiss GmbH.
+ * All rights reserved.
+ *
+ * $Id$
+ */
+
+/**
+ * \file
+ *         Main Window
+ *
+ * \author
+ *         Nadine Keddis <keddis@fortiss.org>
+ */
+
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QTextStream>
+#include <QFile>
+#include <QDateTime>
+#include "file.h"
+#include "calibrationwindow.h"
+#include "monitoringwindow.h"
+#include "NetworkInter.h"
+#include "ServerCmdProc.h"
+//!  Main Window class. 
+/*!
+  This class contains main window class memeber functions and variables.
+*/
+
+namespace Ui {
+    class MainWindow;
+}
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+//! Main Window constructor.
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+	void emitSignal(int node, int channel);
+    void emitSignalData(int node, char* data, int number);
+	void emitSignalLogData(int node, char* data, int number);
+//!  Main window signals. 
+signals:
+	void newNodeChannel(int, int);
+    void newText(int node, const QString &, int number);
+	void newTextLog(int, const QString &, int);
+//!  Main window class public functions. 
+public slots:
+	void writeNodeChannel(int node, int channel);
+    void writeLogdata(int node, const QString &data, int number);
+	void writeLogdataInFile(int node, const QString &data, int number);
+    void changeStatusDisplay(int nodeNumber, int errorCode);
+	void updateMonitorInformation(int node, monitor_information_node_t info);
+	void StartNode(int node);
+	void StopNode(int node);
+	void ShutdownNode(int node);
+
+//!  Main window class private functions. 
+private slots:
+    void bootloadNodes();
+    void calibrateNodes();
+    void start();
+    void stop();
+    void updateStatus();
+	void emergencyShutdown();
+	void showMonitoring(int row, int column);
+	void updateMonitoring(int nodeNumber, int channelNumber, int voltage, int current);
+	void showNetworking();
+
+
+private:
+    Ui::MainWindow *ui;
+    void init();
+    int status[40];
+    QString filePath;
+	QString filePath_MAC;
+
+	int logFileNumber;
+	monitoringWindow *monitoring;
+	calibrationWindow *window;
+    Form *NetworkingWindow;
+    ServerCmdProc *DaqProc;
+	bool is_updated;
+public:
+	QFile logFile;
+	QTextStream logFileStream;
+	QDateTime timestamp_log_data;
+	int logTextNumber;
+};
+
+#endif // MAINWINDOW_H

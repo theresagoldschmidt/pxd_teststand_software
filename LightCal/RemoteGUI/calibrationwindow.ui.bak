@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>calibrationWindow</class>
+ <widget class="QWidget" name="calibrationWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>402</width>
+    <height>427</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>30</y>
+     <width>160</width>
+     <height>67</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="1" column="0">
+     <widget class="QSpinBox" name="calibrateNodeNumber">
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>39</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="nodeID_label">
+      <property name="text">
+       <string>Node ID</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="calibrationChannel">
+      <item>
+       <property name="text">
+        <string>DCD_DVDD</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DHP_IO</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DHP_CORE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SW_DVDD</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DCD_AVDD</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DCD_REFIN</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DCD_AMPLOW</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Source</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_OFF</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_ON1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_ON2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_ON3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Clear_ON</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Clear_OFF</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bulk</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Guard</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NOT_USED_1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SW_SUB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SW_REF</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HV</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CCG1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CCG2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CCG3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NOT_USED_2</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="channelNumber">
+      <property name="text">
+       <string>Channel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="horizontalLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>240</y>
+     <width>160</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout"/>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>231</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Calibration Data</string>
+   </property>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>137</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="value1Label">
+       <property name="text">
+        <string>Voltage in mV</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="value2Label">
+       <property name="text">
+        <string>Current in mA</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSpinBox" name="voltage">
+       <property name="minimum">
+        <number>-30000</number>
+       </property>
+       <property name="maximum">
+        <number>30000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="current">
+       <property name="minimum">
+        <number>-2000</number>
+       </property>
+       <property name="maximum">
+        <number>2000</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="setValueButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>130</y>
+     <width>120</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>120</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>114</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Set Uncalibrated Value</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>220</y>
+     <width>231</width>
+     <height>191</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Recalibration Data</string>
+   </property>
+   <widget class="QWidget" name="gridLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>20</y>
+      <width>204</width>
+      <height>145</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="1">
+      <widget class="QLabel" name="gainLabel">
+       <property name="text">
+        <string>Gain</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="offsetLabel">
+       <property name="text">
+        <string>Offset</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>DAC_VOLTAGE</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>DAC_CURRENT</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>ADC_I_MON</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>ADC_U_OUT</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="text">
+        <string>ADC_U_LOAD</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="dacU_gain">
+       <property name="minimum">
+        <number>-100000</number>
+       </property>
+       <property name="maximum">
+        <number>100000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QSpinBox" name="dacU_offset">
+       <property name="suffix">
+        <string notr="true"/>
+       </property>
+       <property name="minimum">
+        <number>-10000</number>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="dacI_gain">
+       <property name="minimum">
+        <number>-100000</number>
+       </property>
+       <property name="maximum">
+        <number>100000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QSpinBox" name="dacI_offset">
+       <property name="minimum">
+        <number>-10000</number>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QSpinBox" name="adcI_gain">
+       <property name="minimum">
+        <number>-100000</number>
+       </property>
+       <property name="maximum">
+        <number>100000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QSpinBox" name="adcI_offset">
+       <property name="minimum">
+        <number>-10000</number>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QSpinBox" name="adcU_out_gain">
+       <property name="minimum">
+        <number>-100000</number>
+       </property>
+       <property name="maximum">
+        <number>100000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2">
+      <widget class="QSpinBox" name="adcU_out_offset">
+       <property name="minimum">
+        <number>-10000</number>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QSpinBox" name="adcU_load_gain">
+       <property name="minimum">
+        <number>-100000</number>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QSpinBox" name="adcU_load_offset">
+       <property name="minimum">
+        <number>-10000</number>
+       </property>
+       <property name="maximum">
+        <number>10000</number>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="recalibrateButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>230</y>
+     <width>120</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>120</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>114</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Store Calibration Data</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setCalibratedValueButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>160</y>
+     <width>120</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>120</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>114</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Set Calibrated Value</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

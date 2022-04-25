@@ -1,0 +1,2020 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_stm32f0xspl_i2c.a:
+
+stm32f10x_i2c.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0 328908 Jul 30 19:07 2021 stm32f10x_i2c.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000009ec  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000a20  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  00000a20  2**0
+                  ALLOC
+  3 .debug_abbrev 0000015d  00000000  00000000  00000a20  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000b94  00000000  00000000  00000b7d  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   000004f5  00000000  00000000  00001711  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 0004be15  00000000  00000000  00001c06  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    00000738  00000000  00000000  0004da1b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 000002cb  00000000  00000000  0004e153  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 000000b2  00000000  00000000  0004e41e  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  0004e4d0  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    000005e3  00000000  00000000  0004e4f0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  0004ead3  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  0004eafe  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  000003b4  00000000  00000000  0004eb30  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 stm32f10x_i2c.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     F .text	00000050 I2C_DeInit
+00000000         *UND*	00000000 RCC_APB1PeriphResetCmd
+00000050 g     F .text	000001b0 I2C_Init
+00000000         *UND*	00000000 RCC_GetClocksFreq
+00000200 g     F .text	00000042 I2C_StructInit
+00000244 g     F .text	0000003e I2C_Cmd
+00000284 g     F .text	0000003e I2C_DMACmd
+000002c4 g     F .text	0000003e I2C_DMALastTransferCmd
+00000304 g     F .text	0000003e I2C_GenerateSTART
+00000344 g     F .text	0000003e I2C_GenerateSTOP
+00000384 g     F .text	0000003e I2C_AcknowledgeConfig
+000003c4 g     F .text	00000044 I2C_OwnAddress2Config
+00000408 g     F .text	0000003e I2C_DualAddressCmd
+00000448 g     F .text	0000003e I2C_GeneralCallCmd
+00000488 g     F .text	0000004c I2C_ITConfig
+000004d4 g     F .text	0000001e I2C_SendData
+000004f4 g     F .text	0000001c I2C_ReceiveData
+00000510 g     F .text	0000003a I2C_Send7bitAddress
+0000054c g     F .text	00000030 I2C_ReadRegister
+0000057c g     F .text	00000046 I2C_SoftwareResetCmd
+000005c4 g     F .text	00000040 I2C_NACKPositionConfig
+00000604 g     F .text	00000040 I2C_SMBusAlertConfig
+00000644 g     F .text	0000003e I2C_TransmitPEC
+00000684 g     F .text	00000040 I2C_PECPositionConfig
+000006c4 g     F .text	0000003e I2C_CalculatePEC
+00000704 g     F .text	00000022 I2C_GetPEC
+00000728 g     F .text	0000003e I2C_ARPCmd
+00000768 g     F .text	0000003e I2C_StretchClockCmd
+000007a8 g     F .text	00000040 I2C_FastModeDutyCycleConfig
+000007e8 g     F .text	00000070 I2C_CheckEvent
+00000858 g     F .text	0000004e I2C_GetLastEvent
+000008a8 g     F .text	0000007a I2C_GetFlagStatus
+00000924 g     F .text	00000030 I2C_ClearFlag
+00000954 g     F .text	00000068 I2C_GetITStatus
+000009bc g     F .text	00000030 I2C_ClearITPendingBit
+
+
+
+Disassembly of section .text:
+
+00000000 <I2C_DeInit>:
+  * @brief  Deinitializes the I2Cx peripheral registers to their default reset values.
+  * @param  I2Cx: where x can be 1 or 2 to select the I2C peripheral.
+  * @retval None
+  */
+void I2C_DeInit(I2C_TypeDef* I2Cx)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  if (I2Cx == I2C1)
+   8:	687a      	ldr	r2, [r7, #4]
+   a:	4b10      	ldr	r3, [pc, #64]	; (4c <I2C_DeInit+0x4c>)
+   c:	429a      	cmp	r2, r3
+   e:	d10c      	bne.n	2a <I2C_DeInit+0x2a>
+  {
+    /* Enable I2C1 reset state */
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C1, ENABLE);
+  10:	f44f 1000 	mov.w	r0, #2097152	; 0x200000
+  14:	f04f 0101 	mov.w	r1, #1
+  18:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			18: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+    /* Release I2C1 from reset state */
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C1, DISABLE);
+  1c:	f44f 1000 	mov.w	r0, #2097152	; 0x200000
+  20:	f04f 0100 	mov.w	r1, #0
+  24:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			24: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+  28:	e00b      	b.n	42 <I2C_DeInit+0x42>
+  }
+  else
+  {
+    /* Enable I2C2 reset state */
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C2, ENABLE);
+  2a:	f44f 0080 	mov.w	r0, #4194304	; 0x400000
+  2e:	f04f 0101 	mov.w	r1, #1
+  32:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			32: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+    /* Release I2C2 from reset state */
+    RCC_APB1PeriphResetCmd(RCC_APB1Periph_I2C2, DISABLE);
+  36:	f44f 0080 	mov.w	r0, #4194304	; 0x400000
+  3a:	f04f 0100 	mov.w	r1, #0
+  3e:	f7ff fffe 	bl	0 <RCC_APB1PeriphResetCmd>
+			3e: R_ARM_THM_CALL	RCC_APB1PeriphResetCmd
+  }
+}
+  42:	f107 0708 	add.w	r7, r7, #8
+  46:	46bd      	mov	sp, r7
+  48:	bd80      	pop	{r7, pc}
+  4a:	bf00      	nop
+  4c:	40005400 	.word	0x40005400
+
+00000050 <I2C_Init>:
+  * @param  I2C_InitStruct: pointer to a I2C_InitTypeDef structure that
+  *   contains the configuration information for the specified I2C peripheral.
+  * @retval None
+  */
+void I2C_Init(I2C_TypeDef* I2Cx, I2C_InitTypeDef* I2C_InitStruct)
+{
+  50:	b580      	push	{r7, lr}
+  52:	b08a      	sub	sp, #40	; 0x28
+  54:	af00      	add	r7, sp, #0
+  56:	6078      	str	r0, [r7, #4]
+  58:	6039      	str	r1, [r7, #0]
+  uint16_t tmpreg = 0, freqrange = 0;
+  5a:	f04f 0300 	mov.w	r3, #0
+  5e:	84fb      	strh	r3, [r7, #38]	; 0x26
+  60:	f04f 0300 	mov.w	r3, #0
+  64:	847b      	strh	r3, [r7, #34]	; 0x22
+  uint16_t result = 0x04;
+  66:	f04f 0304 	mov.w	r3, #4
+  6a:	84bb      	strh	r3, [r7, #36]	; 0x24
+  uint32_t pclk1 = 8000000;
+  6c:	4b60      	ldr	r3, [pc, #384]	; (1f0 <I2C_Init+0x1a0>)
+  6e:	61fb      	str	r3, [r7, #28]
+  assert_param(IS_I2C_ACK_STATE(I2C_InitStruct->I2C_Ack));
+  assert_param(IS_I2C_ACKNOWLEDGE_ADDRESS(I2C_InitStruct->I2C_AcknowledgedAddress));
+
+/*---------------------------- I2Cx CR2 Configuration ------------------------*/
+  /* Get the I2Cx CR2 value */
+  tmpreg = I2Cx->CR2;
+  70:	687b      	ldr	r3, [r7, #4]
+  72:	889b      	ldrh	r3, [r3, #4]
+  74:	84fb      	strh	r3, [r7, #38]	; 0x26
+  /* Clear frequency FREQ[5:0] bits */
+  tmpreg &= CR2_FREQ_Reset;
+  76:	8cfb      	ldrh	r3, [r7, #38]	; 0x26
+  78:	f023 033f 	bic.w	r3, r3, #63	; 0x3f
+  7c:	84fb      	strh	r3, [r7, #38]	; 0x26
+  /* Get pclk1 frequency value */
+  RCC_GetClocksFreq(&rcc_clocks);
+  7e:	f107 0308 	add.w	r3, r7, #8
+  82:	4618      	mov	r0, r3
+  84:	f7ff fffe 	bl	0 <RCC_GetClocksFreq>
+			84: R_ARM_THM_CALL	RCC_GetClocksFreq
+  pclk1 = rcc_clocks.PCLK1_Frequency;
+  88:	693b      	ldr	r3, [r7, #16]
+  8a:	61fb      	str	r3, [r7, #28]
+  /* Set frequency bits depending on pclk1 value */
+  freqrange = (uint16_t)(pclk1 / 1000000);
+  8c:	69fa      	ldr	r2, [r7, #28]
+  8e:	4b59      	ldr	r3, [pc, #356]	; (1f4 <I2C_Init+0x1a4>)
+  90:	fba3 1302 	umull	r1, r3, r3, r2
+  94:	ea4f 4393 	mov.w	r3, r3, lsr #18
+  98:	847b      	strh	r3, [r7, #34]	; 0x22
+  tmpreg |= freqrange;
+  9a:	8cfa      	ldrh	r2, [r7, #38]	; 0x26
+  9c:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+  9e:	ea42 0303 	orr.w	r3, r2, r3
+  a2:	84fb      	strh	r3, [r7, #38]	; 0x26
+  /* Write to I2Cx CR2 */
+  I2Cx->CR2 = tmpreg;
+  a4:	687b      	ldr	r3, [r7, #4]
+  a6:	8cfa      	ldrh	r2, [r7, #38]	; 0x26
+  a8:	809a      	strh	r2, [r3, #4]
+
+/*---------------------------- I2Cx CCR Configuration ------------------------*/
+  /* Disable the selected I2C peripheral to configure TRISE */
+  I2Cx->CR1 &= CR1_PE_Reset;
+  aa:	687b      	ldr	r3, [r7, #4]
+  ac:	881b      	ldrh	r3, [r3, #0]
+  ae:	b29b      	uxth	r3, r3
+  b0:	f023 0301 	bic.w	r3, r3, #1
+  b4:	b29a      	uxth	r2, r3
+  b6:	687b      	ldr	r3, [r7, #4]
+  b8:	801a      	strh	r2, [r3, #0]
+  /* Reset tmpreg value */
+  /* Clear F/S, DUTY and CCR[11:0] bits */
+  tmpreg = 0;
+  ba:	f04f 0300 	mov.w	r3, #0
+  be:	84fb      	strh	r3, [r7, #38]	; 0x26
+
+  /* Configure speed in standard mode */
+  if (I2C_InitStruct->I2C_ClockSpeed <= 100000)
+  c0:	683b      	ldr	r3, [r7, #0]
+  c2:	681a      	ldr	r2, [r3, #0]
+  c4:	4b4c      	ldr	r3, [pc, #304]	; (1f8 <I2C_Init+0x1a8>)
+  c6:	429a      	cmp	r2, r3
+  c8:	d819      	bhi.n	fe <I2C_Init+0xae>
+  {
+    /* Standard mode speed calculate */
+    result = (uint16_t)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed << 1));
+  ca:	683b      	ldr	r3, [r7, #0]
+  cc:	681b      	ldr	r3, [r3, #0]
+  ce:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  d2:	69fa      	ldr	r2, [r7, #28]
+  d4:	fbb2 f3f3 	udiv	r3, r2, r3
+  d8:	84bb      	strh	r3, [r7, #36]	; 0x24
+    /* Test if CCR value is under 0x4*/
+    if (result < 0x04)
+  da:	8cbb      	ldrh	r3, [r7, #36]	; 0x24
+  dc:	2b03      	cmp	r3, #3
+  de:	d802      	bhi.n	e6 <I2C_Init+0x96>
+    {
+      /* Set minimum allowed value */
+      result = 0x04;  
+  e0:	f04f 0304 	mov.w	r3, #4
+  e4:	84bb      	strh	r3, [r7, #36]	; 0x24
+    }
+    /* Set speed value for standard mode */
+    tmpreg |= result;	  
+  e6:	8cfa      	ldrh	r2, [r7, #38]	; 0x26
+  e8:	8cbb      	ldrh	r3, [r7, #36]	; 0x24
+  ea:	ea42 0303 	orr.w	r3, r2, r3
+  ee:	84fb      	strh	r3, [r7, #38]	; 0x26
+    /* Set Maximum Rise Time for standard mode */
+    I2Cx->TRISE = freqrange + 1; 
+  f0:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+  f2:	f103 0301 	add.w	r3, r3, #1
+  f6:	b29a      	uxth	r2, r3
+  f8:	687b      	ldr	r3, [r7, #4]
+  fa:	841a      	strh	r2, [r3, #32]
+  fc:	e049      	b.n	192 <I2C_Init+0x142>
+  }
+  /* Configure speed in fast mode */
+  else /*(I2C_InitStruct->I2C_ClockSpeed <= 400000)*/
+  {
+    if (I2C_InitStruct->I2C_DutyCycle == I2C_DutyCycle_2)
+  fe:	683b      	ldr	r3, [r7, #0]
+ 100:	88da      	ldrh	r2, [r3, #6]
+ 102:	f64b 73ff 	movw	r3, #49151	; 0xbfff
+ 106:	429a      	cmp	r2, r3
+ 108:	d10a      	bne.n	120 <I2C_Init+0xd0>
+    {
+      /* Fast mode speed calculate: Tlow/Thigh = 2 */
+      result = (uint16_t)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed * 3));
+ 10a:	683b      	ldr	r3, [r7, #0]
+ 10c:	681a      	ldr	r2, [r3, #0]
+ 10e:	4613      	mov	r3, r2
+ 110:	ea4f 0343 	mov.w	r3, r3, lsl #1
+ 114:	189b      	adds	r3, r3, r2
+ 116:	69fa      	ldr	r2, [r7, #28]
+ 118:	fbb2 f3f3 	udiv	r3, r2, r3
+ 11c:	84bb      	strh	r3, [r7, #36]	; 0x24
+ 11e:	e010      	b.n	142 <I2C_Init+0xf2>
+    }
+    else /*I2C_InitStruct->I2C_DutyCycle == I2C_DutyCycle_16_9*/
+    {
+      /* Fast mode speed calculate: Tlow/Thigh = 16/9 */
+      result = (uint16_t)(pclk1 / (I2C_InitStruct->I2C_ClockSpeed * 25));
+ 120:	683b      	ldr	r3, [r7, #0]
+ 122:	681a      	ldr	r2, [r3, #0]
+ 124:	4613      	mov	r3, r2
+ 126:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 12a:	189b      	adds	r3, r3, r2
+ 12c:	ea4f 0283 	mov.w	r2, r3, lsl #2
+ 130:	189b      	adds	r3, r3, r2
+ 132:	69fa      	ldr	r2, [r7, #28]
+ 134:	fbb2 f3f3 	udiv	r3, r2, r3
+ 138:	84bb      	strh	r3, [r7, #36]	; 0x24
+      /* Set DUTY bit */
+      result |= I2C_DutyCycle_16_9;
+ 13a:	8cbb      	ldrh	r3, [r7, #36]	; 0x24
+ 13c:	f443 4380 	orr.w	r3, r3, #16384	; 0x4000
+ 140:	84bb      	strh	r3, [r7, #36]	; 0x24
+    }
+
+    /* Test if CCR value is under 0x1*/
+    if ((result & CCR_CCR_Set) == 0)
+ 142:	8cbb      	ldrh	r3, [r7, #36]	; 0x24
+ 144:	ea4f 5303 	mov.w	r3, r3, lsl #20
+ 148:	ea4f 5313 	mov.w	r3, r3, lsr #20
+ 14c:	2b00      	cmp	r3, #0
+ 14e:	d103      	bne.n	158 <I2C_Init+0x108>
+    {
+      /* Set minimum allowed value */
+      result |= (uint16_t)0x0001;  
+ 150:	8cbb      	ldrh	r3, [r7, #36]	; 0x24
+ 152:	f043 0301 	orr.w	r3, r3, #1
+ 156:	84bb      	strh	r3, [r7, #36]	; 0x24
+    }
+    /* Set speed value and set F/S bit for fast mode */
+    tmpreg |= (uint16_t)(result | CCR_FS_Set);
+ 158:	8cba      	ldrh	r2, [r7, #36]	; 0x24
+ 15a:	8cfb      	ldrh	r3, [r7, #38]	; 0x26
+ 15c:	ea42 0303 	orr.w	r3, r2, r3
+ 160:	b29b      	uxth	r3, r3
+ 162:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+ 166:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+ 16a:	84fb      	strh	r3, [r7, #38]	; 0x26
+    /* Set Maximum Rise Time for fast mode */
+    I2Cx->TRISE = (uint16_t)(((freqrange * (uint16_t)300) / (uint16_t)1000) + (uint16_t)1);  
+ 16c:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+ 16e:	f44f 7296 	mov.w	r2, #300	; 0x12c
+ 172:	fb02 f303 	mul.w	r3, r2, r3
+ 176:	4a21      	ldr	r2, [pc, #132]	; (1fc <I2C_Init+0x1ac>)
+ 178:	fb82 1203 	smull	r1, r2, r2, r3
+ 17c:	ea4f 12a2 	mov.w	r2, r2, asr #6
+ 180:	ea4f 73e3 	mov.w	r3, r3, asr #31
+ 184:	1ad3      	subs	r3, r2, r3
+ 186:	b29b      	uxth	r3, r3
+ 188:	f103 0301 	add.w	r3, r3, #1
+ 18c:	b29a      	uxth	r2, r3
+ 18e:	687b      	ldr	r3, [r7, #4]
+ 190:	841a      	strh	r2, [r3, #32]
+  }
+
+  /* Write to I2Cx CCR */
+  I2Cx->CCR = tmpreg;
+ 192:	687b      	ldr	r3, [r7, #4]
+ 194:	8cfa      	ldrh	r2, [r7, #38]	; 0x26
+ 196:	839a      	strh	r2, [r3, #28]
+  /* Enable the selected I2C peripheral */
+  I2Cx->CR1 |= CR1_PE_Set;
+ 198:	687b      	ldr	r3, [r7, #4]
+ 19a:	881b      	ldrh	r3, [r3, #0]
+ 19c:	b29b      	uxth	r3, r3
+ 19e:	f043 0301 	orr.w	r3, r3, #1
+ 1a2:	b29a      	uxth	r2, r3
+ 1a4:	687b      	ldr	r3, [r7, #4]
+ 1a6:	801a      	strh	r2, [r3, #0]
+
+/*---------------------------- I2Cx CR1 Configuration ------------------------*/
+  /* Get the I2Cx CR1 value */
+  tmpreg = I2Cx->CR1;
+ 1a8:	687b      	ldr	r3, [r7, #4]
+ 1aa:	881b      	ldrh	r3, [r3, #0]
+ 1ac:	84fb      	strh	r3, [r7, #38]	; 0x26
+  /* Clear ACK, SMBTYPE and  SMBUS bits */
+  tmpreg &= CR1_CLEAR_Mask;
+ 1ae:	8cfb      	ldrh	r3, [r7, #38]	; 0x26
+ 1b0:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+ 1b4:	f023 030a 	bic.w	r3, r3, #10
+ 1b8:	84fb      	strh	r3, [r7, #38]	; 0x26
+  /* Configure I2Cx: mode and acknowledgement */
+  /* Set SMBTYPE and SMBUS bits according to I2C_Mode value */
+  /* Set ACK bit according to I2C_Ack value */
+  tmpreg |= (uint16_t)((uint32_t)I2C_InitStruct->I2C_Mode | I2C_InitStruct->I2C_Ack);
+ 1ba:	683b      	ldr	r3, [r7, #0]
+ 1bc:	889a      	ldrh	r2, [r3, #4]
+ 1be:	683b      	ldr	r3, [r7, #0]
+ 1c0:	895b      	ldrh	r3, [r3, #10]
+ 1c2:	ea42 0303 	orr.w	r3, r2, r3
+ 1c6:	b29a      	uxth	r2, r3
+ 1c8:	8cfb      	ldrh	r3, [r7, #38]	; 0x26
+ 1ca:	ea42 0303 	orr.w	r3, r2, r3
+ 1ce:	84fb      	strh	r3, [r7, #38]	; 0x26
+  /* Write to I2Cx CR1 */
+  I2Cx->CR1 = tmpreg;
+ 1d0:	687b      	ldr	r3, [r7, #4]
+ 1d2:	8cfa      	ldrh	r2, [r7, #38]	; 0x26
+ 1d4:	801a      	strh	r2, [r3, #0]
+
+/*---------------------------- I2Cx OAR1 Configuration -----------------------*/
+  /* Set I2Cx Own Address1 and acknowledged address */
+  I2Cx->OAR1 = (I2C_InitStruct->I2C_AcknowledgedAddress | I2C_InitStruct->I2C_OwnAddress1);
+ 1d6:	683b      	ldr	r3, [r7, #0]
+ 1d8:	899a      	ldrh	r2, [r3, #12]
+ 1da:	683b      	ldr	r3, [r7, #0]
+ 1dc:	891b      	ldrh	r3, [r3, #8]
+ 1de:	ea42 0303 	orr.w	r3, r2, r3
+ 1e2:	b29a      	uxth	r2, r3
+ 1e4:	687b      	ldr	r3, [r7, #4]
+ 1e6:	811a      	strh	r2, [r3, #8]
+}
+ 1e8:	f107 0728 	add.w	r7, r7, #40	; 0x28
+ 1ec:	46bd      	mov	sp, r7
+ 1ee:	bd80      	pop	{r7, pc}
+ 1f0:	007a1200 	.word	0x007a1200
+ 1f4:	431bde83 	.word	0x431bde83
+ 1f8:	000186a0 	.word	0x000186a0
+ 1fc:	10624dd3 	.word	0x10624dd3
+
+00000200 <I2C_StructInit>:
+  * @brief  Fills each I2C_InitStruct member with its default value.
+  * @param  I2C_InitStruct: pointer to an I2C_InitTypeDef structure which will be initialized.
+  * @retval None
+  */
+void I2C_StructInit(I2C_InitTypeDef* I2C_InitStruct)
+{
+ 200:	b480      	push	{r7}
+ 202:	b083      	sub	sp, #12
+ 204:	af00      	add	r7, sp, #0
+ 206:	6078      	str	r0, [r7, #4]
+/*---------------- Reset I2C init structure parameters values ----------------*/
+  /* initialize the I2C_ClockSpeed member */
+  I2C_InitStruct->I2C_ClockSpeed = 5000;
+ 208:	687b      	ldr	r3, [r7, #4]
+ 20a:	f241 3288 	movw	r2, #5000	; 0x1388
+ 20e:	601a      	str	r2, [r3, #0]
+  /* Initialize the I2C_Mode member */
+  I2C_InitStruct->I2C_Mode = I2C_Mode_I2C;
+ 210:	687b      	ldr	r3, [r7, #4]
+ 212:	f04f 0200 	mov.w	r2, #0
+ 216:	809a      	strh	r2, [r3, #4]
+  /* Initialize the I2C_DutyCycle member */
+  I2C_InitStruct->I2C_DutyCycle = I2C_DutyCycle_2;
+ 218:	687b      	ldr	r3, [r7, #4]
+ 21a:	f64b 72ff 	movw	r2, #49151	; 0xbfff
+ 21e:	80da      	strh	r2, [r3, #6]
+  /* Initialize the I2C_OwnAddress1 member */
+  I2C_InitStruct->I2C_OwnAddress1 = 0;
+ 220:	687b      	ldr	r3, [r7, #4]
+ 222:	f04f 0200 	mov.w	r2, #0
+ 226:	811a      	strh	r2, [r3, #8]
+  /* Initialize the I2C_Ack member */
+  I2C_InitStruct->I2C_Ack = I2C_Ack_Disable;
+ 228:	687b      	ldr	r3, [r7, #4]
+ 22a:	f04f 0200 	mov.w	r2, #0
+ 22e:	815a      	strh	r2, [r3, #10]
+  /* Initialize the I2C_AcknowledgedAddress member */
+  I2C_InitStruct->I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
+ 230:	687b      	ldr	r3, [r7, #4]
+ 232:	f44f 4280 	mov.w	r2, #16384	; 0x4000
+ 236:	819a      	strh	r2, [r3, #12]
+}
+ 238:	f107 070c 	add.w	r7, r7, #12
+ 23c:	46bd      	mov	sp, r7
+ 23e:	bc80      	pop	{r7}
+ 240:	4770      	bx	lr
+ 242:	bf00      	nop
+
+00000244 <I2C_Cmd>:
+  * @param  NewState: new state of the I2Cx peripheral. 
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_Cmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 244:	b480      	push	{r7}
+ 246:	b083      	sub	sp, #12
+ 248:	af00      	add	r7, sp, #0
+ 24a:	6078      	str	r0, [r7, #4]
+ 24c:	460b      	mov	r3, r1
+ 24e:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 250:	78fb      	ldrb	r3, [r7, #3]
+ 252:	2b00      	cmp	r3, #0
+ 254:	d008      	beq.n	268 <I2C_Cmd+0x24>
+  {
+    /* Enable the selected I2C peripheral */
+    I2Cx->CR1 |= CR1_PE_Set;
+ 256:	687b      	ldr	r3, [r7, #4]
+ 258:	881b      	ldrh	r3, [r3, #0]
+ 25a:	b29b      	uxth	r3, r3
+ 25c:	f043 0301 	orr.w	r3, r3, #1
+ 260:	b29a      	uxth	r2, r3
+ 262:	687b      	ldr	r3, [r7, #4]
+ 264:	801a      	strh	r2, [r3, #0]
+ 266:	e007      	b.n	278 <I2C_Cmd+0x34>
+  }
+  else
+  {
+    /* Disable the selected I2C peripheral */
+    I2Cx->CR1 &= CR1_PE_Reset;
+ 268:	687b      	ldr	r3, [r7, #4]
+ 26a:	881b      	ldrh	r3, [r3, #0]
+ 26c:	b29b      	uxth	r3, r3
+ 26e:	f023 0301 	bic.w	r3, r3, #1
+ 272:	b29a      	uxth	r2, r3
+ 274:	687b      	ldr	r3, [r7, #4]
+ 276:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 278:	f107 070c 	add.w	r7, r7, #12
+ 27c:	46bd      	mov	sp, r7
+ 27e:	bc80      	pop	{r7}
+ 280:	4770      	bx	lr
+ 282:	bf00      	nop
+
+00000284 <I2C_DMACmd>:
+  * @param  NewState: new state of the I2C DMA transfer.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_DMACmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 284:	b480      	push	{r7}
+ 286:	b083      	sub	sp, #12
+ 288:	af00      	add	r7, sp, #0
+ 28a:	6078      	str	r0, [r7, #4]
+ 28c:	460b      	mov	r3, r1
+ 28e:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 290:	78fb      	ldrb	r3, [r7, #3]
+ 292:	2b00      	cmp	r3, #0
+ 294:	d008      	beq.n	2a8 <I2C_DMACmd+0x24>
+  {
+    /* Enable the selected I2C DMA requests */
+    I2Cx->CR2 |= CR2_DMAEN_Set;
+ 296:	687b      	ldr	r3, [r7, #4]
+ 298:	889b      	ldrh	r3, [r3, #4]
+ 29a:	b29b      	uxth	r3, r3
+ 29c:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+ 2a0:	b29a      	uxth	r2, r3
+ 2a2:	687b      	ldr	r3, [r7, #4]
+ 2a4:	809a      	strh	r2, [r3, #4]
+ 2a6:	e007      	b.n	2b8 <I2C_DMACmd+0x34>
+  }
+  else
+  {
+    /* Disable the selected I2C DMA requests */
+    I2Cx->CR2 &= CR2_DMAEN_Reset;
+ 2a8:	687b      	ldr	r3, [r7, #4]
+ 2aa:	889b      	ldrh	r3, [r3, #4]
+ 2ac:	b29b      	uxth	r3, r3
+ 2ae:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 2b2:	b29a      	uxth	r2, r3
+ 2b4:	687b      	ldr	r3, [r7, #4]
+ 2b6:	809a      	strh	r2, [r3, #4]
+  }
+}
+ 2b8:	f107 070c 	add.w	r7, r7, #12
+ 2bc:	46bd      	mov	sp, r7
+ 2be:	bc80      	pop	{r7}
+ 2c0:	4770      	bx	lr
+ 2c2:	bf00      	nop
+
+000002c4 <I2C_DMALastTransferCmd>:
+  * @param  NewState: new state of the I2C DMA last transfer.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_DMALastTransferCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 2c4:	b480      	push	{r7}
+ 2c6:	b083      	sub	sp, #12
+ 2c8:	af00      	add	r7, sp, #0
+ 2ca:	6078      	str	r0, [r7, #4]
+ 2cc:	460b      	mov	r3, r1
+ 2ce:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 2d0:	78fb      	ldrb	r3, [r7, #3]
+ 2d2:	2b00      	cmp	r3, #0
+ 2d4:	d008      	beq.n	2e8 <I2C_DMALastTransferCmd+0x24>
+  {
+    /* Next DMA transfer is the last transfer */
+    I2Cx->CR2 |= CR2_LAST_Set;
+ 2d6:	687b      	ldr	r3, [r7, #4]
+ 2d8:	889b      	ldrh	r3, [r3, #4]
+ 2da:	b29b      	uxth	r3, r3
+ 2dc:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 2e0:	b29a      	uxth	r2, r3
+ 2e2:	687b      	ldr	r3, [r7, #4]
+ 2e4:	809a      	strh	r2, [r3, #4]
+ 2e6:	e007      	b.n	2f8 <I2C_DMALastTransferCmd+0x34>
+  }
+  else
+  {
+    /* Next DMA transfer is not the last transfer */
+    I2Cx->CR2 &= CR2_LAST_Reset;
+ 2e8:	687b      	ldr	r3, [r7, #4]
+ 2ea:	889b      	ldrh	r3, [r3, #4]
+ 2ec:	b29b      	uxth	r3, r3
+ 2ee:	f423 5380 	bic.w	r3, r3, #4096	; 0x1000
+ 2f2:	b29a      	uxth	r2, r3
+ 2f4:	687b      	ldr	r3, [r7, #4]
+ 2f6:	809a      	strh	r2, [r3, #4]
+  }
+}
+ 2f8:	f107 070c 	add.w	r7, r7, #12
+ 2fc:	46bd      	mov	sp, r7
+ 2fe:	bc80      	pop	{r7}
+ 300:	4770      	bx	lr
+ 302:	bf00      	nop
+
+00000304 <I2C_GenerateSTART>:
+  * @param  NewState: new state of the I2C START condition generation.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None.
+  */
+void I2C_GenerateSTART(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 304:	b480      	push	{r7}
+ 306:	b083      	sub	sp, #12
+ 308:	af00      	add	r7, sp, #0
+ 30a:	6078      	str	r0, [r7, #4]
+ 30c:	460b      	mov	r3, r1
+ 30e:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 310:	78fb      	ldrb	r3, [r7, #3]
+ 312:	2b00      	cmp	r3, #0
+ 314:	d008      	beq.n	328 <I2C_GenerateSTART+0x24>
+  {
+    /* Generate a START condition */
+    I2Cx->CR1 |= CR1_START_Set;
+ 316:	687b      	ldr	r3, [r7, #4]
+ 318:	881b      	ldrh	r3, [r3, #0]
+ 31a:	b29b      	uxth	r3, r3
+ 31c:	f443 7380 	orr.w	r3, r3, #256	; 0x100
+ 320:	b29a      	uxth	r2, r3
+ 322:	687b      	ldr	r3, [r7, #4]
+ 324:	801a      	strh	r2, [r3, #0]
+ 326:	e007      	b.n	338 <I2C_GenerateSTART+0x34>
+  }
+  else
+  {
+    /* Disable the START condition generation */
+    I2Cx->CR1 &= CR1_START_Reset;
+ 328:	687b      	ldr	r3, [r7, #4]
+ 32a:	881b      	ldrh	r3, [r3, #0]
+ 32c:	b29b      	uxth	r3, r3
+ 32e:	f423 7380 	bic.w	r3, r3, #256	; 0x100
+ 332:	b29a      	uxth	r2, r3
+ 334:	687b      	ldr	r3, [r7, #4]
+ 336:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 338:	f107 070c 	add.w	r7, r7, #12
+ 33c:	46bd      	mov	sp, r7
+ 33e:	bc80      	pop	{r7}
+ 340:	4770      	bx	lr
+ 342:	bf00      	nop
+
+00000344 <I2C_GenerateSTOP>:
+  * @param  NewState: new state of the I2C STOP condition generation.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None.
+  */
+void I2C_GenerateSTOP(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 344:	b480      	push	{r7}
+ 346:	b083      	sub	sp, #12
+ 348:	af00      	add	r7, sp, #0
+ 34a:	6078      	str	r0, [r7, #4]
+ 34c:	460b      	mov	r3, r1
+ 34e:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 350:	78fb      	ldrb	r3, [r7, #3]
+ 352:	2b00      	cmp	r3, #0
+ 354:	d008      	beq.n	368 <I2C_GenerateSTOP+0x24>
+  {
+    /* Generate a STOP condition */
+    I2Cx->CR1 |= CR1_STOP_Set;
+ 356:	687b      	ldr	r3, [r7, #4]
+ 358:	881b      	ldrh	r3, [r3, #0]
+ 35a:	b29b      	uxth	r3, r3
+ 35c:	f443 7300 	orr.w	r3, r3, #512	; 0x200
+ 360:	b29a      	uxth	r2, r3
+ 362:	687b      	ldr	r3, [r7, #4]
+ 364:	801a      	strh	r2, [r3, #0]
+ 366:	e007      	b.n	378 <I2C_GenerateSTOP+0x34>
+  }
+  else
+  {
+    /* Disable the STOP condition generation */
+    I2Cx->CR1 &= CR1_STOP_Reset;
+ 368:	687b      	ldr	r3, [r7, #4]
+ 36a:	881b      	ldrh	r3, [r3, #0]
+ 36c:	b29b      	uxth	r3, r3
+ 36e:	f423 7300 	bic.w	r3, r3, #512	; 0x200
+ 372:	b29a      	uxth	r2, r3
+ 374:	687b      	ldr	r3, [r7, #4]
+ 376:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 378:	f107 070c 	add.w	r7, r7, #12
+ 37c:	46bd      	mov	sp, r7
+ 37e:	bc80      	pop	{r7}
+ 380:	4770      	bx	lr
+ 382:	bf00      	nop
+
+00000384 <I2C_AcknowledgeConfig>:
+  * @param  NewState: new state of the I2C Acknowledgement.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None.
+  */
+void I2C_AcknowledgeConfig(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 384:	b480      	push	{r7}
+ 386:	b083      	sub	sp, #12
+ 388:	af00      	add	r7, sp, #0
+ 38a:	6078      	str	r0, [r7, #4]
+ 38c:	460b      	mov	r3, r1
+ 38e:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 390:	78fb      	ldrb	r3, [r7, #3]
+ 392:	2b00      	cmp	r3, #0
+ 394:	d008      	beq.n	3a8 <I2C_AcknowledgeConfig+0x24>
+  {
+    /* Enable the acknowledgement */
+    I2Cx->CR1 |= CR1_ACK_Set;
+ 396:	687b      	ldr	r3, [r7, #4]
+ 398:	881b      	ldrh	r3, [r3, #0]
+ 39a:	b29b      	uxth	r3, r3
+ 39c:	f443 6380 	orr.w	r3, r3, #1024	; 0x400
+ 3a0:	b29a      	uxth	r2, r3
+ 3a2:	687b      	ldr	r3, [r7, #4]
+ 3a4:	801a      	strh	r2, [r3, #0]
+ 3a6:	e007      	b.n	3b8 <I2C_AcknowledgeConfig+0x34>
+  }
+  else
+  {
+    /* Disable the acknowledgement */
+    I2Cx->CR1 &= CR1_ACK_Reset;
+ 3a8:	687b      	ldr	r3, [r7, #4]
+ 3aa:	881b      	ldrh	r3, [r3, #0]
+ 3ac:	b29b      	uxth	r3, r3
+ 3ae:	f423 6380 	bic.w	r3, r3, #1024	; 0x400
+ 3b2:	b29a      	uxth	r2, r3
+ 3b4:	687b      	ldr	r3, [r7, #4]
+ 3b6:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 3b8:	f107 070c 	add.w	r7, r7, #12
+ 3bc:	46bd      	mov	sp, r7
+ 3be:	bc80      	pop	{r7}
+ 3c0:	4770      	bx	lr
+ 3c2:	bf00      	nop
+
+000003c4 <I2C_OwnAddress2Config>:
+  * @param  I2Cx: where x can be 1 or 2 to select the I2C peripheral.
+  * @param  Address: specifies the 7bit I2C own address2.
+  * @retval None.
+  */
+void I2C_OwnAddress2Config(I2C_TypeDef* I2Cx, uint8_t Address)
+{
+ 3c4:	b480      	push	{r7}
+ 3c6:	b085      	sub	sp, #20
+ 3c8:	af00      	add	r7, sp, #0
+ 3ca:	6078      	str	r0, [r7, #4]
+ 3cc:	460b      	mov	r3, r1
+ 3ce:	70fb      	strb	r3, [r7, #3]
+  uint16_t tmpreg = 0;
+ 3d0:	f04f 0300 	mov.w	r3, #0
+ 3d4:	81fb      	strh	r3, [r7, #14]
+
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Get the old register value */
+  tmpreg = I2Cx->OAR2;
+ 3d6:	687b      	ldr	r3, [r7, #4]
+ 3d8:	899b      	ldrh	r3, [r3, #12]
+ 3da:	81fb      	strh	r3, [r7, #14]
+
+  /* Reset I2Cx Own address2 bit [7:1] */
+  tmpreg &= OAR2_ADD2_Reset;
+ 3dc:	89fb      	ldrh	r3, [r7, #14]
+ 3de:	f023 03fe 	bic.w	r3, r3, #254	; 0xfe
+ 3e2:	81fb      	strh	r3, [r7, #14]
+
+  /* Set I2Cx Own address2 */
+  tmpreg |= (uint16_t)((uint16_t)Address & (uint16_t)0x00FE);
+ 3e4:	78fb      	ldrb	r3, [r7, #3]
+ 3e6:	b29b      	uxth	r3, r3
+ 3e8:	f003 03fe 	and.w	r3, r3, #254	; 0xfe
+ 3ec:	b29a      	uxth	r2, r3
+ 3ee:	89fb      	ldrh	r3, [r7, #14]
+ 3f0:	ea42 0303 	orr.w	r3, r2, r3
+ 3f4:	b29b      	uxth	r3, r3
+ 3f6:	81fb      	strh	r3, [r7, #14]
+
+  /* Store the new register value */
+  I2Cx->OAR2 = tmpreg;
+ 3f8:	687b      	ldr	r3, [r7, #4]
+ 3fa:	89fa      	ldrh	r2, [r7, #14]
+ 3fc:	819a      	strh	r2, [r3, #12]
+}
+ 3fe:	f107 0714 	add.w	r7, r7, #20
+ 402:	46bd      	mov	sp, r7
+ 404:	bc80      	pop	{r7}
+ 406:	4770      	bx	lr
+
+00000408 <I2C_DualAddressCmd>:
+  * @param  NewState: new state of the I2C dual addressing mode.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_DualAddressCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 408:	b480      	push	{r7}
+ 40a:	b083      	sub	sp, #12
+ 40c:	af00      	add	r7, sp, #0
+ 40e:	6078      	str	r0, [r7, #4]
+ 410:	460b      	mov	r3, r1
+ 412:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 414:	78fb      	ldrb	r3, [r7, #3]
+ 416:	2b00      	cmp	r3, #0
+ 418:	d008      	beq.n	42c <I2C_DualAddressCmd+0x24>
+  {
+    /* Enable dual addressing mode */
+    I2Cx->OAR2 |= OAR2_ENDUAL_Set;
+ 41a:	687b      	ldr	r3, [r7, #4]
+ 41c:	899b      	ldrh	r3, [r3, #12]
+ 41e:	b29b      	uxth	r3, r3
+ 420:	f043 0301 	orr.w	r3, r3, #1
+ 424:	b29a      	uxth	r2, r3
+ 426:	687b      	ldr	r3, [r7, #4]
+ 428:	819a      	strh	r2, [r3, #12]
+ 42a:	e007      	b.n	43c <I2C_DualAddressCmd+0x34>
+  }
+  else
+  {
+    /* Disable dual addressing mode */
+    I2Cx->OAR2 &= OAR2_ENDUAL_Reset;
+ 42c:	687b      	ldr	r3, [r7, #4]
+ 42e:	899b      	ldrh	r3, [r3, #12]
+ 430:	b29b      	uxth	r3, r3
+ 432:	f023 0301 	bic.w	r3, r3, #1
+ 436:	b29a      	uxth	r2, r3
+ 438:	687b      	ldr	r3, [r7, #4]
+ 43a:	819a      	strh	r2, [r3, #12]
+  }
+}
+ 43c:	f107 070c 	add.w	r7, r7, #12
+ 440:	46bd      	mov	sp, r7
+ 442:	bc80      	pop	{r7}
+ 444:	4770      	bx	lr
+ 446:	bf00      	nop
+
+00000448 <I2C_GeneralCallCmd>:
+  * @param  NewState: new state of the I2C General call.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_GeneralCallCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 448:	b480      	push	{r7}
+ 44a:	b083      	sub	sp, #12
+ 44c:	af00      	add	r7, sp, #0
+ 44e:	6078      	str	r0, [r7, #4]
+ 450:	460b      	mov	r3, r1
+ 452:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 454:	78fb      	ldrb	r3, [r7, #3]
+ 456:	2b00      	cmp	r3, #0
+ 458:	d008      	beq.n	46c <I2C_GeneralCallCmd+0x24>
+  {
+    /* Enable generall call */
+    I2Cx->CR1 |= CR1_ENGC_Set;
+ 45a:	687b      	ldr	r3, [r7, #4]
+ 45c:	881b      	ldrh	r3, [r3, #0]
+ 45e:	b29b      	uxth	r3, r3
+ 460:	f043 0340 	orr.w	r3, r3, #64	; 0x40
+ 464:	b29a      	uxth	r2, r3
+ 466:	687b      	ldr	r3, [r7, #4]
+ 468:	801a      	strh	r2, [r3, #0]
+ 46a:	e007      	b.n	47c <I2C_GeneralCallCmd+0x34>
+  }
+  else
+  {
+    /* Disable generall call */
+    I2Cx->CR1 &= CR1_ENGC_Reset;
+ 46c:	687b      	ldr	r3, [r7, #4]
+ 46e:	881b      	ldrh	r3, [r3, #0]
+ 470:	b29b      	uxth	r3, r3
+ 472:	f023 0340 	bic.w	r3, r3, #64	; 0x40
+ 476:	b29a      	uxth	r2, r3
+ 478:	687b      	ldr	r3, [r7, #4]
+ 47a:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 47c:	f107 070c 	add.w	r7, r7, #12
+ 480:	46bd      	mov	sp, r7
+ 482:	bc80      	pop	{r7}
+ 484:	4770      	bx	lr
+ 486:	bf00      	nop
+
+00000488 <I2C_ITConfig>:
+  * @param  NewState: new state of the specified I2C interrupts.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_ITConfig(I2C_TypeDef* I2Cx, uint16_t I2C_IT, FunctionalState NewState)
+{
+ 488:	b480      	push	{r7}
+ 48a:	b083      	sub	sp, #12
+ 48c:	af00      	add	r7, sp, #0
+ 48e:	6078      	str	r0, [r7, #4]
+ 490:	4613      	mov	r3, r2
+ 492:	460a      	mov	r2, r1
+ 494:	807a      	strh	r2, [r7, #2]
+ 496:	707b      	strb	r3, [r7, #1]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  assert_param(IS_I2C_CONFIG_IT(I2C_IT));
+  
+  if (NewState != DISABLE)
+ 498:	787b      	ldrb	r3, [r7, #1]
+ 49a:	2b00      	cmp	r3, #0
+ 49c:	d009      	beq.n	4b2 <I2C_ITConfig+0x2a>
+  {
+    /* Enable the selected I2C interrupts */
+    I2Cx->CR2 |= I2C_IT;
+ 49e:	687b      	ldr	r3, [r7, #4]
+ 4a0:	889b      	ldrh	r3, [r3, #4]
+ 4a2:	b29a      	uxth	r2, r3
+ 4a4:	887b      	ldrh	r3, [r7, #2]
+ 4a6:	ea42 0303 	orr.w	r3, r2, r3
+ 4aa:	b29a      	uxth	r2, r3
+ 4ac:	687b      	ldr	r3, [r7, #4]
+ 4ae:	809a      	strh	r2, [r3, #4]
+ 4b0:	e00b      	b.n	4ca <I2C_ITConfig+0x42>
+  }
+  else
+  {
+    /* Disable the selected I2C interrupts */
+    I2Cx->CR2 &= (uint16_t)~I2C_IT;
+ 4b2:	687b      	ldr	r3, [r7, #4]
+ 4b4:	889b      	ldrh	r3, [r3, #4]
+ 4b6:	b29a      	uxth	r2, r3
+ 4b8:	887b      	ldrh	r3, [r7, #2]
+ 4ba:	ea6f 0303 	mvn.w	r3, r3
+ 4be:	b29b      	uxth	r3, r3
+ 4c0:	ea02 0303 	and.w	r3, r2, r3
+ 4c4:	b29a      	uxth	r2, r3
+ 4c6:	687b      	ldr	r3, [r7, #4]
+ 4c8:	809a      	strh	r2, [r3, #4]
+  }
+}
+ 4ca:	f107 070c 	add.w	r7, r7, #12
+ 4ce:	46bd      	mov	sp, r7
+ 4d0:	bc80      	pop	{r7}
+ 4d2:	4770      	bx	lr
+
+000004d4 <I2C_SendData>:
+  * @param  I2Cx: where x can be 1 or 2 to select the I2C peripheral.
+  * @param  Data: Byte to be transmitted..
+  * @retval None
+  */
+void I2C_SendData(I2C_TypeDef* I2Cx, uint8_t Data)
+{
+ 4d4:	b480      	push	{r7}
+ 4d6:	b083      	sub	sp, #12
+ 4d8:	af00      	add	r7, sp, #0
+ 4da:	6078      	str	r0, [r7, #4]
+ 4dc:	460b      	mov	r3, r1
+ 4de:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  /* Write in the DR register the data to be sent */
+  I2Cx->DR = Data;
+ 4e0:	78fb      	ldrb	r3, [r7, #3]
+ 4e2:	b29a      	uxth	r2, r3
+ 4e4:	687b      	ldr	r3, [r7, #4]
+ 4e6:	821a      	strh	r2, [r3, #16]
+}
+ 4e8:	f107 070c 	add.w	r7, r7, #12
+ 4ec:	46bd      	mov	sp, r7
+ 4ee:	bc80      	pop	{r7}
+ 4f0:	4770      	bx	lr
+ 4f2:	bf00      	nop
+
+000004f4 <I2C_ReceiveData>:
+  * @brief  Returns the most recent received data by the I2Cx peripheral.
+  * @param  I2Cx: where x can be 1 or 2 to select the I2C peripheral.
+  * @retval The value of the received data.
+  */
+uint8_t I2C_ReceiveData(I2C_TypeDef* I2Cx)
+{
+ 4f4:	b480      	push	{r7}
+ 4f6:	b083      	sub	sp, #12
+ 4f8:	af00      	add	r7, sp, #0
+ 4fa:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  /* Return the data in the DR register */
+  return (uint8_t)I2Cx->DR;
+ 4fc:	687b      	ldr	r3, [r7, #4]
+ 4fe:	8a1b      	ldrh	r3, [r3, #16]
+ 500:	b29b      	uxth	r3, r3
+ 502:	b2db      	uxtb	r3, r3
+}
+ 504:	4618      	mov	r0, r3
+ 506:	f107 070c 	add.w	r7, r7, #12
+ 50a:	46bd      	mov	sp, r7
+ 50c:	bc80      	pop	{r7}
+ 50e:	4770      	bx	lr
+
+00000510 <I2C_Send7bitAddress>:
+  *     @arg I2C_Direction_Transmitter: Transmitter mode
+  *     @arg I2C_Direction_Receiver: Receiver mode
+  * @retval None.
+  */
+void I2C_Send7bitAddress(I2C_TypeDef* I2Cx, uint8_t Address, uint8_t I2C_Direction)
+{
+ 510:	b480      	push	{r7}
+ 512:	b083      	sub	sp, #12
+ 514:	af00      	add	r7, sp, #0
+ 516:	6078      	str	r0, [r7, #4]
+ 518:	4613      	mov	r3, r2
+ 51a:	460a      	mov	r2, r1
+ 51c:	70fa      	strb	r2, [r7, #3]
+ 51e:	70bb      	strb	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_DIRECTION(I2C_Direction));
+  /* Test on the direction to set/reset the read/write bit */
+  if (I2C_Direction != I2C_Direction_Transmitter)
+ 520:	78bb      	ldrb	r3, [r7, #2]
+ 522:	2b00      	cmp	r3, #0
+ 524:	d004      	beq.n	530 <I2C_Send7bitAddress+0x20>
+  {
+    /* Set the address bit0 for read */
+    Address |= OAR1_ADD0_Set;
+ 526:	78fb      	ldrb	r3, [r7, #3]
+ 528:	f043 0301 	orr.w	r3, r3, #1
+ 52c:	70fb      	strb	r3, [r7, #3]
+ 52e:	e003      	b.n	538 <I2C_Send7bitAddress+0x28>
+  }
+  else
+  {
+    /* Reset the address bit0 for write */
+    Address &= OAR1_ADD0_Reset;
+ 530:	78fb      	ldrb	r3, [r7, #3]
+ 532:	f023 0301 	bic.w	r3, r3, #1
+ 536:	70fb      	strb	r3, [r7, #3]
+  }
+  /* Send the address */
+  I2Cx->DR = Address;
+ 538:	78fb      	ldrb	r3, [r7, #3]
+ 53a:	b29a      	uxth	r2, r3
+ 53c:	687b      	ldr	r3, [r7, #4]
+ 53e:	821a      	strh	r2, [r3, #16]
+}
+ 540:	f107 070c 	add.w	r7, r7, #12
+ 544:	46bd      	mov	sp, r7
+ 546:	bc80      	pop	{r7}
+ 548:	4770      	bx	lr
+ 54a:	bf00      	nop
+
+0000054c <I2C_ReadRegister>:
+  *     @arg I2C_Register_CCR:   CCR register.
+  *     @arg I2C_Register_TRISE: TRISE register.
+  * @retval The value of the read register.
+  */
+uint16_t I2C_ReadRegister(I2C_TypeDef* I2Cx, uint8_t I2C_Register)
+{
+ 54c:	b480      	push	{r7}
+ 54e:	b085      	sub	sp, #20
+ 550:	af00      	add	r7, sp, #0
+ 552:	6078      	str	r0, [r7, #4]
+ 554:	460b      	mov	r3, r1
+ 556:	70fb      	strb	r3, [r7, #3]
+  __IO uint32_t tmp = 0;
+ 558:	f04f 0300 	mov.w	r3, #0
+ 55c:	60fb      	str	r3, [r7, #12]
+
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_REGISTER(I2C_Register));
+
+  tmp = (uint32_t) I2Cx;
+ 55e:	687b      	ldr	r3, [r7, #4]
+ 560:	60fb      	str	r3, [r7, #12]
+  tmp += I2C_Register;
+ 562:	78fa      	ldrb	r2, [r7, #3]
+ 564:	68fb      	ldr	r3, [r7, #12]
+ 566:	18d3      	adds	r3, r2, r3
+ 568:	60fb      	str	r3, [r7, #12]
+
+  /* Return the selected register value */
+  return (*(__IO uint16_t *) tmp);
+ 56a:	68fb      	ldr	r3, [r7, #12]
+ 56c:	881b      	ldrh	r3, [r3, #0]
+ 56e:	b29b      	uxth	r3, r3
+}
+ 570:	4618      	mov	r0, r3
+ 572:	f107 0714 	add.w	r7, r7, #20
+ 576:	46bd      	mov	sp, r7
+ 578:	bc80      	pop	{r7}
+ 57a:	4770      	bx	lr
+
+0000057c <I2C_SoftwareResetCmd>:
+  * @param  NewState: new state of the I2C software reset.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_SoftwareResetCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 57c:	b480      	push	{r7}
+ 57e:	b083      	sub	sp, #12
+ 580:	af00      	add	r7, sp, #0
+ 582:	6078      	str	r0, [r7, #4]
+ 584:	460b      	mov	r3, r1
+ 586:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 588:	78fb      	ldrb	r3, [r7, #3]
+ 58a:	2b00      	cmp	r3, #0
+ 58c:	d00a      	beq.n	5a4 <I2C_SoftwareResetCmd+0x28>
+  {
+    /* Peripheral under reset */
+    I2Cx->CR1 |= CR1_SWRST_Set;
+ 58e:	687b      	ldr	r3, [r7, #4]
+ 590:	881b      	ldrh	r3, [r3, #0]
+ 592:	b29b      	uxth	r3, r3
+ 594:	ea6f 4343 	mvn.w	r3, r3, lsl #17
+ 598:	ea6f 4353 	mvn.w	r3, r3, lsr #17
+ 59c:	b29a      	uxth	r2, r3
+ 59e:	687b      	ldr	r3, [r7, #4]
+ 5a0:	801a      	strh	r2, [r3, #0]
+ 5a2:	e009      	b.n	5b8 <I2C_SoftwareResetCmd+0x3c>
+  }
+  else
+  {
+    /* Peripheral not under reset */
+    I2Cx->CR1 &= CR1_SWRST_Reset;
+ 5a4:	687b      	ldr	r3, [r7, #4]
+ 5a6:	881b      	ldrh	r3, [r3, #0]
+ 5a8:	b29b      	uxth	r3, r3
+ 5aa:	ea4f 4343 	mov.w	r3, r3, lsl #17
+ 5ae:	ea4f 4353 	mov.w	r3, r3, lsr #17
+ 5b2:	b29a      	uxth	r2, r3
+ 5b4:	687b      	ldr	r3, [r7, #4]
+ 5b6:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 5b8:	f107 070c 	add.w	r7, r7, #12
+ 5bc:	46bd      	mov	sp, r7
+ 5be:	bc80      	pop	{r7}
+ 5c0:	4770      	bx	lr
+ 5c2:	bf00      	nop
+
+000005c4 <I2C_NACKPositionConfig>:
+  *          is intended to used in SMBUS mode. 
+  *            
+  * @retval None
+  */
+void I2C_NACKPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_NACKPosition)
+{
+ 5c4:	b480      	push	{r7}
+ 5c6:	b083      	sub	sp, #12
+ 5c8:	af00      	add	r7, sp, #0
+ 5ca:	6078      	str	r0, [r7, #4]
+ 5cc:	460b      	mov	r3, r1
+ 5ce:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_NACK_POSITION(I2C_NACKPosition));
+  
+  /* Check the input parameter */
+  if (I2C_NACKPosition == I2C_NACKPosition_Next)
+ 5d0:	887b      	ldrh	r3, [r7, #2]
+ 5d2:	f5b3 6f00 	cmp.w	r3, #2048	; 0x800
+ 5d6:	d108      	bne.n	5ea <I2C_NACKPositionConfig+0x26>
+  {
+    /* Next byte in shift register is the last received byte */
+    I2Cx->CR1 |= I2C_NACKPosition_Next;
+ 5d8:	687b      	ldr	r3, [r7, #4]
+ 5da:	881b      	ldrh	r3, [r3, #0]
+ 5dc:	b29b      	uxth	r3, r3
+ 5de:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+ 5e2:	b29a      	uxth	r2, r3
+ 5e4:	687b      	ldr	r3, [r7, #4]
+ 5e6:	801a      	strh	r2, [r3, #0]
+ 5e8:	e007      	b.n	5fa <I2C_NACKPositionConfig+0x36>
+  }
+  else
+  {
+    /* Current byte in shift register is the last received byte */
+    I2Cx->CR1 &= I2C_NACKPosition_Current;
+ 5ea:	687b      	ldr	r3, [r7, #4]
+ 5ec:	881b      	ldrh	r3, [r3, #0]
+ 5ee:	b29b      	uxth	r3, r3
+ 5f0:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 5f4:	b29a      	uxth	r2, r3
+ 5f6:	687b      	ldr	r3, [r7, #4]
+ 5f8:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 5fa:	f107 070c 	add.w	r7, r7, #12
+ 5fe:	46bd      	mov	sp, r7
+ 600:	bc80      	pop	{r7}
+ 602:	4770      	bx	lr
+
+00000604 <I2C_SMBusAlertConfig>:
+  *     @arg I2C_SMBusAlert_Low: SMBAlert pin driven low
+  *     @arg I2C_SMBusAlert_High: SMBAlert pin driven high
+  * @retval None
+  */
+void I2C_SMBusAlertConfig(I2C_TypeDef* I2Cx, uint16_t I2C_SMBusAlert)
+{
+ 604:	b480      	push	{r7}
+ 606:	b083      	sub	sp, #12
+ 608:	af00      	add	r7, sp, #0
+ 60a:	6078      	str	r0, [r7, #4]
+ 60c:	460b      	mov	r3, r1
+ 60e:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_SMBUS_ALERT(I2C_SMBusAlert));
+  if (I2C_SMBusAlert == I2C_SMBusAlert_Low)
+ 610:	887b      	ldrh	r3, [r7, #2]
+ 612:	f5b3 5f00 	cmp.w	r3, #8192	; 0x2000
+ 616:	d108      	bne.n	62a <I2C_SMBusAlertConfig+0x26>
+  {
+    /* Drive the SMBusAlert pin Low */
+    I2Cx->CR1 |= I2C_SMBusAlert_Low;
+ 618:	687b      	ldr	r3, [r7, #4]
+ 61a:	881b      	ldrh	r3, [r3, #0]
+ 61c:	b29b      	uxth	r3, r3
+ 61e:	f443 5300 	orr.w	r3, r3, #8192	; 0x2000
+ 622:	b29a      	uxth	r2, r3
+ 624:	687b      	ldr	r3, [r7, #4]
+ 626:	801a      	strh	r2, [r3, #0]
+ 628:	e007      	b.n	63a <I2C_SMBusAlertConfig+0x36>
+  }
+  else
+  {
+    /* Drive the SMBusAlert pin High  */
+    I2Cx->CR1 &= I2C_SMBusAlert_High;
+ 62a:	687b      	ldr	r3, [r7, #4]
+ 62c:	881b      	ldrh	r3, [r3, #0]
+ 62e:	b29b      	uxth	r3, r3
+ 630:	f423 5300 	bic.w	r3, r3, #8192	; 0x2000
+ 634:	b29a      	uxth	r2, r3
+ 636:	687b      	ldr	r3, [r7, #4]
+ 638:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 63a:	f107 070c 	add.w	r7, r7, #12
+ 63e:	46bd      	mov	sp, r7
+ 640:	bc80      	pop	{r7}
+ 642:	4770      	bx	lr
+
+00000644 <I2C_TransmitPEC>:
+  * @param  NewState: new state of the I2C PEC transmission.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_TransmitPEC(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 644:	b480      	push	{r7}
+ 646:	b083      	sub	sp, #12
+ 648:	af00      	add	r7, sp, #0
+ 64a:	6078      	str	r0, [r7, #4]
+ 64c:	460b      	mov	r3, r1
+ 64e:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 650:	78fb      	ldrb	r3, [r7, #3]
+ 652:	2b00      	cmp	r3, #0
+ 654:	d008      	beq.n	668 <I2C_TransmitPEC+0x24>
+  {
+    /* Enable the selected I2C PEC transmission */
+    I2Cx->CR1 |= CR1_PEC_Set;
+ 656:	687b      	ldr	r3, [r7, #4]
+ 658:	881b      	ldrh	r3, [r3, #0]
+ 65a:	b29b      	uxth	r3, r3
+ 65c:	f443 5380 	orr.w	r3, r3, #4096	; 0x1000
+ 660:	b29a      	uxth	r2, r3
+ 662:	687b      	ldr	r3, [r7, #4]
+ 664:	801a      	strh	r2, [r3, #0]
+ 666:	e007      	b.n	678 <I2C_TransmitPEC+0x34>
+  }
+  else
+  {
+    /* Disable the selected I2C PEC transmission */
+    I2Cx->CR1 &= CR1_PEC_Reset;
+ 668:	687b      	ldr	r3, [r7, #4]
+ 66a:	881b      	ldrh	r3, [r3, #0]
+ 66c:	b29b      	uxth	r3, r3
+ 66e:	f423 5380 	bic.w	r3, r3, #4096	; 0x1000
+ 672:	b29a      	uxth	r2, r3
+ 674:	687b      	ldr	r3, [r7, #4]
+ 676:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 678:	f107 070c 	add.w	r7, r7, #12
+ 67c:	46bd      	mov	sp, r7
+ 67e:	bc80      	pop	{r7}
+ 680:	4770      	bx	lr
+ 682:	bf00      	nop
+
+00000684 <I2C_PECPositionConfig>:
+  *          is intended to used in I2C mode.
+  *               
+  * @retval None
+  */
+void I2C_PECPositionConfig(I2C_TypeDef* I2Cx, uint16_t I2C_PECPosition)
+{
+ 684:	b480      	push	{r7}
+ 686:	b083      	sub	sp, #12
+ 688:	af00      	add	r7, sp, #0
+ 68a:	6078      	str	r0, [r7, #4]
+ 68c:	460b      	mov	r3, r1
+ 68e:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_PEC_POSITION(I2C_PECPosition));
+  if (I2C_PECPosition == I2C_PECPosition_Next)
+ 690:	887b      	ldrh	r3, [r7, #2]
+ 692:	f5b3 6f00 	cmp.w	r3, #2048	; 0x800
+ 696:	d108      	bne.n	6aa <I2C_PECPositionConfig+0x26>
+  {
+    /* Next byte in shift register is PEC */
+    I2Cx->CR1 |= I2C_PECPosition_Next;
+ 698:	687b      	ldr	r3, [r7, #4]
+ 69a:	881b      	ldrh	r3, [r3, #0]
+ 69c:	b29b      	uxth	r3, r3
+ 69e:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+ 6a2:	b29a      	uxth	r2, r3
+ 6a4:	687b      	ldr	r3, [r7, #4]
+ 6a6:	801a      	strh	r2, [r3, #0]
+ 6a8:	e007      	b.n	6ba <I2C_PECPositionConfig+0x36>
+  }
+  else
+  {
+    /* Current byte in shift register is PEC */
+    I2Cx->CR1 &= I2C_PECPosition_Current;
+ 6aa:	687b      	ldr	r3, [r7, #4]
+ 6ac:	881b      	ldrh	r3, [r3, #0]
+ 6ae:	b29b      	uxth	r3, r3
+ 6b0:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 6b4:	b29a      	uxth	r2, r3
+ 6b6:	687b      	ldr	r3, [r7, #4]
+ 6b8:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 6ba:	f107 070c 	add.w	r7, r7, #12
+ 6be:	46bd      	mov	sp, r7
+ 6c0:	bc80      	pop	{r7}
+ 6c2:	4770      	bx	lr
+
+000006c4 <I2C_CalculatePEC>:
+  * @param  NewState: new state of the I2Cx PEC value calculation.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_CalculatePEC(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 6c4:	b480      	push	{r7}
+ 6c6:	b083      	sub	sp, #12
+ 6c8:	af00      	add	r7, sp, #0
+ 6ca:	6078      	str	r0, [r7, #4]
+ 6cc:	460b      	mov	r3, r1
+ 6ce:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 6d0:	78fb      	ldrb	r3, [r7, #3]
+ 6d2:	2b00      	cmp	r3, #0
+ 6d4:	d008      	beq.n	6e8 <I2C_CalculatePEC+0x24>
+  {
+    /* Enable the selected I2C PEC calculation */
+    I2Cx->CR1 |= CR1_ENPEC_Set;
+ 6d6:	687b      	ldr	r3, [r7, #4]
+ 6d8:	881b      	ldrh	r3, [r3, #0]
+ 6da:	b29b      	uxth	r3, r3
+ 6dc:	f043 0320 	orr.w	r3, r3, #32
+ 6e0:	b29a      	uxth	r2, r3
+ 6e2:	687b      	ldr	r3, [r7, #4]
+ 6e4:	801a      	strh	r2, [r3, #0]
+ 6e6:	e007      	b.n	6f8 <I2C_CalculatePEC+0x34>
+  }
+  else
+  {
+    /* Disable the selected I2C PEC calculation */
+    I2Cx->CR1 &= CR1_ENPEC_Reset;
+ 6e8:	687b      	ldr	r3, [r7, #4]
+ 6ea:	881b      	ldrh	r3, [r3, #0]
+ 6ec:	b29b      	uxth	r3, r3
+ 6ee:	f023 0320 	bic.w	r3, r3, #32
+ 6f2:	b29a      	uxth	r2, r3
+ 6f4:	687b      	ldr	r3, [r7, #4]
+ 6f6:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 6f8:	f107 070c 	add.w	r7, r7, #12
+ 6fc:	46bd      	mov	sp, r7
+ 6fe:	bc80      	pop	{r7}
+ 700:	4770      	bx	lr
+ 702:	bf00      	nop
+
+00000704 <I2C_GetPEC>:
+  * @brief  Returns the PEC value for the specified I2C.
+  * @param  I2Cx: where x can be 1 or 2 to select the I2C peripheral.
+  * @retval The PEC value.
+  */
+uint8_t I2C_GetPEC(I2C_TypeDef* I2Cx)
+{
+ 704:	b480      	push	{r7}
+ 706:	b083      	sub	sp, #12
+ 708:	af00      	add	r7, sp, #0
+ 70a:	6078      	str	r0, [r7, #4]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  /* Return the selected I2C PEC value */
+  return ((I2Cx->SR2) >> 8);
+ 70c:	687b      	ldr	r3, [r7, #4]
+ 70e:	8b1b      	ldrh	r3, [r3, #24]
+ 710:	b29b      	uxth	r3, r3
+ 712:	ea4f 2313 	mov.w	r3, r3, lsr #8
+ 716:	b29b      	uxth	r3, r3
+ 718:	b2db      	uxtb	r3, r3
+}
+ 71a:	4618      	mov	r0, r3
+ 71c:	f107 070c 	add.w	r7, r7, #12
+ 720:	46bd      	mov	sp, r7
+ 722:	bc80      	pop	{r7}
+ 724:	4770      	bx	lr
+ 726:	bf00      	nop
+
+00000728 <I2C_ARPCmd>:
+  * @param  NewState: new state of the I2Cx ARP. 
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_ARPCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 728:	b480      	push	{r7}
+ 72a:	b083      	sub	sp, #12
+ 72c:	af00      	add	r7, sp, #0
+ 72e:	6078      	str	r0, [r7, #4]
+ 730:	460b      	mov	r3, r1
+ 732:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState != DISABLE)
+ 734:	78fb      	ldrb	r3, [r7, #3]
+ 736:	2b00      	cmp	r3, #0
+ 738:	d008      	beq.n	74c <I2C_ARPCmd+0x24>
+  {
+    /* Enable the selected I2C ARP */
+    I2Cx->CR1 |= CR1_ENARP_Set;
+ 73a:	687b      	ldr	r3, [r7, #4]
+ 73c:	881b      	ldrh	r3, [r3, #0]
+ 73e:	b29b      	uxth	r3, r3
+ 740:	f043 0310 	orr.w	r3, r3, #16
+ 744:	b29a      	uxth	r2, r3
+ 746:	687b      	ldr	r3, [r7, #4]
+ 748:	801a      	strh	r2, [r3, #0]
+ 74a:	e007      	b.n	75c <I2C_ARPCmd+0x34>
+  }
+  else
+  {
+    /* Disable the selected I2C ARP */
+    I2Cx->CR1 &= CR1_ENARP_Reset;
+ 74c:	687b      	ldr	r3, [r7, #4]
+ 74e:	881b      	ldrh	r3, [r3, #0]
+ 750:	b29b      	uxth	r3, r3
+ 752:	f023 0310 	bic.w	r3, r3, #16
+ 756:	b29a      	uxth	r2, r3
+ 758:	687b      	ldr	r3, [r7, #4]
+ 75a:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 75c:	f107 070c 	add.w	r7, r7, #12
+ 760:	46bd      	mov	sp, r7
+ 762:	bc80      	pop	{r7}
+ 764:	4770      	bx	lr
+ 766:	bf00      	nop
+
+00000768 <I2C_StretchClockCmd>:
+  * @param  NewState: new state of the I2Cx Clock stretching.
+  *   This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void I2C_StretchClockCmd(I2C_TypeDef* I2Cx, FunctionalState NewState)
+{
+ 768:	b480      	push	{r7}
+ 76a:	b083      	sub	sp, #12
+ 76c:	af00      	add	r7, sp, #0
+ 76e:	6078      	str	r0, [r7, #4]
+ 770:	460b      	mov	r3, r1
+ 772:	70fb      	strb	r3, [r7, #3]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_FUNCTIONAL_STATE(NewState));
+  if (NewState == DISABLE)
+ 774:	78fb      	ldrb	r3, [r7, #3]
+ 776:	2b00      	cmp	r3, #0
+ 778:	d108      	bne.n	78c <I2C_StretchClockCmd+0x24>
+  {
+    /* Enable the selected I2C Clock stretching */
+    I2Cx->CR1 |= CR1_NOSTRETCH_Set;
+ 77a:	687b      	ldr	r3, [r7, #4]
+ 77c:	881b      	ldrh	r3, [r3, #0]
+ 77e:	b29b      	uxth	r3, r3
+ 780:	f043 0380 	orr.w	r3, r3, #128	; 0x80
+ 784:	b29a      	uxth	r2, r3
+ 786:	687b      	ldr	r3, [r7, #4]
+ 788:	801a      	strh	r2, [r3, #0]
+ 78a:	e007      	b.n	79c <I2C_StretchClockCmd+0x34>
+  }
+  else
+  {
+    /* Disable the selected I2C Clock stretching */
+    I2Cx->CR1 &= CR1_NOSTRETCH_Reset;
+ 78c:	687b      	ldr	r3, [r7, #4]
+ 78e:	881b      	ldrh	r3, [r3, #0]
+ 790:	b29b      	uxth	r3, r3
+ 792:	f023 0380 	bic.w	r3, r3, #128	; 0x80
+ 796:	b29a      	uxth	r2, r3
+ 798:	687b      	ldr	r3, [r7, #4]
+ 79a:	801a      	strh	r2, [r3, #0]
+  }
+}
+ 79c:	f107 070c 	add.w	r7, r7, #12
+ 7a0:	46bd      	mov	sp, r7
+ 7a2:	bc80      	pop	{r7}
+ 7a4:	4770      	bx	lr
+ 7a6:	bf00      	nop
+
+000007a8 <I2C_FastModeDutyCycleConfig>:
+  *     @arg I2C_DutyCycle_2: I2C fast mode Tlow/Thigh = 2
+  *     @arg I2C_DutyCycle_16_9: I2C fast mode Tlow/Thigh = 16/9
+  * @retval None
+  */
+void I2C_FastModeDutyCycleConfig(I2C_TypeDef* I2Cx, uint16_t I2C_DutyCycle)
+{
+ 7a8:	b480      	push	{r7}
+ 7aa:	b083      	sub	sp, #12
+ 7ac:	af00      	add	r7, sp, #0
+ 7ae:	6078      	str	r0, [r7, #4]
+ 7b0:	460b      	mov	r3, r1
+ 7b2:	807b      	strh	r3, [r7, #2]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_DUTY_CYCLE(I2C_DutyCycle));
+  if (I2C_DutyCycle != I2C_DutyCycle_16_9)
+ 7b4:	887b      	ldrh	r3, [r7, #2]
+ 7b6:	f5b3 4f80 	cmp.w	r3, #16384	; 0x4000
+ 7ba:	d008      	beq.n	7ce <I2C_FastModeDutyCycleConfig+0x26>
+  {
+    /* I2C fast mode Tlow/Thigh=2 */
+    I2Cx->CCR &= I2C_DutyCycle_2;
+ 7bc:	687b      	ldr	r3, [r7, #4]
+ 7be:	8b9b      	ldrh	r3, [r3, #28]
+ 7c0:	b29b      	uxth	r3, r3
+ 7c2:	f423 4380 	bic.w	r3, r3, #16384	; 0x4000
+ 7c6:	b29a      	uxth	r2, r3
+ 7c8:	687b      	ldr	r3, [r7, #4]
+ 7ca:	839a      	strh	r2, [r3, #28]
+ 7cc:	e007      	b.n	7de <I2C_FastModeDutyCycleConfig+0x36>
+  }
+  else
+  {
+    /* I2C fast mode Tlow/Thigh=16/9 */
+    I2Cx->CCR |= I2C_DutyCycle_16_9;
+ 7ce:	687b      	ldr	r3, [r7, #4]
+ 7d0:	8b9b      	ldrh	r3, [r3, #28]
+ 7d2:	b29b      	uxth	r3, r3
+ 7d4:	f443 4380 	orr.w	r3, r3, #16384	; 0x4000
+ 7d8:	b29a      	uxth	r2, r3
+ 7da:	687b      	ldr	r3, [r7, #4]
+ 7dc:	839a      	strh	r2, [r3, #28]
+  }
+}
+ 7de:	f107 070c 	add.w	r7, r7, #12
+ 7e2:	46bd      	mov	sp, r7
+ 7e4:	bc80      	pop	{r7}
+ 7e6:	4770      	bx	lr
+
+000007e8 <I2C_CheckEvent>:
+  * @retval An ErrorStatus enumeration value:
+  * - SUCCESS: Last event is equal to the I2C_EVENT
+  * - ERROR: Last event is different from the I2C_EVENT
+  */
+ErrorStatus I2C_CheckEvent(I2C_TypeDef* I2Cx, uint32_t I2C_EVENT)
+{
+ 7e8:	b480      	push	{r7}
+ 7ea:	b087      	sub	sp, #28
+ 7ec:	af00      	add	r7, sp, #0
+ 7ee:	6078      	str	r0, [r7, #4]
+ 7f0:	6039      	str	r1, [r7, #0]
+  uint32_t lastevent = 0;
+ 7f2:	f04f 0300 	mov.w	r3, #0
+ 7f6:	613b      	str	r3, [r7, #16]
+  uint32_t flag1 = 0, flag2 = 0;
+ 7f8:	f04f 0300 	mov.w	r3, #0
+ 7fc:	60fb      	str	r3, [r7, #12]
+ 7fe:	f04f 0300 	mov.w	r3, #0
+ 802:	60bb      	str	r3, [r7, #8]
+  ErrorStatus status = ERROR;
+ 804:	f04f 0300 	mov.w	r3, #0
+ 808:	75fb      	strb	r3, [r7, #23]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_EVENT(I2C_EVENT));
+
+  /* Read the I2Cx status register */
+  flag1 = I2Cx->SR1;
+ 80a:	687b      	ldr	r3, [r7, #4]
+ 80c:	8a9b      	ldrh	r3, [r3, #20]
+ 80e:	b29b      	uxth	r3, r3
+ 810:	60fb      	str	r3, [r7, #12]
+  flag2 = I2Cx->SR2;
+ 812:	687b      	ldr	r3, [r7, #4]
+ 814:	8b1b      	ldrh	r3, [r3, #24]
+ 816:	b29b      	uxth	r3, r3
+ 818:	60bb      	str	r3, [r7, #8]
+  flag2 = flag2 << 16;
+ 81a:	68bb      	ldr	r3, [r7, #8]
+ 81c:	ea4f 4303 	mov.w	r3, r3, lsl #16
+ 820:	60bb      	str	r3, [r7, #8]
+
+  /* Get the last event value from I2C status register */
+  lastevent = (flag1 | flag2) & FLAG_Mask;
+ 822:	68fa      	ldr	r2, [r7, #12]
+ 824:	68bb      	ldr	r3, [r7, #8]
+ 826:	ea42 0303 	orr.w	r3, r2, r3
+ 82a:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+ 82e:	613b      	str	r3, [r7, #16]
+
+  /* Check whether the last event contains the I2C_EVENT */
+  if ((lastevent & I2C_EVENT) == I2C_EVENT)
+ 830:	693a      	ldr	r2, [r7, #16]
+ 832:	683b      	ldr	r3, [r7, #0]
+ 834:	401a      	ands	r2, r3
+ 836:	683b      	ldr	r3, [r7, #0]
+ 838:	429a      	cmp	r2, r3
+ 83a:	d103      	bne.n	844 <I2C_CheckEvent+0x5c>
+  {
+    /* SUCCESS: last event is equal to I2C_EVENT */
+    status = SUCCESS;
+ 83c:	f04f 0301 	mov.w	r3, #1
+ 840:	75fb      	strb	r3, [r7, #23]
+ 842:	e002      	b.n	84a <I2C_CheckEvent+0x62>
+  }
+  else
+  {
+    /* ERROR: last event is different from I2C_EVENT */
+    status = ERROR;
+ 844:	f04f 0300 	mov.w	r3, #0
+ 848:	75fb      	strb	r3, [r7, #23]
+  }
+  /* Return status */
+  return status;
+ 84a:	7dfb      	ldrb	r3, [r7, #23]
+}
+ 84c:	4618      	mov	r0, r3
+ 84e:	f107 071c 	add.w	r7, r7, #28
+ 852:	46bd      	mov	sp, r7
+ 854:	bc80      	pop	{r7}
+ 856:	4770      	bx	lr
+
+00000858 <I2C_GetLastEvent>:
+  *    I2C_Events in stm32f10x_i2c.h file.
+  *    
+  * @retval The last event
+  */
+uint32_t I2C_GetLastEvent(I2C_TypeDef* I2Cx)
+{
+ 858:	b480      	push	{r7}
+ 85a:	b087      	sub	sp, #28
+ 85c:	af00      	add	r7, sp, #0
+ 85e:	6078      	str	r0, [r7, #4]
+  uint32_t lastevent = 0;
+ 860:	f04f 0300 	mov.w	r3, #0
+ 864:	617b      	str	r3, [r7, #20]
+  uint32_t flag1 = 0, flag2 = 0;
+ 866:	f04f 0300 	mov.w	r3, #0
+ 86a:	613b      	str	r3, [r7, #16]
+ 86c:	f04f 0300 	mov.w	r3, #0
+ 870:	60fb      	str	r3, [r7, #12]
+
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+
+  /* Read the I2Cx status register */
+  flag1 = I2Cx->SR1;
+ 872:	687b      	ldr	r3, [r7, #4]
+ 874:	8a9b      	ldrh	r3, [r3, #20]
+ 876:	b29b      	uxth	r3, r3
+ 878:	613b      	str	r3, [r7, #16]
+  flag2 = I2Cx->SR2;
+ 87a:	687b      	ldr	r3, [r7, #4]
+ 87c:	8b1b      	ldrh	r3, [r3, #24]
+ 87e:	b29b      	uxth	r3, r3
+ 880:	60fb      	str	r3, [r7, #12]
+  flag2 = flag2 << 16;
+ 882:	68fb      	ldr	r3, [r7, #12]
+ 884:	ea4f 4303 	mov.w	r3, r3, lsl #16
+ 888:	60fb      	str	r3, [r7, #12]
+
+  /* Get the last event value from I2C status register */
+  lastevent = (flag1 | flag2) & FLAG_Mask;
+ 88a:	693a      	ldr	r2, [r7, #16]
+ 88c:	68fb      	ldr	r3, [r7, #12]
+ 88e:	ea42 0303 	orr.w	r3, r2, r3
+ 892:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+ 896:	617b      	str	r3, [r7, #20]
+
+  /* Return status */
+  return lastevent;
+ 898:	697b      	ldr	r3, [r7, #20]
+}
+ 89a:	4618      	mov	r0, r3
+ 89c:	f107 071c 	add.w	r7, r7, #28
+ 8a0:	46bd      	mov	sp, r7
+ 8a2:	bc80      	pop	{r7}
+ 8a4:	4770      	bx	lr
+ 8a6:	bf00      	nop
+
+000008a8 <I2C_GetFlagStatus>:
+  *   Address matched flag (Slave mode)"ENDA"
+  *     @arg I2C_FLAG_SB: Start bit flag (Master mode)
+  * @retval The new state of I2C_FLAG (SET or RESET).
+  */
+FlagStatus I2C_GetFlagStatus(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG)
+{
+ 8a8:	b480      	push	{r7}
+ 8aa:	b087      	sub	sp, #28
+ 8ac:	af00      	add	r7, sp, #0
+ 8ae:	6078      	str	r0, [r7, #4]
+ 8b0:	6039      	str	r1, [r7, #0]
+  FlagStatus bitstatus = RESET;
+ 8b2:	f04f 0300 	mov.w	r3, #0
+ 8b6:	75fb      	strb	r3, [r7, #23]
+  __IO uint32_t i2creg = 0, i2cxbase = 0;
+ 8b8:	f04f 0300 	mov.w	r3, #0
+ 8bc:	613b      	str	r3, [r7, #16]
+ 8be:	f04f 0300 	mov.w	r3, #0
+ 8c2:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_GET_FLAG(I2C_FLAG));
+
+  /* Get the I2Cx peripheral base address */
+  i2cxbase = (uint32_t)I2Cx;
+ 8c4:	687b      	ldr	r3, [r7, #4]
+ 8c6:	60fb      	str	r3, [r7, #12]
+  
+  /* Read flag register index */
+  i2creg = I2C_FLAG >> 28;
+ 8c8:	683b      	ldr	r3, [r7, #0]
+ 8ca:	ea4f 7313 	mov.w	r3, r3, lsr #28
+ 8ce:	613b      	str	r3, [r7, #16]
+  
+  /* Get bit[23:0] of the flag */
+  I2C_FLAG &= FLAG_Mask;
+ 8d0:	683b      	ldr	r3, [r7, #0]
+ 8d2:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+ 8d6:	603b      	str	r3, [r7, #0]
+  
+  if(i2creg != 0)
+ 8d8:	693b      	ldr	r3, [r7, #16]
+ 8da:	2b00      	cmp	r3, #0
+ 8dc:	d004      	beq.n	8e8 <I2C_GetFlagStatus+0x40>
+  {
+    /* Get the I2Cx SR1 register address */
+    i2cxbase += 0x14;
+ 8de:	68fb      	ldr	r3, [r7, #12]
+ 8e0:	f103 0314 	add.w	r3, r3, #20
+ 8e4:	60fb      	str	r3, [r7, #12]
+ 8e6:	e007      	b.n	8f8 <I2C_GetFlagStatus+0x50>
+  }
+  else
+  {
+    /* Flag in I2Cx SR2 Register */
+    I2C_FLAG = (uint32_t)(I2C_FLAG >> 16);
+ 8e8:	683b      	ldr	r3, [r7, #0]
+ 8ea:	ea4f 4313 	mov.w	r3, r3, lsr #16
+ 8ee:	603b      	str	r3, [r7, #0]
+    /* Get the I2Cx SR2 register address */
+    i2cxbase += 0x18;
+ 8f0:	68fb      	ldr	r3, [r7, #12]
+ 8f2:	f103 0318 	add.w	r3, r3, #24
+ 8f6:	60fb      	str	r3, [r7, #12]
+  }
+  
+  if(((*(__IO uint32_t *)i2cxbase) & I2C_FLAG) != (uint32_t)RESET)
+ 8f8:	68fb      	ldr	r3, [r7, #12]
+ 8fa:	681a      	ldr	r2, [r3, #0]
+ 8fc:	683b      	ldr	r3, [r7, #0]
+ 8fe:	ea02 0303 	and.w	r3, r2, r3
+ 902:	2b00      	cmp	r3, #0
+ 904:	d003      	beq.n	90e <I2C_GetFlagStatus+0x66>
+  {
+    /* I2C_FLAG is set */
+    bitstatus = SET;
+ 906:	f04f 0301 	mov.w	r3, #1
+ 90a:	75fb      	strb	r3, [r7, #23]
+ 90c:	e002      	b.n	914 <I2C_GetFlagStatus+0x6c>
+  }
+  else
+  {
+    /* I2C_FLAG is reset */
+    bitstatus = RESET;
+ 90e:	f04f 0300 	mov.w	r3, #0
+ 912:	75fb      	strb	r3, [r7, #23]
+  }
+  
+  /* Return the I2C_FLAG status */
+  return  bitstatus;
+ 914:	7dfb      	ldrb	r3, [r7, #23]
+}
+ 916:	4618      	mov	r0, r3
+ 918:	f107 071c 	add.w	r7, r7, #28
+ 91c:	46bd      	mov	sp, r7
+ 91e:	bc80      	pop	{r7}
+ 920:	4770      	bx	lr
+ 922:	bf00      	nop
+
+00000924 <I2C_ClearFlag>:
+  *     register (I2C_GetFlagStatus()) followed by a write operation to I2C_DR
+  *     register  (I2C_SendData()).
+  * @retval None
+  */
+void I2C_ClearFlag(I2C_TypeDef* I2Cx, uint32_t I2C_FLAG)
+{
+ 924:	b480      	push	{r7}
+ 926:	b085      	sub	sp, #20
+ 928:	af00      	add	r7, sp, #0
+ 92a:	6078      	str	r0, [r7, #4]
+ 92c:	6039      	str	r1, [r7, #0]
+  uint32_t flagpos = 0;
+ 92e:	f04f 0300 	mov.w	r3, #0
+ 932:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_CLEAR_FLAG(I2C_FLAG));
+  /* Get the I2C flag position */
+  flagpos = I2C_FLAG & FLAG_Mask;
+ 934:	683b      	ldr	r3, [r7, #0]
+ 936:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+ 93a:	60fb      	str	r3, [r7, #12]
+  /* Clear the selected I2C flag */
+  I2Cx->SR1 = (uint16_t)~flagpos;
+ 93c:	68fb      	ldr	r3, [r7, #12]
+ 93e:	b29b      	uxth	r3, r3
+ 940:	ea6f 0303 	mvn.w	r3, r3
+ 944:	b29a      	uxth	r2, r3
+ 946:	687b      	ldr	r3, [r7, #4]
+ 948:	829a      	strh	r2, [r3, #20]
+}
+ 94a:	f107 0714 	add.w	r7, r7, #20
+ 94e:	46bd      	mov	sp, r7
+ 950:	bc80      	pop	{r7}
+ 952:	4770      	bx	lr
+
+00000954 <I2C_GetITStatus>:
+  *                       Address matched flag (Slave mode)"ENDAD"
+  *     @arg I2C_IT_SB: Start bit flag (Master mode)
+  * @retval The new state of I2C_IT (SET or RESET).
+  */
+ITStatus I2C_GetITStatus(I2C_TypeDef* I2Cx, uint32_t I2C_IT)
+{
+ 954:	b480      	push	{r7}
+ 956:	b085      	sub	sp, #20
+ 958:	af00      	add	r7, sp, #0
+ 95a:	6078      	str	r0, [r7, #4]
+ 95c:	6039      	str	r1, [r7, #0]
+  ITStatus bitstatus = RESET;
+ 95e:	f04f 0300 	mov.w	r3, #0
+ 962:	73fb      	strb	r3, [r7, #15]
+  uint32_t enablestatus = 0;
+ 964:	f04f 0300 	mov.w	r3, #0
+ 968:	60bb      	str	r3, [r7, #8]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_GET_IT(I2C_IT));
+
+  /* Check if the interrupt source is enabled or not */
+  enablestatus = (uint32_t)(((I2C_IT & ITEN_Mask) >> 16) & (I2Cx->CR2)) ;
+ 96a:	683b      	ldr	r3, [r7, #0]
+ 96c:	f003 63e0 	and.w	r3, r3, #117440512	; 0x7000000
+ 970:	ea4f 4213 	mov.w	r2, r3, lsr #16
+ 974:	687b      	ldr	r3, [r7, #4]
+ 976:	889b      	ldrh	r3, [r3, #4]
+ 978:	b29b      	uxth	r3, r3
+ 97a:	ea02 0303 	and.w	r3, r2, r3
+ 97e:	60bb      	str	r3, [r7, #8]
+  
+  /* Get bit[23:0] of the flag */
+  I2C_IT &= FLAG_Mask;
+ 980:	683b      	ldr	r3, [r7, #0]
+ 982:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+ 986:	603b      	str	r3, [r7, #0]
+
+  /* Check the status of the specified I2C flag */
+  if (((I2Cx->SR1 & I2C_IT) != (uint32_t)RESET) && enablestatus)
+ 988:	687b      	ldr	r3, [r7, #4]
+ 98a:	8a9b      	ldrh	r3, [r3, #20]
+ 98c:	b29b      	uxth	r3, r3
+ 98e:	461a      	mov	r2, r3
+ 990:	683b      	ldr	r3, [r7, #0]
+ 992:	ea02 0303 	and.w	r3, r2, r3
+ 996:	2b00      	cmp	r3, #0
+ 998:	d006      	beq.n	9a8 <I2C_GetITStatus+0x54>
+ 99a:	68bb      	ldr	r3, [r7, #8]
+ 99c:	2b00      	cmp	r3, #0
+ 99e:	d003      	beq.n	9a8 <I2C_GetITStatus+0x54>
+  {
+    /* I2C_IT is set */
+    bitstatus = SET;
+ 9a0:	f04f 0301 	mov.w	r3, #1
+ 9a4:	73fb      	strb	r3, [r7, #15]
+ 9a6:	e002      	b.n	9ae <I2C_GetITStatus+0x5a>
+  }
+  else
+  {
+    /* I2C_IT is reset */
+    bitstatus = RESET;
+ 9a8:	f04f 0300 	mov.w	r3, #0
+ 9ac:	73fb      	strb	r3, [r7, #15]
+  }
+  /* Return the I2C_IT status */
+  return  bitstatus;
+ 9ae:	7bfb      	ldrb	r3, [r7, #15]
+}
+ 9b0:	4618      	mov	r0, r3
+ 9b2:	f107 0714 	add.w	r7, r7, #20
+ 9b6:	46bd      	mov	sp, r7
+ 9b8:	bc80      	pop	{r7}
+ 9ba:	4770      	bx	lr
+
+000009bc <I2C_ClearITPendingBit>:
+  *     I2C_SR1 register (I2C_GetITStatus()) followed by a write operation to 
+  *     I2C_DR register (I2C_SendData()).
+  * @retval None
+  */
+void I2C_ClearITPendingBit(I2C_TypeDef* I2Cx, uint32_t I2C_IT)
+{
+ 9bc:	b480      	push	{r7}
+ 9be:	b085      	sub	sp, #20
+ 9c0:	af00      	add	r7, sp, #0
+ 9c2:	6078      	str	r0, [r7, #4]
+ 9c4:	6039      	str	r1, [r7, #0]
+  uint32_t flagpos = 0;
+ 9c6:	f04f 0300 	mov.w	r3, #0
+ 9ca:	60fb      	str	r3, [r7, #12]
+  /* Check the parameters */
+  assert_param(IS_I2C_ALL_PERIPH(I2Cx));
+  assert_param(IS_I2C_CLEAR_IT(I2C_IT));
+  /* Get the I2C flag position */
+  flagpos = I2C_IT & FLAG_Mask;
+ 9cc:	683b      	ldr	r3, [r7, #0]
+ 9ce:	f023 437f 	bic.w	r3, r3, #4278190080	; 0xff000000
+ 9d2:	60fb      	str	r3, [r7, #12]
+  /* Clear the selected I2C flag */
+  I2Cx->SR1 = (uint16_t)~flagpos;
+ 9d4:	68fb      	ldr	r3, [r7, #12]
+ 9d6:	b29b      	uxth	r3, r3
+ 9d8:	ea6f 0303 	mvn.w	r3, r3
+ 9dc:	b29a      	uxth	r2, r3
+ 9de:	687b      	ldr	r3, [r7, #4]
+ 9e0:	829a      	strh	r2, [r3, #20]
+}
+ 9e2:	f107 0714 	add.w	r7, r7, #20
+ 9e6:	46bd      	mov	sp, r7
+ 9e8:	bc80      	pop	{r7}
+ 9ea:	4770      	bx	lr

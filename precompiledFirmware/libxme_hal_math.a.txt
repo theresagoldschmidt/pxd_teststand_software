@@ -1,0 +1,170 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_math.a:
+
+math_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  15412 Jul 30 19:07 2021 math_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000098  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  000000cc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000000  00000000  00000000  000000cc  2**0
+                  ALLOC
+  3 .debug_abbrev 0000008e  00000000  00000000  000000cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000000f7  00000000  00000000  0000015a  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   000001eb  00000000  00000000  00000251  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 00002d73  00000000  00000000  0000043c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    00000070  00000000  00000000  000031af  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 00000053  00000000  00000000  0000321f  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 0000001f  00000000  00000000  00003272  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  00003291  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    00000137  00000000  00000000  000032b1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  000033e8  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  00003413  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  00000048  00000000  00000000  00003444  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 math_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000000 g     F .text	00000056 xme_hal_math_ceilPowerOfTwo
+00000058 g     F .text	0000003e xme_hal_math_floorPowerOfTwo
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_math_ceilPowerOfTwo>:
+/******************************************************************************/
+/***   Implementation                                                       ***/
+/******************************************************************************/
+uint32_t
+xme_hal_math_ceilPowerOfTwo(uint32_t x)
+{
+   0:	b480      	push	{r7}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+	if ((0 < x) && (x <= 0x80000000))
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	2b00      	cmp	r3, #0
+   c:	d01b      	beq.n	46 <xme_hal_math_ceilPowerOfTwo+0x46>
+   e:	687b      	ldr	r3, [r7, #4]
+  10:	f1b3 4f00 	cmp.w	r3, #2147483648	; 0x80000000
+  14:	d817      	bhi.n	46 <xme_hal_math_ceilPowerOfTwo+0x46>
+	{
+		uint32_t mask = 0x80000000;
+  16:	f04f 4300 	mov.w	r3, #2147483648	; 0x80000000
+  1a:	60fb      	str	r3, [r7, #12]
+		do
+		{
+			if (0 != (x & mask)) {
+  1c:	687a      	ldr	r2, [r7, #4]
+  1e:	68fb      	ldr	r3, [r7, #12]
+  20:	ea02 0303 	and.w	r3, r2, r3
+  24:	2b00      	cmp	r3, #0
+  26:	d009      	beq.n	3c <xme_hal_math_ceilPowerOfTwo+0x3c>
+				return (x == mask) ? mask : mask << 1;
+  28:	687a      	ldr	r2, [r7, #4]
+  2a:	68fb      	ldr	r3, [r7, #12]
+  2c:	429a      	cmp	r2, r3
+  2e:	d003      	beq.n	38 <xme_hal_math_ceilPowerOfTwo+0x38>
+  30:	68fb      	ldr	r3, [r7, #12]
+  32:	ea4f 0343 	mov.w	r3, r3, lsl #1
+  36:	e000      	b.n	3a <xme_hal_math_ceilPowerOfTwo+0x3a>
+  38:	68fb      	ldr	r3, [r7, #12]
+  3a:	e006      	b.n	4a <xme_hal_math_ceilPowerOfTwo+0x4a>
+			}
+			mask >>= 1;
+  3c:	68fb      	ldr	r3, [r7, #12]
+  3e:	ea4f 0353 	mov.w	r3, r3, lsr #1
+  42:	60fb      	str	r3, [r7, #12]
+		} while (1);
+  44:	e7ea      	b.n	1c <xme_hal_math_ceilPowerOfTwo+0x1c>
+	}
+
+    return 0;
+  46:	f04f 0300 	mov.w	r3, #0
+}
+  4a:	4618      	mov	r0, r3
+  4c:	f107 0714 	add.w	r7, r7, #20
+  50:	46bd      	mov	sp, r7
+  52:	bc80      	pop	{r7}
+  54:	4770      	bx	lr
+  56:	bf00      	nop
+
+00000058 <xme_hal_math_floorPowerOfTwo>:
+
+uint32_t
+xme_hal_math_floorPowerOfTwo(uint32_t x)
+{
+  58:	b480      	push	{r7}
+  5a:	b085      	sub	sp, #20
+  5c:	af00      	add	r7, sp, #0
+  5e:	6078      	str	r0, [r7, #4]
+	if (0 < x)
+  60:	687b      	ldr	r3, [r7, #4]
+  62:	2b00      	cmp	r3, #0
+  64:	d00f      	beq.n	86 <xme_hal_math_floorPowerOfTwo+0x2e>
+	{
+		uint32_t mask = 0x80000000;
+  66:	f04f 4300 	mov.w	r3, #2147483648	; 0x80000000
+  6a:	60fb      	str	r3, [r7, #12]
+		do
+		{
+			if (0 != (x & mask)) {
+  6c:	687a      	ldr	r2, [r7, #4]
+  6e:	68fb      	ldr	r3, [r7, #12]
+  70:	ea02 0303 	and.w	r3, r2, r3
+  74:	2b00      	cmp	r3, #0
+  76:	d001      	beq.n	7c <xme_hal_math_floorPowerOfTwo+0x24>
+				return mask;
+  78:	68fb      	ldr	r3, [r7, #12]
+  7a:	e006      	b.n	8a <xme_hal_math_floorPowerOfTwo+0x32>
+			}
+			mask >>= 1;
+  7c:	68fb      	ldr	r3, [r7, #12]
+  7e:	ea4f 0353 	mov.w	r3, r3, lsr #1
+  82:	60fb      	str	r3, [r7, #12]
+		} while (1);
+  84:	e7f2      	b.n	6c <xme_hal_math_floorPowerOfTwo+0x14>
+	}
+
+	return 0;
+  86:	f04f 0300 	mov.w	r3, #0
+}
+  8a:	4618      	mov	r0, r3
+  8c:	f107 0714 	add.w	r7, r7, #20
+  90:	46bd      	mov	sp, r7
+  92:	bc80      	pop	{r7}
+  94:	4770      	bx	lr
+  96:	bf00      	nop

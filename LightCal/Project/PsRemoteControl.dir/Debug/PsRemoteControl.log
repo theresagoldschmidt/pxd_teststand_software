@@ -1,0 +1,75 @@
+﻿Der Buildvorgang wurde am 13.02.2018 16:29:20 gestartet.
+     1>Projekt "C:\LightCal\Project\PsRemoteControl.vcxproj" auf Knoten "2", rebuild Ziel(e).
+     1>_PrepareForClean:
+         Die Datei "PsRemoteControl.dir\Debug\PsRemoteControl.lastbuildstate" wird gelöscht.
+       InitializeBuildStatus:
+         "PsRemoteControl.dir\Debug\PsRemoteControl.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       PreBuildEvent:
+         Description: Automatic MOC for target PsRemoteControl
+         setlocal
+         cd C:\LightCal\Project
+         if %errorlevel% neq 0 goto :cmEnd
+         C:
+         if %errorlevel% neq 0 goto :cmEnd
+         "C:\Program Files\CMake\bin\cmake.exe" -E cmake_autogen C:/LightCal/Project/CMakeFiles/PsRemoteControl_autogen.dir/ Debug
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+       CustomBuild:
+         Building Custom Rule C:/LightCal/LightCal/CMakeLists.txt
+         CMake does not need to re-run because C:/LightCal/Project/CMakeFiles/generate.stamp is up-to-date.
+         Generating ui_server_ui.h
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /IC:\LightCal\Project\PsRemoteControl_autogen\include /IC:\Qt\4.8.4\include /IC:\Qt\4.8.4\include\QtGui /IC:\Qt\4.8.4\include\QtTest /IC:\Qt\4.8.4\include\QtNetwork /IC:\Qt\4.8.4\include\QtCore /IC:\LightCal\Project /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D QT_DLL /D QT_GUI_LIB /D QT_TEST_LIB /D QT_NETWORK_LIB /D QT_CORE_LIB /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"PsRemoteControl.dir\Debug\\" /Fd"PsRemoteControl.dir\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\LightCal\SMU.cpp ..\LightCal\CalManager.cpp ..\LightCal\PsReceiveParse.cpp ..\LightCal\OvpTest.cpp ..\LightCal\PsRemoteControl.cpp ..\LightCal\ftdi.cpp ..\LightCal\StartStop.cpp ..\LightCal\main.cpp PsRemoteControl_autogen\moc_compilation.cpp
+         SMU.cpp
+         CalManager.cpp
+         PsReceiveParse.cpp
+         OvpTest.cpp
+         PsRemoteControl.cpp
+         ftdi.cpp
+         StartStop.cpp
+         main.cpp
+         moc_compilation.cpp
+         Code wird generiert...
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"PsRemoteControl.dir\Debug\PsRemoteControl.exe.embed.manifest.res" PsRemoteControl.dir\Debug\PsRemoteControl_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\LightCal\Project\target\Debug\PsRemoteControl.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib C:\Qt\4.8.4\lib\qtmaind.lib C:\Qt\4.8.4\lib\QtGuid4.lib C:\Qt\4.8.4\lib\QtTestd4.lib C:\Qt\4.8.4\lib\QtNetworkd4.lib C:\Qt\4.8.4\lib\QtCored4.lib C:\LightCal\FTDI\i386\ftd2xx.lib "C:\Program Files (x86)\IVI Foundation\VISA\WinNT\lib\msc\visa32.lib" /MANIFEST /ManifestFile:"PsRemoteControl.dir\Debug\PsRemoteControl.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:/LightCal/Project/target/Debug/PsRemoteControl.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/LightCal/Project/target/Debug/PsRemoteControl.lib" /MACHINE:X86 PsRemoteControl.dir\Debug\PsRemoteControl.exe.embed.manifest.res
+         PsRemoteControl.dir\Debug\SMU.obj
+         PsRemoteControl.dir\Debug\CalManager.obj
+         PsRemoteControl.dir\Debug\PsReceiveParse.obj
+         PsRemoteControl.dir\Debug\OvpTest.obj
+         PsRemoteControl.dir\Debug\PsRemoteControl.obj
+         PsRemoteControl.dir\Debug\ftdi.obj
+         PsRemoteControl.dir\Debug\StartStop.obj
+         PsRemoteControl.dir\Debug\main.obj
+         PsRemoteControl.dir\Debug\moc_compilation.obj   /machine:X86
+       Manifest:
+         Die Datei "PsRemoteControl.dir\Debug\PsRemoteControl.exe.embed.manifest" wird gelöscht.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"PsRemoteControl.dir\Debug\PsRemoteControl.exe.embed.manifest" /manifest PsRemoteControl.dir\Debug\PsRemoteControl.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"PsRemoteControl.dir\Debug\PsRemoteControl.exe.embed.manifest.res" PsRemoteControl.dir\Debug\PsRemoteControl_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\LightCal\Project\target\Debug\PsRemoteControl.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib C:\Qt\4.8.4\lib\qtmaind.lib C:\Qt\4.8.4\lib\QtGuid4.lib C:\Qt\4.8.4\lib\QtTestd4.lib C:\Qt\4.8.4\lib\QtNetworkd4.lib C:\Qt\4.8.4\lib\QtCored4.lib C:\LightCal\FTDI\i386\ftd2xx.lib "C:\Program Files (x86)\IVI Foundation\VISA\WinNT\lib\msc\visa32.lib" /MANIFEST /ManifestFile:"PsRemoteControl.dir\Debug\PsRemoteControl.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:/LightCal/Project/target/Debug/PsRemoteControl.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/LightCal/Project/target/Debug/PsRemoteControl.lib" /MACHINE:X86 PsRemoteControl.dir\Debug\PsRemoteControl.exe.embed.manifest.res
+         PsRemoteControl.dir\Debug\SMU.obj
+         PsRemoteControl.dir\Debug\CalManager.obj
+         PsRemoteControl.dir\Debug\PsReceiveParse.obj
+         PsRemoteControl.dir\Debug\OvpTest.obj
+         PsRemoteControl.dir\Debug\PsRemoteControl.obj
+         PsRemoteControl.dir\Debug\ftdi.obj
+         PsRemoteControl.dir\Debug\StartStop.obj
+         PsRemoteControl.dir\Debug\main.obj
+         PsRemoteControl.dir\Debug\moc_compilation.obj   /machine:X86
+         PsRemoteControl.vcxproj -> C:\LightCal\Project\target\Debug\PsRemoteControl.exe
+       FinalizeBuildStatus:
+         Die Datei "PsRemoteControl.dir\Debug\PsRemoteControl.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "PsRemoteControl.dir\Debug\PsRemoteControl.lastbuildstate".
+     1>Die Erstellung des Projekts "C:\LightCal\Project\PsRemoteControl.vcxproj" ist abgeschlossen, rebuild Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:08.60

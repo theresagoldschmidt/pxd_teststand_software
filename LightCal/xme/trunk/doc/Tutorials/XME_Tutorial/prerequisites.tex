@@ -1,0 +1,44 @@
+%
+% Copyright (c) 2011-2012, fortiss GmbH.
+% Licensed under the Apache License, Version 2.0.
+% 
+% Use, modification and distribution are subject to the terms specified
+% in the accompanying license file LICENSE.txt located at the root directory
+% of this software distribution. A copy is available at
+% http://chromosome.fortiss.org/.
+%
+% This file is part of CHROMOSOME.
+%
+% $Id$
+%
+% Author:
+%         Dominik Sojer <sojer@fortiss.org>
+%         Michael Geisinger <geisinger@fortiss.org>
+%
+
+\section{Prerequisites (20 minutes)}
+\xme has been developed with platform independence in mind, but for sake of simplicity,
+this tutorial uses a Windows-based development environment and a Windows-based target platform.
+%
+While installing the proposed build environment, you might want to start reading Section~\ref{sec:architecture} giving an overview on \xme and its features.
+
+Apart from the \xme source archive, two tools are recommended for building \xme applications on Windows.
+\begin{itemize}
+	\item \textbf{Visual Studio C++} (Express, Professional, Premium or Ultimate, preferably 2008 or 2010 versions):
+		Visual Studio is Microsoft's platform for multi-language development.
+		The so-called ``Express Edition'' is available free for evaluation purposes\footnote{%
+		\url{http://www.microsoft.com/visualstudio/en-us/products/2010-editions/visual-cpp-express}}.
+		Note that \xme has not yet been tested with Visual Studio 2011, of which a beta version has been recently released.
+		You only have to install the C/C++ compiler, Additional packages like Silverlight or SQL Server are not required.
+		Consult Appendix~\ref{appx:install_vs} for details.
+	
+	\item \textbf{CMake} (at least version 2.8.5):
+		CMake is a cross-platform Makefile generator and is used to manage the build system.
+		%Input to CMake are a set of \texttt{CMakeLists.txt} files that contain the specifications for the build system.
+		Output of CMake are the build system configurations (e.g., a UNIX Makefile, a Microsoft Visual Studio Project, an Eclipse CDT project).
+		\xme provides a customized set of macros to deal with components, dependencies, executables and documentation.
+		CMake can be downloaded for free\footnote{\url{http://www.cmake.org/cmake/resources/software.html}}.
+		\xme currently requires at least CMake version 2.8.5.
+		It is \emph{not} necessary to add CMake to the system search path.
+		Consult Appendix~\ref{appx:install_cmake} for details.
+\end{itemize}

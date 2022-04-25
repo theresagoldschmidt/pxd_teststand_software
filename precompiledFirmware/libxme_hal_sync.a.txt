@@ -1,0 +1,729 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_sync.a:
+
+sync_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  49084 Jul 30 19:07 2021 sync_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000004a4  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  000004d8  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000040  00000000  00000000  000004d8  2**2
+                  ALLOC
+  3 .debug_abbrev 00000148  00000000  00000000  000004d8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000004c7  00000000  00000000  00000620  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   0000076f  00000000  00000000  00000ae7  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 0000912b  00000000  00000000  00001256  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    0000017c  00000000  00000000  0000a381  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 0000011f  00000000  00000000  0000a4fd  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 000001a2  00000000  00000000  0000a61c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  0000a7be  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    0000072a  00000000  00000000  0000a7de  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  0000af08  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  0000af33  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  000000ec  00000000  00000000  0000af64  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 sync_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xme_core_config
+00000004 l       .bss	00000000 xme_hal_sync_config
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000004       O *COM*	00000004 xme_core_log_logCallback
+00000000 g     F .text	00000078 xme_hal_sync_init
+00000000         *UND*	00000000 memset
+00000000         *UND*	00000000 xQueueGenericCreate
+00000000         *UND*	00000000 xQueueGenericSend
+00000078 g     F .text	00000058 xme_hal_sync_fini
+00000000         *UND*	00000000 xQueueGenericReceive
+00000000         *UND*	00000000 vQueueDelete
+000000d0 g     F .text	0000011c xme_hal_sync_createCriticalSection
+00000000         *UND*	00000000 xme_hal_table_addItem
+00000000         *UND*	00000000 xme_hal_table_removeItem
+000001ec g     F .text	000000cc xme_hal_sync_destroyCriticalSection
+000002b8 g     F .text	000000a4 xme_hal_sync_enterCriticalSection
+0000035c g     F .text	000000ac xme_hal_sync_tryEnterCriticalSection
+00000408 g     F .text	0000009c xme_hal_sync_leaveCriticalSection
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_sync_init>:
+/******************************************************************************/
+/***   Implementation                                                       ***/
+/******************************************************************************/
+xme_core_status_t
+xme_hal_sync_init()
+{
+   0:	b580      	push	{r7, lr}
+   2:	b082      	sub	sp, #8
+   4:	af00      	add	r7, sp, #0
+	xSemaphoreHandle  lxSemaphore;
+
+	XME_HAL_TABLE_INIT(xme_hal_sync_config.criticalSections);
+   6:	4b1a      	ldr	r3, [pc, #104]	; (70 <xme_hal_sync_init+0x70>)
+   8:	f04f 0200 	mov.w	r2, #0
+   c:	809a      	strh	r2, [r3, #4]
+   e:	4b18      	ldr	r3, [pc, #96]	; (70 <xme_hal_sync_init+0x70>)
+  10:	f04f 0200 	mov.w	r2, #0
+  14:	80da      	strh	r2, [r3, #6]
+  16:	4817      	ldr	r0, [pc, #92]	; (74 <xme_hal_sync_init+0x74>)
+  18:	f04f 0100 	mov.w	r1, #0
+  1c:	f04f 020a 	mov.w	r2, #10
+  20:	f7ff fffe 	bl	0 <memset>
+			20: R_ARM_THM_CALL	memset
+
+	vSemaphoreCreateBinary( lxSemaphore );
+  24:	f04f 0001 	mov.w	r0, #1
+  28:	f04f 0100 	mov.w	r1, #0
+  2c:	f04f 0203 	mov.w	r2, #3
+  30:	f7ff fffe 	bl	0 <xQueueGenericCreate>
+			30: R_ARM_THM_CALL	xQueueGenericCreate
+  34:	6078      	str	r0, [r7, #4]
+  36:	687b      	ldr	r3, [r7, #4]
+  38:	2b00      	cmp	r3, #0
+  3a:	d008      	beq.n	4e <xme_hal_sync_init+0x4e>
+  3c:	6878      	ldr	r0, [r7, #4]
+  3e:	f04f 0100 	mov.w	r1, #0
+  42:	f04f 0200 	mov.w	r2, #0
+  46:	f04f 0300 	mov.w	r3, #0
+  4a:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			4a: R_ARM_THM_CALL	xQueueGenericSend
+
+	XME_CHECK
+  4e:	687b      	ldr	r3, [r7, #4]
+  50:	2b00      	cmp	r3, #0
+  52:	d102      	bne.n	5a <xme_hal_sync_init+0x5a>
+  54:	f04f 030a 	mov.w	r3, #10
+  58:	e004      	b.n	64 <xme_hal_sync_init+0x64>
+		(
+			NULL != lxSemaphore,
+			XME_CORE_STATUS_OUT_OF_RESOURCES
+		);
+
+	xme_hal_sync_config.criticalSectionMutex = lxSemaphore;
+  5a:	4b05      	ldr	r3, [pc, #20]	; (70 <xme_hal_sync_init+0x70>)
+  5c:	687a      	ldr	r2, [r7, #4]
+  5e:	601a      	str	r2, [r3, #0]
+	return XME_CORE_STATUS_SUCCESS;
+  60:	f04f 0300 	mov.w	r3, #0
+}
+  64:	4618      	mov	r0, r3
+  66:	f107 0708 	add.w	r7, r7, #8
+  6a:	46bd      	mov	sp, r7
+  6c:	bd80      	pop	{r7, pc}
+  6e:	bf00      	nop
+  70:	00000004 	.word	0x00000004
+			70: R_ARM_ABS32	.bss
+  74:	0000000c 	.word	0x0000000c
+			74: R_ARM_ABS32	.bss
+
+00000078 <xme_hal_sync_fini>:
+
+void
+xme_hal_sync_fini()
+{
+  78:	b580      	push	{r7, lr}
+  7a:	af00      	add	r7, sp, #0
+	while( xSemaphoreTake( xme_hal_sync_config.criticalSectionMutex, portMAX_DELAY ) != pdTRUE ) {}
+  7c:	bf00      	nop
+  7e:	4b13      	ldr	r3, [pc, #76]	; (cc <xme_hal_sync_fini+0x54>)
+  80:	681b      	ldr	r3, [r3, #0]
+  82:	4618      	mov	r0, r3
+  84:	f04f 0100 	mov.w	r1, #0
+  88:	f04f 32ff 	mov.w	r2, #4294967295
+  8c:	f04f 0300 	mov.w	r3, #0
+  90:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			90: R_ARM_THM_CALL	xQueueGenericReceive
+  94:	4603      	mov	r3, r0
+  96:	2b01      	cmp	r3, #1
+  98:	d1f1      	bne.n	7e <xme_hal_sync_fini+0x6>
+	XME_HAL_TABLE_FINI(xme_hal_sync_config.criticalSections);
+  9a:	4b0c      	ldr	r3, [pc, #48]	; (cc <xme_hal_sync_fini+0x54>)
+  9c:	f04f 0200 	mov.w	r2, #0
+  a0:	809a      	strh	r2, [r3, #4]
+  a2:	4b0a      	ldr	r3, [pc, #40]	; (cc <xme_hal_sync_fini+0x54>)
+  a4:	f04f 0200 	mov.w	r2, #0
+  a8:	80da      	strh	r2, [r3, #6]
+	xSemaphoreGive( xme_hal_sync_config.criticalSectionMutex );
+  aa:	4b08      	ldr	r3, [pc, #32]	; (cc <xme_hal_sync_fini+0x54>)
+  ac:	681b      	ldr	r3, [r3, #0]
+  ae:	4618      	mov	r0, r3
+  b0:	f04f 0100 	mov.w	r1, #0
+  b4:	f04f 0200 	mov.w	r2, #0
+  b8:	f04f 0300 	mov.w	r3, #0
+  bc:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			bc: R_ARM_THM_CALL	xQueueGenericSend
+
+	vQueueDelete( xme_hal_sync_config.criticalSectionMutex );
+  c0:	4b02      	ldr	r3, [pc, #8]	; (cc <xme_hal_sync_fini+0x54>)
+  c2:	681b      	ldr	r3, [r3, #0]
+  c4:	4618      	mov	r0, r3
+  c6:	f7ff fffe 	bl	0 <vQueueDelete>
+			c6: R_ARM_THM_CALL	vQueueDelete
+}
+  ca:	bd80      	pop	{r7, pc}
+  cc:	00000004 	.word	0x00000004
+			cc: R_ARM_ABS32	.bss
+
+000000d0 <xme_hal_sync_createCriticalSection>:
+
+xme_hal_sync_criticalSectionHandle_t
+xme_hal_sync_createCriticalSection()
+{
+  d0:	b580      	push	{r7, lr}
+  d2:	b084      	sub	sp, #16
+  d4:	af00      	add	r7, sp, #0
+	xme_hal_sync_criticalSectionHandle_t  newCriticalSectionHandle;
+	xme_hal_sync_criticalSectionDescriptor_t* criticalSectionDesc;
+	xSemaphoreHandle  lxSemaphore;
+
+	while( xSemaphoreTake( xme_hal_sync_config.criticalSectionMutex, portMAX_DELAY ) != pdTRUE ) {}
+  d6:	bf00      	nop
+  d8:	4b41      	ldr	r3, [pc, #260]	; (1e0 <xme_hal_sync_createCriticalSection+0x110>)
+  da:	681b      	ldr	r3, [r3, #0]
+  dc:	4618      	mov	r0, r3
+  de:	f04f 0100 	mov.w	r1, #0
+  e2:	f04f 32ff 	mov.w	r2, #4294967295
+  e6:	f04f 0300 	mov.w	r3, #0
+  ea:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			ea: R_ARM_THM_CALL	xQueueGenericReceive
+  ee:	4603      	mov	r3, r0
+  f0:	2b01      	cmp	r3, #1
+  f2:	d1f1      	bne.n	d8 <xme_hal_sync_createCriticalSection+0x8>
+	newCriticalSectionHandle = (xme_hal_sync_criticalSectionHandle_t)XME_HAL_TABLE_ADD_ITEM(xme_hal_sync_config.criticalSections);
+  f4:	4b3b      	ldr	r3, [pc, #236]	; (1e4 <xme_hal_sync_createCriticalSection+0x114>)
+  f6:	4618      	mov	r0, r3
+  f8:	f04f 010a 	mov.w	r1, #10
+  fc:	f7ff fffe 	bl	0 <xme_hal_table_addItem>
+			fc: R_ARM_THM_CALL	xme_hal_table_addItem
+ 100:	4603      	mov	r3, r0
+ 102:	81fb      	strh	r3, [r7, #14]
+	xSemaphoreGive( xme_hal_sync_config.criticalSectionMutex );
+ 104:	4b36      	ldr	r3, [pc, #216]	; (1e0 <xme_hal_sync_createCriticalSection+0x110>)
+ 106:	681b      	ldr	r3, [r3, #0]
+ 108:	4618      	mov	r0, r3
+ 10a:	f04f 0100 	mov.w	r1, #0
+ 10e:	f04f 0200 	mov.w	r2, #0
+ 112:	f04f 0300 	mov.w	r3, #0
+ 116:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			116: R_ARM_THM_CALL	xQueueGenericSend
+
+	XME_CHECK_REC
+ 11a:	89fb      	ldrh	r3, [r7, #14]
+ 11c:	2b00      	cmp	r3, #0
+ 11e:	d10d      	bne.n	13c <xme_hal_sync_createCriticalSection+0x6c>
+ 120:	4b2f      	ldr	r3, [pc, #188]	; (1e0 <xme_hal_sync_createCriticalSection+0x110>)
+ 122:	681b      	ldr	r3, [r3, #0]
+ 124:	4618      	mov	r0, r3
+ 126:	f04f 0100 	mov.w	r1, #0
+ 12a:	f04f 0200 	mov.w	r2, #0
+ 12e:	f04f 0300 	mov.w	r3, #0
+ 132:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			132: R_ARM_THM_CALL	xQueueGenericSend
+ 136:	f04f 0300 	mov.w	r3, #0
+ 13a:	e04c      	b.n	1d6 <xme_hal_sync_createCriticalSection+0x106>
+				xSemaphoreGive(xme_hal_sync_config.criticalSectionMutex);
+		}
+	);
+
+	// Initialize the critical section descriptor
+	criticalSectionDesc = (xme_hal_sync_criticalSectionDescriptor_t*)XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_sync_config.criticalSections, newCriticalSectionHandle);
+ 13c:	89fb      	ldrh	r3, [r7, #14]
+ 13e:	2b00      	cmp	r3, #0
+ 140:	d014      	beq.n	16c <xme_hal_sync_createCriticalSection+0x9c>
+ 142:	4b27      	ldr	r3, [pc, #156]	; (1e0 <xme_hal_sync_createCriticalSection+0x110>)
+ 144:	88db      	ldrh	r3, [r3, #6]
+ 146:	89fa      	ldrh	r2, [r7, #14]
+ 148:	429a      	cmp	r2, r3
+ 14a:	d80f      	bhi.n	16c <xme_hal_sync_createCriticalSection+0x9c>
+ 14c:	89fb      	ldrh	r3, [r7, #14]
+ 14e:	f103 33ff 	add.w	r3, r3, #4294967295
+ 152:	4a23      	ldr	r2, [pc, #140]	; (1e0 <xme_hal_sync_createCriticalSection+0x110>)
+ 154:	18d3      	adds	r3, r2, r3
+ 156:	7a1b      	ldrb	r3, [r3, #8]
+ 158:	2b00      	cmp	r3, #0
+ 15a:	d007      	beq.n	16c <xme_hal_sync_createCriticalSection+0x9c>
+ 15c:	89fb      	ldrh	r3, [r7, #14]
+ 15e:	f103 33ff 	add.w	r3, r3, #4294967295
+ 162:	ea4f 0283 	mov.w	r2, r3, lsl #2
+ 166:	4b20      	ldr	r3, [pc, #128]	; (1e8 <xme_hal_sync_createCriticalSection+0x118>)
+ 168:	18d3      	adds	r3, r2, r3
+ 16a:	e001      	b.n	170 <xme_hal_sync_createCriticalSection+0xa0>
+ 16c:	f04f 0300 	mov.w	r3, #0
+ 170:	60bb      	str	r3, [r7, #8]
+
+	vSemaphoreCreateBinary( lxSemaphore );
+ 172:	f04f 0001 	mov.w	r0, #1
+ 176:	f04f 0100 	mov.w	r1, #0
+ 17a:	f04f 0203 	mov.w	r2, #3
+ 17e:	f7ff fffe 	bl	0 <xQueueGenericCreate>
+			17e: R_ARM_THM_CALL	xQueueGenericCreate
+ 182:	6078      	str	r0, [r7, #4]
+ 184:	687b      	ldr	r3, [r7, #4]
+ 186:	2b00      	cmp	r3, #0
+ 188:	d008      	beq.n	19c <xme_hal_sync_createCriticalSection+0xcc>
+ 18a:	6878      	ldr	r0, [r7, #4]
+ 18c:	f04f 0100 	mov.w	r1, #0
+ 190:	f04f 0200 	mov.w	r2, #0
+ 194:	f04f 0300 	mov.w	r3, #0
+ 198:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			198: R_ARM_THM_CALL	xQueueGenericSend
+
+	XME_CHECK_REC
+ 19c:	687b      	ldr	r3, [r7, #4]
+ 19e:	2b00      	cmp	r3, #0
+ 1a0:	d115      	bne.n	1ce <xme_hal_sync_createCriticalSection+0xfe>
+ 1a2:	4a10      	ldr	r2, [pc, #64]	; (1e4 <xme_hal_sync_createCriticalSection+0x114>)
+ 1a4:	89fb      	ldrh	r3, [r7, #14]
+ 1a6:	4610      	mov	r0, r2
+ 1a8:	4619      	mov	r1, r3
+ 1aa:	f04f 020a 	mov.w	r2, #10
+ 1ae:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			1ae: R_ARM_THM_CALL	xme_hal_table_removeItem
+ 1b2:	4b0b      	ldr	r3, [pc, #44]	; (1e0 <xme_hal_sync_createCriticalSection+0x110>)
+ 1b4:	681b      	ldr	r3, [r3, #0]
+ 1b6:	4618      	mov	r0, r3
+ 1b8:	f04f 0100 	mov.w	r1, #0
+ 1bc:	f04f 0200 	mov.w	r2, #0
+ 1c0:	f04f 0300 	mov.w	r3, #0
+ 1c4:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			1c4: R_ARM_THM_CALL	xQueueGenericSend
+ 1c8:	f04f 0300 	mov.w	r3, #0
+ 1cc:	e003      	b.n	1d6 <xme_hal_sync_createCriticalSection+0x106>
+			XME_HAL_TABLE_REMOVE_ITEM(xme_hal_sync_config.criticalSections, (xme_hal_table_rowHandle_t)newCriticalSectionHandle);
+			xSemaphoreGive(xme_hal_sync_config.criticalSectionMutex);
+		}
+	);
+
+	criticalSectionDesc->mutex = lxSemaphore;
+ 1ce:	68bb      	ldr	r3, [r7, #8]
+ 1d0:	687a      	ldr	r2, [r7, #4]
+ 1d2:	601a      	str	r2, [r3, #0]
+
+	return newCriticalSectionHandle;
+ 1d4:	89fb      	ldrh	r3, [r7, #14]
+}
+ 1d6:	4618      	mov	r0, r3
+ 1d8:	f107 0710 	add.w	r7, r7, #16
+ 1dc:	46bd      	mov	sp, r7
+ 1de:	bd80      	pop	{r7, pc}
+ 1e0:	00000004 	.word	0x00000004
+			1e0: R_ARM_ABS32	.bss
+ 1e4:	00000008 	.word	0x00000008
+			1e4: R_ARM_ABS32	.bss
+ 1e8:	00000018 	.word	0x00000018
+			1e8: R_ARM_ABS32	.bss
+
+000001ec <xme_hal_sync_destroyCriticalSection>:
+xme_core_status_t
+xme_hal_sync_destroyCriticalSection
+(
+	xme_hal_sync_criticalSectionHandle_t criticalSectionHandle
+)
+{
+ 1ec:	b580      	push	{r7, lr}
+ 1ee:	b084      	sub	sp, #16
+ 1f0:	af00      	add	r7, sp, #0
+ 1f2:	4603      	mov	r3, r0
+ 1f4:	80fb      	strh	r3, [r7, #6]
+	xme_hal_sync_criticalSectionDescriptor_t* criticalSectionDesc;
+
+	// Synchronize access to the critical sections list mutex
+	while( xSemaphoreTake( xme_hal_sync_config.criticalSectionMutex, portMAX_DELAY ) != pdTRUE ) {}
+ 1f6:	bf00      	nop
+ 1f8:	4b2c      	ldr	r3, [pc, #176]	; (2ac <xme_hal_sync_destroyCriticalSection+0xc0>)
+ 1fa:	681b      	ldr	r3, [r3, #0]
+ 1fc:	4618      	mov	r0, r3
+ 1fe:	f04f 0100 	mov.w	r1, #0
+ 202:	f04f 32ff 	mov.w	r2, #4294967295
+ 206:	f04f 0300 	mov.w	r3, #0
+ 20a:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			20a: R_ARM_THM_CALL	xQueueGenericReceive
+ 20e:	4603      	mov	r3, r0
+ 210:	2b01      	cmp	r3, #1
+ 212:	d1f1      	bne.n	1f8 <xme_hal_sync_destroyCriticalSection+0xc>
+
+		// Retrieve the critical section descriptor
+		criticalSectionDesc = (xme_hal_sync_criticalSectionDescriptor_t*)XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_sync_config.criticalSections, criticalSectionHandle);
+ 214:	88fb      	ldrh	r3, [r7, #6]
+ 216:	2b00      	cmp	r3, #0
+ 218:	d014      	beq.n	244 <xme_hal_sync_destroyCriticalSection+0x58>
+ 21a:	4b24      	ldr	r3, [pc, #144]	; (2ac <xme_hal_sync_destroyCriticalSection+0xc0>)
+ 21c:	88db      	ldrh	r3, [r3, #6]
+ 21e:	88fa      	ldrh	r2, [r7, #6]
+ 220:	429a      	cmp	r2, r3
+ 222:	d80f      	bhi.n	244 <xme_hal_sync_destroyCriticalSection+0x58>
+ 224:	88fb      	ldrh	r3, [r7, #6]
+ 226:	f103 33ff 	add.w	r3, r3, #4294967295
+ 22a:	4a20      	ldr	r2, [pc, #128]	; (2ac <xme_hal_sync_destroyCriticalSection+0xc0>)
+ 22c:	18d3      	adds	r3, r2, r3
+ 22e:	7a1b      	ldrb	r3, [r3, #8]
+ 230:	2b00      	cmp	r3, #0
+ 232:	d007      	beq.n	244 <xme_hal_sync_destroyCriticalSection+0x58>
+ 234:	88fb      	ldrh	r3, [r7, #6]
+ 236:	f103 33ff 	add.w	r3, r3, #4294967295
+ 23a:	ea4f 0283 	mov.w	r2, r3, lsl #2
+ 23e:	4b1c      	ldr	r3, [pc, #112]	; (2b0 <xme_hal_sync_destroyCriticalSection+0xc4>)
+ 240:	18d3      	adds	r3, r2, r3
+ 242:	e001      	b.n	248 <xme_hal_sync_destroyCriticalSection+0x5c>
+ 244:	f04f 0300 	mov.w	r3, #0
+ 248:	60fb      	str	r3, [r7, #12]
+
+		XME_CHECK_REC
+ 24a:	68fb      	ldr	r3, [r7, #12]
+ 24c:	2b00      	cmp	r3, #0
+ 24e:	d10d      	bne.n	26c <xme_hal_sync_destroyCriticalSection+0x80>
+ 250:	4b16      	ldr	r3, [pc, #88]	; (2ac <xme_hal_sync_destroyCriticalSection+0xc0>)
+ 252:	681b      	ldr	r3, [r3, #0]
+ 254:	4618      	mov	r0, r3
+ 256:	f04f 0100 	mov.w	r1, #0
+ 25a:	f04f 0200 	mov.w	r2, #0
+ 25e:	f04f 0300 	mov.w	r3, #0
+ 262:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			262: R_ARM_THM_CALL	xQueueGenericSend
+ 266:	f04f 0306 	mov.w	r3, #6
+ 26a:	e019      	b.n	2a0 <xme_hal_sync_destroyCriticalSection+0xb4>
+			{
+					xSemaphoreGive(xme_hal_sync_config.criticalSectionMutex);
+			}
+		);
+
+		vQueueDelete( criticalSectionDesc->mutex );
+ 26c:	68fb      	ldr	r3, [r7, #12]
+ 26e:	681b      	ldr	r3, [r3, #0]
+ 270:	4618      	mov	r0, r3
+ 272:	f7ff fffe 	bl	0 <vQueueDelete>
+			272: R_ARM_THM_CALL	vQueueDelete
+
+		XME_HAL_TABLE_REMOVE_ITEM(xme_hal_sync_config.criticalSections, (xme_hal_table_rowHandle_t)criticalSectionHandle);
+ 276:	4a0f      	ldr	r2, [pc, #60]	; (2b4 <xme_hal_sync_destroyCriticalSection+0xc8>)
+ 278:	88fb      	ldrh	r3, [r7, #6]
+ 27a:	4610      	mov	r0, r2
+ 27c:	4619      	mov	r1, r3
+ 27e:	f04f 020a 	mov.w	r2, #10
+ 282:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			282: R_ARM_THM_CALL	xme_hal_table_removeItem
+
+	xSemaphoreGive(xme_hal_sync_config.criticalSectionMutex);
+ 286:	4b09      	ldr	r3, [pc, #36]	; (2ac <xme_hal_sync_destroyCriticalSection+0xc0>)
+ 288:	681b      	ldr	r3, [r3, #0]
+ 28a:	4618      	mov	r0, r3
+ 28c:	f04f 0100 	mov.w	r1, #0
+ 290:	f04f 0200 	mov.w	r2, #0
+ 294:	f04f 0300 	mov.w	r3, #0
+ 298:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			298: R_ARM_THM_CALL	xQueueGenericSend
+
+	return XME_CORE_STATUS_SUCCESS;
+ 29c:	f04f 0300 	mov.w	r3, #0
+}
+ 2a0:	4618      	mov	r0, r3
+ 2a2:	f107 0710 	add.w	r7, r7, #16
+ 2a6:	46bd      	mov	sp, r7
+ 2a8:	bd80      	pop	{r7, pc}
+ 2aa:	bf00      	nop
+ 2ac:	00000004 	.word	0x00000004
+			2ac: R_ARM_ABS32	.bss
+ 2b0:	00000018 	.word	0x00000018
+			2b0: R_ARM_ABS32	.bss
+ 2b4:	00000008 	.word	0x00000008
+			2b4: R_ARM_ABS32	.bss
+
+000002b8 <xme_hal_sync_enterCriticalSection>:
+void
+xme_hal_sync_enterCriticalSection
+(
+	xme_hal_sync_criticalSectionHandle_t criticalSectionHandle
+)
+{
+ 2b8:	b580      	push	{r7, lr}
+ 2ba:	b084      	sub	sp, #16
+ 2bc:	af00      	add	r7, sp, #0
+ 2be:	4603      	mov	r3, r0
+ 2c0:	80fb      	strh	r3, [r7, #6]
+	xme_hal_sync_criticalSectionDescriptor_t* criticalSectionDesc;
+
+	// Synchronize access to the critical sections list mutex
+	while( xSemaphoreTake( xme_hal_sync_config.criticalSectionMutex, portMAX_DELAY ) != pdTRUE ) {}
+ 2c2:	bf00      	nop
+ 2c4:	4b23      	ldr	r3, [pc, #140]	; (354 <xme_hal_sync_enterCriticalSection+0x9c>)
+ 2c6:	681b      	ldr	r3, [r3, #0]
+ 2c8:	4618      	mov	r0, r3
+ 2ca:	f04f 0100 	mov.w	r1, #0
+ 2ce:	f04f 32ff 	mov.w	r2, #4294967295
+ 2d2:	f04f 0300 	mov.w	r3, #0
+ 2d6:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			2d6: R_ARM_THM_CALL	xQueueGenericReceive
+ 2da:	4603      	mov	r3, r0
+ 2dc:	2b01      	cmp	r3, #1
+ 2de:	d1f1      	bne.n	2c4 <xme_hal_sync_enterCriticalSection+0xc>
+
+		// Retrieve the critical section descriptor
+		criticalSectionDesc = (xme_hal_sync_criticalSectionDescriptor_t*)XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_sync_config.criticalSections, criticalSectionHandle);
+ 2e0:	88fb      	ldrh	r3, [r7, #6]
+ 2e2:	2b00      	cmp	r3, #0
+ 2e4:	d014      	beq.n	310 <xme_hal_sync_enterCriticalSection+0x58>
+ 2e6:	4b1b      	ldr	r3, [pc, #108]	; (354 <xme_hal_sync_enterCriticalSection+0x9c>)
+ 2e8:	88db      	ldrh	r3, [r3, #6]
+ 2ea:	88fa      	ldrh	r2, [r7, #6]
+ 2ec:	429a      	cmp	r2, r3
+ 2ee:	d80f      	bhi.n	310 <xme_hal_sync_enterCriticalSection+0x58>
+ 2f0:	88fb      	ldrh	r3, [r7, #6]
+ 2f2:	f103 33ff 	add.w	r3, r3, #4294967295
+ 2f6:	4a17      	ldr	r2, [pc, #92]	; (354 <xme_hal_sync_enterCriticalSection+0x9c>)
+ 2f8:	18d3      	adds	r3, r2, r3
+ 2fa:	7a1b      	ldrb	r3, [r3, #8]
+ 2fc:	2b00      	cmp	r3, #0
+ 2fe:	d007      	beq.n	310 <xme_hal_sync_enterCriticalSection+0x58>
+ 300:	88fb      	ldrh	r3, [r7, #6]
+ 302:	f103 33ff 	add.w	r3, r3, #4294967295
+ 306:	ea4f 0283 	mov.w	r2, r3, lsl #2
+ 30a:	4b13      	ldr	r3, [pc, #76]	; (358 <xme_hal_sync_enterCriticalSection+0xa0>)
+ 30c:	18d3      	adds	r3, r2, r3
+ 30e:	e001      	b.n	314 <xme_hal_sync_enterCriticalSection+0x5c>
+ 310:	f04f 0300 	mov.w	r3, #0
+ 314:	60fb      	str	r3, [r7, #12]
+
+	xSemaphoreGive(xme_hal_sync_config.criticalSectionMutex);
+ 316:	4b0f      	ldr	r3, [pc, #60]	; (354 <xme_hal_sync_enterCriticalSection+0x9c>)
+ 318:	681b      	ldr	r3, [r3, #0]
+ 31a:	4618      	mov	r0, r3
+ 31c:	f04f 0100 	mov.w	r1, #0
+ 320:	f04f 0200 	mov.w	r2, #0
+ 324:	f04f 0300 	mov.w	r3, #0
+ 328:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			328: R_ARM_THM_CALL	xQueueGenericSend
+
+	XME_ASSERT_NORVAL(NULL != criticalSectionDesc);
+
+	while( xSemaphoreTake( criticalSectionDesc->mutex, portMAX_DELAY ) != pdTRUE ) {}
+ 32c:	bf00      	nop
+ 32e:	68fb      	ldr	r3, [r7, #12]
+ 330:	681b      	ldr	r3, [r3, #0]
+ 332:	4618      	mov	r0, r3
+ 334:	f04f 0100 	mov.w	r1, #0
+ 338:	f04f 32ff 	mov.w	r2, #4294967295
+ 33c:	f04f 0300 	mov.w	r3, #0
+ 340:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			340: R_ARM_THM_CALL	xQueueGenericReceive
+ 344:	4603      	mov	r3, r0
+ 346:	2b01      	cmp	r3, #1
+ 348:	d1f1      	bne.n	32e <xme_hal_sync_enterCriticalSection+0x76>
+}
+ 34a:	f107 0710 	add.w	r7, r7, #16
+ 34e:	46bd      	mov	sp, r7
+ 350:	bd80      	pop	{r7, pc}
+ 352:	bf00      	nop
+ 354:	00000004 	.word	0x00000004
+			354: R_ARM_ABS32	.bss
+ 358:	00000018 	.word	0x00000018
+			358: R_ARM_ABS32	.bss
+
+0000035c <xme_hal_sync_tryEnterCriticalSection>:
+xme_core_status_t
+xme_hal_sync_tryEnterCriticalSection
+(
+	xme_hal_sync_criticalSectionHandle_t criticalSectionHandle
+)
+{
+ 35c:	b580      	push	{r7, lr}
+ 35e:	b084      	sub	sp, #16
+ 360:	af00      	add	r7, sp, #0
+ 362:	4603      	mov	r3, r0
+ 364:	80fb      	strh	r3, [r7, #6]
+	xme_hal_sync_criticalSectionDescriptor_t* criticalSectionDesc;
+
+	// Synchronize access to the critical sections list mutex
+	while( xSemaphoreTake( xme_hal_sync_config.criticalSectionMutex, portMAX_DELAY ) != pdTRUE ) {}
+ 366:	bf00      	nop
+ 368:	4b25      	ldr	r3, [pc, #148]	; (400 <xme_hal_sync_tryEnterCriticalSection+0xa4>)
+ 36a:	681b      	ldr	r3, [r3, #0]
+ 36c:	4618      	mov	r0, r3
+ 36e:	f04f 0100 	mov.w	r1, #0
+ 372:	f04f 32ff 	mov.w	r2, #4294967295
+ 376:	f04f 0300 	mov.w	r3, #0
+ 37a:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			37a: R_ARM_THM_CALL	xQueueGenericReceive
+ 37e:	4603      	mov	r3, r0
+ 380:	2b01      	cmp	r3, #1
+ 382:	d1f1      	bne.n	368 <xme_hal_sync_tryEnterCriticalSection+0xc>
+
+		// Retrieve the critical section descriptor
+		criticalSectionDesc = (xme_hal_sync_criticalSectionDescriptor_t*)XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_sync_config.criticalSections, criticalSectionHandle);
+ 384:	88fb      	ldrh	r3, [r7, #6]
+ 386:	2b00      	cmp	r3, #0
+ 388:	d014      	beq.n	3b4 <xme_hal_sync_tryEnterCriticalSection+0x58>
+ 38a:	4b1d      	ldr	r3, [pc, #116]	; (400 <xme_hal_sync_tryEnterCriticalSection+0xa4>)
+ 38c:	88db      	ldrh	r3, [r3, #6]
+ 38e:	88fa      	ldrh	r2, [r7, #6]
+ 390:	429a      	cmp	r2, r3
+ 392:	d80f      	bhi.n	3b4 <xme_hal_sync_tryEnterCriticalSection+0x58>
+ 394:	88fb      	ldrh	r3, [r7, #6]
+ 396:	f103 33ff 	add.w	r3, r3, #4294967295
+ 39a:	4a19      	ldr	r2, [pc, #100]	; (400 <xme_hal_sync_tryEnterCriticalSection+0xa4>)
+ 39c:	18d3      	adds	r3, r2, r3
+ 39e:	7a1b      	ldrb	r3, [r3, #8]
+ 3a0:	2b00      	cmp	r3, #0
+ 3a2:	d007      	beq.n	3b4 <xme_hal_sync_tryEnterCriticalSection+0x58>
+ 3a4:	88fb      	ldrh	r3, [r7, #6]
+ 3a6:	f103 33ff 	add.w	r3, r3, #4294967295
+ 3aa:	ea4f 0283 	mov.w	r2, r3, lsl #2
+ 3ae:	4b15      	ldr	r3, [pc, #84]	; (404 <xme_hal_sync_tryEnterCriticalSection+0xa8>)
+ 3b0:	18d3      	adds	r3, r2, r3
+ 3b2:	e001      	b.n	3b8 <xme_hal_sync_tryEnterCriticalSection+0x5c>
+ 3b4:	f04f 0300 	mov.w	r3, #0
+ 3b8:	60fb      	str	r3, [r7, #12]
+
+	xSemaphoreGive(xme_hal_sync_config.criticalSectionMutex);
+ 3ba:	4b11      	ldr	r3, [pc, #68]	; (400 <xme_hal_sync_tryEnterCriticalSection+0xa4>)
+ 3bc:	681b      	ldr	r3, [r3, #0]
+ 3be:	4618      	mov	r0, r3
+ 3c0:	f04f 0100 	mov.w	r1, #0
+ 3c4:	f04f 0200 	mov.w	r2, #0
+ 3c8:	f04f 0300 	mov.w	r3, #0
+ 3cc:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			3cc: R_ARM_THM_CALL	xQueueGenericSend
+
+	XME_ASSERT_RVAL(NULL != criticalSectionDesc, XME_CORE_STATUS_INVALID_HANDLE);
+
+	return xSemaphoreTake(criticalSectionDesc->mutex, 1) == pdTRUE ? XME_CORE_STATUS_SUCCESS : XME_CORE_STATUS_WOULD_BLOCK;
+ 3d0:	68fb      	ldr	r3, [r7, #12]
+ 3d2:	681b      	ldr	r3, [r3, #0]
+ 3d4:	4618      	mov	r0, r3
+ 3d6:	f04f 0100 	mov.w	r1, #0
+ 3da:	f04f 0201 	mov.w	r2, #1
+ 3de:	f04f 0300 	mov.w	r3, #0
+ 3e2:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			3e2: R_ARM_THM_CALL	xQueueGenericReceive
+ 3e6:	4603      	mov	r3, r0
+ 3e8:	2b01      	cmp	r3, #1
+ 3ea:	d102      	bne.n	3f2 <xme_hal_sync_tryEnterCriticalSection+0x96>
+ 3ec:	f04f 0300 	mov.w	r3, #0
+ 3f0:	e001      	b.n	3f6 <xme_hal_sync_tryEnterCriticalSection+0x9a>
+ 3f2:	f04f 030f 	mov.w	r3, #15
+}
+ 3f6:	4618      	mov	r0, r3
+ 3f8:	f107 0710 	add.w	r7, r7, #16
+ 3fc:	46bd      	mov	sp, r7
+ 3fe:	bd80      	pop	{r7, pc}
+ 400:	00000004 	.word	0x00000004
+			400: R_ARM_ABS32	.bss
+ 404:	00000018 	.word	0x00000018
+			404: R_ARM_ABS32	.bss
+
+00000408 <xme_hal_sync_leaveCriticalSection>:
+void
+xme_hal_sync_leaveCriticalSection
+(
+	xme_hal_sync_criticalSectionHandle_t criticalSectionHandle
+)
+{
+ 408:	b580      	push	{r7, lr}
+ 40a:	b084      	sub	sp, #16
+ 40c:	af00      	add	r7, sp, #0
+ 40e:	4603      	mov	r3, r0
+ 410:	80fb      	strh	r3, [r7, #6]
+	xme_hal_sync_criticalSectionDescriptor_t* criticalSectionDesc;
+
+	// Synchronize access to the critical sections list mutex
+	while( xSemaphoreTake( xme_hal_sync_config.criticalSectionMutex, portMAX_DELAY ) != pdTRUE ) {}
+ 412:	bf00      	nop
+ 414:	4b21      	ldr	r3, [pc, #132]	; (49c <xme_hal_sync_leaveCriticalSection+0x94>)
+ 416:	681b      	ldr	r3, [r3, #0]
+ 418:	4618      	mov	r0, r3
+ 41a:	f04f 0100 	mov.w	r1, #0
+ 41e:	f04f 32ff 	mov.w	r2, #4294967295
+ 422:	f04f 0300 	mov.w	r3, #0
+ 426:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			426: R_ARM_THM_CALL	xQueueGenericReceive
+ 42a:	4603      	mov	r3, r0
+ 42c:	2b01      	cmp	r3, #1
+ 42e:	d1f1      	bne.n	414 <xme_hal_sync_leaveCriticalSection+0xc>
+
+		// Retrieve the critical section descriptor
+		criticalSectionDesc = (xme_hal_sync_criticalSectionDescriptor_t*)XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_sync_config.criticalSections, criticalSectionHandle);
+ 430:	88fb      	ldrh	r3, [r7, #6]
+ 432:	2b00      	cmp	r3, #0
+ 434:	d014      	beq.n	460 <xme_hal_sync_leaveCriticalSection+0x58>
+ 436:	4b19      	ldr	r3, [pc, #100]	; (49c <xme_hal_sync_leaveCriticalSection+0x94>)
+ 438:	88db      	ldrh	r3, [r3, #6]
+ 43a:	88fa      	ldrh	r2, [r7, #6]
+ 43c:	429a      	cmp	r2, r3
+ 43e:	d80f      	bhi.n	460 <xme_hal_sync_leaveCriticalSection+0x58>
+ 440:	88fb      	ldrh	r3, [r7, #6]
+ 442:	f103 33ff 	add.w	r3, r3, #4294967295
+ 446:	4a15      	ldr	r2, [pc, #84]	; (49c <xme_hal_sync_leaveCriticalSection+0x94>)
+ 448:	18d3      	adds	r3, r2, r3
+ 44a:	7a1b      	ldrb	r3, [r3, #8]
+ 44c:	2b00      	cmp	r3, #0
+ 44e:	d007      	beq.n	460 <xme_hal_sync_leaveCriticalSection+0x58>
+ 450:	88fb      	ldrh	r3, [r7, #6]
+ 452:	f103 33ff 	add.w	r3, r3, #4294967295
+ 456:	ea4f 0283 	mov.w	r2, r3, lsl #2
+ 45a:	4b11      	ldr	r3, [pc, #68]	; (4a0 <xme_hal_sync_leaveCriticalSection+0x98>)
+ 45c:	18d3      	adds	r3, r2, r3
+ 45e:	e001      	b.n	464 <xme_hal_sync_leaveCriticalSection+0x5c>
+ 460:	f04f 0300 	mov.w	r3, #0
+ 464:	60fb      	str	r3, [r7, #12]
+
+	xSemaphoreGive(xme_hal_sync_config.criticalSectionMutex);
+ 466:	4b0d      	ldr	r3, [pc, #52]	; (49c <xme_hal_sync_leaveCriticalSection+0x94>)
+ 468:	681b      	ldr	r3, [r3, #0]
+ 46a:	4618      	mov	r0, r3
+ 46c:	f04f 0100 	mov.w	r1, #0
+ 470:	f04f 0200 	mov.w	r2, #0
+ 474:	f04f 0300 	mov.w	r3, #0
+ 478:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			478: R_ARM_THM_CALL	xQueueGenericSend
+
+	XME_ASSERT_NORVAL(NULL != criticalSectionDesc);
+
+	xSemaphoreGive(criticalSectionDesc->mutex);
+ 47c:	68fb      	ldr	r3, [r7, #12]
+ 47e:	681b      	ldr	r3, [r3, #0]
+ 480:	4618      	mov	r0, r3
+ 482:	f04f 0100 	mov.w	r1, #0
+ 486:	f04f 0200 	mov.w	r2, #0
+ 48a:	f04f 0300 	mov.w	r3, #0
+ 48e:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			48e: R_ARM_THM_CALL	xQueueGenericSend
+}
+ 492:	f107 0710 	add.w	r7, r7, #16
+ 496:	46bd      	mov	sp, r7
+ 498:	bd80      	pop	{r7, pc}
+ 49a:	bf00      	nop
+ 49c:	00000004 	.word	0x00000004
+			49c: R_ARM_ABS32	.bss
+ 4a0:	00000018 	.word	0x00000018
+			4a0: R_ARM_ABS32	.bss

@@ -1,0 +1,11 @@
+# Set limits of Olimex ARM-JTAG-EW
+set remote hardware-breakpoint-limit 6
+set remote hardware-watchpoint-limit 4
+
+# Disable interrupts while single-stepping
+define hook-step
+mon cortex_m3 maskisr on
+end
+define hookpost-step
+mon cortex_m3 maskisr off
+end

@@ -1,0 +1,80 @@
+/*
+ * Copyright (c) 2011-2012, fortiss GmbH.
+ * Licensed under the Apache License, Version 2.0.
+ *
+ * Use, modification and distribution are subject to the terms specified
+ * in the accompanying license file LICENSE.txt located at the root directory
+ * of this software distribution. A copy is available at
+ * http://chromosome.fortiss.org/.
+ *
+ * This file is part of CHROMOSOME.
+ *
+ * $Id$
+ */
+
+/**
+ * \file
+ *         @COMPONENT_NAME_PRETTY@ component.
+ *
+ * \author
+ *         @AUTHOR_NAME@ <@AUTHOR_MAIL@>
+ */
+
+#ifndef XME_@COMPONENT_CLASS_UPPER@_@COMPONENT_NAME_PREPROCESSOR@_H
+#define XME_@COMPONENT_CLASS_UPPER@_@COMPONENT_NAME_PREPROCESSOR@_H
+
+/******************************************************************************/
+/***   Includes                                                             ***/
+/******************************************************************************/
+#include "xme/core/component.h"
+#include "xme/core/dcc.h"
+#include "xme/core/resourceManager.h"
+
+/******************************************************************************/
+/***   Type definitions                                                     ***/
+/******************************************************************************/
+typedef struct
+{
+	// public
+	int dummyConfig; ///< TODO: Add configuration variables.
+	// private
+	int dummyState; ///< TODO: Add state variables and remove the ones below if you don't need them.
+	xme_core_resourceManager_taskHandle_t taskHandle; ///< Task handle.
+	xme_core_dcc_publicationHandle_t publicationHandle; ///< Publication handle.
+	xme_core_dcc_subscriptionHandle_t subscriptionHandle; ///< Subscriptions handle.
+}
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t;
+
+/******************************************************************************/
+/***   Prototypes                                                           ***/
+/******************************************************************************/
+/**
+ * \brief  Creates a @COMPONENT_NAME_PRETTY@ component.
+ *
+ * \return Returns one of the following status codes:
+ *          - XME_CORE_STATUS_SUCCESS if the component has been successfully
+ *            initialized.
+ *          - XME_CORE_STATUS_INTERNAL_ERROR on error.
+ */
+xme_core_status_t
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_create(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config);
+
+/**
+ * \brief  Activates a @COMPONENT_NAME_PRETTY@ component.
+ */
+xme_core_status_t
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_activate(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config);
+
+/**
+ * \brief  Deactivates a @COMPONENT_NAME_PRETTY@ component.
+ */
+void
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_deactivate(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config);
+
+/**
+ * \brief  Destroys a @COMPONENT_NAME_PRETTY@ component.
+ */
+void
+xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_destroy(xme_@COMPONENT_CLASS@_@COMPONENT_NAME_IDENTIFIER@_configStruct_t* config);
+
+#endif // #ifndef XME_@COMPONENT_CLASS_UPPER@_@COMPONENT_NAME_PREPROCESSOR@_H

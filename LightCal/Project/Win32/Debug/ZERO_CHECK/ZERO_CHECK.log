@@ -1,0 +1,17 @@
+﻿Der Buildvorgang wurde am 13.02.2018 16:29:20 gestartet.
+     1>Projekt "C:\LightCal\Project\ZERO_CHECK.vcxproj" auf Knoten "2", rebuild Ziel(e).
+     1>_PrepareForClean:
+         Die Datei "Win32\Debug\ZERO_CHECK\ZERO_CHECK.lastbuildstate" wird gelöscht.
+       InitializeBuildStatus:
+         "Win32\Debug\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       CustomBuild:
+         Checking Build System
+         CMake does not need to re-run because C:/LightCal/Project/CMakeFiles/generate.stamp is up-to-date.
+       FinalizeBuildStatus:
+         Die Datei "Win32\Debug\ZERO_CHECK\ZERO_CHECK.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "Win32\Debug\ZERO_CHECK\ZERO_CHECK.lastbuildstate".
+     1>Die Erstellung des Projekts "C:\LightCal\Project\ZERO_CHECK.vcxproj" ist abgeschlossen, rebuild Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:00.08

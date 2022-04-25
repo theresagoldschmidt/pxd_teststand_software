@@ -1,0 +1,911 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_sched.a:
+
+sched_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  53364 Jul 30 19:07 2021 sched_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000544  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000578  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000130  00000000  00000000  00000578  2**2
+                  ALLOC
+  3 .debug_abbrev 000001c4  00000000  00000000  00000578  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000069e  00000000  00000000  0000073c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   00000834  00000000  00000000  00000dda  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 00009a24  00000000  00000000  0000160e  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .rodata       00000008  00000000  00000000  0000b034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .debug_loc    00000144  00000000  00000000  0000b03c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_pubnames 000000da  00000000  00000000  0000b180  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_pubtypes 00000234  00000000  00000000  0000b25a  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_aranges 00000020  00000000  00000000  0000b48e  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_str    000008f9  00000000  00000000  0000b4ae  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .comment      0000002b  00000000  00000000  0000bda7  2**0
+                  CONTENTS, READONLY
+ 14 .ARM.attributes 00000031  00000000  00000000  0000bdd2  2**0
+                  CONTENTS, READONLY
+ 15 .debug_frame  000000cc  00000000  00000000  0000be04  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 sched_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xme_core_config
+00000004 l       .bss	00000000 xme_hal_sched_config
+00000000 l    d  .rodata	00000000 .rodata
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000004       O *COM*	00000004 xme_core_log_logCallback
+00000000 g     F .text	00000050 xme_hal_sched_init
+00000000         *UND*	00000000 memset
+00000000         *UND*	00000000 xQueueCreateMutex
+00000050 g     F .text	000000d8 xme_hal_sched_taskWrapper
+00000000         *UND*	00000000 vTaskDelay
+00000000         *UND*	00000000 xme_core_resourceManager_getCurrentComponentId
+00000000         *UND*	00000000 xme_core_resourceManager_setCurrentComponentId
+00000000         *UND*	00000000 xme_hal_table_removeItem
+00000000         *UND*	00000000 vTaskDelete
+00000128 g     F .text	00000178 xme_hal_sched_addTask
+00000000         *UND*	00000000 xQueueGenericReceive
+00000000         *UND*	00000000 xme_hal_table_addItem
+00000000         *UND*	00000000 xTaskGenericCreate
+00000000         *UND*	00000000 xQueueGenericSend
+000002a0 g     F .text	00000110 xme_hal_sched_setTaskExecutionState
+00000000         *UND*	00000000 vTaskResume
+00000000         *UND*	00000000 vTaskSuspend
+000003b0 g     F .text	000000ec xme_hal_sched_removeTask
+00000000         *UND*	00000000 xTaskGetCurrentTaskHandle
+0000049c g     F .text	000000a8 xme_hal_sched_fini
+00000000         *UND*	00000000 vQueueDelete
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_sched_init>:
+/******************************************************************************/
+/***   Implementation                                                       ***/
+/******************************************************************************/
+xme_core_status_t
+xme_hal_sched_init()
+{
+   0:	b580      	push	{r7, lr}
+   2:	af00      	add	r7, sp, #0
+	XME_HAL_TABLE_INIT(xme_hal_sched_config.taskDescriptors);
+   4:	4b10      	ldr	r3, [pc, #64]	; (48 <xme_hal_sched_init+0x48>)
+   6:	f04f 0200 	mov.w	r2, #0
+   a:	809a      	strh	r2, [r3, #4]
+   c:	4b0e      	ldr	r3, [pc, #56]	; (48 <xme_hal_sched_init+0x48>)
+   e:	f04f 0200 	mov.w	r2, #0
+  12:	80da      	strh	r2, [r3, #6]
+  14:	480d      	ldr	r0, [pc, #52]	; (4c <xme_hal_sched_init+0x4c>)
+  16:	f04f 0100 	mov.w	r1, #0
+  1a:	f04f 020a 	mov.w	r2, #10
+  1e:	f7ff fffe 	bl	0 <memset>
+			1e: R_ARM_THM_CALL	memset
+
+	xme_hal_sched_config.taskDescriptorsMutex = xSemaphoreCreateMutex();
+  22:	f04f 0001 	mov.w	r0, #1
+  26:	f7ff fffe 	bl	0 <xQueueCreateMutex>
+			26: R_ARM_THM_CALL	xQueueCreateMutex
+  2a:	4602      	mov	r2, r0
+  2c:	4b06      	ldr	r3, [pc, #24]	; (48 <xme_hal_sched_init+0x48>)
+  2e:	601a      	str	r2, [r3, #0]
+
+	XME_CHECK
+  30:	4b05      	ldr	r3, [pc, #20]	; (48 <xme_hal_sched_init+0x48>)
+  32:	681b      	ldr	r3, [r3, #0]
+  34:	2b00      	cmp	r3, #0
+  36:	d102      	bne.n	3e <xme_hal_sched_init+0x3e>
+  38:	f04f 0303 	mov.w	r3, #3
+  3c:	e001      	b.n	42 <xme_hal_sched_init+0x42>
+	(
+		NULL != xme_hal_sched_config.taskDescriptorsMutex,
+		XME_CORE_STATUS_INTERNAL_ERROR
+	);
+
+	return XME_CORE_STATUS_SUCCESS;
+  3e:	f04f 0300 	mov.w	r3, #0
+}
+  42:	4618      	mov	r0, r3
+  44:	bd80      	pop	{r7, pc}
+  46:	bf00      	nop
+  48:	00000004 	.word	0x00000004
+			48: R_ARM_ABS32	.bss
+  4c:	0000000c 	.word	0x0000000c
+			4c: R_ARM_ABS32	.bss
+
+00000050 <xme_hal_sched_taskWrapper>:
+
+void
+xme_hal_sched_taskWrapper(void* _taskHandle)
+{
+  50:	b580      	push	{r7, lr}
+  52:	b088      	sub	sp, #32
+  54:	af00      	add	r7, sp, #0
+  56:	6078      	str	r0, [r7, #4]
+	xme_hal_sched_taskHandle_t taskHandle = (xme_hal_sched_taskHandle_t)_taskHandle;
+  58:	687b      	ldr	r3, [r7, #4]
+  5a:	83fb      	strh	r3, [r7, #30]
+	xme_hal_sched_taskDescriptor_t* taskDesc;
+	portTickType initialDelayTickCount;
+	portTickType periodicDelayTickCount;
+	xTaskHandle taskRTOSHandle;
+
+	taskDesc = XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_sched_config.taskDescriptors, taskHandle);
+  5c:	8bfb      	ldrh	r3, [r7, #30]
+  5e:	2b00      	cmp	r3, #0
+  60:	d019      	beq.n	96 <xme_hal_sched_taskWrapper+0x46>
+  62:	4b2e      	ldr	r3, [pc, #184]	; (11c <xme_hal_sched_taskWrapper+0xcc>)
+  64:	88db      	ldrh	r3, [r3, #6]
+  66:	8bfa      	ldrh	r2, [r7, #30]
+  68:	429a      	cmp	r2, r3
+  6a:	d814      	bhi.n	96 <xme_hal_sched_taskWrapper+0x46>
+  6c:	8bfb      	ldrh	r3, [r7, #30]
+  6e:	f103 33ff 	add.w	r3, r3, #4294967295
+  72:	4a2a      	ldr	r2, [pc, #168]	; (11c <xme_hal_sched_taskWrapper+0xcc>)
+  74:	18d3      	adds	r3, r2, r3
+  76:	7a1b      	ldrb	r3, [r3, #8]
+  78:	2b00      	cmp	r3, #0
+  7a:	d00c      	beq.n	96 <xme_hal_sched_taskWrapper+0x46>
+  7c:	8bfb      	ldrh	r3, [r7, #30]
+  7e:	f103 32ff 	add.w	r2, r3, #4294967295
+  82:	4613      	mov	r3, r2
+  84:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+  88:	1a9b      	subs	r3, r3, r2
+  8a:	ea4f 0383 	mov.w	r3, r3, lsl #2
+  8e:	461a      	mov	r2, r3
+  90:	4b23      	ldr	r3, [pc, #140]	; (120 <xme_hal_sched_taskWrapper+0xd0>)
+  92:	18d3      	adds	r3, r2, r3
+  94:	e001      	b.n	9a <xme_hal_sched_taskWrapper+0x4a>
+  96:	f04f 0300 	mov.w	r3, #0
+  9a:	61bb      	str	r3, [r7, #24]
+
+	initialDelayTickCount = taskDesc->startMs / portTICK_RATE_MS;
+  9c:	69bb      	ldr	r3, [r7, #24]
+  9e:	88db      	ldrh	r3, [r3, #6]
+  a0:	617b      	str	r3, [r7, #20]
+	periodicDelayTickCount = taskDesc->periodMs / portTICK_RATE_MS;
+  a2:	69bb      	ldr	r3, [r7, #24]
+  a4:	891b      	ldrh	r3, [r3, #8]
+  a6:	613b      	str	r3, [r7, #16]
+
+	taskRTOSHandle = taskDesc->taskRTOSHandle;
+  a8:	69bb      	ldr	r3, [r7, #24]
+  aa:	681b      	ldr	r3, [r3, #0]
+  ac:	60fb      	str	r3, [r7, #12]
+
+	vTaskDelay( initialDelayTickCount );
+  ae:	6978      	ldr	r0, [r7, #20]
+  b0:	f7ff fffe 	bl	0 <vTaskDelay>
+			b0: R_ARM_THM_CALL	vTaskDelay
+
+	while (1)
+	{
+			// Check for task removal
+			if (XME_HAL_SCHED_TASK_STATE_TERMINATING == taskDesc->taskState)
+  b4:	69bb      	ldr	r3, [r7, #24]
+  b6:	791b      	ldrb	r3, [r3, #4]
+  b8:	2bff      	cmp	r3, #255	; 0xff
+  ba:	d01e      	beq.n	fa <xme_hal_sched_taskWrapper+0xaa>
+			{
+				break;
+			}
+
+			// Switch to the context of the component and run the task
+			XME_COMPONENT_CONTEXT
+  bc:	f7ff fffe 	bl	0 <xme_core_resourceManager_getCurrentComponentId>
+			bc: R_ARM_THM_CALL	xme_core_resourceManager_getCurrentComponentId
+  c0:	4603      	mov	r3, r0
+  c2:	817b      	strh	r3, [r7, #10]
+  c4:	69bb      	ldr	r3, [r7, #24]
+  c6:	8a1b      	ldrh	r3, [r3, #16]
+  c8:	4618      	mov	r0, r3
+  ca:	f7ff fffe 	bl	0 <xme_core_resourceManager_setCurrentComponentId>
+			ca: R_ARM_THM_CALL	xme_core_resourceManager_setCurrentComponentId
+  ce:	69bb      	ldr	r3, [r7, #24]
+  d0:	68db      	ldr	r3, [r3, #12]
+  d2:	69ba      	ldr	r2, [r7, #24]
+  d4:	6952      	ldr	r2, [r2, #20]
+  d6:	4610      	mov	r0, r2
+  d8:	4798      	blx	r3
+  da:	897b      	ldrh	r3, [r7, #10]
+  dc:	4618      	mov	r0, r3
+  de:	f7ff fffe 	bl	0 <xme_core_resourceManager_setCurrentComponentId>
+			de: R_ARM_THM_CALL	xme_core_resourceManager_setCurrentComponentId
+						taskDesc->callback(taskDesc->userData);
+				}
+			);
+
+			// Stop looping if this is a non-periodic task
+			if ( periodicDelayTickCount == 0 )
+  e2:	693b      	ldr	r3, [r7, #16]
+  e4:	2b00      	cmp	r3, #0
+  e6:	d104      	bne.n	f2 <xme_hal_sched_taskWrapper+0xa2>
+			{
+				taskDesc->selfCleanup = true;
+  e8:	69bb      	ldr	r3, [r7, #24]
+  ea:	f04f 0201 	mov.w	r2, #1
+  ee:	761a      	strb	r2, [r3, #24]
+				break;
+  f0:	e004      	b.n	fc <xme_hal_sched_taskWrapper+0xac>
+			}
+
+			// Delay the task until next execution. Delays are relative to the current time,
+			// that has to be changed.
+			vTaskDelay( periodicDelayTickCount );
+  f2:	6938      	ldr	r0, [r7, #16]
+  f4:	f7ff fffe 	bl	0 <vTaskDelay>
+			f4: R_ARM_THM_CALL	vTaskDelay
+	}
+  f8:	e7dc      	b.n	b4 <xme_hal_sched_taskWrapper+0x64>
+	while (1)
+	{
+			// Check for task removal
+			if (XME_HAL_SCHED_TASK_STATE_TERMINATING == taskDesc->taskState)
+			{
+				break;
+  fa:	bf00      	nop
+			// Delay the task until next execution. Delays are relative to the current time,
+			// that has to be changed.
+			vTaskDelay( periodicDelayTickCount );
+	}
+
+	if (taskDesc->selfCleanup)
+  fc:	69bb      	ldr	r3, [r7, #24]
+  fe:	7e1b      	ldrb	r3, [r3, #24]
+ 100:	2b00      	cmp	r3, #0
+ 102:	d007      	beq.n	114 <xme_hal_sched_taskWrapper+0xc4>
+	{
+		// Remove from XME
+		XME_HAL_TABLE_REMOVE_ITEM(xme_hal_sched_config.taskDescriptors, taskHandle);
+ 104:	4a07      	ldr	r2, [pc, #28]	; (124 <xme_hal_sched_taskWrapper+0xd4>)
+ 106:	8bfb      	ldrh	r3, [r7, #30]
+ 108:	4610      	mov	r0, r2
+ 10a:	4619      	mov	r1, r3
+ 10c:	f04f 020a 	mov.w	r2, #10
+ 110:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			110: R_ARM_THM_CALL	xme_hal_table_removeItem
+	}
+
+	// It is allowed in FreeRTOS to delete the current task
+	vTaskDelete( taskRTOSHandle );
+ 114:	68f8      	ldr	r0, [r7, #12]
+ 116:	f7ff fffe 	bl	0 <vTaskDelete>
+			116: R_ARM_THM_CALL	vTaskDelete
+
+	// Should never reach this point
+	for (;;);
+ 11a:	e7fe      	b.n	0 <xme_hal_sched_init>
+ 11c:	00000004 	.word	0x00000004
+			11c: R_ARM_ABS32	.bss
+ 120:	00000018 	.word	0x00000018
+			120: R_ARM_ABS32	.bss
+ 124:	00000008 	.word	0x00000008
+			124: R_ARM_ABS32	.bss
+
+00000128 <xme_hal_sched_addTask>:
+}
+
+xme_hal_sched_taskHandle_t
+xme_hal_sched_addTask(xme_hal_time_interval_t startMs, xme_hal_time_interval_t periodMs, uint8_t priority, xme_hal_sched_taskCallback_t callback, void* userData)
+{
+ 128:	b580      	push	{r7, lr}
+ 12a:	b08c      	sub	sp, #48	; 0x30
+ 12c:	af04      	add	r7, sp, #16
+ 12e:	60f8      	str	r0, [r7, #12]
+ 130:	60b9      	str	r1, [r7, #8]
+ 132:	603b      	str	r3, [r7, #0]
+ 134:	4613      	mov	r3, r2
+ 136:	71fb      	strb	r3, [r7, #7]
+	xme_hal_sched_taskDescriptor_t* taskDesc;
+	xme_core_component_t currentComponentId;
+	xme_hal_sched_taskHandle_t newTaskHandle;
+	portBASE_TYPE res;
+
+	XME_CHECK
+ 138:	683b      	ldr	r3, [r7, #0]
+ 13a:	2b00      	cmp	r3, #0
+ 13c:	d102      	bne.n	144 <xme_hal_sched_addTask+0x1c>
+ 13e:	f04f 0304 	mov.w	r3, #4
+ 142:	e09d      	b.n	280 <xme_hal_sched_addTask+0x158>
+	(
+		NULL != callback,
+		XME_CORE_STATUS_INVALID_PARAMETER
+	);
+
+	XME_CHECK
+ 144:	4b51      	ldr	r3, [pc, #324]	; (28c <xme_hal_sched_addTask+0x164>)
+ 146:	681b      	ldr	r3, [r3, #0]
+ 148:	4618      	mov	r0, r3
+ 14a:	f04f 0100 	mov.w	r1, #0
+ 14e:	f04f 32ff 	mov.w	r2, #4294967295
+ 152:	f04f 0300 	mov.w	r3, #0
+ 156:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			156: R_ARM_THM_CALL	xQueueGenericReceive
+ 15a:	4603      	mov	r3, r0
+ 15c:	2b01      	cmp	r3, #1
+ 15e:	d002      	beq.n	166 <xme_hal_sched_addTask+0x3e>
+ 160:	f04f 0303 	mov.w	r3, #3
+ 164:	e08c      	b.n	280 <xme_hal_sched_addTask+0x158>
+			xSemaphoreTake( xme_hal_sched_config.taskDescriptorsMutex, portMAX_DELAY ) == pdTRUE,
+			XME_CORE_STATUS_INTERNAL_ERROR
+	);
+
+	// Allocate a unique task handle
+	newTaskHandle = XME_HAL_TABLE_ADD_ITEM(xme_hal_sched_config.taskDescriptors);
+ 166:	4b4a      	ldr	r3, [pc, #296]	; (290 <xme_hal_sched_addTask+0x168>)
+ 168:	4618      	mov	r0, r3
+ 16a:	f04f 010a 	mov.w	r1, #10
+ 16e:	f7ff fffe 	bl	0 <xme_hal_table_addItem>
+			16e: R_ARM_THM_CALL	xme_hal_table_addItem
+ 172:	4603      	mov	r3, r0
+ 174:	83fb      	strh	r3, [r7, #30]
+
+	// Store the task profile
+	taskDesc = XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_sched_config.taskDescriptors, newTaskHandle);
+ 176:	8bfb      	ldrh	r3, [r7, #30]
+ 178:	2b00      	cmp	r3, #0
+ 17a:	d019      	beq.n	1b0 <xme_hal_sched_addTask+0x88>
+ 17c:	4b43      	ldr	r3, [pc, #268]	; (28c <xme_hal_sched_addTask+0x164>)
+ 17e:	88db      	ldrh	r3, [r3, #6]
+ 180:	8bfa      	ldrh	r2, [r7, #30]
+ 182:	429a      	cmp	r2, r3
+ 184:	d814      	bhi.n	1b0 <xme_hal_sched_addTask+0x88>
+ 186:	8bfb      	ldrh	r3, [r7, #30]
+ 188:	f103 33ff 	add.w	r3, r3, #4294967295
+ 18c:	4a3f      	ldr	r2, [pc, #252]	; (28c <xme_hal_sched_addTask+0x164>)
+ 18e:	18d3      	adds	r3, r2, r3
+ 190:	7a1b      	ldrb	r3, [r3, #8]
+ 192:	2b00      	cmp	r3, #0
+ 194:	d00c      	beq.n	1b0 <xme_hal_sched_addTask+0x88>
+ 196:	8bfb      	ldrh	r3, [r7, #30]
+ 198:	f103 32ff 	add.w	r2, r3, #4294967295
+ 19c:	4613      	mov	r3, r2
+ 19e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 1a2:	1a9b      	subs	r3, r3, r2
+ 1a4:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 1a8:	461a      	mov	r2, r3
+ 1aa:	4b3a      	ldr	r3, [pc, #232]	; (294 <xme_hal_sched_addTask+0x16c>)
+ 1ac:	18d3      	adds	r3, r2, r3
+ 1ae:	e001      	b.n	1b4 <xme_hal_sched_addTask+0x8c>
+ 1b0:	f04f 0300 	mov.w	r3, #0
+ 1b4:	61bb      	str	r3, [r7, #24]
+
+	taskDesc->taskState = (XME_HAL_SCHED_TASK_INITIALLY_SUSPENDED == startMs) ? XME_HAL_SCHED_TASK_STATE_SUSPENDED : XME_HAL_SCHED_TASK_STATE_RUNNING;
+ 1b6:	68fa      	ldr	r2, [r7, #12]
+ 1b8:	f64f 73ff 	movw	r3, #65535	; 0xffff
+ 1bc:	429a      	cmp	r2, r3
+ 1be:	bf14      	ite	ne
+ 1c0:	2300      	movne	r3, #0
+ 1c2:	2301      	moveq	r3, #1
+ 1c4:	b2da      	uxtb	r2, r3
+ 1c6:	69bb      	ldr	r3, [r7, #24]
+ 1c8:	711a      	strb	r2, [r3, #4]
+	taskDesc->startMs = (XME_HAL_SCHED_TASK_INITIALLY_SUSPENDED == startMs) ? 0 : startMs;
+ 1ca:	68fa      	ldr	r2, [r7, #12]
+ 1cc:	f64f 73ff 	movw	r3, #65535	; 0xffff
+ 1d0:	429a      	cmp	r2, r3
+ 1d2:	d002      	beq.n	1da <xme_hal_sched_addTask+0xb2>
+ 1d4:	68fb      	ldr	r3, [r7, #12]
+ 1d6:	b29b      	uxth	r3, r3
+ 1d8:	e001      	b.n	1de <xme_hal_sched_addTask+0xb6>
+ 1da:	f04f 0300 	mov.w	r3, #0
+ 1de:	69ba      	ldr	r2, [r7, #24]
+ 1e0:	80d3      	strh	r3, [r2, #6]
+	taskDesc->periodMs = periodMs;
+ 1e2:	68bb      	ldr	r3, [r7, #8]
+ 1e4:	b29a      	uxth	r2, r3
+ 1e6:	69bb      	ldr	r3, [r7, #24]
+ 1e8:	811a      	strh	r2, [r3, #8]
+	taskDesc->priority = priority;
+ 1ea:	69bb      	ldr	r3, [r7, #24]
+ 1ec:	79fa      	ldrb	r2, [r7, #7]
+ 1ee:	729a      	strb	r2, [r3, #10]
+	taskDesc->callback = callback;
+ 1f0:	69bb      	ldr	r3, [r7, #24]
+ 1f2:	683a      	ldr	r2, [r7, #0]
+ 1f4:	60da      	str	r2, [r3, #12]
+	taskDesc->componentContext = XME_CORE_COMPONENT_INVALID_COMPONENT_CONTEXT; // xme_core_resourceManager_getCurrentComponentId(); // TODO: See ticket #821
+ 1f6:	69bb      	ldr	r3, [r7, #24]
+ 1f8:	f04f 0200 	mov.w	r2, #0
+ 1fc:	821a      	strh	r2, [r3, #16]
+	taskDesc->userData = userData;
+ 1fe:	69bb      	ldr	r3, [r7, #24]
+ 200:	6aba      	ldr	r2, [r7, #40]	; 0x28
+ 202:	615a      	str	r2, [r3, #20]
+	taskDesc->selfCleanup = false;
+ 204:	69bb      	ldr	r3, [r7, #24]
+ 206:	f04f 0200 	mov.w	r2, #0
+ 20a:	761a      	strb	r2, [r3, #24]
+
+	res = xTaskCreate
+ 20c:	4a22      	ldr	r2, [pc, #136]	; (298 <xme_hal_sched_addTask+0x170>)
+ 20e:	8bfb      	ldrh	r3, [r7, #30]
+ 210:	69b9      	ldr	r1, [r7, #24]
+ 212:	7a89      	ldrb	r1, [r1, #10]
+ 214:	4608      	mov	r0, r1
+ 216:	69b9      	ldr	r1, [r7, #24]
+ 218:	9000      	str	r0, [sp, #0]
+ 21a:	9101      	str	r1, [sp, #4]
+ 21c:	f04f 0100 	mov.w	r1, #0
+ 220:	9102      	str	r1, [sp, #8]
+ 222:	f04f 0100 	mov.w	r1, #0
+ 226:	9103      	str	r1, [sp, #12]
+ 228:	481c      	ldr	r0, [pc, #112]	; (29c <xme_hal_sched_addTask+0x174>)
+ 22a:	4611      	mov	r1, r2
+ 22c:	f44f 7280 	mov.w	r2, #256	; 0x100
+ 230:	f7ff fffe 	bl	0 <xTaskGenericCreate>
+			230: R_ARM_THM_CALL	xTaskGenericCreate
+ 234:	6178      	str	r0, [r7, #20]
+			( void * )newTaskHandle,
+			taskDesc->priority,
+			&taskDesc->taskRTOSHandle
+	);
+
+	if ( res != pdPASS )
+ 236:	697b      	ldr	r3, [r7, #20]
+ 238:	2b01      	cmp	r3, #1
+ 23a:	d015      	beq.n	268 <xme_hal_sched_addTask+0x140>
+	{
+		XME_HAL_TABLE_REMOVE_ITEM(xme_hal_sched_config.taskDescriptors, newTaskHandle);
+ 23c:	4a14      	ldr	r2, [pc, #80]	; (290 <xme_hal_sched_addTask+0x168>)
+ 23e:	8bfb      	ldrh	r3, [r7, #30]
+ 240:	4610      	mov	r0, r2
+ 242:	4619      	mov	r1, r3
+ 244:	f04f 020a 	mov.w	r2, #10
+ 248:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			248: R_ARM_THM_CALL	xme_hal_table_removeItem
+		xSemaphoreGive( xme_hal_sched_config.taskDescriptorsMutex );
+ 24c:	4b0f      	ldr	r3, [pc, #60]	; (28c <xme_hal_sched_addTask+0x164>)
+ 24e:	681b      	ldr	r3, [r3, #0]
+ 250:	4618      	mov	r0, r3
+ 252:	f04f 0100 	mov.w	r1, #0
+ 256:	f04f 0200 	mov.w	r2, #0
+ 25a:	f04f 0300 	mov.w	r3, #0
+ 25e:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			25e: R_ARM_THM_CALL	xQueueGenericSend
+
+		return XME_CORE_STATUS_INTERNAL_ERROR;
+ 262:	f04f 0303 	mov.w	r3, #3
+ 266:	e00b      	b.n	280 <xme_hal_sched_addTask+0x158>
+	}
+
+	xSemaphoreGive( xme_hal_sched_config.taskDescriptorsMutex );
+ 268:	4b08      	ldr	r3, [pc, #32]	; (28c <xme_hal_sched_addTask+0x164>)
+ 26a:	681b      	ldr	r3, [r3, #0]
+ 26c:	4618      	mov	r0, r3
+ 26e:	f04f 0100 	mov.w	r1, #0
+ 272:	f04f 0200 	mov.w	r2, #0
+ 276:	f04f 0300 	mov.w	r3, #0
+ 27a:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			27a: R_ARM_THM_CALL	xQueueGenericSend
+
+	// Return the unique task handle
+	return newTaskHandle;
+ 27e:	8bfb      	ldrh	r3, [r7, #30]
+}
+ 280:	4618      	mov	r0, r3
+ 282:	f107 0720 	add.w	r7, r7, #32
+ 286:	46bd      	mov	sp, r7
+ 288:	bd80      	pop	{r7, pc}
+ 28a:	bf00      	nop
+ 28c:	00000004 	.word	0x00000004
+			28c: R_ARM_ABS32	.bss
+ 290:	00000008 	.word	0x00000008
+			290: R_ARM_ABS32	.bss
+ 294:	00000018 	.word	0x00000018
+			294: R_ARM_ABS32	.bss
+	...
+			298: R_ARM_ABS32	.rodata
+			29c: R_ARM_ABS32	xme_hal_sched_taskWrapper
+
+000002a0 <xme_hal_sched_setTaskExecutionState>:
+
+xme_core_status_t
+xme_hal_sched_setTaskExecutionState(xme_hal_sched_taskHandle_t taskHandle, bool running)
+{
+ 2a0:	b580      	push	{r7, lr}
+ 2a2:	b084      	sub	sp, #16
+ 2a4:	af00      	add	r7, sp, #0
+ 2a6:	4602      	mov	r2, r0
+ 2a8:	460b      	mov	r3, r1
+ 2aa:	80fa      	strh	r2, [r7, #6]
+ 2ac:	717b      	strb	r3, [r7, #5]
+	xme_hal_sched_taskDescriptor_t* taskDesc;
+
+	// Synchronize access to the task descriptors mutex
+	XME_CHECK
+ 2ae:	4b3e      	ldr	r3, [pc, #248]	; (3a8 <xme_hal_sched_setTaskExecutionState+0x108>)
+ 2b0:	681b      	ldr	r3, [r3, #0]
+ 2b2:	4618      	mov	r0, r3
+ 2b4:	f04f 0100 	mov.w	r1, #0
+ 2b8:	f04f 32ff 	mov.w	r2, #4294967295
+ 2bc:	f04f 0300 	mov.w	r3, #0
+ 2c0:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			2c0: R_ARM_THM_CALL	xQueueGenericReceive
+ 2c4:	4603      	mov	r3, r0
+ 2c6:	2b01      	cmp	r3, #1
+ 2c8:	d002      	beq.n	2d0 <xme_hal_sched_setTaskExecutionState+0x30>
+ 2ca:	f04f 0303 	mov.w	r3, #3
+ 2ce:	e066      	b.n	39e <xme_hal_sched_setTaskExecutionState+0xfe>
+			xSemaphoreTake( xme_hal_sched_config.taskDescriptorsMutex, portMAX_DELAY ) == pdTRUE,
+			XME_CORE_STATUS_INTERNAL_ERROR
+	);
+
+	// Verify the task handle
+	XME_CHECK_REC
+ 2d0:	88fb      	ldrh	r3, [r7, #6]
+ 2d2:	2b00      	cmp	r3, #0
+ 2d4:	d019      	beq.n	30a <xme_hal_sched_setTaskExecutionState+0x6a>
+ 2d6:	4b34      	ldr	r3, [pc, #208]	; (3a8 <xme_hal_sched_setTaskExecutionState+0x108>)
+ 2d8:	88db      	ldrh	r3, [r3, #6]
+ 2da:	88fa      	ldrh	r2, [r7, #6]
+ 2dc:	429a      	cmp	r2, r3
+ 2de:	d814      	bhi.n	30a <xme_hal_sched_setTaskExecutionState+0x6a>
+ 2e0:	88fb      	ldrh	r3, [r7, #6]
+ 2e2:	f103 33ff 	add.w	r3, r3, #4294967295
+ 2e6:	4a30      	ldr	r2, [pc, #192]	; (3a8 <xme_hal_sched_setTaskExecutionState+0x108>)
+ 2e8:	18d3      	adds	r3, r2, r3
+ 2ea:	7a1b      	ldrb	r3, [r3, #8]
+ 2ec:	2b00      	cmp	r3, #0
+ 2ee:	d00c      	beq.n	30a <xme_hal_sched_setTaskExecutionState+0x6a>
+ 2f0:	88fb      	ldrh	r3, [r7, #6]
+ 2f2:	f103 32ff 	add.w	r2, r3, #4294967295
+ 2f6:	4613      	mov	r3, r2
+ 2f8:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 2fc:	1a9b      	subs	r3, r3, r2
+ 2fe:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 302:	461a      	mov	r2, r3
+ 304:	4b29      	ldr	r3, [pc, #164]	; (3ac <xme_hal_sched_setTaskExecutionState+0x10c>)
+ 306:	18d3      	adds	r3, r2, r3
+ 308:	e001      	b.n	30e <xme_hal_sched_setTaskExecutionState+0x6e>
+ 30a:	f04f 0300 	mov.w	r3, #0
+ 30e:	60fb      	str	r3, [r7, #12]
+ 310:	68fb      	ldr	r3, [r7, #12]
+ 312:	2b00      	cmp	r3, #0
+ 314:	d10b      	bne.n	32e <xme_hal_sched_setTaskExecutionState+0x8e>
+ 316:	4824      	ldr	r0, [pc, #144]	; (3a8 <xme_hal_sched_setTaskExecutionState+0x108>)
+ 318:	f04f 0100 	mov.w	r1, #0
+ 31c:	f04f 0200 	mov.w	r2, #0
+ 320:	f04f 0300 	mov.w	r3, #0
+ 324:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			324: R_ARM_THM_CALL	xQueueGenericSend
+ 328:	f04f 0306 	mov.w	r3, #6
+ 32c:	e037      	b.n	39e <xme_hal_sched_setTaskExecutionState+0xfe>
+		}
+	);
+
+	// TODO: Check this. See ticket #820
+	// Check whether a state change is necessary
+	if (!running ^ !!(taskDesc->taskState & XME_HAL_SCHED_TASK_STATE_SUSPENDED))
+ 32e:	797b      	ldrb	r3, [r7, #5]
+ 330:	f083 0301 	eor.w	r3, r3, #1
+ 334:	b2db      	uxtb	r3, r3
+ 336:	b2da      	uxtb	r2, r3
+ 338:	68fb      	ldr	r3, [r7, #12]
+ 33a:	791b      	ldrb	r3, [r3, #4]
+ 33c:	f003 0301 	and.w	r3, r3, #1
+ 340:	b2db      	uxtb	r3, r3
+ 342:	ea82 0303 	eor.w	r3, r2, r3
+ 346:	b2db      	uxtb	r3, r3
+ 348:	2b00      	cmp	r3, #0
+ 34a:	d01b      	beq.n	384 <xme_hal_sched_setTaskExecutionState+0xe4>
+	{
+		// Update suspended flag
+		if (running)
+ 34c:	797b      	ldrb	r3, [r7, #5]
+ 34e:	2b00      	cmp	r3, #0
+ 350:	d00c      	beq.n	36c <xme_hal_sched_setTaskExecutionState+0xcc>
+		{
+			taskDesc->taskState &= ~XME_HAL_SCHED_TASK_STATE_SUSPENDED;
+ 352:	68fb      	ldr	r3, [r7, #12]
+ 354:	791b      	ldrb	r3, [r3, #4]
+ 356:	f023 0301 	bic.w	r3, r3, #1
+ 35a:	b2da      	uxtb	r2, r3
+ 35c:	68fb      	ldr	r3, [r7, #12]
+ 35e:	711a      	strb	r2, [r3, #4]
+			vTaskResume ( taskDesc->taskRTOSHandle );
+ 360:	68fb      	ldr	r3, [r7, #12]
+ 362:	681b      	ldr	r3, [r3, #0]
+ 364:	4618      	mov	r0, r3
+ 366:	f7ff fffe 	bl	0 <vTaskResume>
+			366: R_ARM_THM_CALL	vTaskResume
+ 36a:	e00b      	b.n	384 <xme_hal_sched_setTaskExecutionState+0xe4>
+		}
+		else
+		{
+			taskDesc->taskState |= XME_HAL_SCHED_TASK_STATE_SUSPENDED;
+ 36c:	68fb      	ldr	r3, [r7, #12]
+ 36e:	791b      	ldrb	r3, [r3, #4]
+ 370:	f043 0301 	orr.w	r3, r3, #1
+ 374:	b2da      	uxtb	r2, r3
+ 376:	68fb      	ldr	r3, [r7, #12]
+ 378:	711a      	strb	r2, [r3, #4]
+			vTaskSuspend( taskDesc->taskRTOSHandle );
+ 37a:	68fb      	ldr	r3, [r7, #12]
+ 37c:	681b      	ldr	r3, [r3, #0]
+ 37e:	4618      	mov	r0, r3
+ 380:	f7ff fffe 	bl	0 <vTaskSuspend>
+			380: R_ARM_THM_CALL	vTaskSuspend
+		}
+	}
+
+	xSemaphoreGive( xme_hal_sched_config.taskDescriptorsMutex );
+ 384:	4b08      	ldr	r3, [pc, #32]	; (3a8 <xme_hal_sched_setTaskExecutionState+0x108>)
+ 386:	681b      	ldr	r3, [r3, #0]
+ 388:	4618      	mov	r0, r3
+ 38a:	f04f 0100 	mov.w	r1, #0
+ 38e:	f04f 0200 	mov.w	r2, #0
+ 392:	f04f 0300 	mov.w	r3, #0
+ 396:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			396: R_ARM_THM_CALL	xQueueGenericSend
+
+	return XME_CORE_STATUS_SUCCESS;
+ 39a:	f04f 0300 	mov.w	r3, #0
+}
+ 39e:	4618      	mov	r0, r3
+ 3a0:	f107 0710 	add.w	r7, r7, #16
+ 3a4:	46bd      	mov	sp, r7
+ 3a6:	bd80      	pop	{r7, pc}
+ 3a8:	00000004 	.word	0x00000004
+			3a8: R_ARM_ABS32	.bss
+ 3ac:	00000018 	.word	0x00000018
+			3ac: R_ARM_ABS32	.bss
+
+000003b0 <xme_hal_sched_removeTask>:
+
+xme_core_status_t
+xme_hal_sched_removeTask(xme_hal_sched_taskHandle_t taskHandle)
+{
+ 3b0:	b580      	push	{r7, lr}
+ 3b2:	b084      	sub	sp, #16
+ 3b4:	af00      	add	r7, sp, #0
+ 3b6:	4603      	mov	r3, r0
+ 3b8:	80fb      	strh	r3, [r7, #6]
+	xme_hal_sched_taskDescriptor_t* taskDesc;
+	bool selfCleanup = false;
+ 3ba:	f04f 0300 	mov.w	r3, #0
+ 3be:	73fb      	strb	r3, [r7, #15]
+
+	XME_CHECK
+ 3c0:	4b33      	ldr	r3, [pc, #204]	; (490 <xme_hal_sched_removeTask+0xe0>)
+ 3c2:	681b      	ldr	r3, [r3, #0]
+ 3c4:	4618      	mov	r0, r3
+ 3c6:	f04f 0100 	mov.w	r1, #0
+ 3ca:	f04f 32ff 	mov.w	r2, #4294967295
+ 3ce:	f04f 0300 	mov.w	r3, #0
+ 3d2:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			3d2: R_ARM_THM_CALL	xQueueGenericReceive
+ 3d6:	4603      	mov	r3, r0
+ 3d8:	2b01      	cmp	r3, #1
+ 3da:	d102      	bne.n	3e2 <xme_hal_sched_removeTask+0x32>
+ 3dc:	f04f 0303 	mov.w	r3, #3
+ 3e0:	e051      	b.n	486 <xme_hal_sched_removeTask+0xd6>
+			xSemaphoreTake( xme_hal_sched_config.taskDescriptorsMutex, portMAX_DELAY ) != pdTRUE,
+			XME_CORE_STATUS_INTERNAL_ERROR
+	);
+
+	// Verify the task handle
+	XME_CHECK_REC
+ 3e2:	88fb      	ldrh	r3, [r7, #6]
+ 3e4:	2b00      	cmp	r3, #0
+ 3e6:	d019      	beq.n	41c <xme_hal_sched_removeTask+0x6c>
+ 3e8:	4b29      	ldr	r3, [pc, #164]	; (490 <xme_hal_sched_removeTask+0xe0>)
+ 3ea:	88db      	ldrh	r3, [r3, #6]
+ 3ec:	88fa      	ldrh	r2, [r7, #6]
+ 3ee:	429a      	cmp	r2, r3
+ 3f0:	d814      	bhi.n	41c <xme_hal_sched_removeTask+0x6c>
+ 3f2:	88fb      	ldrh	r3, [r7, #6]
+ 3f4:	f103 33ff 	add.w	r3, r3, #4294967295
+ 3f8:	4a25      	ldr	r2, [pc, #148]	; (490 <xme_hal_sched_removeTask+0xe0>)
+ 3fa:	18d3      	adds	r3, r2, r3
+ 3fc:	7a1b      	ldrb	r3, [r3, #8]
+ 3fe:	2b00      	cmp	r3, #0
+ 400:	d00c      	beq.n	41c <xme_hal_sched_removeTask+0x6c>
+ 402:	88fb      	ldrh	r3, [r7, #6]
+ 404:	f103 32ff 	add.w	r2, r3, #4294967295
+ 408:	4613      	mov	r3, r2
+ 40a:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 40e:	1a9b      	subs	r3, r3, r2
+ 410:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 414:	461a      	mov	r2, r3
+ 416:	4b1f      	ldr	r3, [pc, #124]	; (494 <xme_hal_sched_removeTask+0xe4>)
+ 418:	18d3      	adds	r3, r2, r3
+ 41a:	e001      	b.n	420 <xme_hal_sched_removeTask+0x70>
+ 41c:	f04f 0300 	mov.w	r3, #0
+ 420:	60bb      	str	r3, [r7, #8]
+ 422:	68bb      	ldr	r3, [r7, #8]
+ 424:	2b00      	cmp	r3, #0
+ 426:	d10d      	bne.n	444 <xme_hal_sched_removeTask+0x94>
+ 428:	4b19      	ldr	r3, [pc, #100]	; (490 <xme_hal_sched_removeTask+0xe0>)
+ 42a:	681b      	ldr	r3, [r3, #0]
+ 42c:	4618      	mov	r0, r3
+ 42e:	f04f 0100 	mov.w	r1, #0
+ 432:	f04f 0200 	mov.w	r2, #0
+ 436:	f04f 0300 	mov.w	r3, #0
+ 43a:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			43a: R_ARM_THM_CALL	xQueueGenericSend
+ 43e:	f04f 0306 	mov.w	r3, #6
+ 442:	e020      	b.n	486 <xme_hal_sched_removeTask+0xd6>
+				xSemaphoreGive( xme_hal_sched_config.taskDescriptorsMutex );
+		}
+	);
+
+	// Schedule the task for termination (this will resume the task)
+	taskDesc->taskState = XME_HAL_SCHED_TASK_STATE_TERMINATING;
+ 444:	68bb      	ldr	r3, [r7, #8]
+ 446:	f04f 02ff 	mov.w	r2, #255	; 0xff
+ 44a:	711a      	strb	r2, [r3, #4]
+
+	// If this function has been called from the context of the thread
+	// to be removed, we set the selfCleanup flag and can safely
+	// continue, as it is guaranteed that the thread will check the
+	// task state before subsequently executing the callback function.
+	if (xTaskGetCurrentTaskHandle() == taskDesc->taskRTOSHandle)
+ 44c:	f7ff fffe 	bl	0 <xTaskGetCurrentTaskHandle>
+			44c: R_ARM_THM_CALL	xTaskGetCurrentTaskHandle
+ 450:	4602      	mov	r2, r0
+ 452:	68bb      	ldr	r3, [r7, #8]
+ 454:	681b      	ldr	r3, [r3, #0]
+ 456:	429a      	cmp	r2, r3
+ 458:	d106      	bne.n	468 <xme_hal_sched_removeTask+0xb8>
+	{
+		taskDesc->selfCleanup = selfCleanup = true;
+ 45a:	f04f 0301 	mov.w	r3, #1
+ 45e:	73fb      	strb	r3, [r7, #15]
+ 460:	68bb      	ldr	r3, [r7, #8]
+ 462:	7bfa      	ldrb	r2, [r7, #15]
+ 464:	761a      	strb	r2, [r3, #24]
+ 466:	e00c      	b.n	482 <xme_hal_sched_removeTask+0xd2>
+	}
+	else
+	{
+		vTaskDelete ( taskDesc->taskRTOSHandle );
+ 468:	68bb      	ldr	r3, [r7, #8]
+ 46a:	681b      	ldr	r3, [r3, #0]
+ 46c:	4618      	mov	r0, r3
+ 46e:	f7ff fffe 	bl	0 <vTaskDelete>
+			46e: R_ARM_THM_CALL	vTaskDelete
+		XME_HAL_TABLE_REMOVE_ITEM(xme_hal_sched_config.taskDescriptors, taskHandle);
+ 472:	4a09      	ldr	r2, [pc, #36]	; (498 <xme_hal_sched_removeTask+0xe8>)
+ 474:	88fb      	ldrh	r3, [r7, #6]
+ 476:	4610      	mov	r0, r2
+ 478:	4619      	mov	r1, r3
+ 47a:	f04f 020a 	mov.w	r2, #10
+ 47e:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			47e: R_ARM_THM_CALL	xme_hal_table_removeItem
+	}
+
+	return XME_CORE_STATUS_SUCCESS;
+ 482:	f04f 0300 	mov.w	r3, #0
+}
+ 486:	4618      	mov	r0, r3
+ 488:	f107 0710 	add.w	r7, r7, #16
+ 48c:	46bd      	mov	sp, r7
+ 48e:	bd80      	pop	{r7, pc}
+ 490:	00000004 	.word	0x00000004
+			490: R_ARM_ABS32	.bss
+ 494:	00000018 	.word	0x00000018
+			494: R_ARM_ABS32	.bss
+ 498:	00000008 	.word	0x00000008
+			498: R_ARM_ABS32	.bss
+
+0000049c <xme_hal_sched_fini>:
+
+void
+xme_hal_sched_fini()
+{
+ 49c:	b580      	push	{r7, lr}
+ 49e:	b082      	sub	sp, #8
+ 4a0:	af00      	add	r7, sp, #0
+	// Synchronize access to the task descriptors mutex
+	// TODO: What on error? See ticket #721
+	xSemaphoreTake( xme_hal_sched_config.taskDescriptorsMutex, portMAX_DELAY );
+ 4a2:	4b26      	ldr	r3, [pc, #152]	; (53c <xme_hal_sched_fini+0xa0>)
+ 4a4:	681b      	ldr	r3, [r3, #0]
+ 4a6:	4618      	mov	r0, r3
+ 4a8:	f04f 0100 	mov.w	r1, #0
+ 4ac:	f04f 32ff 	mov.w	r2, #4294967295
+ 4b0:	f04f 0300 	mov.w	r3, #0
+ 4b4:	f7ff fffe 	bl	0 <xQueueGenericReceive>
+			4b4: R_ARM_THM_CALL	xQueueGenericReceive
+
+	// Terminate all tasks
+	XME_HAL_TABLE_ITERATE
+ 4b8:	f04f 0301 	mov.w	r3, #1
+ 4bc:	80fb      	strh	r3, [r7, #6]
+ 4be:	e01c      	b.n	4fa <xme_hal_sched_fini+0x5e>
+ 4c0:	88fb      	ldrh	r3, [r7, #6]
+ 4c2:	f103 33ff 	add.w	r3, r3, #4294967295
+ 4c6:	4a1d      	ldr	r2, [pc, #116]	; (53c <xme_hal_sched_fini+0xa0>)
+ 4c8:	18d3      	adds	r3, r2, r3
+ 4ca:	7a1b      	ldrb	r3, [r3, #8]
+ 4cc:	2b00      	cmp	r3, #0
+ 4ce:	d010      	beq.n	4f2 <xme_hal_sched_fini+0x56>
+ 4d0:	88fb      	ldrh	r3, [r7, #6]
+ 4d2:	f103 32ff 	add.w	r2, r3, #4294967295
+ 4d6:	4613      	mov	r3, r2
+ 4d8:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 4dc:	1a9b      	subs	r3, r3, r2
+ 4de:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 4e2:	461a      	mov	r2, r3
+ 4e4:	4b16      	ldr	r3, [pc, #88]	; (540 <xme_hal_sched_fini+0xa4>)
+ 4e6:	18d3      	adds	r3, r2, r3
+ 4e8:	603b      	str	r3, [r7, #0]
+ 4ea:	88fb      	ldrh	r3, [r7, #6]
+ 4ec:	4618      	mov	r0, r3
+ 4ee:	f7ff fffe 	bl	3b0 <xme_hal_sched_removeTask>
+			4ee: R_ARM_THM_CALL	xme_hal_sched_removeTask
+ 4f2:	88fb      	ldrh	r3, [r7, #6]
+ 4f4:	f103 0301 	add.w	r3, r3, #1
+ 4f8:	80fb      	strh	r3, [r7, #6]
+ 4fa:	4b10      	ldr	r3, [pc, #64]	; (53c <xme_hal_sched_fini+0xa0>)
+ 4fc:	88db      	ldrh	r3, [r3, #6]
+ 4fe:	88fa      	ldrh	r2, [r7, #6]
+ 500:	429a      	cmp	r2, r3
+ 502:	d9dd      	bls.n	4c0 <xme_hal_sched_fini+0x24>
+		{
+			xme_hal_sched_removeTask(taskHandle);
+		}
+	);
+
+	xSemaphoreGive( xme_hal_sched_config.taskDescriptorsMutex );
+ 504:	4b0d      	ldr	r3, [pc, #52]	; (53c <xme_hal_sched_fini+0xa0>)
+ 506:	681b      	ldr	r3, [r3, #0]
+ 508:	4618      	mov	r0, r3
+ 50a:	f04f 0100 	mov.w	r1, #0
+ 50e:	f04f 0200 	mov.w	r2, #0
+ 512:	f04f 0300 	mov.w	r3, #0
+ 516:	f7ff fffe 	bl	0 <xQueueGenericSend>
+			516: R_ARM_THM_CALL	xQueueGenericSend
+
+	// Destroy the task descriptors mutex
+	vQueueDelete( xme_hal_sched_config.taskDescriptorsMutex );
+ 51a:	4b08      	ldr	r3, [pc, #32]	; (53c <xme_hal_sched_fini+0xa0>)
+ 51c:	681b      	ldr	r3, [r3, #0]
+ 51e:	4618      	mov	r0, r3
+ 520:	f7ff fffe 	bl	0 <vQueueDelete>
+			520: R_ARM_THM_CALL	vQueueDelete
+
+	XME_HAL_TABLE_FINI(xme_hal_sched_config.taskDescriptors);
+ 524:	4b05      	ldr	r3, [pc, #20]	; (53c <xme_hal_sched_fini+0xa0>)
+ 526:	f04f 0200 	mov.w	r2, #0
+ 52a:	809a      	strh	r2, [r3, #4]
+ 52c:	4b03      	ldr	r3, [pc, #12]	; (53c <xme_hal_sched_fini+0xa0>)
+ 52e:	f04f 0200 	mov.w	r2, #0
+ 532:	80da      	strh	r2, [r3, #6]
+}
+ 534:	f107 0708 	add.w	r7, r7, #8
+ 538:	46bd      	mov	sp, r7
+ 53a:	bd80      	pop	{r7, pc}
+ 53c:	00000004 	.word	0x00000004
+			53c: R_ARM_ABS32	.bss
+ 540:	00000018 	.word	0x00000018
+			540: R_ARM_ABS32	.bss

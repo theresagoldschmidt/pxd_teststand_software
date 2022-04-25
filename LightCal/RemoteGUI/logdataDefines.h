@@ -1,0 +1,213 @@
+/*
+ * Copyright (c) 2011, fortiss GmbH.
+ * All rights reserved.
+ *
+ * $Id$
+ */
+
+/**
+ * \file
+ *         Defines for log data
+ *
+ * \author
+ *         Nadine Keddis <keddis@fortiss.org>
+ */
+
+#ifndef LOGDATADEFINES_H
+#define LOGDATADEFINES_H
+
+#include <stdint.h>
+
+#define NUMBER_OF_CALLIBRATION_CHANNELS_PAIRS 5
+#define NUMBER_OF_CALIBRATION_CHANNELS 24
+
+typedef struct
+{
+	int32_t gain;
+	int32_t offset;
+}
+calibration_channel_t;
+
+
+typedef int32_t voltage_limit_t;
+typedef int32_t current_limit_t;
+typedef int32_t nominal_current_t;
+typedef int32_t amplitude_step_size_t;
+typedef uint16_t time_step_size_t;
+
+typedef struct
+{
+	calibration_channel_t calibration_channel_values[NUMBER_OF_CALLIBRATION_CHANNELS_PAIRS];
+	voltage_limit_t voltage_nominal;
+	current_limit_t current_limit;
+	nominal_current_t nominal_current;
+}calibration_channel_values_t;
+
+typedef enum
+{
+	BOARD_1 = 0,
+	BOARD_2 = 1,
+	BOARD_3 = 2,
+	BOARD_4 = 3,
+	BOARD_5 = 4,
+	BOARD_6 = 5
+}
+board_selector_t;
+
+typedef enum
+{
+	DAC_OUT_0 = 0,
+	DAC_OUT_1 = 1,
+	DAC_OUT_2 = 2,
+	DAC_OUT_3 = 3,
+	DAC_OUT_4 = 4,
+	DAC_OUT_5 = 5,
+	DAC_OUT_6 = 6,
+	DAC_OUT_7 = 7
+}
+dac_selector_t;
+
+typedef enum
+{
+	MUX_OUT_0 = 0,
+	MUX_OUT_1 = 1,
+	MUX_OUT_2 = 2,
+	MUX_OUT_3 = 3,
+	MUX_OUT_4 = 4,
+	MUX_OUT_5 = 5,
+	MUX_OUT_6 = 6,
+	MUX_OUT_7 = 7
+}
+mux_selector_t;
+
+typedef enum
+{
+	ADC_OUT_0 = 0,
+	ADC_OUT_1 = 1
+}
+adc_selector_t;
+
+// Definition of all channels. Please see ChannelAssignment.xlsx
+typedef enum
+{
+	DCD_DVDD = 0,
+	DHP_IO = 1,
+	DHP_CORE = 2,
+	SW_DVDD = 3,
+	DCD_AVDD = 4,
+	DCD_REFIN = 5,
+	DCD_AMPLOW = 6,
+	Source = 7,
+	Gate_OFF = 8,
+	Gate_ON1 = 9,
+	Gate_ON2 = 10,
+	GATE_ON3 = 11,
+	Clear_ON = 12,
+	Clear_OFF = 13,
+	Bulk = 14,
+	Guard = 15,
+	NOT_USED_1 = 16,
+	SW_SUB = 17,
+	SW_REF = 18,
+	HV = 19,
+	CCG1 = 20,
+	CCG2 = 21,
+	CCG3 = 22,
+	NOT_USED_2 = 23
+}
+calibration_channel_name_t;
+
+typedef struct
+{
+	int notUsed;
+}
+dac_descr_t;
+
+typedef struct
+{
+	board_selector_t board_selection;
+	dac_descr_t* dac_descr;
+	dac_selector_t dac_1_channel;
+	dac_selector_t dac_2_channel;
+	adc_selector_t adc_load_channel;
+	mux_selector_t adc_mux_select_load;
+	adc_selector_t adc_current_channel;
+	mux_selector_t adc_mux_select_current;
+	adc_selector_t adc_regulator_channel;
+	mux_selector_t adc_mux_select_regulator;
+}
+channel_selection_descr_t;
+
+
+typedef struct
+{
+	calibration_channel_values_t channel_data;
+	channel_selection_descr_t selection_config;
+}
+channel_descr_t;
+
+
+typedef struct
+{
+	int32_t voltage_at_regulator;
+	int32_t voltage_at_load;
+	int32_t current;
+	uint8_t regulator_status_bit;
+}log_channel_data_t;
+
+
+typedef struct
+{
+	uint8_t nodeNumber;
+	log_channel_data_t log_node_info_all_channels[NUMBER_OF_CALIBRATION_CHANNELS];
+}
+log_information_node_t;
+
+typedef struct
+{
+	int32_t voltage_at_regulator;
+	int32_t voltage_at_load;
+	int32_t current;
+	uint8_t regulator_status_bit;
+}monitor_channel_t;
+
+typedef struct
+{
+	uint8_t nodeNumber;
+	uint8_t node_status;
+	uint8_t ups_status;
+	uint8_t thermal_status;
+	uint8_t ovp_fast_status;
+	monitor_channel_t monitor_node_info_all_channels[NUMBER_OF_CALIBRATION_CHANNELS];
+}monitor_information_node_t;
+
+typedef struct
+{
+	uint8_t nodeNumber;
+	uint8_t ups_status;
+	uint8_t thermal_status;
+	uint8_t ovp_fast_status;
+	uint8_t channel_current_limit[NUMBER_OF_CALIBRATION_CHANNELS];
+}
+log_emergency_info_t;;
+
+typedef struct{
+	uint8_t code_number;
+	log_information_node_t log_info;
+	log_emergency_info_t emergency_info;
+	uint8_t mode_of_node;
+}log_error_information_t;
+
+typedef struct{
+	uint8_t code_number;
+	uint8_t nodeNumber;
+	uint8_t channelNumber;
+	calibration_channel_values_t channel_values[NUMBER_OF_CALIBRATION_CHANNELS];
+	monitor_information_node_t monitorInfo;
+	log_information_node_t logInfo;
+	int32_t adc_value_mili_scale;
+}print;
+
+
+#endif LOGDATADEFINES_H
+

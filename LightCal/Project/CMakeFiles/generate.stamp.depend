@@ -1,0 +1,39 @@
+# CMake generation dependency list for this directory.
+C:/LightCal/LightCal/CMakeLists.txt
+C:/LightCal/Project/CMakeFiles/3.8.1/CMakeSystem.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeSystemSpecificInitialize.cmake
+C:/LightCal/Project/CMakeFiles/3.8.1/CMakeCCompiler.cmake
+C:/LightCal/Project/CMakeFiles/3.8.1/CMakeCXXCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeSystemSpecificInformation.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeGenericSystem.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Platform/Windows.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Platform/WindowsPaths.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Platform/Windows-MSVC-C.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Platform/Windows-MSVC.cmake
+C:/LightCal/Project/CMakeFiles/3.8.1/CMakeRCCompiler.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeRCInformation.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeCXXInformation.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeLanguageInformation.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Compiler/MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Platform/Windows-MSVC-CXX.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Platform/Windows-MSVC.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakeCommonLanguageInclude.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/FindQt4.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckCXXSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CheckSymbolExists.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/MacroAddFileDependencies.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CMakePushCheckState.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Qt4ConfigDependentSettings.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/Qt4Macros.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/UseQt4.cmake
+C:/LightCal/LightCal/cmake/MSVCRedist.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CPack.cmake
+C:/Program Files/CMake/share/cmake-3.8/Modules/CPackComponent.cmake
+C:/Program Files/CMake/share/cmake-3.8/Templates/CPackConfig.cmake.in
+C:/Program Files/CMake/share/cmake-3.8/Templates/CPackConfig.cmake.in
+C:/Program Files/CMake/share/cmake-3.8/Modules/AutogenInfo.cmake.in

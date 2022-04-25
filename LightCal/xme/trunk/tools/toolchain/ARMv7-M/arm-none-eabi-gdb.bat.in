@@ -1,0 +1,9 @@
+@echo off
+
+rem Cleanup
+rem
+taskkill /im arm-none-eabi-gdb.exe /F
+
+rem Execute GDB
+@CMAKE_DEBUGGER@ %*
+

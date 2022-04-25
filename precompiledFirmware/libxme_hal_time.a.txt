@@ -1,0 +1,110 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_time.a:
+
+time_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  20756 Jul 30 19:07 2021 time_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000002c  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000060  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  00000000  00000000  00000060  2**2
+                  ALLOC
+  3 .debug_abbrev 000000f5  00000000  00000000  00000060  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000001cf  00000000  00000000  00000155  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   00000341  00000000  00000000  00000324  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 00003d27  00000000  00000000  00000665  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    00000064  00000000  00000000  0000438c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 0000006c  00000000  00000000  000043f0  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 000000bc  00000000  00000000  0000445c  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  00004518  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    000002a1  00000000  00000000  00004538  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  000047d9  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  00004804  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  00000044  00000000  00000000  00004838  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 time_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xme_core_config
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000004       O *COM*	00000004 xme_core_log_logCallback
+00000000 g     F .text	00000010 xme_hal_time_getCurrentTime
+00000010 g     F .text	0000001c xme_hal_time_getInterval
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_time_getCurrentTime>:
+/******************************************************************************/
+/***   Implementation                                                       ***/
+/******************************************************************************/
+xme_hal_time_handle_t
+xme_hal_time_getCurrentTime(void)
+{
+   0:	b480      	push	{r7}
+   2:	af00      	add	r7, sp, #0
+	// TODO: See ticket #824
+	return (xme_hal_time_handle_t)0;
+   4:	f04f 0300 	mov.w	r3, #0
+}
+   8:	4618      	mov	r0, r3
+   a:	46bd      	mov	sp, r7
+   c:	bc80      	pop	{r7}
+   e:	4770      	bx	lr
+
+00000010 <xme_hal_time_getInterval>:
+xme_hal_time_getInterval
+(
+	xme_hal_time_handle_t* startTime,
+	bool reset
+)
+{
+  10:	b480      	push	{r7}
+  12:	b083      	sub	sp, #12
+  14:	af00      	add	r7, sp, #0
+  16:	6078      	str	r0, [r7, #4]
+  18:	460b      	mov	r3, r1
+  1a:	70fb      	strb	r3, [r7, #3]
+	xme_hal_time_interval_t interval;
+
+	// TODO: See ticket #825
+
+	return 0;
+  1c:	f04f 0300 	mov.w	r3, #0
+}
+  20:	4618      	mov	r0, r3
+  22:	f107 070c 	add.w	r7, r7, #12
+  26:	46bd      	mov	sp, r7
+  28:	bc80      	pop	{r7}
+  2a:	4770      	bx	lr

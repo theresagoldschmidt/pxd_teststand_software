@@ -1,0 +1,91 @@
+{
+
+#include <iostream>
+#include <fstream>
+
+int num_files=16;
+
+TString path="c:/users/belle2/calibration/";
+
+TString part1="Channel_";
+TString part3=".dat";
+TString uu="_U_vs_U";
+TString ii="_I_Vs_I";
+
+TString string;
+TGraph *graph[6];
+TF1 *lin[6];
+
+double param[num_files][6][2];
+
+for( int i=0; i<num_files;i++){
+
+string=path;
+string+=part1;
+string+=i;
+string+=uu;
+string+=part3;
+
+graph[0]= new TGraph(string.Data(),"%lg %*lg %*lg %lg");
+graph[1]= new TGraph(string.Data(),"%lg %*lg %lg %*lg");
+graph[2]= new TGraph(string.Data(),"%lg %lg %*lg %*lg");
+
+
+string=path;
+string+=part1;
+string+=i;
+string+=ii;
+string+=part3;
+
+
+graph[3]= new TGraph(string.Data(),"%lg %*lg %*lg %lg");
+graph[4]= new TGraph(string.Data(),"%lg %*lg %lg %*lg");
+graph[6]= new TGraph(string.Data(),"%lg %lg %*lg %*lg");
+
+
+for( int j=0; j<6;j++){
+
+lin[j]=new TF1("lin","[0]*x+[1]")
+graph[j]->Fit(lin[j]);
+
+lin[j]->GetParameters(param[i][j]);
+
+}
+
+
+}
+
+Tstring calli;
+ofstream myfile;
+ myfile.open ("callibration_node1.txt");
+
+for( int i=0; i<num_files;i++){
+	calli="";
+
+	for( int j=0; j<6;j++){
+            ofstream myfile;
+            calli+=param[i][j][0];
+	    calli+=" ";
+            calli+=param[i][j][1];	
+	    calli+=" ";
+
+
+			}
+	calli+="\n";	
+ 	myfile << calli.Data();
+
+}
+
+  myfile.close();
+
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,3971 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_net.a:
+
+net_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  81500 Jul 30 19:07 2021 net_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001950  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00001984  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          000001ac  00000000  00000000  00001984  2**2
+                  ALLOC
+  3 .debug_abbrev 00000231  00000000  00000000  00001984  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   000011a9  00000000  00000000  00001bb5  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   00000ec6  00000000  00000000  00002d5e  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 0000c211  00000000  00000000  00003c24  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .rodata       00000054  00000000  00000000  0000fe38  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .debug_loc    00000484  00000000  00000000  0000fe8c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_pubnames 000002c8  00000000  00000000  00010310  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_pubtypes 000002fd  00000000  00000000  000105d8  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_aranges 00000020  00000000  00000000  000108d5  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_str    00000f17  00000000  00000000  000108f5  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .comment      0000002b  00000000  00000000  0001180c  2**0
+                  CONTENTS, READONLY
+ 14 .ARM.attributes 00000031  00000000  00000000  00011837  2**0
+                  CONTENTS, READONLY
+ 15 .debug_frame  000002a0  00000000  00000000  00011868  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 net_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xme_core_config
+00000004 l       .bss	00000000 xme_hal_net_config
+000001a8 l       .bss	00000000 xme_hal_net_callback
+00000000 l    d  .rodata	00000000 .rodata
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000004       O *COM*	00000004 xme_core_log_logCallback
+00000000 g     F .text	00000050 xme_hal_net_init
+00000000         *UND*	00000000 memset
+00000000         *UND*	00000000 xme_hal_sync_createCriticalSection
+00000050 g     F .text	00000030 xme_hal_net_fini
+00000000         *UND*	00000000 xme_hal_sync_destroyCriticalSection
+00000080 g     F .text	00000018 xme_hal_net_initInterface
+00000098 g     F .text	00000012 xme_hal_net_finiInterface
+000000ac g     F .text	00000100 xme_hal_net_createSocket
+00000000         *UND*	00000000 xme_hal_sync_enterCriticalSection
+00000000         *UND*	00000000 xme_hal_table_addItem
+00000000         *UND*	00000000 xme_hal_sync_leaveCriticalSection
+000001ac g     F .text	0000005c xme_hal_net_destroySocket
+000005b8 g     F .text	000000c4 xme_hal_net_closeSocket
+00000000         *UND*	00000000 xme_hal_table_removeItem
+00000208 g     F .text	000003ae xme_hal_net_openSocket
+00000000         *UND*	00000000 lwip_socket
+00000000         *UND*	00000000 lwip_htonl
+00000000         *UND*	00000000 lwip_htons
+00000000         *UND*	00000000 lwip_bind
+00000000         *UND*	00000000 lwip_close
+00000000         *UND*	00000000 lwip_listen
+00000000         *UND*	00000000 lwip_getaddrinfo
+00000000         *UND*	00000000 lwip_freeaddrinfo
+00000000         *UND*	00000000 lwip_connect
+00000710 g     F .text	000000ec xme_hal_net_setBlockingBehavior
+00000000         *UND*	00000000 lwip_shutdown
+0000067c g     F .text	00000094 xme_hal_net_isSocketConnected
+00000000         *UND*	00000000 lwip_ioctl
+00000000         *UND*	00000000 __aeabi_ui2f
+00000000         *UND*	00000000 __aeabi_fdiv
+00000000         *UND*	00000000 __aeabi_f2iz
+00000000         *UND*	00000000 __aeabi_i2f
+00000000         *UND*	00000000 __aeabi_fsub
+00000000         *UND*	00000000 __aeabi_fmul
+000007fc g     F .text	000001ec xme_hal_net_selectSocket
+00000000         *UND*	00000000 lwip_select
+000009e8 g     F .text	000006d4 xme_hal_net_selectMultipleSockets
+000010bc g     F .text	00000238 xme_hal_net_waitForConnection
+00000000         *UND*	00000000 lwip_accept
+00000000         *UND*	00000000 memcpy
+000012f4 g     F .text	000000dc xme_hal_net_readSocket
+00000000         *UND*	00000000 lwip_recvfrom
+000013d0 g     F .text	00000118 xme_hal_net_writeSocket
+00000000         *UND*	00000000 lwip_send
+00001598 g     F .text	00000092 xme_hal_net_writeDatagram_ipaddress
+00000000         *UND*	00000000 lwip_sendto
+000014e8 g     F .text	000000b0 xme_hal_net_writeDatagram
+0000162c g     F .text	000000d0 xme_hal_net_joinMulticastGroup
+00000000         *UND*	00000000 lwip_setsockopt
+000016fc g     F .text	000000d0 xme_hal_net_leaveMulticastGroup
+000017cc g     F .text	000000b8 xme_hal_net_getAddressOfLastReception
+00000000         *UND*	00000000 lwip_ntohl
+00000000         *UND*	00000000 lwip_ntohs
+00001884 g     F .text	000000cc xme_hal_net_get_available_data_size
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_net_init>:
+/******************************************************************************/
+/***   Implementation                                                       ***/
+/******************************************************************************/
+xme_core_status_t
+xme_hal_net_init()
+{
+       0:	b580      	push	{r7, lr}
+       2:	af00      	add	r7, sp, #0
+	XME_HAL_TABLE_INIT(xme_hal_net_config.sockets);
+       4:	4b10      	ldr	r3, [pc, #64]	; (48 <xme_hal_net_init+0x48>)
+       6:	f04f 0200 	mov.w	r2, #0
+       a:	801a      	strh	r2, [r3, #0]
+       c:	4b0e      	ldr	r3, [pc, #56]	; (48 <xme_hal_net_init+0x48>)
+       e:	f04f 0200 	mov.w	r2, #0
+      12:	805a      	strh	r2, [r3, #2]
+      14:	480d      	ldr	r0, [pc, #52]	; (4c <xme_hal_net_init+0x4c>)
+      16:	f04f 0100 	mov.w	r1, #0
+      1a:	f04f 020a 	mov.w	r2, #10
+      1e:	f7ff fffe 	bl	0 <memset>
+			1e: R_ARM_THM_CALL	memset
+
+	XME_CHECK
+      22:	f7ff fffe 	bl	0 <xme_hal_sync_createCriticalSection>
+			22: R_ARM_THM_CALL	xme_hal_sync_createCriticalSection
+      26:	4603      	mov	r3, r0
+      28:	461a      	mov	r2, r3
+      2a:	4b07      	ldr	r3, [pc, #28]	; (48 <xme_hal_net_init+0x48>)
+      2c:	f8a3 21a0 	strh.w	r2, [r3, #416]	; 0x1a0
+      30:	4b05      	ldr	r3, [pc, #20]	; (48 <xme_hal_net_init+0x48>)
+      32:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+      36:	2b00      	cmp	r3, #0
+      38:	d102      	bne.n	40 <xme_hal_net_init+0x40>
+      3a:	f04f 030a 	mov.w	r3, #10
+      3e:	e001      	b.n	44 <xme_hal_net_init+0x44>
+	(
+		XME_HAL_SYNC_INVALID_CRITICAL_SECTION_HANDLE != (xme_hal_net_config.criticalSectionHandle = xme_hal_sync_createCriticalSection()),
+		XME_CORE_STATUS_OUT_OF_RESOURCES
+	);
+
+	return XME_CORE_STATUS_SUCCESS;
+      40:	f04f 0300 	mov.w	r3, #0
+}
+      44:	4618      	mov	r0, r3
+      46:	bd80      	pop	{r7, pc}
+      48:	00000004 	.word	0x00000004
+			48: R_ARM_ABS32	.bss
+      4c:	00000008 	.word	0x00000008
+			4c: R_ARM_ABS32	.bss
+
+00000050 <xme_hal_net_fini>:
+
+void
+xme_hal_net_fini()
+{
+      50:	b580      	push	{r7, lr}
+      52:	af00      	add	r7, sp, #0
+	xme_hal_sync_destroyCriticalSection(xme_hal_net_config.criticalSectionHandle);
+      54:	4b09      	ldr	r3, [pc, #36]	; (7c <xme_hal_net_fini+0x2c>)
+      56:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+      5a:	4618      	mov	r0, r3
+      5c:	f7ff fffe 	bl	0 <xme_hal_sync_destroyCriticalSection>
+			5c: R_ARM_THM_CALL	xme_hal_sync_destroyCriticalSection
+	xme_hal_net_config.criticalSectionHandle = XME_HAL_SYNC_INVALID_CRITICAL_SECTION_HANDLE;
+      60:	4b06      	ldr	r3, [pc, #24]	; (7c <xme_hal_net_fini+0x2c>)
+      62:	f04f 0200 	mov.w	r2, #0
+      66:	f8a3 21a0 	strh.w	r2, [r3, #416]	; 0x1a0
+
+	XME_HAL_TABLE_FINI(xme_hal_net_config.sockets);
+      6a:	4b04      	ldr	r3, [pc, #16]	; (7c <xme_hal_net_fini+0x2c>)
+      6c:	f04f 0200 	mov.w	r2, #0
+      70:	801a      	strh	r2, [r3, #0]
+      72:	4b02      	ldr	r3, [pc, #8]	; (7c <xme_hal_net_fini+0x2c>)
+      74:	f04f 0200 	mov.w	r2, #0
+      78:	805a      	strh	r2, [r3, #2]
+}
+      7a:	bd80      	pop	{r7, pc}
+      7c:	00000004 	.word	0x00000004
+			7c: R_ARM_ABS32	.bss
+
+00000080 <xme_hal_net_initInterface>:
+xme_core_status_t
+xme_hal_net_initInterface
+(
+	xme_core_interface_address_t* localAddress
+)
+{
+      80:	b480      	push	{r7}
+      82:	b083      	sub	sp, #12
+      84:	af00      	add	r7, sp, #0
+      86:	6078      	str	r0, [r7, #4]
+    //  - XME_CORE_STATUS_OUT_OF_RESOURCES if not enough resources are
+    //    available to initialize the interface.
+
+	// TODO: See ticket #808
+
+	return XME_CORE_STATUS_SUCCESS;
+      88:	f04f 0300 	mov.w	r3, #0
+}
+      8c:	4618      	mov	r0, r3
+      8e:	f107 070c 	add.w	r7, r7, #12
+      92:	46bd      	mov	sp, r7
+      94:	bc80      	pop	{r7}
+      96:	4770      	bx	lr
+
+00000098 <xme_hal_net_finiInterface>:
+void
+xme_hal_net_finiInterface
+(
+	xme_hal_net_interfaceDescr_t* intf
+)
+{
+      98:	b480      	push	{r7}
+      9a:	b083      	sub	sp, #12
+      9c:	af00      	add	r7, sp, #0
+      9e:	6078      	str	r0, [r7, #4]
+	// TODO: See ticket #809
+}
+      a0:	f107 070c 	add.w	r7, r7, #12
+      a4:	46bd      	mov	sp, r7
+      a6:	bc80      	pop	{r7}
+      a8:	4770      	bx	lr
+      aa:	bf00      	nop
+
+000000ac <xme_hal_net_createSocket>:
+	xme_hal_net_interfaceDescr_t* intf,
+	uint16_t flags,
+	const char* hostname,
+	uint16_t port
+)
+{
+      ac:	b580      	push	{r7, lr}
+      ae:	b086      	sub	sp, #24
+      b0:	af00      	add	r7, sp, #0
+      b2:	60f8      	str	r0, [r7, #12]
+      b4:	607a      	str	r2, [r7, #4]
+      b6:	460a      	mov	r2, r1
+      b8:	817a      	strh	r2, [r7, #10]
+      ba:	807b      	strh	r3, [r7, #2]
+	xme_hal_net_socketHandle_t newSocketHandle;
+	xme_hal_net_socketItem* socketItem;
+
+	// Either XME_HAL_NET_SOCKET_TCP or XME_HAL_NET_SOCKET_UDP must be set
+	if (!((flags & XME_HAL_NET_SOCKET_TCP) ^ (flags & XME_HAL_NET_SOCKET_UDP)))
+      bc:	897b      	ldrh	r3, [r7, #10]
+      be:	f003 0303 	and.w	r3, r3, #3
+      c2:	2b00      	cmp	r3, #0
+      c4:	d102      	bne.n	cc <xme_hal_net_createSocket+0x20>
+	{
+		return XME_HAL_NET_INVALID_SOCKET_HANDLE;
+      c6:	f04f 0300 	mov.w	r3, #0
+      ca:	e065      	b.n	198 <xme_hal_net_createSocket+0xec>
+	}
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+      cc:	4b35      	ldr	r3, [pc, #212]	; (1a4 <xme_hal_net_createSocket+0xf8>)
+      ce:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+      d2:	4618      	mov	r0, r3
+      d4:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			d4: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Allocate a unique socket handle
+		newSocketHandle = (xme_hal_net_socketHandle_t)XME_HAL_TABLE_ADD_ITEM(xme_hal_net_config.sockets);
+      d8:	4b32      	ldr	r3, [pc, #200]	; (1a4 <xme_hal_net_createSocket+0xf8>)
+      da:	4618      	mov	r0, r3
+      dc:	f04f 010a 	mov.w	r1, #10
+      e0:	f7ff fffe 	bl	0 <xme_hal_table_addItem>
+			e0: R_ARM_THM_CALL	xme_hal_table_addItem
+      e4:	4603      	mov	r3, r0
+      e6:	82fb      	strh	r3, [r7, #22]
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+      e8:	4b2e      	ldr	r3, [pc, #184]	; (1a4 <xme_hal_net_createSocket+0xf8>)
+      ea:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+      ee:	4618      	mov	r0, r3
+      f0:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			f0: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	// Retrieve the socket descriptor
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+      f4:	4b2b      	ldr	r3, [pc, #172]	; (1a4 <xme_hal_net_createSocket+0xf8>)
+      f6:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+      fa:	4618      	mov	r0, r3
+      fc:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			fc: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		socketItem = XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_net_config.sockets, newSocketHandle);
+     100:	8afb      	ldrh	r3, [r7, #22]
+     102:	2b00      	cmp	r3, #0
+     104:	d019      	beq.n	13a <xme_hal_net_createSocket+0x8e>
+     106:	4b27      	ldr	r3, [pc, #156]	; (1a4 <xme_hal_net_createSocket+0xf8>)
+     108:	885b      	ldrh	r3, [r3, #2]
+     10a:	8afa      	ldrh	r2, [r7, #22]
+     10c:	429a      	cmp	r2, r3
+     10e:	d814      	bhi.n	13a <xme_hal_net_createSocket+0x8e>
+     110:	8afb      	ldrh	r3, [r7, #22]
+     112:	f103 33ff 	add.w	r3, r3, #4294967295
+     116:	4a23      	ldr	r2, [pc, #140]	; (1a4 <xme_hal_net_createSocket+0xf8>)
+     118:	18d3      	adds	r3, r2, r3
+     11a:	791b      	ldrb	r3, [r3, #4]
+     11c:	2b00      	cmp	r3, #0
+     11e:	d00c      	beq.n	13a <xme_hal_net_createSocket+0x8e>
+     120:	8afb      	ldrh	r3, [r7, #22]
+     122:	f103 32ff 	add.w	r2, r3, #4294967295
+     126:	4613      	mov	r3, r2
+     128:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     12c:	189b      	adds	r3, r3, r2
+     12e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     132:	461a      	mov	r2, r3
+     134:	4b1c      	ldr	r3, [pc, #112]	; (1a8 <xme_hal_net_createSocket+0xfc>)
+     136:	18d3      	adds	r3, r2, r3
+     138:	e001      	b.n	13e <xme_hal_net_createSocket+0x92>
+     13a:	f04f 0300 	mov.w	r3, #0
+     13e:	613b      	str	r3, [r7, #16]
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     140:	4b18      	ldr	r3, [pc, #96]	; (1a4 <xme_hal_net_createSocket+0xf8>)
+     142:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     146:	4618      	mov	r0, r3
+     148:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			148: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	XME_CHECK
+     14c:	693b      	ldr	r3, [r7, #16]
+     14e:	2b00      	cmp	r3, #0
+     150:	d102      	bne.n	158 <xme_hal_net_createSocket+0xac>
+     152:	f04f 0300 	mov.w	r3, #0
+     156:	e01f      	b.n	198 <xme_hal_net_createSocket+0xec>
+		NULL != socketItem,
+		XME_HAL_NET_INVALID_SOCKET_HANDLE
+	);
+
+	// Initialize the socket descriptor
+	socketItem->intf = intf;
+     158:	693b      	ldr	r3, [r7, #16]
+     15a:	68fa      	ldr	r2, [r7, #12]
+     15c:	601a      	str	r2, [r3, #0]
+	socketItem->flags = flags;
+     15e:	693b      	ldr	r3, [r7, #16]
+     160:	897a      	ldrh	r2, [r7, #10]
+     162:	809a      	strh	r2, [r3, #4]
+	socketItem->hostname = hostname;
+     164:	693b      	ldr	r3, [r7, #16]
+     166:	687a      	ldr	r2, [r7, #4]
+     168:	609a      	str	r2, [r3, #8]
+	socketItem->port = port;
+     16a:	693b      	ldr	r3, [r7, #16]
+     16c:	887a      	ldrh	r2, [r7, #2]
+     16e:	819a      	strh	r2, [r3, #12]
+	socketItem->socket = -1;
+     170:	693b      	ldr	r3, [r7, #16]
+     172:	f04f 32ff 	mov.w	r2, #4294967295
+     176:	611a      	str	r2, [r3, #16]
+	memset(&socketItem->peerAddr, 0, sizeof(socketItem->peerAddr));
+     178:	693b      	ldr	r3, [r7, #16]
+     17a:	f103 0314 	add.w	r3, r3, #20
+     17e:	4618      	mov	r0, r3
+     180:	f04f 0100 	mov.w	r1, #0
+     184:	f04f 0210 	mov.w	r2, #16
+     188:	f7ff fffe 	bl	0 <memset>
+			188: R_ARM_THM_CALL	memset
+	socketItem->connected = false;
+     18c:	693b      	ldr	r3, [r7, #16]
+     18e:	f04f 0200 	mov.w	r2, #0
+     192:	f883 2024 	strb.w	r2, [r3, #36]	; 0x24
+
+	// Return the unique socket handle
+	return newSocketHandle;
+     196:	8afb      	ldrh	r3, [r7, #22]
+}
+     198:	4618      	mov	r0, r3
+     19a:	f107 0718 	add.w	r7, r7, #24
+     19e:	46bd      	mov	sp, r7
+     1a0:	bd80      	pop	{r7, pc}
+     1a2:	bf00      	nop
+     1a4:	00000004 	.word	0x00000004
+			1a4: R_ARM_ABS32	.bss
+     1a8:	00000014 	.word	0x00000014
+			1a8: R_ARM_ABS32	.bss
+
+000001ac <xme_hal_net_destroySocket>:
+
+xme_core_status_t
+xme_hal_net_destroySocket(xme_hal_net_socketHandle_t socketHandle)
+{
+     1ac:	b580      	push	{r7, lr}
+     1ae:	b084      	sub	sp, #16
+     1b0:	af00      	add	r7, sp, #0
+     1b2:	4603      	mov	r3, r0
+     1b4:	80fb      	strh	r3, [r7, #6]
+	//    invalid.
+	xme_core_status_t rval;
+
+	// Try to close the socket to shut down gracefully.
+	// This will succeed in any case if the socket handle is valid.
+	XME_CHECK
+     1b6:	88fb      	ldrh	r3, [r7, #6]
+     1b8:	4618      	mov	r0, r3
+     1ba:	f7ff fffe 	bl	5b8 <xme_hal_net_closeSocket>
+			1ba: R_ARM_THM_CALL	xme_hal_net_closeSocket
+     1be:	4603      	mov	r3, r0
+     1c0:	73fb      	strb	r3, [r7, #15]
+     1c2:	7bfb      	ldrb	r3, [r7, #15]
+     1c4:	2b00      	cmp	r3, #0
+     1c6:	d001      	beq.n	1cc <xme_hal_net_destroySocket+0x20>
+     1c8:	7bfb      	ldrb	r3, [r7, #15]
+     1ca:	e015      	b.n	1f8 <xme_hal_net_destroySocket+0x4c>
+	(
+		XME_CORE_STATUS_SUCCESS == (rval = xme_hal_net_closeSocket(socketHandle)),
+		rval
+	);
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     1cc:	4b0d      	ldr	r3, [pc, #52]	; (204 <xme_hal_net_destroySocket+0x58>)
+     1ce:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     1d2:	4618      	mov	r0, r3
+     1d4:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			1d4: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Invalidate the socket handle and free associated memory
+		XME_HAL_TABLE_REMOVE_ITEM(xme_hal_net_config.sockets, (xme_hal_table_rowHandle_t)socketHandle);
+     1d8:	4a0a      	ldr	r2, [pc, #40]	; (204 <xme_hal_net_destroySocket+0x58>)
+     1da:	88fb      	ldrh	r3, [r7, #6]
+     1dc:	4610      	mov	r0, r2
+     1de:	4619      	mov	r1, r3
+     1e0:	f04f 020a 	mov.w	r2, #10
+     1e4:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			1e4: R_ARM_THM_CALL	xme_hal_table_removeItem
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     1e8:	4b06      	ldr	r3, [pc, #24]	; (204 <xme_hal_net_destroySocket+0x58>)
+     1ea:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     1ee:	4618      	mov	r0, r3
+     1f0:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1f0: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	return XME_CORE_STATUS_SUCCESS;
+     1f4:	f04f 0300 	mov.w	r3, #0
+}
+     1f8:	4618      	mov	r0, r3
+     1fa:	f107 0710 	add.w	r7, r7, #16
+     1fe:	46bd      	mov	sp, r7
+     200:	bd80      	pop	{r7, pc}
+     202:	bf00      	nop
+     204:	00000004 	.word	0x00000004
+			204: R_ARM_ABS32	.bss
+
+00000208 <xme_hal_net_openSocket>:
+xme_core_status_t
+xme_hal_net_openSocket
+(
+	xme_hal_net_socketHandle_t socketHandle
+)
+{
+     208:	b590      	push	{r4, r7, lr}
+     20a:	b09b      	sub	sp, #108	; 0x6c
+     20c:	af00      	add	r7, sp, #0
+     20e:	4603      	mov	r3, r0
+     210:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+
+	// Parameters for socket creation
+	int type;
+
+	size_t foundLen = 0;
+     212:	f04f 0300 	mov.w	r3, #0
+     216:	65fb      	str	r3, [r7, #92]	; 0x5c
+	char portName[6];
+	int status;
+
+	struct addrinfo  ai;
+	struct addrinfo* aiResult = 0;
+     218:	f04f 0300 	mov.w	r3, #0
+     21c:	62bb      	str	r3, [r7, #40]	; 0x28
+	struct addrinfo* aiPtr = 0;
+     21e:	f04f 0300 	mov.w	r3, #0
+     222:	663b      	str	r3, [r7, #96]	; 0x60
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     224:	4ba0      	ldr	r3, [pc, #640]	; (4a8 <xme_hal_net_openSocket+0x2a0>)
+     226:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     22a:	4618      	mov	r0, r3
+     22c:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			22c: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		XME_CHECK_REC
+     230:	88fb      	ldrh	r3, [r7, #6]
+     232:	2b00      	cmp	r3, #0
+     234:	d019      	beq.n	26a <xme_hal_net_openSocket+0x62>
+     236:	4b9c      	ldr	r3, [pc, #624]	; (4a8 <xme_hal_net_openSocket+0x2a0>)
+     238:	885b      	ldrh	r3, [r3, #2]
+     23a:	88fa      	ldrh	r2, [r7, #6]
+     23c:	429a      	cmp	r2, r3
+     23e:	d814      	bhi.n	26a <xme_hal_net_openSocket+0x62>
+     240:	88fb      	ldrh	r3, [r7, #6]
+     242:	f103 33ff 	add.w	r3, r3, #4294967295
+     246:	4a98      	ldr	r2, [pc, #608]	; (4a8 <xme_hal_net_openSocket+0x2a0>)
+     248:	18d3      	adds	r3, r2, r3
+     24a:	791b      	ldrb	r3, [r3, #4]
+     24c:	2b00      	cmp	r3, #0
+     24e:	d00c      	beq.n	26a <xme_hal_net_openSocket+0x62>
+     250:	88fb      	ldrh	r3, [r7, #6]
+     252:	f103 32ff 	add.w	r2, r3, #4294967295
+     256:	4613      	mov	r3, r2
+     258:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     25c:	189b      	adds	r3, r3, r2
+     25e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     262:	461a      	mov	r2, r3
+     264:	4b91      	ldr	r3, [pc, #580]	; (4ac <xme_hal_net_openSocket+0x2a4>)
+     266:	18d3      	adds	r3, r2, r3
+     268:	e001      	b.n	26e <xme_hal_net_openSocket+0x66>
+     26a:	f04f 0300 	mov.w	r3, #0
+     26e:	65bb      	str	r3, [r7, #88]	; 0x58
+     270:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     272:	2b00      	cmp	r3, #0
+     274:	d108      	bne.n	288 <xme_hal_net_openSocket+0x80>
+     276:	4b8c      	ldr	r3, [pc, #560]	; (4a8 <xme_hal_net_openSocket+0x2a0>)
+     278:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     27c:	4618      	mov	r0, r3
+     27e:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			27e: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     282:	f04f 0306 	mov.w	r3, #6
+     286:	e191      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     288:	4b87      	ldr	r3, [pc, #540]	; (4a8 <xme_hal_net_openSocket+0x2a0>)
+     28a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     28e:	4618      	mov	r0, r3
+     290:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			290: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	//assert( socketItem->flags & XME_HAL_NET_SOCKET_NUMERIC_ADDRESS ); // Only numeric addresses supported
+	//assert( !(socketItem->flags & XME_HAL_NET_SOCKET_IPV6) ); // Only IPV4 supported
+	type = (socketItem->flags & XME_HAL_NET_SOCKET_TCP) ? SOCK_STREAM : SOCK_DGRAM;
+     294:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     296:	889b      	ldrh	r3, [r3, #4]
+     298:	f003 0302 	and.w	r3, r3, #2
+     29c:	2b00      	cmp	r3, #0
+     29e:	d002      	beq.n	2a6 <xme_hal_net_openSocket+0x9e>
+     2a0:	f04f 0301 	mov.w	r3, #1
+     2a4:	e001      	b.n	2aa <xme_hal_net_openSocket+0xa2>
+     2a6:	f04f 0302 	mov.w	r3, #2
+     2aa:	657b      	str	r3, [r7, #84]	; 0x54
+
+	if (0 == socketItem->hostname && !(socketItem->flags & XME_HAL_NET_SOCKET_BROADCAST))
+     2ac:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     2ae:	689b      	ldr	r3, [r3, #8]
+     2b0:	2b00      	cmp	r3, #0
+     2b2:	d170      	bne.n	396 <xme_hal_net_openSocket+0x18e>
+     2b4:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     2b6:	889b      	ldrh	r3, [r3, #4]
+     2b8:	f003 0304 	and.w	r3, r3, #4
+     2bc:	2b00      	cmp	r3, #0
+     2be:	d16a      	bne.n	396 <xme_hal_net_openSocket+0x18e>
+		// for broadcast, the socket will be a local socket that can be used
+		// to receive data. Opening the socket will bind it to the given
+		// local port and set the blocking behavior of the socket.
+		struct sockaddr_in recvAddr;
+
+		XME_CHECK
+     2c0:	f04f 0000 	mov.w	r0, #0
+     2c4:	6d79      	ldr	r1, [r7, #84]	; 0x54
+     2c6:	f04f 0200 	mov.w	r2, #0
+     2ca:	f7ff fffe 	bl	0 <lwip_socket>
+			2ca: R_ARM_THM_CALL	lwip_socket
+     2ce:	4602      	mov	r2, r0
+     2d0:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     2d2:	611a      	str	r2, [r3, #16]
+     2d4:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     2d6:	691b      	ldr	r3, [r3, #16]
+     2d8:	f1b3 3fff 	cmp.w	r3, #4294967295
+     2dc:	d102      	bne.n	2e4 <xme_hal_net_openSocket+0xdc>
+     2de:	f04f 0305 	mov.w	r3, #5
+     2e2:	e163      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+			(socketItem->socket = lwip_socket(0 /* not used */, type, 0 /*not used*/)) != -1,
+			XME_CORE_STATUS_INVALID_CONFIGURATION
+		);
+
+		// Create the address we are receiving on
+		memset((char*)&recvAddr, 0, sizeof(recvAddr));
+     2e4:	f107 0318 	add.w	r3, r7, #24
+     2e8:	4618      	mov	r0, r3
+     2ea:	f04f 0100 	mov.w	r1, #0
+     2ee:	f04f 0210 	mov.w	r2, #16
+     2f2:	f7ff fffe 	bl	0 <memset>
+			2f2: R_ARM_THM_CALL	memset
+		recvAddr.sin_len = sizeof(recvAddr);
+     2f6:	f04f 0310 	mov.w	r3, #16
+     2fa:	763b      	strb	r3, [r7, #24]
+		recvAddr.sin_family = AF_INET;
+     2fc:	f04f 0302 	mov.w	r3, #2
+     300:	767b      	strb	r3, [r7, #25]
+		recvAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+     302:	f04f 0000 	mov.w	r0, #0
+     306:	f7ff fffe 	bl	0 <lwip_htonl>
+			306: R_ARM_THM_CALL	lwip_htonl
+     30a:	4603      	mov	r3, r0
+     30c:	61fb      	str	r3, [r7, #28]
+		recvAddr.sin_port = htons(socketItem->port);
+     30e:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     310:	899b      	ldrh	r3, [r3, #12]
+     312:	4618      	mov	r0, r3
+     314:	f7ff fffe 	bl	0 <lwip_htons>
+			314: R_ARM_THM_CALL	lwip_htons
+     318:	4603      	mov	r3, r0
+     31a:	837b      	strh	r3, [r7, #26]
+
+		XME_CHECK_REC
+     31c:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     31e:	691a      	ldr	r2, [r3, #16]
+     320:	f107 0318 	add.w	r3, r7, #24
+     324:	4610      	mov	r0, r2
+     326:	4619      	mov	r1, r3
+     328:	f04f 0210 	mov.w	r2, #16
+     32c:	f7ff fffe 	bl	0 <lwip_bind>
+			32c: R_ARM_THM_CALL	lwip_bind
+     330:	4603      	mov	r3, r0
+     332:	2b00      	cmp	r3, #0
+     334:	d00b      	beq.n	34e <xme_hal_net_openSocket+0x146>
+     336:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     338:	691b      	ldr	r3, [r3, #16]
+     33a:	4618      	mov	r0, r3
+     33c:	f7ff fffe 	bl	0 <lwip_close>
+			33c: R_ARM_THM_CALL	lwip_close
+     340:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     342:	f04f 32ff 	mov.w	r2, #4294967295
+     346:	611a      	str	r2, [r3, #16]
+     348:	f04f 0305 	mov.w	r3, #5
+     34c:	e12e      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+				closesocket(socketItem->socket);
+				socketItem->socket = -1;
+			}
+		);
+
+		if (XME_HAL_NET_SOCKET_TCP & socketItem->flags)
+     34e:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     350:	889b      	ldrh	r3, [r3, #4]
+     352:	f003 0302 	and.w	r3, r3, #2
+     356:	b29b      	uxth	r3, r3
+     358:	2b00      	cmp	r3, #0
+     35a:	d016      	beq.n	38a <xme_hal_net_openSocket+0x182>
+		{
+			// Listen for incoming connection requests on the created socket
+			XME_CHECK_REC
+     35c:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     35e:	691b      	ldr	r3, [r3, #16]
+     360:	4618      	mov	r0, r3
+     362:	f04f 01ff 	mov.w	r1, #255	; 0xff
+     366:	f7ff fffe 	bl	0 <lwip_listen>
+			366: R_ARM_THM_CALL	lwip_listen
+     36a:	4603      	mov	r3, r0
+     36c:	f1b3 3fff 	cmp.w	r3, #4294967295
+     370:	d10b      	bne.n	38a <xme_hal_net_openSocket+0x182>
+     372:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     374:	691b      	ldr	r3, [r3, #16]
+     376:	4618      	mov	r0, r3
+     378:	f7ff fffe 	bl	0 <lwip_close>
+			378: R_ARM_THM_CALL	lwip_close
+     37c:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     37e:	f04f 32ff 	mov.w	r2, #4294967295
+     382:	611a      	str	r2, [r3, #16]
+     384:	f04f 0305 	mov.w	r3, #5
+     388:	e110      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+				}
+			);
+		}
+
+		// The socket is not really connected!
+		socketItem->connected = false;
+     38a:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     38c:	f04f 0200 	mov.w	r2, #0
+     390:	f883 2024 	strb.w	r2, [r3, #36]	; 0x24
+	//assert( socketItem->flags & XME_HAL_NET_SOCKET_NUMERIC_ADDRESS ); // Only numeric addresses supported
+	//assert( !(socketItem->flags & XME_HAL_NET_SOCKET_IPV6) ); // Only IPV4 supported
+	type = (socketItem->flags & XME_HAL_NET_SOCKET_TCP) ? SOCK_STREAM : SOCK_DGRAM;
+
+	if (0 == socketItem->hostname && !(socketItem->flags & XME_HAL_NET_SOCKET_BROADCAST))
+	{
+     394:	e0f4      	b.n	580 <xme_hal_net_openSocket+0x378>
+		// The socket is not really connected!
+		socketItem->connected = false;
+	}
+	else
+	{
+		if (socketItem->flags & XME_HAL_NET_SOCKET_BROADCAST)
+     396:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     398:	889b      	ldrh	r3, [r3, #4]
+     39a:	f003 0304 	and.w	r3, r3, #4
+     39e:	2b00      	cmp	r3, #0
+     3a0:	d041      	beq.n	426 <xme_hal_net_openSocket+0x21e>
+		{
+			// Broadcast
+
+			struct sockaddr_in recvAddr;
+			bool yes = true;
+     3a2:	f04f 0301 	mov.w	r3, #1
+     3a6:	f887 3053 	strb.w	r3, [r7, #83]	; 0x53
+
+			// Create the address we are receiving on
+			memset((char*)&recvAddr, 0, sizeof(recvAddr));
+     3aa:	f107 0308 	add.w	r3, r7, #8
+     3ae:	4618      	mov	r0, r3
+     3b0:	f04f 0100 	mov.w	r1, #0
+     3b4:	f04f 0210 	mov.w	r2, #16
+     3b8:	f7ff fffe 	bl	0 <memset>
+			3b8: R_ARM_THM_CALL	memset
+			recvAddr.sin_len = sizeof(recvAddr);
+     3bc:	f04f 0310 	mov.w	r3, #16
+     3c0:	723b      	strb	r3, [r7, #8]
+			recvAddr.sin_family = AF_INET;
+     3c2:	f04f 0302 	mov.w	r3, #2
+     3c6:	727b      	strb	r3, [r7, #9]
+			recvAddr.sin_addr.s_addr = htonl(INADDR_ANY);
+     3c8:	f04f 0000 	mov.w	r0, #0
+     3cc:	f7ff fffe 	bl	0 <lwip_htonl>
+			3cc: R_ARM_THM_CALL	lwip_htonl
+     3d0:	4603      	mov	r3, r0
+     3d2:	60fb      	str	r3, [r7, #12]
+            recvAddr.sin_port = htons((0 != socketItem->port) ? socketItem->port : XME_HAL_NET_IP_PORT_NUMBER_DATA_CENTRIC_COMMUNICATION);
+     3d4:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     3d6:	899b      	ldrh	r3, [r3, #12]
+     3d8:	2b00      	cmp	r3, #0
+     3da:	d002      	beq.n	3e2 <xme_hal_net_openSocket+0x1da>
+     3dc:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     3de:	899b      	ldrh	r3, [r3, #12]
+     3e0:	e001      	b.n	3e6 <xme_hal_net_openSocket+0x1de>
+     3e2:	f248 034f 	movw	r3, #32847	; 0x804f
+     3e6:	4618      	mov	r0, r3
+     3e8:	f7ff fffe 	bl	0 <lwip_htons>
+			3e8: R_ARM_THM_CALL	lwip_htons
+     3ec:	4603      	mov	r3, r0
+     3ee:	817b      	strh	r3, [r7, #10]
+
+			socketItem->socket = lwip_socket(0 /* not used */, type, 0 /*not used*/);
+     3f0:	f04f 0000 	mov.w	r0, #0
+     3f4:	6d79      	ldr	r1, [r7, #84]	; 0x54
+     3f6:	f04f 0200 	mov.w	r2, #0
+     3fa:	f7ff fffe 	bl	0 <lwip_socket>
+			3fa: R_ARM_THM_CALL	lwip_socket
+     3fe:	4602      	mov	r2, r0
+     400:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     402:	611a      	str	r2, [r3, #16]
+
+			// Bind is neccessary to join multicast groups.
+			status = lwip_bind(socketItem->socket, (struct sockaddr*)&recvAddr, sizeof(recvAddr));
+     404:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     406:	691a      	ldr	r2, [r3, #16]
+     408:	f107 0308 	add.w	r3, r7, #8
+     40c:	4610      	mov	r0, r2
+     40e:	4619      	mov	r1, r3
+     410:	f04f 0210 	mov.w	r2, #16
+     414:	f7ff fffe 	bl	0 <lwip_bind>
+			414: R_ARM_THM_CALL	lwip_bind
+     418:	6678      	str	r0, [r7, #100]	; 0x64
+
+			// Broadcast sockets remain unconnected
+			socketItem->connected = false;
+     41a:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     41c:	f04f 0200 	mov.w	r2, #0
+     420:	f883 2024 	strb.w	r2, [r3, #36]	; 0x24
+     424:	e093      	b.n	54e <xme_hal_net_openSocket+0x346>
+			// try to resolve the host name and connect to the that peer.
+
+			// TODO: See ticket #819
+			//snprintf(portName, sizeof(portName), "%u", socketItem->port);
+
+			status = lwip_getaddrinfo(socketItem->hostname, NULL, &ai, &aiResult);
+     426:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     428:	6899      	ldr	r1, [r3, #8]
+     42a:	f107 022c 	add.w	r2, r7, #44	; 0x2c
+     42e:	f107 0328 	add.w	r3, r7, #40	; 0x28
+     432:	4608      	mov	r0, r1
+     434:	f04f 0100 	mov.w	r1, #0
+     438:	f7ff fffe 	bl	0 <lwip_getaddrinfo>
+			438: R_ARM_THM_CALL	lwip_getaddrinfo
+     43c:	6678      	str	r0, [r7, #100]	; 0x64
+
+			XME_CHECK_REC
+     43e:	6e7b      	ldr	r3, [r7, #100]	; 0x64
+     440:	2bcb      	cmp	r3, #203	; 0xcb
+     442:	d106      	bne.n	452 <xme_hal_net_openSocket+0x24a>
+     444:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     446:	4618      	mov	r0, r3
+     448:	f7ff fffe 	bl	0 <lwip_freeaddrinfo>
+			448: R_ARM_THM_CALL	lwip_freeaddrinfo
+     44c:	f04f 030a 	mov.w	r3, #10
+     450:	e0ac      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+				{
+						lwip_freeaddrinfo(aiResult);
+				}
+			);
+
+			XME_CHECK_REC
+     452:	6e7b      	ldr	r3, [r7, #100]	; 0x64
+     454:	2bca      	cmp	r3, #202	; 0xca
+     456:	d106      	bne.n	466 <xme_hal_net_openSocket+0x25e>
+     458:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     45a:	4618      	mov	r0, r3
+     45c:	f7ff fffe 	bl	0 <lwip_freeaddrinfo>
+			45c: R_ARM_THM_CALL	lwip_freeaddrinfo
+     460:	f04f 0309 	mov.w	r3, #9
+     464:	e0a2      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+				{
+						lwip_freeaddrinfo(aiResult);
+				}
+			);
+
+			XME_CHECK_REC
+     466:	6e7b      	ldr	r3, [r7, #100]	; 0x64
+     468:	2b00      	cmp	r3, #0
+     46a:	d006      	beq.n	47a <xme_hal_net_openSocket+0x272>
+     46c:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     46e:	4618      	mov	r0, r3
+     470:	f7ff fffe 	bl	0 <lwip_freeaddrinfo>
+			470: R_ARM_THM_CALL	lwip_freeaddrinfo
+     474:	f04f 0305 	mov.w	r3, #5
+     478:	e098      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+			);
+
+			XME_ASSERT(0 != aiResult);
+
+			// Iterate over the result list and obtain at least one useable address
+			status = 0;
+     47a:	f04f 0300 	mov.w	r3, #0
+     47e:	667b      	str	r3, [r7, #100]	; 0x64
+			for (aiPtr = aiResult; aiPtr != 0; aiPtr = aiPtr->ai_next)
+     480:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     482:	663b      	str	r3, [r7, #96]	; 0x60
+     484:	e054      	b.n	530 <xme_hal_net_openSocket+0x328>
+				XME_ASSERT(!(socketItem->flags & XME_HAL_NET_SOCKET_TCP)  || IPPROTO_TCP == aiPtr->ai_protocol);
+				XME_ASSERT(!(socketItem->flags & XME_HAL_NET_SOCKET_UDP)  || IPPROTO_UDP == aiPtr->ai_protocol);
+
+				// We just consider the first working item returned.
+				// In case multiple items are returned, issue a warning here.
+				if (socketItem->connected)
+     486:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     488:	f893 3024 	ldrb.w	r3, [r3, #36]	; 0x24
+     48c:	2b00      	cmp	r3, #0
+     48e:	d013      	beq.n	4b8 <xme_hal_net_openSocket+0x2b0>
+				{
+					XME_LOG
+     490:	4b07      	ldr	r3, [pc, #28]	; (4b0 <xme_hal_net_openSocket+0x2a8>)
+     492:	681b      	ldr	r3, [r3, #0]
+     494:	2b00      	cmp	r3, #0
+     496:	d04f      	beq.n	538 <xme_hal_net_openSocket+0x330>
+     498:	4b05      	ldr	r3, [pc, #20]	; (4b0 <xme_hal_net_openSocket+0x2a8>)
+     49a:	681b      	ldr	r3, [r3, #0]
+     49c:	f04f 0002 	mov.w	r0, #2
+     4a0:	4904      	ldr	r1, [pc, #16]	; (4b4 <xme_hal_net_openSocket+0x2ac>)
+     4a2:	4798      	blx	r3
+					(
+						XME_LOG_WARNING, "Host name lookup for '%s' returned multiple results, connected to first address!",
+						socketItem->hostname
+					);
+					break;
+     4a4:	e049      	b.n	53a <xme_hal_net_openSocket+0x332>
+     4a6:	bf00      	nop
+     4a8:	00000004 	.word	0x00000004
+			4a8: R_ARM_ABS32	.bss
+     4ac:	00000014 	.word	0x00000014
+			4ac: R_ARM_ABS32	.bss
+	...
+			4b0: R_ARM_ABS32	xme_core_log_logCallback
+			4b4: R_ARM_ABS32	.rodata
+				}
+
+				socketItem->socket = lwip_socket(0 /* not used */, type, 0 /*not used*/);;
+     4b8:	f04f 0000 	mov.w	r0, #0
+     4bc:	6d79      	ldr	r1, [r7, #84]	; 0x54
+     4be:	f04f 0200 	mov.w	r2, #0
+     4c2:	f7ff fffe 	bl	0 <lwip_socket>
+			4c2: R_ARM_THM_CALL	lwip_socket
+     4c6:	4602      	mov	r2, r0
+     4c8:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     4ca:	611a      	str	r2, [r3, #16]
+				if (-1 == socketItem->socket)
+     4cc:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     4ce:	691b      	ldr	r3, [r3, #16]
+     4d0:	f1b3 3fff 	cmp.w	r3, #4294967295
+     4d4:	d028      	beq.n	528 <xme_hal_net_openSocket+0x320>
+				{
+					continue;
+				}
+
+				// TODO: Port should already be set at call to lwip_getaddrinfo(). See ticket #819
+				((struct sockaddr_in *)aiResult->ai_addr)->sin_port = htons(socketItem->port);
+     4d6:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     4d8:	695b      	ldr	r3, [r3, #20]
+     4da:	461c      	mov	r4, r3
+     4dc:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     4de:	899b      	ldrh	r3, [r3, #12]
+     4e0:	4618      	mov	r0, r3
+     4e2:	f7ff fffe 	bl	0 <lwip_htons>
+			4e2: R_ARM_THM_CALL	lwip_htons
+     4e6:	4603      	mov	r3, r0
+     4e8:	8063      	strh	r3, [r4, #2]
+
+				status = lwip_connect(socketItem->socket, aiResult->ai_addr, aiResult->ai_addrlen);
+     4ea:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     4ec:	6919      	ldr	r1, [r3, #16]
+     4ee:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     4f0:	695a      	ldr	r2, [r3, #20]
+     4f2:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     4f4:	691b      	ldr	r3, [r3, #16]
+     4f6:	4608      	mov	r0, r1
+     4f8:	4611      	mov	r1, r2
+     4fa:	461a      	mov	r2, r3
+     4fc:	f7ff fffe 	bl	0 <lwip_connect>
+			4fc: R_ARM_THM_CALL	lwip_connect
+     500:	6678      	str	r0, [r7, #100]	; 0x64
+				if (0 != status)
+     502:	6e7b      	ldr	r3, [r7, #100]	; 0x64
+     504:	2b00      	cmp	r3, #0
+     506:	d009      	beq.n	51c <xme_hal_net_openSocket+0x314>
+				{
+					closesocket(socketItem->socket);
+     508:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     50a:	691b      	ldr	r3, [r3, #16]
+     50c:	4618      	mov	r0, r3
+     50e:	f7ff fffe 	bl	0 <lwip_close>
+			50e: R_ARM_THM_CALL	lwip_close
+					socketItem->socket = -1;
+     512:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     514:	f04f 32ff 	mov.w	r2, #4294967295
+     518:	611a      	str	r2, [r3, #16]
+     51a:	e006      	b.n	52a <xme_hal_net_openSocket+0x322>
+				}
+				else
+				{
+					socketItem->connected = true;
+     51c:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     51e:	f04f 0201 	mov.w	r2, #1
+     522:	f883 2024 	strb.w	r2, [r3, #36]	; 0x24
+     526:	e000      	b.n	52a <xme_hal_net_openSocket+0x322>
+				}
+
+				socketItem->socket = lwip_socket(0 /* not used */, type, 0 /*not used*/);;
+				if (-1 == socketItem->socket)
+				{
+					continue;
+     528:	bf00      	nop
+
+			XME_ASSERT(0 != aiResult);
+
+			// Iterate over the result list and obtain at least one useable address
+			status = 0;
+			for (aiPtr = aiResult; aiPtr != 0; aiPtr = aiPtr->ai_next)
+     52a:	6e3b      	ldr	r3, [r7, #96]	; 0x60
+     52c:	69db      	ldr	r3, [r3, #28]
+     52e:	663b      	str	r3, [r7, #96]	; 0x60
+     530:	6e3b      	ldr	r3, [r7, #96]	; 0x60
+     532:	2b00      	cmp	r3, #0
+     534:	d1a7      	bne.n	486 <xme_hal_net_openSocket+0x27e>
+     536:	e000      	b.n	53a <xme_hal_net_openSocket+0x332>
+					XME_LOG
+					(
+						XME_LOG_WARNING, "Host name lookup for '%s' returned multiple results, connected to first address!",
+						socketItem->hostname
+					);
+					break;
+     538:	bf00      	nop
+				{
+					socketItem->connected = true;
+				}
+			}
+
+			lwip_freeaddrinfo(aiResult);
+     53a:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     53c:	4618      	mov	r0, r3
+     53e:	f7ff fffe 	bl	0 <lwip_freeaddrinfo>
+			53e: R_ARM_THM_CALL	lwip_freeaddrinfo
+
+			XME_CHECK
+     542:	6e7b      	ldr	r3, [r7, #100]	; 0x64
+     544:	2b00      	cmp	r3, #0
+     546:	d002      	beq.n	54e <xme_hal_net_openSocket+0x346>
+     548:	f04f 0305 	mov.w	r3, #5
+     54c:	e02e      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+				0 == status,
+				XME_CORE_STATUS_INVALID_CONFIGURATION
+			);
+		}
+
+		XME_CHECK
+     54e:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     550:	691b      	ldr	r3, [r3, #16]
+     552:	f1b3 3fff 	cmp.w	r3, #4294967295
+     556:	d102      	bne.n	55e <xme_hal_net_openSocket+0x356>
+     558:	f04f 0305 	mov.w	r3, #5
+     55c:	e026      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+		(
+			-1 != socketItem->socket,
+			XME_CORE_STATUS_INVALID_CONFIGURATION
+		);
+
+		XME_CHECK
+     55e:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     560:	f893 3024 	ldrb.w	r3, [r3, #36]	; 0x24
+     564:	f083 0301 	eor.w	r3, r3, #1
+     568:	b2db      	uxtb	r3, r3
+     56a:	2b00      	cmp	r3, #0
+     56c:	d008      	beq.n	580 <xme_hal_net_openSocket+0x378>
+     56e:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     570:	889b      	ldrh	r3, [r3, #4]
+     572:	f003 0304 	and.w	r3, r3, #4
+     576:	2b00      	cmp	r3, #0
+     578:	d102      	bne.n	580 <xme_hal_net_openSocket+0x378>
+     57a:	f04f 0309 	mov.w	r3, #9
+     57e:	e015      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+			XME_CORE_STATUS_NOT_FOUND
+		);
+	}
+
+	// Set socket blocking behavior
+	XME_CHECK
+     580:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+     582:	889b      	ldrh	r3, [r3, #4]
+     584:	f003 0308 	and.w	r3, r3, #8
+     588:	2b00      	cmp	r3, #0
+     58a:	bf14      	ite	ne
+     58c:	2300      	movne	r3, #0
+     58e:	2301      	moveq	r3, #1
+     590:	b2db      	uxtb	r3, r3
+     592:	88fa      	ldrh	r2, [r7, #6]
+     594:	4610      	mov	r0, r2
+     596:	4619      	mov	r1, r3
+     598:	f7ff fffe 	bl	710 <xme_hal_net_setBlockingBehavior>
+			598: R_ARM_THM_CALL	xme_hal_net_setBlockingBehavior
+     59c:	4603      	mov	r3, r0
+     59e:	2b00      	cmp	r3, #0
+     5a0:	d002      	beq.n	5a8 <xme_hal_net_openSocket+0x3a0>
+     5a2:	f04f 0305 	mov.w	r3, #5
+     5a6:	e001      	b.n	5ac <xme_hal_net_openSocket+0x3a4>
+	(
+		XME_CORE_STATUS_SUCCESS == xme_hal_net_setBlockingBehavior(socketHandle, !(socketItem->flags & XME_HAL_NET_SOCKET_NONBLOCKING)),
+		XME_CORE_STATUS_INVALID_CONFIGURATION
+	);
+
+	return XME_CORE_STATUS_SUCCESS;
+     5a8:	f04f 0300 	mov.w	r3, #0
+}
+     5ac:	4618      	mov	r0, r3
+     5ae:	f107 076c 	add.w	r7, r7, #108	; 0x6c
+     5b2:	46bd      	mov	sp, r7
+     5b4:	bd90      	pop	{r4, r7, pc}
+     5b6:	bf00      	nop
+
+000005b8 <xme_hal_net_closeSocket>:
+xme_core_status_t
+xme_hal_net_closeSocket
+(
+	xme_hal_net_socketHandle_t socketHandle
+)
+{
+     5b8:	b580      	push	{r7, lr}
+     5ba:	b084      	sub	sp, #16
+     5bc:	af00      	add	r7, sp, #0
+     5be:	4603      	mov	r3, r0
+     5c0:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     5c2:	4b2c      	ldr	r3, [pc, #176]	; (674 <xme_hal_net_closeSocket+0xbc>)
+     5c4:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     5c8:	4618      	mov	r0, r3
+     5ca:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			5ca: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+     5ce:	88fb      	ldrh	r3, [r7, #6]
+     5d0:	2b00      	cmp	r3, #0
+     5d2:	d019      	beq.n	608 <xme_hal_net_closeSocket+0x50>
+     5d4:	4b27      	ldr	r3, [pc, #156]	; (674 <xme_hal_net_closeSocket+0xbc>)
+     5d6:	885b      	ldrh	r3, [r3, #2]
+     5d8:	88fa      	ldrh	r2, [r7, #6]
+     5da:	429a      	cmp	r2, r3
+     5dc:	d814      	bhi.n	608 <xme_hal_net_closeSocket+0x50>
+     5de:	88fb      	ldrh	r3, [r7, #6]
+     5e0:	f103 33ff 	add.w	r3, r3, #4294967295
+     5e4:	4a23      	ldr	r2, [pc, #140]	; (674 <xme_hal_net_closeSocket+0xbc>)
+     5e6:	18d3      	adds	r3, r2, r3
+     5e8:	791b      	ldrb	r3, [r3, #4]
+     5ea:	2b00      	cmp	r3, #0
+     5ec:	d00c      	beq.n	608 <xme_hal_net_closeSocket+0x50>
+     5ee:	88fb      	ldrh	r3, [r7, #6]
+     5f0:	f103 32ff 	add.w	r2, r3, #4294967295
+     5f4:	4613      	mov	r3, r2
+     5f6:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     5fa:	189b      	adds	r3, r3, r2
+     5fc:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     600:	461a      	mov	r2, r3
+     602:	4b1d      	ldr	r3, [pc, #116]	; (678 <xme_hal_net_closeSocket+0xc0>)
+     604:	18d3      	adds	r3, r2, r3
+     606:	e001      	b.n	60c <xme_hal_net_closeSocket+0x54>
+     608:	f04f 0300 	mov.w	r3, #0
+     60c:	60fb      	str	r3, [r7, #12]
+     60e:	68fb      	ldr	r3, [r7, #12]
+     610:	2b00      	cmp	r3, #0
+     612:	d108      	bne.n	626 <xme_hal_net_closeSocket+0x6e>
+     614:	4b17      	ldr	r3, [pc, #92]	; (674 <xme_hal_net_closeSocket+0xbc>)
+     616:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     61a:	4618      	mov	r0, r3
+     61c:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			61c: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     620:	f04f 0306 	mov.w	r3, #6
+     624:	e021      	b.n	66a <xme_hal_net_closeSocket+0xb2>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     626:	4b13      	ldr	r3, [pc, #76]	; (674 <xme_hal_net_closeSocket+0xbc>)
+     628:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     62c:	4618      	mov	r0, r3
+     62e:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			62e: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	if (socketItem->connected)
+     632:	68fb      	ldr	r3, [r7, #12]
+     634:	f893 3024 	ldrb.w	r3, [r3, #36]	; 0x24
+     638:	2b00      	cmp	r3, #0
+     63a:	d014      	beq.n	666 <xme_hal_net_closeSocket+0xae>
+	{
+		// Calling shutdown here won't hurt...
+		lwip_shutdown(socketItem->socket, 0 /* Not used */);
+     63c:	68fb      	ldr	r3, [r7, #12]
+     63e:	691b      	ldr	r3, [r3, #16]
+     640:	4618      	mov	r0, r3
+     642:	f04f 0100 	mov.w	r1, #0
+     646:	f7ff fffe 	bl	0 <lwip_shutdown>
+			646: R_ARM_THM_CALL	lwip_shutdown
+
+		lwip_close(socketItem->socket);
+     64a:	68fb      	ldr	r3, [r7, #12]
+     64c:	691b      	ldr	r3, [r3, #16]
+     64e:	4618      	mov	r0, r3
+     650:	f7ff fffe 	bl	0 <lwip_close>
+			650: R_ARM_THM_CALL	lwip_close
+
+		socketItem->socket = -1;
+     654:	68fb      	ldr	r3, [r7, #12]
+     656:	f04f 32ff 	mov.w	r2, #4294967295
+     65a:	611a      	str	r2, [r3, #16]
+
+		socketItem->connected = false;
+     65c:	68fb      	ldr	r3, [r7, #12]
+     65e:	f04f 0200 	mov.w	r2, #0
+     662:	f883 2024 	strb.w	r2, [r3, #36]	; 0x24
+	}
+
+	return XME_CORE_STATUS_SUCCESS;
+     666:	f04f 0300 	mov.w	r3, #0
+}
+     66a:	4618      	mov	r0, r3
+     66c:	f107 0710 	add.w	r7, r7, #16
+     670:	46bd      	mov	sp, r7
+     672:	bd80      	pop	{r7, pc}
+     674:	00000004 	.word	0x00000004
+			674: R_ARM_ABS32	.bss
+     678:	00000014 	.word	0x00000014
+			678: R_ARM_ABS32	.bss
+
+0000067c <xme_hal_net_isSocketConnected>:
+bool
+xme_hal_net_isSocketConnected
+(
+	xme_hal_net_socketHandle_t socketHandle
+)
+{
+     67c:	b580      	push	{r7, lr}
+     67e:	b084      	sub	sp, #16
+     680:	af00      	add	r7, sp, #0
+     682:	4603      	mov	r3, r0
+     684:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     686:	4b20      	ldr	r3, [pc, #128]	; (708 <xme_hal_net_isSocketConnected+0x8c>)
+     688:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     68c:	4618      	mov	r0, r3
+     68e:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			68e: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+     692:	88fb      	ldrh	r3, [r7, #6]
+     694:	2b00      	cmp	r3, #0
+     696:	d019      	beq.n	6cc <xme_hal_net_isSocketConnected+0x50>
+     698:	4b1b      	ldr	r3, [pc, #108]	; (708 <xme_hal_net_isSocketConnected+0x8c>)
+     69a:	885b      	ldrh	r3, [r3, #2]
+     69c:	88fa      	ldrh	r2, [r7, #6]
+     69e:	429a      	cmp	r2, r3
+     6a0:	d814      	bhi.n	6cc <xme_hal_net_isSocketConnected+0x50>
+     6a2:	88fb      	ldrh	r3, [r7, #6]
+     6a4:	f103 33ff 	add.w	r3, r3, #4294967295
+     6a8:	4a17      	ldr	r2, [pc, #92]	; (708 <xme_hal_net_isSocketConnected+0x8c>)
+     6aa:	18d3      	adds	r3, r2, r3
+     6ac:	791b      	ldrb	r3, [r3, #4]
+     6ae:	2b00      	cmp	r3, #0
+     6b0:	d00c      	beq.n	6cc <xme_hal_net_isSocketConnected+0x50>
+     6b2:	88fb      	ldrh	r3, [r7, #6]
+     6b4:	f103 32ff 	add.w	r2, r3, #4294967295
+     6b8:	4613      	mov	r3, r2
+     6ba:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     6be:	189b      	adds	r3, r3, r2
+     6c0:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     6c4:	461a      	mov	r2, r3
+     6c6:	4b11      	ldr	r3, [pc, #68]	; (70c <xme_hal_net_isSocketConnected+0x90>)
+     6c8:	18d3      	adds	r3, r2, r3
+     6ca:	e001      	b.n	6d0 <xme_hal_net_isSocketConnected+0x54>
+     6cc:	f04f 0300 	mov.w	r3, #0
+     6d0:	60fb      	str	r3, [r7, #12]
+     6d2:	68fb      	ldr	r3, [r7, #12]
+     6d4:	2b00      	cmp	r3, #0
+     6d6:	d108      	bne.n	6ea <xme_hal_net_isSocketConnected+0x6e>
+     6d8:	4b0b      	ldr	r3, [pc, #44]	; (708 <xme_hal_net_isSocketConnected+0x8c>)
+     6da:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     6de:	4618      	mov	r0, r3
+     6e0:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			6e0: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     6e4:	f04f 0300 	mov.w	r3, #0
+     6e8:	e008      	b.n	6fc <xme_hal_net_isSocketConnected+0x80>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     6ea:	4b07      	ldr	r3, [pc, #28]	; (708 <xme_hal_net_isSocketConnected+0x8c>)
+     6ec:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     6f0:	4618      	mov	r0, r3
+     6f2:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			6f2: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	return socketItem->connected;
+     6f6:	68fb      	ldr	r3, [r7, #12]
+     6f8:	f893 3024 	ldrb.w	r3, [r3, #36]	; 0x24
+}
+     6fc:	4618      	mov	r0, r3
+     6fe:	f107 0710 	add.w	r7, r7, #16
+     702:	46bd      	mov	sp, r7
+     704:	bd80      	pop	{r7, pc}
+     706:	bf00      	nop
+     708:	00000004 	.word	0x00000004
+			708: R_ARM_ABS32	.bss
+     70c:	00000014 	.word	0x00000014
+			70c: R_ARM_ABS32	.bss
+
+00000710 <xme_hal_net_setBlockingBehavior>:
+xme_hal_net_setBlockingBehavior
+(
+	xme_hal_net_socketHandle_t socketHandle,
+	bool blocking
+)
+{
+     710:	b580      	push	{r7, lr}
+     712:	b084      	sub	sp, #16
+     714:	af00      	add	r7, sp, #0
+     716:	4602      	mov	r2, r0
+     718:	460b      	mov	r3, r1
+     71a:	80fa      	strh	r2, [r7, #6]
+     71c:	717b      	strb	r3, [r7, #5]
+	xme_hal_net_socketItem* socketItem;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     71e:	4b34      	ldr	r3, [pc, #208]	; (7f0 <xme_hal_net_setBlockingBehavior+0xe0>)
+     720:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     724:	4618      	mov	r0, r3
+     726:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			726: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+     72a:	88fb      	ldrh	r3, [r7, #6]
+     72c:	2b00      	cmp	r3, #0
+     72e:	d019      	beq.n	764 <xme_hal_net_setBlockingBehavior+0x54>
+     730:	4b2f      	ldr	r3, [pc, #188]	; (7f0 <xme_hal_net_setBlockingBehavior+0xe0>)
+     732:	885b      	ldrh	r3, [r3, #2]
+     734:	88fa      	ldrh	r2, [r7, #6]
+     736:	429a      	cmp	r2, r3
+     738:	d814      	bhi.n	764 <xme_hal_net_setBlockingBehavior+0x54>
+     73a:	88fb      	ldrh	r3, [r7, #6]
+     73c:	f103 33ff 	add.w	r3, r3, #4294967295
+     740:	4a2b      	ldr	r2, [pc, #172]	; (7f0 <xme_hal_net_setBlockingBehavior+0xe0>)
+     742:	18d3      	adds	r3, r2, r3
+     744:	791b      	ldrb	r3, [r3, #4]
+     746:	2b00      	cmp	r3, #0
+     748:	d00c      	beq.n	764 <xme_hal_net_setBlockingBehavior+0x54>
+     74a:	88fb      	ldrh	r3, [r7, #6]
+     74c:	f103 32ff 	add.w	r2, r3, #4294967295
+     750:	4613      	mov	r3, r2
+     752:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     756:	189b      	adds	r3, r3, r2
+     758:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     75c:	461a      	mov	r2, r3
+     75e:	4b25      	ldr	r3, [pc, #148]	; (7f4 <xme_hal_net_setBlockingBehavior+0xe4>)
+     760:	18d3      	adds	r3, r2, r3
+     762:	e001      	b.n	768 <xme_hal_net_setBlockingBehavior+0x58>
+     764:	f04f 0300 	mov.w	r3, #0
+     768:	60fb      	str	r3, [r7, #12]
+     76a:	68fb      	ldr	r3, [r7, #12]
+     76c:	2b00      	cmp	r3, #0
+     76e:	d108      	bne.n	782 <xme_hal_net_setBlockingBehavior+0x72>
+     770:	4b1f      	ldr	r3, [pc, #124]	; (7f0 <xme_hal_net_setBlockingBehavior+0xe0>)
+     772:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     776:	4618      	mov	r0, r3
+     778:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			778: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     77c:	f04f 0306 	mov.w	r3, #6
+     780:	e031      	b.n	7e6 <xme_hal_net_setBlockingBehavior+0xd6>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     782:	4b1b      	ldr	r3, [pc, #108]	; (7f0 <xme_hal_net_setBlockingBehavior+0xe0>)
+     784:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     788:	4618      	mov	r0, r3
+     78a:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			78a: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	// Change blocking behavior
+	{
+		uint32_t nonBlocking = blocking ? 0 : 1;
+     78e:	797b      	ldrb	r3, [r7, #5]
+     790:	2b00      	cmp	r3, #0
+     792:	d002      	beq.n	79a <xme_hal_net_setBlockingBehavior+0x8a>
+     794:	f04f 0300 	mov.w	r3, #0
+     798:	e001      	b.n	79e <xme_hal_net_setBlockingBehavior+0x8e>
+     79a:	f04f 0301 	mov.w	r3, #1
+     79e:	60bb      	str	r3, [r7, #8]
+
+		XME_CHECK
+     7a0:	68fb      	ldr	r3, [r7, #12]
+     7a2:	691a      	ldr	r2, [r3, #16]
+     7a4:	f107 0308 	add.w	r3, r7, #8
+     7a8:	4610      	mov	r0, r2
+     7aa:	4913      	ldr	r1, [pc, #76]	; (7f8 <xme_hal_net_setBlockingBehavior+0xe8>)
+     7ac:	461a      	mov	r2, r3
+     7ae:	f7ff fffe 	bl	0 <lwip_ioctl>
+			7ae: R_ARM_THM_CALL	lwip_ioctl
+     7b2:	4603      	mov	r3, r0
+     7b4:	2b00      	cmp	r3, #0
+     7b6:	d002      	beq.n	7be <xme_hal_net_setBlockingBehavior+0xae>
+     7b8:	f04f 0305 	mov.w	r3, #5
+     7bc:	e013      	b.n	7e6 <xme_hal_net_setBlockingBehavior+0xd6>
+			XME_CORE_STATUS_INVALID_CONFIGURATION
+		);
+	}
+
+	// Remember new blocking behavior
+	if (blocking)
+     7be:	797b      	ldrb	r3, [r7, #5]
+     7c0:	2b00      	cmp	r3, #0
+     7c2:	d007      	beq.n	7d4 <xme_hal_net_setBlockingBehavior+0xc4>
+	{
+		socketItem->flags &= ~XME_HAL_NET_SOCKET_NONBLOCKING;
+     7c4:	68fb      	ldr	r3, [r7, #12]
+     7c6:	889b      	ldrh	r3, [r3, #4]
+     7c8:	f023 0308 	bic.w	r3, r3, #8
+     7cc:	b29a      	uxth	r2, r3
+     7ce:	68fb      	ldr	r3, [r7, #12]
+     7d0:	809a      	strh	r2, [r3, #4]
+     7d2:	e006      	b.n	7e2 <xme_hal_net_setBlockingBehavior+0xd2>
+	}
+	else
+	{
+		socketItem->flags |= XME_HAL_NET_SOCKET_NONBLOCKING;
+     7d4:	68fb      	ldr	r3, [r7, #12]
+     7d6:	889b      	ldrh	r3, [r3, #4]
+     7d8:	f043 0308 	orr.w	r3, r3, #8
+     7dc:	b29a      	uxth	r2, r3
+     7de:	68fb      	ldr	r3, [r7, #12]
+     7e0:	809a      	strh	r2, [r3, #4]
+	}
+
+	return XME_CORE_STATUS_SUCCESS;
+     7e2:	f04f 0300 	mov.w	r3, #0
+}
+     7e6:	4618      	mov	r0, r3
+     7e8:	f107 0710 	add.w	r7, r7, #16
+     7ec:	46bd      	mov	sp, r7
+     7ee:	bd80      	pop	{r7, pc}
+     7f0:	00000004 	.word	0x00000004
+			7f0: R_ARM_ABS32	.bss
+     7f4:	00000014 	.word	0x00000014
+			7f4: R_ARM_ABS32	.bss
+     7f8:	8004667e 	.word	0x8004667e
+
+000007fc <xme_hal_net_selectSocket>:
+	xme_hal_net_socketHandle_t socketHandle,
+	bool read,
+	bool write,
+	uint16_t timeoutMs
+)
+{
+     7fc:	b580      	push	{r7, lr}
+     7fe:	b08c      	sub	sp, #48	; 0x30
+     800:	af02      	add	r7, sp, #8
+     802:	80f8      	strh	r0, [r7, #6]
+     804:	7179      	strb	r1, [r7, #5]
+     806:	713a      	strb	r2, [r7, #4]
+     808:	807b      	strh	r3, [r7, #2]
+	xme_hal_net_socketItem* socketItem;
+	float tmp = (float)timeoutMs / 1000;
+     80a:	887b      	ldrh	r3, [r7, #2]
+     80c:	4618      	mov	r0, r3
+     80e:	f7ff fffe 	bl	0 <__aeabi_ui2f>
+			80e: R_ARM_THM_CALL	__aeabi_ui2f
+     812:	4603      	mov	r3, r0
+     814:	4618      	mov	r0, r3
+     816:	4972      	ldr	r1, [pc, #456]	; (9e0 <xme_hal_net_selectSocket+0x1e4>)
+     818:	f7ff fffe 	bl	0 <__aeabi_fdiv>
+			818: R_ARM_THM_CALL	__aeabi_fdiv
+     81c:	4603      	mov	r3, r0
+     81e:	627b      	str	r3, [r7, #36]	; 0x24
+	struct fd_set writefds;
+	struct timeval tv;
+
+	int numDescriptors;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     820:	4b6d      	ldr	r3, [pc, #436]	; (9d8 <xme_hal_net_selectSocket+0x1dc>)
+     822:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     826:	4618      	mov	r0, r3
+     828:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			828: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+     82c:	88fb      	ldrh	r3, [r7, #6]
+     82e:	2b00      	cmp	r3, #0
+     830:	d019      	beq.n	866 <xme_hal_net_selectSocket+0x6a>
+     832:	4b69      	ldr	r3, [pc, #420]	; (9d8 <xme_hal_net_selectSocket+0x1dc>)
+     834:	885b      	ldrh	r3, [r3, #2]
+     836:	88fa      	ldrh	r2, [r7, #6]
+     838:	429a      	cmp	r2, r3
+     83a:	d814      	bhi.n	866 <xme_hal_net_selectSocket+0x6a>
+     83c:	88fb      	ldrh	r3, [r7, #6]
+     83e:	f103 33ff 	add.w	r3, r3, #4294967295
+     842:	4a65      	ldr	r2, [pc, #404]	; (9d8 <xme_hal_net_selectSocket+0x1dc>)
+     844:	18d3      	adds	r3, r2, r3
+     846:	791b      	ldrb	r3, [r3, #4]
+     848:	2b00      	cmp	r3, #0
+     84a:	d00c      	beq.n	866 <xme_hal_net_selectSocket+0x6a>
+     84c:	88fb      	ldrh	r3, [r7, #6]
+     84e:	f103 32ff 	add.w	r2, r3, #4294967295
+     852:	4613      	mov	r3, r2
+     854:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     858:	189b      	adds	r3, r3, r2
+     85a:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     85e:	461a      	mov	r2, r3
+     860:	4b5e      	ldr	r3, [pc, #376]	; (9dc <xme_hal_net_selectSocket+0x1e0>)
+     862:	18d3      	adds	r3, r2, r3
+     864:	e001      	b.n	86a <xme_hal_net_selectSocket+0x6e>
+     866:	f04f 0300 	mov.w	r3, #0
+     86a:	623b      	str	r3, [r7, #32]
+     86c:	6a3b      	ldr	r3, [r7, #32]
+     86e:	2b00      	cmp	r3, #0
+     870:	d108      	bne.n	884 <xme_hal_net_selectSocket+0x88>
+     872:	4b59      	ldr	r3, [pc, #356]	; (9d8 <xme_hal_net_selectSocket+0x1dc>)
+     874:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     878:	4618      	mov	r0, r3
+     87a:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			87a: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     87e:	f04f 0306 	mov.w	r3, #6
+     882:	e0a4      	b.n	9ce <xme_hal_net_selectSocket+0x1d2>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     884:	4b54      	ldr	r3, [pc, #336]	; (9d8 <xme_hal_net_selectSocket+0x1dc>)
+     886:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     88a:	4618      	mov	r0, r3
+     88c:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			88c: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	tv.tv_sec = (long int)tmp;
+     890:	6a78      	ldr	r0, [r7, #36]	; 0x24
+     892:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+			892: R_ARM_THM_CALL	__aeabi_f2iz
+     896:	4603      	mov	r3, r0
+     898:	60fb      	str	r3, [r7, #12]
+	tmp -= tv.tv_sec;
+     89a:	68fb      	ldr	r3, [r7, #12]
+     89c:	4618      	mov	r0, r3
+     89e:	f7ff fffe 	bl	0 <__aeabi_i2f>
+			89e: R_ARM_THM_CALL	__aeabi_i2f
+     8a2:	4603      	mov	r3, r0
+     8a4:	6a78      	ldr	r0, [r7, #36]	; 0x24
+     8a6:	4619      	mov	r1, r3
+     8a8:	f7ff fffe 	bl	0 <__aeabi_fsub>
+			8a8: R_ARM_THM_CALL	__aeabi_fsub
+     8ac:	4603      	mov	r3, r0
+     8ae:	627b      	str	r3, [r7, #36]	; 0x24
+	tv.tv_usec = (long int)(tmp * 1000000.0f);
+     8b0:	6a78      	ldr	r0, [r7, #36]	; 0x24
+     8b2:	494c      	ldr	r1, [pc, #304]	; (9e4 <xme_hal_net_selectSocket+0x1e8>)
+     8b4:	f7ff fffe 	bl	0 <__aeabi_fmul>
+			8b4: R_ARM_THM_CALL	__aeabi_fmul
+     8b8:	4603      	mov	r3, r0
+     8ba:	4618      	mov	r0, r3
+     8bc:	f7ff fffe 	bl	0 <__aeabi_f2iz>
+			8bc: R_ARM_THM_CALL	__aeabi_f2iz
+     8c0:	4603      	mov	r3, r0
+     8c2:	613b      	str	r3, [r7, #16]
+	
+	FD_ZERO(&readfds);
+     8c4:	f107 0318 	add.w	r3, r7, #24
+     8c8:	4618      	mov	r0, r3
+     8ca:	f04f 0100 	mov.w	r1, #0
+     8ce:	f04f 0201 	mov.w	r2, #1
+     8d2:	f7ff fffe 	bl	0 <memset>
+			8d2: R_ARM_THM_CALL	memset
+	FD_SET(socketItem->socket, &readfds);
+     8d6:	6a3b      	ldr	r3, [r7, #32]
+     8d8:	691b      	ldr	r3, [r3, #16]
+     8da:	2b00      	cmp	r3, #0
+     8dc:	da01      	bge.n	8e2 <xme_hal_net_selectSocket+0xe6>
+     8de:	f103 0307 	add.w	r3, r3, #7
+     8e2:	ea4f 03e3 	mov.w	r3, r3, asr #3
+     8e6:	f107 0128 	add.w	r1, r7, #40	; 0x28
+     8ea:	18ca      	adds	r2, r1, r3
+     8ec:	f812 2c10 	ldrb.w	r2, [r2, #-16]
+     8f0:	b2d1      	uxtb	r1, r2
+     8f2:	6a3a      	ldr	r2, [r7, #32]
+     8f4:	6912      	ldr	r2, [r2, #16]
+     8f6:	f002 0207 	and.w	r2, r2, #7
+     8fa:	f04f 0001 	mov.w	r0, #1
+     8fe:	fa00 f202 	lsl.w	r2, r0, r2
+     902:	b2d2      	uxtb	r2, r2
+     904:	ea41 0202 	orr.w	r2, r1, r2
+     908:	b2d2      	uxtb	r2, r2
+     90a:	b2d2      	uxtb	r2, r2
+     90c:	f107 0128 	add.w	r1, r7, #40	; 0x28
+     910:	18cb      	adds	r3, r1, r3
+     912:	f803 2c10 	strb.w	r2, [r3, #-16]
+
+	FD_ZERO(&writefds);
+     916:	f107 0314 	add.w	r3, r7, #20
+     91a:	4618      	mov	r0, r3
+     91c:	f04f 0100 	mov.w	r1, #0
+     920:	f04f 0201 	mov.w	r2, #1
+     924:	f7ff fffe 	bl	0 <memset>
+			924: R_ARM_THM_CALL	memset
+	FD_SET(socketItem->socket, &writefds);
+     928:	6a3b      	ldr	r3, [r7, #32]
+     92a:	691b      	ldr	r3, [r3, #16]
+     92c:	2b00      	cmp	r3, #0
+     92e:	da01      	bge.n	934 <xme_hal_net_selectSocket+0x138>
+     930:	f103 0307 	add.w	r3, r3, #7
+     934:	ea4f 03e3 	mov.w	r3, r3, asr #3
+     938:	f107 0128 	add.w	r1, r7, #40	; 0x28
+     93c:	18ca      	adds	r2, r1, r3
+     93e:	f812 2c14 	ldrb.w	r2, [r2, #-20]
+     942:	b2d1      	uxtb	r1, r2
+     944:	6a3a      	ldr	r2, [r7, #32]
+     946:	6912      	ldr	r2, [r2, #16]
+     948:	f002 0207 	and.w	r2, r2, #7
+     94c:	f04f 0001 	mov.w	r0, #1
+     950:	fa00 f202 	lsl.w	r2, r0, r2
+     954:	b2d2      	uxtb	r2, r2
+     956:	ea41 0202 	orr.w	r2, r1, r2
+     95a:	b2d2      	uxtb	r2, r2
+     95c:	b2d2      	uxtb	r2, r2
+     95e:	f107 0128 	add.w	r1, r7, #40	; 0x28
+     962:	18cb      	adds	r3, r1, r3
+     964:	f803 2c14 	strb.w	r2, [r3, #-20]
+
+	numDescriptors = lwip_select(socketItem->socket+1, read ? &readfds : NULL, write ? &writefds : NULL, NULL, (0 == timeoutMs) ? 0 : &tv);
+     968:	6a3b      	ldr	r3, [r7, #32]
+     96a:	691b      	ldr	r3, [r3, #16]
+     96c:	f103 0001 	add.w	r0, r3, #1
+     970:	797b      	ldrb	r3, [r7, #5]
+     972:	2b00      	cmp	r3, #0
+     974:	d002      	beq.n	97c <xme_hal_net_selectSocket+0x180>
+     976:	f107 0218 	add.w	r2, r7, #24
+     97a:	e001      	b.n	980 <xme_hal_net_selectSocket+0x184>
+     97c:	f04f 0200 	mov.w	r2, #0
+     980:	793b      	ldrb	r3, [r7, #4]
+     982:	2b00      	cmp	r3, #0
+     984:	d002      	beq.n	98c <xme_hal_net_selectSocket+0x190>
+     986:	f107 0314 	add.w	r3, r7, #20
+     98a:	e001      	b.n	990 <xme_hal_net_selectSocket+0x194>
+     98c:	f04f 0300 	mov.w	r3, #0
+     990:	8879      	ldrh	r1, [r7, #2]
+     992:	2900      	cmp	r1, #0
+     994:	d002      	beq.n	99c <xme_hal_net_selectSocket+0x1a0>
+     996:	f107 010c 	add.w	r1, r7, #12
+     99a:	e001      	b.n	9a0 <xme_hal_net_selectSocket+0x1a4>
+     99c:	f04f 0100 	mov.w	r1, #0
+     9a0:	9100      	str	r1, [sp, #0]
+     9a2:	4611      	mov	r1, r2
+     9a4:	461a      	mov	r2, r3
+     9a6:	f04f 0300 	mov.w	r3, #0
+     9aa:	f7ff fffe 	bl	0 <lwip_select>
+			9aa: R_ARM_THM_CALL	lwip_select
+     9ae:	61f8      	str	r0, [r7, #28]
+
+	XME_CHECK
+     9b0:	69fb      	ldr	r3, [r7, #28]
+     9b2:	2b00      	cmp	r3, #0
+     9b4:	d102      	bne.n	9bc <xme_hal_net_selectSocket+0x1c0>
+     9b6:	f04f 030d 	mov.w	r3, #13
+     9ba:	e008      	b.n	9ce <xme_hal_net_selectSocket+0x1d2>
+	(
+		0 != numDescriptors,
+		XME_CORE_STATUS_TIMEOUT
+	);
+
+	XME_CHECK
+     9bc:	69fb      	ldr	r3, [r7, #28]
+     9be:	f1b3 3fff 	cmp.w	r3, #4294967295
+     9c2:	d102      	bne.n	9ca <xme_hal_net_selectSocket+0x1ce>
+     9c4:	f04f 0303 	mov.w	r3, #3
+     9c8:	e001      	b.n	9ce <xme_hal_net_selectSocket+0x1d2>
+	(
+		-1 != numDescriptors,
+		XME_CORE_STATUS_INTERNAL_ERROR
+	);
+
+	return XME_CORE_STATUS_SUCCESS;
+     9ca:	f04f 0300 	mov.w	r3, #0
+}
+     9ce:	4618      	mov	r0, r3
+     9d0:	f107 0728 	add.w	r7, r7, #40	; 0x28
+     9d4:	46bd      	mov	sp, r7
+     9d6:	bd80      	pop	{r7, pc}
+     9d8:	00000004 	.word	0x00000004
+			9d8: R_ARM_ABS32	.bss
+     9dc:	00000014 	.word	0x00000014
+			9dc: R_ARM_ABS32	.bss
+     9e0:	447a0000 	.word	0x447a0000
+     9e4:	49742400 	.word	0x49742400
+
+000009e8 <xme_hal_net_selectMultipleSockets>:
+xme_hal_net_selectMultipleSockets(uint16_t max_socket,
+								  xme_hal_net_socketHandle_t* socketSetRead,
+								  xme_hal_net_socketHandle_t* socketSetWrite,
+								  xme_hal_net_socketHandle_t* socketSetError,
+								  uint16_t timeoutMs)
+{
+     9e8:	b590      	push	{r4, r7, lr}
+     9ea:	b091      	sub	sp, #68	; 0x44
+     9ec:	af02      	add	r7, sp, #8
+     9ee:	60b9      	str	r1, [r7, #8]
+     9f0:	607a      	str	r2, [r7, #4]
+     9f2:	603b      	str	r3, [r7, #0]
+     9f4:	4603      	mov	r3, r0
+     9f6:	81fb      	strh	r3, [r7, #14]
+	xme_hal_net_socketItem* socketItem;
+	xme_hal_net_socketHandle_t socketHandle;
+	float tmp = (float)timeoutMs / 1000;
+     9f8:	f8b7 3048 	ldrh.w	r3, [r7, #72]	; 0x48
+     9fc:	4618      	mov	r0, r3
+     9fe:	f7ff fffe 	bl	0 <__aeabi_ui2f>
+			9fe: R_ARM_THM_CALL	__aeabi_ui2f
+     a02:	4603      	mov	r3, r0
+     a04:	4618      	mov	r0, r3
+     a06:	499e      	ldr	r1, [pc, #632]	; (c80 <xme_hal_net_selectMultipleSockets+0x298>)
+     a08:	f7ff fffe 	bl	0 <__aeabi_fdiv>
+			a08: R_ARM_THM_CALL	__aeabi_fdiv
+     a0c:	4603      	mov	r3, r0
+     a0e:	633b      	str	r3, [r7, #48]	; 0x30
+	uint16_t i;
+	uint16_t maxInternalSocketHandle;
+
+	int numDescriptors;
+
+	tv.tv_sec = timeoutMs / 1000;
+     a10:	f8b7 2048 	ldrh.w	r2, [r7, #72]	; 0x48
+     a14:	4b97      	ldr	r3, [pc, #604]	; (c74 <xme_hal_net_selectMultipleSockets+0x28c>)
+     a16:	fba3 1302 	umull	r1, r3, r3, r2
+     a1a:	ea4f 1393 	mov.w	r3, r3, lsr #6
+     a1e:	b29b      	uxth	r3, r3
+     a20:	613b      	str	r3, [r7, #16]
+	tv.tv_usec = ( timeoutMs % 1000 );
+     a22:	f8b7 3048 	ldrh.w	r3, [r7, #72]	; 0x48
+     a26:	4a93      	ldr	r2, [pc, #588]	; (c74 <xme_hal_net_selectMultipleSockets+0x28c>)
+     a28:	fba2 1203 	umull	r1, r2, r2, r3
+     a2c:	ea4f 1292 	mov.w	r2, r2, lsr #6
+     a30:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+     a34:	fb01 f202 	mul.w	r2, r1, r2
+     a38:	1a9b      	subs	r3, r3, r2
+     a3a:	b29b      	uxth	r3, r3
+     a3c:	617b      	str	r3, [r7, #20]
+	maxInternalSocketHandle = 0;
+     a3e:	f04f 0300 	mov.w	r3, #0
+     a42:	86bb      	strh	r3, [r7, #52]	; 0x34
+
+	FD_ZERO(&readfds);
+     a44:	f107 0320 	add.w	r3, r7, #32
+     a48:	4618      	mov	r0, r3
+     a4a:	f04f 0100 	mov.w	r1, #0
+     a4e:	f04f 0201 	mov.w	r2, #1
+     a52:	f7ff fffe 	bl	0 <memset>
+			a52: R_ARM_THM_CALL	memset
+	if ( socketSetRead != NULL )
+     a56:	68bb      	ldr	r3, [r7, #8]
+     a58:	2b00      	cmp	r3, #0
+     a5a:	d077      	beq.n	b4c <xme_hal_net_selectMultipleSockets+0x164>
+	{
+		for ( i = 0; i < max_socket; i++ )
+     a5c:	f04f 0300 	mov.w	r3, #0
+     a60:	86fb      	strh	r3, [r7, #54]	; 0x36
+     a62:	e06f      	b.n	b44 <xme_hal_net_selectMultipleSockets+0x15c>
+		{
+			socketHandle = socketSetRead[i];
+     a64:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     a66:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     a6a:	68ba      	ldr	r2, [r7, #8]
+     a6c:	18d3      	adds	r3, r2, r3
+     a6e:	881b      	ldrh	r3, [r3, #0]
+     a70:	85fb      	strh	r3, [r7, #46]	; 0x2e
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     a72:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     a74:	2b00      	cmp	r3, #0
+     a76:	d060      	beq.n	b3a <xme_hal_net_selectMultipleSockets+0x152>
+
+			xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     a78:	4b7f      	ldr	r3, [pc, #508]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     a7a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     a7e:	4618      	mov	r0, r3
+     a80:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			a80: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+			{
+				// Verify socket handle
+				XME_CHECK_REC
+     a84:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     a86:	2b00      	cmp	r3, #0
+     a88:	d019      	beq.n	abe <xme_hal_net_selectMultipleSockets+0xd6>
+     a8a:	4b7b      	ldr	r3, [pc, #492]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     a8c:	885b      	ldrh	r3, [r3, #2]
+     a8e:	8dfa      	ldrh	r2, [r7, #46]	; 0x2e
+     a90:	429a      	cmp	r2, r3
+     a92:	d814      	bhi.n	abe <xme_hal_net_selectMultipleSockets+0xd6>
+     a94:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     a96:	f103 33ff 	add.w	r3, r3, #4294967295
+     a9a:	4a77      	ldr	r2, [pc, #476]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     a9c:	18d3      	adds	r3, r2, r3
+     a9e:	791b      	ldrb	r3, [r3, #4]
+     aa0:	2b00      	cmp	r3, #0
+     aa2:	d00c      	beq.n	abe <xme_hal_net_selectMultipleSockets+0xd6>
+     aa4:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     aa6:	f103 32ff 	add.w	r2, r3, #4294967295
+     aaa:	4613      	mov	r3, r2
+     aac:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     ab0:	189b      	adds	r3, r3, r2
+     ab2:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     ab6:	461a      	mov	r2, r3
+     ab8:	4b70      	ldr	r3, [pc, #448]	; (c7c <xme_hal_net_selectMultipleSockets+0x294>)
+     aba:	18d3      	adds	r3, r2, r3
+     abc:	e001      	b.n	ac2 <xme_hal_net_selectMultipleSockets+0xda>
+     abe:	f04f 0300 	mov.w	r3, #0
+     ac2:	62bb      	str	r3, [r7, #40]	; 0x28
+     ac4:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     ac6:	2b00      	cmp	r3, #0
+     ac8:	d108      	bne.n	adc <xme_hal_net_selectMultipleSockets+0xf4>
+     aca:	4b6b      	ldr	r3, [pc, #428]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     acc:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     ad0:	4618      	mov	r0, r3
+     ad2:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			ad2: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     ad6:	f04f 0306 	mov.w	r3, #6
+     ada:	e2e6      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+					{
+						xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     adc:	4b66      	ldr	r3, [pc, #408]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     ade:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     ae2:	4618      	mov	r0, r3
+     ae4:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			ae4: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+			FD_SET(socketItem->socket, &readfds);
+     ae8:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     aea:	691b      	ldr	r3, [r3, #16]
+     aec:	2b00      	cmp	r3, #0
+     aee:	da01      	bge.n	af4 <xme_hal_net_selectMultipleSockets+0x10c>
+     af0:	f103 0307 	add.w	r3, r3, #7
+     af4:	ea4f 03e3 	mov.w	r3, r3, asr #3
+     af8:	f107 0138 	add.w	r1, r7, #56	; 0x38
+     afc:	18ca      	adds	r2, r1, r3
+     afe:	f812 2c18 	ldrb.w	r2, [r2, #-24]
+     b02:	b2d1      	uxtb	r1, r2
+     b04:	6aba      	ldr	r2, [r7, #40]	; 0x28
+     b06:	6912      	ldr	r2, [r2, #16]
+     b08:	f002 0207 	and.w	r2, r2, #7
+     b0c:	f04f 0001 	mov.w	r0, #1
+     b10:	fa00 f202 	lsl.w	r2, r0, r2
+     b14:	b2d2      	uxtb	r2, r2
+     b16:	ea41 0202 	orr.w	r2, r1, r2
+     b1a:	b2d2      	uxtb	r2, r2
+     b1c:	b2d2      	uxtb	r2, r2
+     b1e:	f107 0138 	add.w	r1, r7, #56	; 0x38
+     b22:	18cb      	adds	r3, r1, r3
+     b24:	f803 2c18 	strb.w	r2, [r3, #-24]
+			if ( socketItem->socket > maxInternalSocketHandle ) maxInternalSocketHandle = socketItem->socket;
+     b28:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     b2a:	691a      	ldr	r2, [r3, #16]
+     b2c:	8ebb      	ldrh	r3, [r7, #52]	; 0x34
+     b2e:	429a      	cmp	r2, r3
+     b30:	dd04      	ble.n	b3c <xme_hal_net_selectMultipleSockets+0x154>
+     b32:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     b34:	691b      	ldr	r3, [r3, #16]
+     b36:	86bb      	strh	r3, [r7, #52]	; 0x34
+     b38:	e000      	b.n	b3c <xme_hal_net_selectMultipleSockets+0x154>
+	if ( socketSetRead != NULL )
+	{
+		for ( i = 0; i < max_socket; i++ )
+		{
+			socketHandle = socketSetRead[i];
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     b3a:	bf00      	nop
+	maxInternalSocketHandle = 0;
+
+	FD_ZERO(&readfds);
+	if ( socketSetRead != NULL )
+	{
+		for ( i = 0; i < max_socket; i++ )
+     b3c:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     b3e:	f103 0301 	add.w	r3, r3, #1
+     b42:	86fb      	strh	r3, [r7, #54]	; 0x36
+     b44:	8efa      	ldrh	r2, [r7, #54]	; 0x36
+     b46:	89fb      	ldrh	r3, [r7, #14]
+     b48:	429a      	cmp	r2, r3
+     b4a:	d38b      	bcc.n	a64 <xme_hal_net_selectMultipleSockets+0x7c>
+			FD_SET(socketItem->socket, &readfds);
+			if ( socketItem->socket > maxInternalSocketHandle ) maxInternalSocketHandle = socketItem->socket;
+		}
+	}
+
+	FD_ZERO(&writefds);
+     b4c:	f107 031c 	add.w	r3, r7, #28
+     b50:	4618      	mov	r0, r3
+     b52:	f04f 0100 	mov.w	r1, #0
+     b56:	f04f 0201 	mov.w	r2, #1
+     b5a:	f7ff fffe 	bl	0 <memset>
+			b5a: R_ARM_THM_CALL	memset
+	if ( socketSetWrite != NULL )
+     b5e:	687b      	ldr	r3, [r7, #4]
+     b60:	2b00      	cmp	r3, #0
+     b62:	d077      	beq.n	c54 <xme_hal_net_selectMultipleSockets+0x26c>
+	{
+		for ( i = 0; i < max_socket; i++ )
+     b64:	f04f 0300 	mov.w	r3, #0
+     b68:	86fb      	strh	r3, [r7, #54]	; 0x36
+     b6a:	e06f      	b.n	c4c <xme_hal_net_selectMultipleSockets+0x264>
+		{
+			socketHandle = socketSetWrite[i];
+     b6c:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     b6e:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     b72:	687a      	ldr	r2, [r7, #4]
+     b74:	18d3      	adds	r3, r2, r3
+     b76:	881b      	ldrh	r3, [r3, #0]
+     b78:	85fb      	strh	r3, [r7, #46]	; 0x2e
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     b7a:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     b7c:	2b00      	cmp	r3, #0
+     b7e:	d060      	beq.n	c42 <xme_hal_net_selectMultipleSockets+0x25a>
+
+			xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     b80:	4b3d      	ldr	r3, [pc, #244]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     b82:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     b86:	4618      	mov	r0, r3
+     b88:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			b88: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+			{
+				// Verify socket handle
+				XME_CHECK_REC
+     b8c:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     b8e:	2b00      	cmp	r3, #0
+     b90:	d019      	beq.n	bc6 <xme_hal_net_selectMultipleSockets+0x1de>
+     b92:	4b39      	ldr	r3, [pc, #228]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     b94:	885b      	ldrh	r3, [r3, #2]
+     b96:	8dfa      	ldrh	r2, [r7, #46]	; 0x2e
+     b98:	429a      	cmp	r2, r3
+     b9a:	d814      	bhi.n	bc6 <xme_hal_net_selectMultipleSockets+0x1de>
+     b9c:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     b9e:	f103 33ff 	add.w	r3, r3, #4294967295
+     ba2:	4a35      	ldr	r2, [pc, #212]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     ba4:	18d3      	adds	r3, r2, r3
+     ba6:	791b      	ldrb	r3, [r3, #4]
+     ba8:	2b00      	cmp	r3, #0
+     baa:	d00c      	beq.n	bc6 <xme_hal_net_selectMultipleSockets+0x1de>
+     bac:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     bae:	f103 32ff 	add.w	r2, r3, #4294967295
+     bb2:	4613      	mov	r3, r2
+     bb4:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     bb8:	189b      	adds	r3, r3, r2
+     bba:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     bbe:	461a      	mov	r2, r3
+     bc0:	4b2e      	ldr	r3, [pc, #184]	; (c7c <xme_hal_net_selectMultipleSockets+0x294>)
+     bc2:	18d3      	adds	r3, r2, r3
+     bc4:	e001      	b.n	bca <xme_hal_net_selectMultipleSockets+0x1e2>
+     bc6:	f04f 0300 	mov.w	r3, #0
+     bca:	62bb      	str	r3, [r7, #40]	; 0x28
+     bcc:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     bce:	2b00      	cmp	r3, #0
+     bd0:	d108      	bne.n	be4 <xme_hal_net_selectMultipleSockets+0x1fc>
+     bd2:	4b29      	ldr	r3, [pc, #164]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     bd4:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     bd8:	4618      	mov	r0, r3
+     bda:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			bda: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     bde:	f04f 0306 	mov.w	r3, #6
+     be2:	e262      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+					{
+						xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     be4:	4b24      	ldr	r3, [pc, #144]	; (c78 <xme_hal_net_selectMultipleSockets+0x290>)
+     be6:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     bea:	4618      	mov	r0, r3
+     bec:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			bec: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+			FD_SET(socketItem->socket, &writefds);
+     bf0:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     bf2:	691b      	ldr	r3, [r3, #16]
+     bf4:	2b00      	cmp	r3, #0
+     bf6:	da01      	bge.n	bfc <xme_hal_net_selectMultipleSockets+0x214>
+     bf8:	f103 0307 	add.w	r3, r3, #7
+     bfc:	ea4f 03e3 	mov.w	r3, r3, asr #3
+     c00:	f107 0138 	add.w	r1, r7, #56	; 0x38
+     c04:	18ca      	adds	r2, r1, r3
+     c06:	f812 2c1c 	ldrb.w	r2, [r2, #-28]
+     c0a:	b2d1      	uxtb	r1, r2
+     c0c:	6aba      	ldr	r2, [r7, #40]	; 0x28
+     c0e:	6912      	ldr	r2, [r2, #16]
+     c10:	f002 0207 	and.w	r2, r2, #7
+     c14:	f04f 0001 	mov.w	r0, #1
+     c18:	fa00 f202 	lsl.w	r2, r0, r2
+     c1c:	b2d2      	uxtb	r2, r2
+     c1e:	ea41 0202 	orr.w	r2, r1, r2
+     c22:	b2d2      	uxtb	r2, r2
+     c24:	b2d2      	uxtb	r2, r2
+     c26:	f107 0138 	add.w	r1, r7, #56	; 0x38
+     c2a:	18cb      	adds	r3, r1, r3
+     c2c:	f803 2c1c 	strb.w	r2, [r3, #-28]
+			if ( socketItem->socket > maxInternalSocketHandle ) maxInternalSocketHandle = socketItem->socket;
+     c30:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     c32:	691a      	ldr	r2, [r3, #16]
+     c34:	8ebb      	ldrh	r3, [r7, #52]	; 0x34
+     c36:	429a      	cmp	r2, r3
+     c38:	dd04      	ble.n	c44 <xme_hal_net_selectMultipleSockets+0x25c>
+     c3a:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     c3c:	691b      	ldr	r3, [r3, #16]
+     c3e:	86bb      	strh	r3, [r7, #52]	; 0x34
+     c40:	e000      	b.n	c44 <xme_hal_net_selectMultipleSockets+0x25c>
+	if ( socketSetWrite != NULL )
+	{
+		for ( i = 0; i < max_socket; i++ )
+		{
+			socketHandle = socketSetWrite[i];
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     c42:	bf00      	nop
+	}
+
+	FD_ZERO(&writefds);
+	if ( socketSetWrite != NULL )
+	{
+		for ( i = 0; i < max_socket; i++ )
+     c44:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     c46:	f103 0301 	add.w	r3, r3, #1
+     c4a:	86fb      	strh	r3, [r7, #54]	; 0x36
+     c4c:	8efa      	ldrh	r2, [r7, #54]	; 0x36
+     c4e:	89fb      	ldrh	r3, [r7, #14]
+     c50:	429a      	cmp	r2, r3
+     c52:	d38b      	bcc.n	b6c <xme_hal_net_selectMultipleSockets+0x184>
+			FD_SET(socketItem->socket, &writefds);
+			if ( socketItem->socket > maxInternalSocketHandle ) maxInternalSocketHandle = socketItem->socket;
+		}
+	}
+
+	FD_ZERO(&exceptfds);
+     c54:	f107 0318 	add.w	r3, r7, #24
+     c58:	4618      	mov	r0, r3
+     c5a:	f04f 0100 	mov.w	r1, #0
+     c5e:	f04f 0201 	mov.w	r2, #1
+     c62:	f7ff fffe 	bl	0 <memset>
+			c62: R_ARM_THM_CALL	memset
+	if ( socketSetError != NULL )
+     c66:	683b      	ldr	r3, [r7, #0]
+     c68:	2b00      	cmp	r3, #0
+     c6a:	d07f      	beq.n	d6c <xme_hal_net_selectMultipleSockets+0x384>
+	{
+		for ( i = 0; i < max_socket; i++ )
+     c6c:	f04f 0300 	mov.w	r3, #0
+     c70:	86fb      	strh	r3, [r7, #54]	; 0x36
+     c72:	e077      	b.n	d64 <xme_hal_net_selectMultipleSockets+0x37c>
+     c74:	10624dd3 	.word	0x10624dd3
+     c78:	00000004 	.word	0x00000004
+			c78: R_ARM_ABS32	.bss
+     c7c:	00000014 	.word	0x00000014
+			c7c: R_ARM_ABS32	.bss
+     c80:	447a0000 	.word	0x447a0000
+		{
+			socketHandle = socketSetError[i];
+     c84:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     c86:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     c8a:	683a      	ldr	r2, [r7, #0]
+     c8c:	18d3      	adds	r3, r2, r3
+     c8e:	881b      	ldrh	r3, [r3, #0]
+     c90:	85fb      	strh	r3, [r7, #46]	; 0x2e
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     c92:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     c94:	2b00      	cmp	r3, #0
+     c96:	d060      	beq.n	d5a <xme_hal_net_selectMultipleSockets+0x372>
+
+			xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     c98:	4b8e      	ldr	r3, [pc, #568]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     c9a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     c9e:	4618      	mov	r0, r3
+     ca0:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			ca0: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+			{
+				// Verify socket handle
+				XME_CHECK_REC
+     ca4:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     ca6:	2b00      	cmp	r3, #0
+     ca8:	d019      	beq.n	cde <xme_hal_net_selectMultipleSockets+0x2f6>
+     caa:	4b8a      	ldr	r3, [pc, #552]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     cac:	885b      	ldrh	r3, [r3, #2]
+     cae:	8dfa      	ldrh	r2, [r7, #46]	; 0x2e
+     cb0:	429a      	cmp	r2, r3
+     cb2:	d814      	bhi.n	cde <xme_hal_net_selectMultipleSockets+0x2f6>
+     cb4:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     cb6:	f103 33ff 	add.w	r3, r3, #4294967295
+     cba:	4a86      	ldr	r2, [pc, #536]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     cbc:	18d3      	adds	r3, r2, r3
+     cbe:	791b      	ldrb	r3, [r3, #4]
+     cc0:	2b00      	cmp	r3, #0
+     cc2:	d00c      	beq.n	cde <xme_hal_net_selectMultipleSockets+0x2f6>
+     cc4:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     cc6:	f103 32ff 	add.w	r2, r3, #4294967295
+     cca:	4613      	mov	r3, r2
+     ccc:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     cd0:	189b      	adds	r3, r3, r2
+     cd2:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     cd6:	461a      	mov	r2, r3
+     cd8:	4b7f      	ldr	r3, [pc, #508]	; (ed8 <xme_hal_net_selectMultipleSockets+0x4f0>)
+     cda:	18d3      	adds	r3, r2, r3
+     cdc:	e001      	b.n	ce2 <xme_hal_net_selectMultipleSockets+0x2fa>
+     cde:	f04f 0300 	mov.w	r3, #0
+     ce2:	62bb      	str	r3, [r7, #40]	; 0x28
+     ce4:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     ce6:	2b00      	cmp	r3, #0
+     ce8:	d108      	bne.n	cfc <xme_hal_net_selectMultipleSockets+0x314>
+     cea:	4b7a      	ldr	r3, [pc, #488]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     cec:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     cf0:	4618      	mov	r0, r3
+     cf2:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			cf2: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     cf6:	f04f 0306 	mov.w	r3, #6
+     cfa:	e1d6      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+					{
+						xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     cfc:	4b75      	ldr	r3, [pc, #468]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     cfe:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     d02:	4618      	mov	r0, r3
+     d04:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			d04: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+			FD_SET(socketItem->socket, &exceptfds);
+     d08:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     d0a:	691b      	ldr	r3, [r3, #16]
+     d0c:	2b00      	cmp	r3, #0
+     d0e:	da01      	bge.n	d14 <xme_hal_net_selectMultipleSockets+0x32c>
+     d10:	f103 0307 	add.w	r3, r3, #7
+     d14:	ea4f 03e3 	mov.w	r3, r3, asr #3
+     d18:	f107 0138 	add.w	r1, r7, #56	; 0x38
+     d1c:	18ca      	adds	r2, r1, r3
+     d1e:	f812 2c20 	ldrb.w	r2, [r2, #-32]
+     d22:	b2d1      	uxtb	r1, r2
+     d24:	6aba      	ldr	r2, [r7, #40]	; 0x28
+     d26:	6912      	ldr	r2, [r2, #16]
+     d28:	f002 0207 	and.w	r2, r2, #7
+     d2c:	f04f 0001 	mov.w	r0, #1
+     d30:	fa00 f202 	lsl.w	r2, r0, r2
+     d34:	b2d2      	uxtb	r2, r2
+     d36:	ea41 0202 	orr.w	r2, r1, r2
+     d3a:	b2d2      	uxtb	r2, r2
+     d3c:	b2d2      	uxtb	r2, r2
+     d3e:	f107 0138 	add.w	r1, r7, #56	; 0x38
+     d42:	18cb      	adds	r3, r1, r3
+     d44:	f803 2c20 	strb.w	r2, [r3, #-32]
+			if ( socketItem->socket > maxInternalSocketHandle ) maxInternalSocketHandle = socketItem->socket;
+     d48:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     d4a:	691a      	ldr	r2, [r3, #16]
+     d4c:	8ebb      	ldrh	r3, [r7, #52]	; 0x34
+     d4e:	429a      	cmp	r2, r3
+     d50:	dd04      	ble.n	d5c <xme_hal_net_selectMultipleSockets+0x374>
+     d52:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     d54:	691b      	ldr	r3, [r3, #16]
+     d56:	86bb      	strh	r3, [r7, #52]	; 0x34
+     d58:	e000      	b.n	d5c <xme_hal_net_selectMultipleSockets+0x374>
+	if ( socketSetError != NULL )
+	{
+		for ( i = 0; i < max_socket; i++ )
+		{
+			socketHandle = socketSetError[i];
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     d5a:	bf00      	nop
+	}
+
+	FD_ZERO(&exceptfds);
+	if ( socketSetError != NULL )
+	{
+		for ( i = 0; i < max_socket; i++ )
+     d5c:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     d5e:	f103 0301 	add.w	r3, r3, #1
+     d62:	86fb      	strh	r3, [r7, #54]	; 0x36
+     d64:	8efa      	ldrh	r2, [r7, #54]	; 0x36
+     d66:	89fb      	ldrh	r3, [r7, #14]
+     d68:	429a      	cmp	r2, r3
+     d6a:	d38b      	bcc.n	c84 <xme_hal_net_selectMultipleSockets+0x29c>
+			FD_SET(socketItem->socket, &exceptfds);
+			if ( socketItem->socket > maxInternalSocketHandle ) maxInternalSocketHandle = socketItem->socket;
+		}
+	}
+
+	numDescriptors = lwip_select(
+     d6c:	8ebb      	ldrh	r3, [r7, #52]	; 0x34
+     d6e:	f103 0401 	add.w	r4, r3, #1
+     d72:	68bb      	ldr	r3, [r7, #8]
+     d74:	2b00      	cmp	r3, #0
+     d76:	d002      	beq.n	d7e <xme_hal_net_selectMultipleSockets+0x396>
+     d78:	f107 0120 	add.w	r1, r7, #32
+     d7c:	e001      	b.n	d82 <xme_hal_net_selectMultipleSockets+0x39a>
+     d7e:	f04f 0100 	mov.w	r1, #0
+     d82:	687b      	ldr	r3, [r7, #4]
+     d84:	2b00      	cmp	r3, #0
+     d86:	d002      	beq.n	d8e <xme_hal_net_selectMultipleSockets+0x3a6>
+     d88:	f107 021c 	add.w	r2, r7, #28
+     d8c:	e001      	b.n	d92 <xme_hal_net_selectMultipleSockets+0x3aa>
+     d8e:	f04f 0200 	mov.w	r2, #0
+     d92:	683b      	ldr	r3, [r7, #0]
+     d94:	2b00      	cmp	r3, #0
+     d96:	d002      	beq.n	d9e <xme_hal_net_selectMultipleSockets+0x3b6>
+     d98:	f107 0318 	add.w	r3, r7, #24
+     d9c:	e001      	b.n	da2 <xme_hal_net_selectMultipleSockets+0x3ba>
+     d9e:	f04f 0300 	mov.w	r3, #0
+     da2:	f8b7 0048 	ldrh.w	r0, [r7, #72]	; 0x48
+     da6:	2800      	cmp	r0, #0
+     da8:	d002      	beq.n	db0 <xme_hal_net_selectMultipleSockets+0x3c8>
+     daa:	f107 0010 	add.w	r0, r7, #16
+     dae:	e001      	b.n	db4 <xme_hal_net_selectMultipleSockets+0x3cc>
+     db0:	f04f 0000 	mov.w	r0, #0
+     db4:	9000      	str	r0, [sp, #0]
+     db6:	4620      	mov	r0, r4
+     db8:	f7ff fffe 	bl	0 <lwip_select>
+			db8: R_ARM_THM_CALL	lwip_select
+     dbc:	6278      	str	r0, [r7, #36]	; 0x24
+		(socketSetRead != NULL )? &readfds : NULL,
+		(socketSetWrite != NULL ) ? &writefds : NULL,
+		(socketSetError != NULL ) ? &exceptfds : NULL,
+		(0 == timeoutMs) ? 0 : &tv );
+
+	XME_CHECK
+     dbe:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+     dc0:	2b00      	cmp	r3, #0
+     dc2:	d102      	bne.n	dca <xme_hal_net_selectMultipleSockets+0x3e2>
+     dc4:	f04f 030d 	mov.w	r3, #13
+     dc8:	e16f      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+	(
+		0 != numDescriptors,
+		XME_CORE_STATUS_TIMEOUT
+	);
+
+	XME_CHECK
+     dca:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+     dcc:	f1b3 3fff 	cmp.w	r3, #4294967295
+     dd0:	d102      	bne.n	dd8 <xme_hal_net_selectMultipleSockets+0x3f0>
+     dd2:	f04f 0303 	mov.w	r3, #3
+     dd6:	e168      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+	(
+		-1 != numDescriptors,
+		XME_CORE_STATUS_INTERNAL_ERROR
+	);
+
+	if ( socketSetRead != NULL )
+     dd8:	68bb      	ldr	r3, [r7, #8]
+     dda:	2b00      	cmp	r3, #0
+     ddc:	d072      	beq.n	ec4 <xme_hal_net_selectMultipleSockets+0x4dc>
+	{
+		for ( i = 0; i < max_socket; i ++ )
+     dde:	f04f 0300 	mov.w	r3, #0
+     de2:	86fb      	strh	r3, [r7, #54]	; 0x36
+     de4:	e06a      	b.n	ebc <xme_hal_net_selectMultipleSockets+0x4d4>
+		{
+			socketHandle = socketSetRead[i];
+     de6:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     de8:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     dec:	68ba      	ldr	r2, [r7, #8]
+     dee:	18d3      	adds	r3, r2, r3
+     df0:	881b      	ldrh	r3, [r3, #0]
+     df2:	85fb      	strh	r3, [r7, #46]	; 0x2e
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     df4:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     df6:	2b00      	cmp	r3, #0
+     df8:	d059      	beq.n	eae <xme_hal_net_selectMultipleSockets+0x4c6>
+
+			xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     dfa:	4b36      	ldr	r3, [pc, #216]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     dfc:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     e00:	4618      	mov	r0, r3
+     e02:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			e02: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+			{
+				// Verify socket handle
+				XME_CHECK_REC
+     e06:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     e08:	2b00      	cmp	r3, #0
+     e0a:	d019      	beq.n	e40 <xme_hal_net_selectMultipleSockets+0x458>
+     e0c:	4b31      	ldr	r3, [pc, #196]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     e0e:	885b      	ldrh	r3, [r3, #2]
+     e10:	8dfa      	ldrh	r2, [r7, #46]	; 0x2e
+     e12:	429a      	cmp	r2, r3
+     e14:	d814      	bhi.n	e40 <xme_hal_net_selectMultipleSockets+0x458>
+     e16:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     e18:	f103 33ff 	add.w	r3, r3, #4294967295
+     e1c:	4a2d      	ldr	r2, [pc, #180]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     e1e:	18d3      	adds	r3, r2, r3
+     e20:	791b      	ldrb	r3, [r3, #4]
+     e22:	2b00      	cmp	r3, #0
+     e24:	d00c      	beq.n	e40 <xme_hal_net_selectMultipleSockets+0x458>
+     e26:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     e28:	f103 32ff 	add.w	r2, r3, #4294967295
+     e2c:	4613      	mov	r3, r2
+     e2e:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     e32:	189b      	adds	r3, r3, r2
+     e34:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     e38:	461a      	mov	r2, r3
+     e3a:	4b27      	ldr	r3, [pc, #156]	; (ed8 <xme_hal_net_selectMultipleSockets+0x4f0>)
+     e3c:	18d3      	adds	r3, r2, r3
+     e3e:	e001      	b.n	e44 <xme_hal_net_selectMultipleSockets+0x45c>
+     e40:	f04f 0300 	mov.w	r3, #0
+     e44:	62bb      	str	r3, [r7, #40]	; 0x28
+     e46:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     e48:	2b00      	cmp	r3, #0
+     e4a:	d108      	bne.n	e5e <xme_hal_net_selectMultipleSockets+0x476>
+     e4c:	4b21      	ldr	r3, [pc, #132]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     e4e:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     e52:	4618      	mov	r0, r3
+     e54:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			e54: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     e58:	f04f 0306 	mov.w	r3, #6
+     e5c:	e125      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+					{
+						xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     e5e:	4b1d      	ldr	r3, [pc, #116]	; (ed4 <xme_hal_net_selectMultipleSockets+0x4ec>)
+     e60:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     e64:	4618      	mov	r0, r3
+     e66:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			e66: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+			if ( FD_ISSET(socketItem->socket, &readfds) ) continue;
+     e6a:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     e6c:	691b      	ldr	r3, [r3, #16]
+     e6e:	2b00      	cmp	r3, #0
+     e70:	da01      	bge.n	e76 <xme_hal_net_selectMultipleSockets+0x48e>
+     e72:	f103 0307 	add.w	r3, r3, #7
+     e76:	ea4f 03e3 	mov.w	r3, r3, asr #3
+     e7a:	f107 0238 	add.w	r2, r7, #56	; 0x38
+     e7e:	18d3      	adds	r3, r2, r3
+     e80:	f813 3c18 	ldrb.w	r3, [r3, #-24]
+     e84:	461a      	mov	r2, r3
+     e86:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     e88:	691b      	ldr	r3, [r3, #16]
+     e8a:	f003 0307 	and.w	r3, r3, #7
+     e8e:	fa42 f303 	asr.w	r3, r2, r3
+     e92:	f003 0301 	and.w	r3, r3, #1
+     e96:	b2db      	uxtb	r3, r3
+     e98:	2b00      	cmp	r3, #0
+     e9a:	d10a      	bne.n	eb2 <xme_hal_net_selectMultipleSockets+0x4ca>
+			socketSetRead[i] = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+     e9c:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     e9e:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     ea2:	68ba      	ldr	r2, [r7, #8]
+     ea4:	18d3      	adds	r3, r2, r3
+     ea6:	f04f 0200 	mov.w	r2, #0
+     eaa:	801a      	strh	r2, [r3, #0]
+     eac:	e002      	b.n	eb4 <xme_hal_net_selectMultipleSockets+0x4cc>
+	if ( socketSetRead != NULL )
+	{
+		for ( i = 0; i < max_socket; i ++ )
+		{
+			socketHandle = socketSetRead[i];
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     eae:	bf00      	nop
+     eb0:	e000      	b.n	eb4 <xme_hal_net_selectMultipleSockets+0x4cc>
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+
+			if ( FD_ISSET(socketItem->socket, &readfds) ) continue;
+     eb2:	bf00      	nop
+		XME_CORE_STATUS_INTERNAL_ERROR
+	);
+
+	if ( socketSetRead != NULL )
+	{
+		for ( i = 0; i < max_socket; i ++ )
+     eb4:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     eb6:	f103 0301 	add.w	r3, r3, #1
+     eba:	86fb      	strh	r3, [r7, #54]	; 0x36
+     ebc:	8efa      	ldrh	r2, [r7, #54]	; 0x36
+     ebe:	89fb      	ldrh	r3, [r7, #14]
+     ec0:	429a      	cmp	r2, r3
+     ec2:	d390      	bcc.n	de6 <xme_hal_net_selectMultipleSockets+0x3fe>
+			if ( FD_ISSET(socketItem->socket, &readfds) ) continue;
+			socketSetRead[i] = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+		}
+	}
+
+	if ( socketSetWrite != NULL )
+     ec4:	687b      	ldr	r3, [r7, #4]
+     ec6:	2b00      	cmp	r3, #0
+     ec8:	d077      	beq.n	fba <xme_hal_net_selectMultipleSockets+0x5d2>
+	{
+		for ( i = 0; i < max_socket; i ++ )
+     eca:	f04f 0300 	mov.w	r3, #0
+     ece:	86fb      	strh	r3, [r7, #54]	; 0x36
+     ed0:	e06f      	b.n	fb2 <xme_hal_net_selectMultipleSockets+0x5ca>
+     ed2:	bf00      	nop
+     ed4:	00000004 	.word	0x00000004
+			ed4: R_ARM_ABS32	.bss
+     ed8:	00000014 	.word	0x00000014
+			ed8: R_ARM_ABS32	.bss
+		{
+			socketHandle = socketSetWrite[i];
+     edc:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     ede:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     ee2:	687a      	ldr	r2, [r7, #4]
+     ee4:	18d3      	adds	r3, r2, r3
+     ee6:	881b      	ldrh	r3, [r3, #0]
+     ee8:	85fb      	strh	r3, [r7, #46]	; 0x2e
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     eea:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     eec:	2b00      	cmp	r3, #0
+     eee:	d059      	beq.n	fa4 <xme_hal_net_selectMultipleSockets+0x5bc>
+
+			xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     ef0:	4b70      	ldr	r3, [pc, #448]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+     ef2:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     ef6:	4618      	mov	r0, r3
+     ef8:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			ef8: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+			{
+				// Verify socket handle
+				XME_CHECK_REC
+     efc:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     efe:	2b00      	cmp	r3, #0
+     f00:	d019      	beq.n	f36 <xme_hal_net_selectMultipleSockets+0x54e>
+     f02:	4b6c      	ldr	r3, [pc, #432]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+     f04:	885b      	ldrh	r3, [r3, #2]
+     f06:	8dfa      	ldrh	r2, [r7, #46]	; 0x2e
+     f08:	429a      	cmp	r2, r3
+     f0a:	d814      	bhi.n	f36 <xme_hal_net_selectMultipleSockets+0x54e>
+     f0c:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     f0e:	f103 33ff 	add.w	r3, r3, #4294967295
+     f12:	4a68      	ldr	r2, [pc, #416]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+     f14:	18d3      	adds	r3, r2, r3
+     f16:	791b      	ldrb	r3, [r3, #4]
+     f18:	2b00      	cmp	r3, #0
+     f1a:	d00c      	beq.n	f36 <xme_hal_net_selectMultipleSockets+0x54e>
+     f1c:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     f1e:	f103 32ff 	add.w	r2, r3, #4294967295
+     f22:	4613      	mov	r3, r2
+     f24:	ea4f 0383 	mov.w	r3, r3, lsl #2
+     f28:	189b      	adds	r3, r3, r2
+     f2a:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+     f2e:	461a      	mov	r2, r3
+     f30:	4b61      	ldr	r3, [pc, #388]	; (10b8 <xme_hal_net_selectMultipleSockets+0x6d0>)
+     f32:	18d3      	adds	r3, r2, r3
+     f34:	e001      	b.n	f3a <xme_hal_net_selectMultipleSockets+0x552>
+     f36:	f04f 0300 	mov.w	r3, #0
+     f3a:	62bb      	str	r3, [r7, #40]	; 0x28
+     f3c:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     f3e:	2b00      	cmp	r3, #0
+     f40:	d108      	bne.n	f54 <xme_hal_net_selectMultipleSockets+0x56c>
+     f42:	4b5c      	ldr	r3, [pc, #368]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+     f44:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     f48:	4618      	mov	r0, r3
+     f4a:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			f4a: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+     f4e:	f04f 0306 	mov.w	r3, #6
+     f52:	e0aa      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+					{
+						xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     f54:	4b57      	ldr	r3, [pc, #348]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+     f56:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     f5a:	4618      	mov	r0, r3
+     f5c:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			f5c: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+			if ( FD_ISSET(socketItem->socket, &writefds) ) continue;
+     f60:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     f62:	691b      	ldr	r3, [r3, #16]
+     f64:	2b00      	cmp	r3, #0
+     f66:	da01      	bge.n	f6c <xme_hal_net_selectMultipleSockets+0x584>
+     f68:	f103 0307 	add.w	r3, r3, #7
+     f6c:	ea4f 03e3 	mov.w	r3, r3, asr #3
+     f70:	f107 0138 	add.w	r1, r7, #56	; 0x38
+     f74:	18cb      	adds	r3, r1, r3
+     f76:	f813 3c1c 	ldrb.w	r3, [r3, #-28]
+     f7a:	461a      	mov	r2, r3
+     f7c:	6abb      	ldr	r3, [r7, #40]	; 0x28
+     f7e:	691b      	ldr	r3, [r3, #16]
+     f80:	f003 0307 	and.w	r3, r3, #7
+     f84:	fa42 f303 	asr.w	r3, r2, r3
+     f88:	f003 0301 	and.w	r3, r3, #1
+     f8c:	b2db      	uxtb	r3, r3
+     f8e:	2b00      	cmp	r3, #0
+     f90:	d10a      	bne.n	fa8 <xme_hal_net_selectMultipleSockets+0x5c0>
+			socketSetWrite[i] = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+     f92:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     f94:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     f98:	687a      	ldr	r2, [r7, #4]
+     f9a:	18d3      	adds	r3, r2, r3
+     f9c:	f04f 0200 	mov.w	r2, #0
+     fa0:	801a      	strh	r2, [r3, #0]
+     fa2:	e002      	b.n	faa <xme_hal_net_selectMultipleSockets+0x5c2>
+	if ( socketSetWrite != NULL )
+	{
+		for ( i = 0; i < max_socket; i ++ )
+		{
+			socketHandle = socketSetWrite[i];
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     fa4:	bf00      	nop
+     fa6:	e000      	b.n	faa <xme_hal_net_selectMultipleSockets+0x5c2>
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+
+			if ( FD_ISSET(socketItem->socket, &writefds) ) continue;
+     fa8:	bf00      	nop
+		}
+	}
+
+	if ( socketSetWrite != NULL )
+	{
+		for ( i = 0; i < max_socket; i ++ )
+     faa:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     fac:	f103 0301 	add.w	r3, r3, #1
+     fb0:	86fb      	strh	r3, [r7, #54]	; 0x36
+     fb2:	8efa      	ldrh	r2, [r7, #54]	; 0x36
+     fb4:	89fb      	ldrh	r3, [r7, #14]
+     fb6:	429a      	cmp	r2, r3
+     fb8:	d390      	bcc.n	edc <xme_hal_net_selectMultipleSockets+0x4f4>
+			if ( FD_ISSET(socketItem->socket, &writefds) ) continue;
+			socketSetWrite[i] = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+		}
+	}
+
+	if ( socketSetError != NULL )
+     fba:	683b      	ldr	r3, [r7, #0]
+     fbc:	2b00      	cmp	r3, #0
+     fbe:	d072      	beq.n	10a6 <xme_hal_net_selectMultipleSockets+0x6be>
+	{
+		for ( i = 0; i < max_socket; i ++ )
+     fc0:	f04f 0300 	mov.w	r3, #0
+     fc4:	86fb      	strh	r3, [r7, #54]	; 0x36
+     fc6:	e06a      	b.n	109e <xme_hal_net_selectMultipleSockets+0x6b6>
+		{
+			socketHandle = socketSetError[i];
+     fc8:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+     fca:	ea4f 0343 	mov.w	r3, r3, lsl #1
+     fce:	683a      	ldr	r2, [r7, #0]
+     fd0:	18d3      	adds	r3, r2, r3
+     fd2:	881b      	ldrh	r3, [r3, #0]
+     fd4:	85fb      	strh	r3, [r7, #46]	; 0x2e
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+     fd6:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     fd8:	2b00      	cmp	r3, #0
+     fda:	d059      	beq.n	1090 <xme_hal_net_selectMultipleSockets+0x6a8>
+
+			xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+     fdc:	4b35      	ldr	r3, [pc, #212]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+     fde:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+     fe2:	4618      	mov	r0, r3
+     fe4:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			fe4: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+			{
+				// Verify socket handle
+				XME_CHECK_REC
+     fe8:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     fea:	2b00      	cmp	r3, #0
+     fec:	d019      	beq.n	1022 <xme_hal_net_selectMultipleSockets+0x63a>
+     fee:	4b31      	ldr	r3, [pc, #196]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+     ff0:	885b      	ldrh	r3, [r3, #2]
+     ff2:	8dfa      	ldrh	r2, [r7, #46]	; 0x2e
+     ff4:	429a      	cmp	r2, r3
+     ff6:	d814      	bhi.n	1022 <xme_hal_net_selectMultipleSockets+0x63a>
+     ff8:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+     ffa:	f103 33ff 	add.w	r3, r3, #4294967295
+     ffe:	4a2d      	ldr	r2, [pc, #180]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+    1000:	18d3      	adds	r3, r2, r3
+    1002:	791b      	ldrb	r3, [r3, #4]
+    1004:	2b00      	cmp	r3, #0
+    1006:	d00c      	beq.n	1022 <xme_hal_net_selectMultipleSockets+0x63a>
+    1008:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+    100a:	f103 32ff 	add.w	r2, r3, #4294967295
+    100e:	4613      	mov	r3, r2
+    1010:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    1014:	189b      	adds	r3, r3, r2
+    1016:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    101a:	461a      	mov	r2, r3
+    101c:	4b26      	ldr	r3, [pc, #152]	; (10b8 <xme_hal_net_selectMultipleSockets+0x6d0>)
+    101e:	18d3      	adds	r3, r2, r3
+    1020:	e001      	b.n	1026 <xme_hal_net_selectMultipleSockets+0x63e>
+    1022:	f04f 0300 	mov.w	r3, #0
+    1026:	62bb      	str	r3, [r7, #40]	; 0x28
+    1028:	6abb      	ldr	r3, [r7, #40]	; 0x28
+    102a:	2b00      	cmp	r3, #0
+    102c:	d108      	bne.n	1040 <xme_hal_net_selectMultipleSockets+0x658>
+    102e:	4b21      	ldr	r3, [pc, #132]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+    1030:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1034:	4618      	mov	r0, r3
+    1036:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1036: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    103a:	f04f 0306 	mov.w	r3, #6
+    103e:	e034      	b.n	10aa <xme_hal_net_selectMultipleSockets+0x6c2>
+					{
+						xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1040:	4b1c      	ldr	r3, [pc, #112]	; (10b4 <xme_hal_net_selectMultipleSockets+0x6cc>)
+    1042:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1046:	4618      	mov	r0, r3
+    1048:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1048: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+			if ( FD_ISSET(socketItem->socket, &exceptfds) ) continue;
+    104c:	6abb      	ldr	r3, [r7, #40]	; 0x28
+    104e:	691b      	ldr	r3, [r3, #16]
+    1050:	2b00      	cmp	r3, #0
+    1052:	da01      	bge.n	1058 <xme_hal_net_selectMultipleSockets+0x670>
+    1054:	f103 0307 	add.w	r3, r3, #7
+    1058:	ea4f 03e3 	mov.w	r3, r3, asr #3
+    105c:	f107 0238 	add.w	r2, r7, #56	; 0x38
+    1060:	18d3      	adds	r3, r2, r3
+    1062:	f813 3c20 	ldrb.w	r3, [r3, #-32]
+    1066:	461a      	mov	r2, r3
+    1068:	6abb      	ldr	r3, [r7, #40]	; 0x28
+    106a:	691b      	ldr	r3, [r3, #16]
+    106c:	f003 0307 	and.w	r3, r3, #7
+    1070:	fa42 f303 	asr.w	r3, r2, r3
+    1074:	f003 0301 	and.w	r3, r3, #1
+    1078:	b2db      	uxtb	r3, r3
+    107a:	2b00      	cmp	r3, #0
+    107c:	d10a      	bne.n	1094 <xme_hal_net_selectMultipleSockets+0x6ac>
+			socketSetError[i] = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+    107e:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+    1080:	ea4f 0343 	mov.w	r3, r3, lsl #1
+    1084:	683a      	ldr	r2, [r7, #0]
+    1086:	18d3      	adds	r3, r2, r3
+    1088:	f04f 0200 	mov.w	r2, #0
+    108c:	801a      	strh	r2, [r3, #0]
+    108e:	e002      	b.n	1096 <xme_hal_net_selectMultipleSockets+0x6ae>
+	if ( socketSetError != NULL )
+	{
+		for ( i = 0; i < max_socket; i ++ )
+		{
+			socketHandle = socketSetError[i];
+			if ( socketHandle == XME_HAL_NET_INVALID_SOCKET_HANDLE ) continue;
+    1090:	bf00      	nop
+    1092:	e000      	b.n	1096 <xme_hal_net_selectMultipleSockets+0x6ae>
+					}
+				);
+			}
+			xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+
+			if ( FD_ISSET(socketItem->socket, &exceptfds) ) continue;
+    1094:	bf00      	nop
+		}
+	}
+
+	if ( socketSetError != NULL )
+	{
+		for ( i = 0; i < max_socket; i ++ )
+    1096:	8efb      	ldrh	r3, [r7, #54]	; 0x36
+    1098:	f103 0301 	add.w	r3, r3, #1
+    109c:	86fb      	strh	r3, [r7, #54]	; 0x36
+    109e:	8efa      	ldrh	r2, [r7, #54]	; 0x36
+    10a0:	89fb      	ldrh	r3, [r7, #14]
+    10a2:	429a      	cmp	r2, r3
+    10a4:	d390      	bcc.n	fc8 <xme_hal_net_selectMultipleSockets+0x5e0>
+			if ( FD_ISSET(socketItem->socket, &exceptfds) ) continue;
+			socketSetError[i] = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+		}
+	}
+
+	return XME_CORE_STATUS_SUCCESS;
+    10a6:	f04f 0300 	mov.w	r3, #0
+}
+    10aa:	4618      	mov	r0, r3
+    10ac:	f107 073c 	add.w	r7, r7, #60	; 0x3c
+    10b0:	46bd      	mov	sp, r7
+    10b2:	bd90      	pop	{r4, r7, pc}
+    10b4:	00000004 	.word	0x00000004
+			10b4: R_ARM_ABS32	.bss
+    10b8:	00000014 	.word	0x00000014
+			10b8: R_ARM_ABS32	.bss
+
+000010bc <xme_hal_net_waitForConnection>:
+xme_hal_net_socketHandle_t
+xme_hal_net_waitForConnection
+(
+	xme_hal_net_socketHandle_t socketHandle
+)
+{
+    10bc:	b580      	push	{r7, lr}
+    10be:	b08c      	sub	sp, #48	; 0x30
+    10c0:	af00      	add	r7, sp, #0
+    10c2:	4603      	mov	r3, r0
+    10c4:	80fb      	strh	r3, [r7, #6]
+	socklen_t addrLength;
+	int connectedSocket;
+	xme_hal_net_socketHandle_t connectedSocketHandle;
+	xme_hal_net_socketItem* connectedSocketItem;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    10c6:	4b89      	ldr	r3, [pc, #548]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    10c8:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    10cc:	4618      	mov	r0, r3
+    10ce:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			10ce: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    10d2:	88fb      	ldrh	r3, [r7, #6]
+    10d4:	2b00      	cmp	r3, #0
+    10d6:	d019      	beq.n	110c <xme_hal_net_waitForConnection+0x50>
+    10d8:	4b84      	ldr	r3, [pc, #528]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    10da:	885b      	ldrh	r3, [r3, #2]
+    10dc:	88fa      	ldrh	r2, [r7, #6]
+    10de:	429a      	cmp	r2, r3
+    10e0:	d814      	bhi.n	110c <xme_hal_net_waitForConnection+0x50>
+    10e2:	88fb      	ldrh	r3, [r7, #6]
+    10e4:	f103 33ff 	add.w	r3, r3, #4294967295
+    10e8:	4a80      	ldr	r2, [pc, #512]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    10ea:	18d3      	adds	r3, r2, r3
+    10ec:	791b      	ldrb	r3, [r3, #4]
+    10ee:	2b00      	cmp	r3, #0
+    10f0:	d00c      	beq.n	110c <xme_hal_net_waitForConnection+0x50>
+    10f2:	88fb      	ldrh	r3, [r7, #6]
+    10f4:	f103 32ff 	add.w	r2, r3, #4294967295
+    10f8:	4613      	mov	r3, r2
+    10fa:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    10fe:	189b      	adds	r3, r3, r2
+    1100:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    1104:	461a      	mov	r2, r3
+    1106:	4b7a      	ldr	r3, [pc, #488]	; (12f0 <xme_hal_net_waitForConnection+0x234>)
+    1108:	18d3      	adds	r3, r2, r3
+    110a:	e001      	b.n	1110 <xme_hal_net_waitForConnection+0x54>
+    110c:	f04f 0300 	mov.w	r3, #0
+    1110:	62fb      	str	r3, [r7, #44]	; 0x2c
+    1112:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    1114:	2b00      	cmp	r3, #0
+    1116:	d108      	bne.n	112a <xme_hal_net_waitForConnection+0x6e>
+    1118:	4b74      	ldr	r3, [pc, #464]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    111a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    111e:	4618      	mov	r0, r3
+    1120:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1120: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    1124:	f04f 0300 	mov.w	r3, #0
+    1128:	e0da      	b.n	12e0 <xme_hal_net_waitForConnection+0x224>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    112a:	4b70      	ldr	r3, [pc, #448]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    112c:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1130:	4618      	mov	r0, r3
+    1132:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1132: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	// This only works on the server side
+	XME_CHECK
+    1136:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    1138:	689b      	ldr	r3, [r3, #8]
+    113a:	2b00      	cmp	r3, #0
+    113c:	d002      	beq.n	1144 <xme_hal_net_waitForConnection+0x88>
+    113e:	f04f 0300 	mov.w	r3, #0
+    1142:	e0cd      	b.n	12e0 <xme_hal_net_waitForConnection+0x224>
+		0 == socketItem->hostname,
+		XME_HAL_NET_INVALID_SOCKET_HANDLE
+	);
+
+	// This only works for connection-oriented sockets
+	XME_CHECK
+    1144:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    1146:	889b      	ldrh	r3, [r3, #4]
+    1148:	f003 0302 	and.w	r3, r3, #2
+    114c:	b29b      	uxth	r3, r3
+    114e:	2b00      	cmp	r3, #0
+    1150:	d102      	bne.n	1158 <xme_hal_net_waitForConnection+0x9c>
+    1152:	f04f 0300 	mov.w	r3, #0
+    1156:	e0c3      	b.n	12e0 <xme_hal_net_waitForConnection+0x224>
+		XME_HAL_NET_SOCKET_TCP & socketItem->flags,
+		XME_HAL_NET_INVALID_SOCKET_HANDLE
+	);
+
+	// Set the socket to blocking regardless of the XME_HAL_NET_SOCKET_NONBLOCKING flag
+	wasNonBlocking = (socketItem->flags & XME_HAL_NET_SOCKET_NONBLOCKING);
+    1158:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    115a:	889b      	ldrh	r3, [r3, #4]
+    115c:	f003 0308 	and.w	r3, r3, #8
+    1160:	2b00      	cmp	r3, #0
+    1162:	bf0c      	ite	eq
+    1164:	2300      	moveq	r3, #0
+    1166:	2301      	movne	r3, #1
+    1168:	f887 302b 	strb.w	r3, [r7, #43]	; 0x2b
+	XME_CHECK
+    116c:	88fb      	ldrh	r3, [r7, #6]
+    116e:	4618      	mov	r0, r3
+    1170:	f04f 0101 	mov.w	r1, #1
+    1174:	f7ff fffe 	bl	710 <xme_hal_net_setBlockingBehavior>
+			1174: R_ARM_THM_CALL	xme_hal_net_setBlockingBehavior
+    1178:	4603      	mov	r3, r0
+    117a:	2b00      	cmp	r3, #0
+    117c:	d002      	beq.n	1184 <xme_hal_net_waitForConnection+0xc8>
+    117e:	f04f 0300 	mov.w	r3, #0
+    1182:	e0ad      	b.n	12e0 <xme_hal_net_waitForConnection+0x224>
+	(
+		XME_CORE_STATUS_SUCCESS == xme_hal_net_setBlockingBehavior(socketHandle, true),
+		XME_HAL_NET_INVALID_SOCKET_HANDLE
+	);
+
+	memset(&peerAddr, 0, sizeof(peerAddr));
+    1184:	f107 030c 	add.w	r3, r7, #12
+    1188:	4618      	mov	r0, r3
+    118a:	f04f 0100 	mov.w	r1, #0
+    118e:	f04f 0210 	mov.w	r2, #16
+    1192:	f7ff fffe 	bl	0 <memset>
+			1192: R_ARM_THM_CALL	memset
+
+	addrLength = sizeof(peerAddr);
+    1196:	f04f 0310 	mov.w	r3, #16
+    119a:	60bb      	str	r3, [r7, #8]
+	connectedSocket = lwip_accept(socketItem->socket, &peerAddr, &addrLength);
+    119c:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    119e:	6919      	ldr	r1, [r3, #16]
+    11a0:	f107 020c 	add.w	r2, r7, #12
+    11a4:	f107 0308 	add.w	r3, r7, #8
+    11a8:	4608      	mov	r0, r1
+    11aa:	4611      	mov	r1, r2
+    11ac:	461a      	mov	r2, r3
+    11ae:	f7ff fffe 	bl	0 <lwip_accept>
+			11ae: R_ARM_THM_CALL	lwip_accept
+    11b2:	6278      	str	r0, [r7, #36]	; 0x24
+
+	// Restore intended blocking behavior
+	XME_CHECK
+    11b4:	f897 302b 	ldrb.w	r3, [r7, #43]	; 0x2b
+    11b8:	f083 0301 	eor.w	r3, r3, #1
+    11bc:	b2db      	uxtb	r3, r3
+    11be:	b2db      	uxtb	r3, r3
+    11c0:	88fa      	ldrh	r2, [r7, #6]
+    11c2:	4610      	mov	r0, r2
+    11c4:	4619      	mov	r1, r3
+    11c6:	f7ff fffe 	bl	710 <xme_hal_net_setBlockingBehavior>
+			11c6: R_ARM_THM_CALL	xme_hal_net_setBlockingBehavior
+    11ca:	4603      	mov	r3, r0
+    11cc:	2b00      	cmp	r3, #0
+    11ce:	d002      	beq.n	11d6 <xme_hal_net_waitForConnection+0x11a>
+    11d0:	f04f 0300 	mov.w	r3, #0
+    11d4:	e084      	b.n	12e0 <xme_hal_net_waitForConnection+0x224>
+		XME_CORE_STATUS_SUCCESS == xme_hal_net_setBlockingBehavior(socketHandle, !wasNonBlocking),
+		XME_HAL_NET_INVALID_SOCKET_HANDLE
+	);
+
+	// Check whether a client has connected
+	XME_CHECK
+    11d6:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+    11d8:	f1b3 3fff 	cmp.w	r3, #4294967295
+    11dc:	d102      	bne.n	11e4 <xme_hal_net_waitForConnection+0x128>
+    11de:	f04f 0300 	mov.w	r3, #0
+    11e2:	e07d      	b.n	12e0 <xme_hal_net_waitForConnection+0x224>
+	(
+		-1 != connectedSocket,
+		XME_HAL_NET_INVALID_SOCKET_HANDLE
+	);
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    11e4:	4b41      	ldr	r3, [pc, #260]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    11e6:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    11ea:	4618      	mov	r0, r3
+    11ec:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			11ec: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Allocate a unique socket handle for the client connection
+		connectedSocketHandle = (xme_hal_net_socketHandle_t)XME_HAL_TABLE_ADD_ITEM(xme_hal_net_config.sockets);
+    11f0:	4b3e      	ldr	r3, [pc, #248]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    11f2:	4618      	mov	r0, r3
+    11f4:	f04f 010a 	mov.w	r1, #10
+    11f8:	f7ff fffe 	bl	0 <xme_hal_table_addItem>
+			11f8: R_ARM_THM_CALL	xme_hal_table_addItem
+    11fc:	4603      	mov	r3, r0
+    11fe:	847b      	strh	r3, [r7, #34]	; 0x22
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1200:	4b3a      	ldr	r3, [pc, #232]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    1202:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1206:	4618      	mov	r0, r3
+    1208:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1208: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	// Initialize the socket descriptor
+	connectedSocketItem = XME_HAL_TABLE_ITEM_FROM_HANDLE(xme_hal_net_config.sockets, connectedSocketHandle);
+    120c:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+    120e:	2b00      	cmp	r3, #0
+    1210:	d019      	beq.n	1246 <xme_hal_net_waitForConnection+0x18a>
+    1212:	4b36      	ldr	r3, [pc, #216]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    1214:	885b      	ldrh	r3, [r3, #2]
+    1216:	8c7a      	ldrh	r2, [r7, #34]	; 0x22
+    1218:	429a      	cmp	r2, r3
+    121a:	d814      	bhi.n	1246 <xme_hal_net_waitForConnection+0x18a>
+    121c:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+    121e:	f103 33ff 	add.w	r3, r3, #4294967295
+    1222:	4a32      	ldr	r2, [pc, #200]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    1224:	18d3      	adds	r3, r2, r3
+    1226:	791b      	ldrb	r3, [r3, #4]
+    1228:	2b00      	cmp	r3, #0
+    122a:	d00c      	beq.n	1246 <xme_hal_net_waitForConnection+0x18a>
+    122c:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+    122e:	f103 32ff 	add.w	r2, r3, #4294967295
+    1232:	4613      	mov	r3, r2
+    1234:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    1238:	189b      	adds	r3, r3, r2
+    123a:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    123e:	461a      	mov	r2, r3
+    1240:	4b2b      	ldr	r3, [pc, #172]	; (12f0 <xme_hal_net_waitForConnection+0x234>)
+    1242:	18d3      	adds	r3, r2, r3
+    1244:	e001      	b.n	124a <xme_hal_net_waitForConnection+0x18e>
+    1246:	f04f 0300 	mov.w	r3, #0
+    124a:	61fb      	str	r3, [r7, #28]
+	connectedSocketItem->intf = socketItem->intf;
+    124c:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    124e:	681a      	ldr	r2, [r3, #0]
+    1250:	69fb      	ldr	r3, [r7, #28]
+    1252:	601a      	str	r2, [r3, #0]
+	connectedSocketItem->flags = socketItem->flags;
+    1254:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    1256:	889a      	ldrh	r2, [r3, #4]
+    1258:	69fb      	ldr	r3, [r7, #28]
+    125a:	809a      	strh	r2, [r3, #4]
+	connectedSocketItem->hostname = socketItem->hostname;
+    125c:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    125e:	689a      	ldr	r2, [r3, #8]
+    1260:	69fb      	ldr	r3, [r7, #28]
+    1262:	609a      	str	r2, [r3, #8]
+	connectedSocketItem->port = socketItem->port;
+    1264:	6afb      	ldr	r3, [r7, #44]	; 0x2c
+    1266:	899a      	ldrh	r2, [r3, #12]
+    1268:	69fb      	ldr	r3, [r7, #28]
+    126a:	819a      	strh	r2, [r3, #12]
+	connectedSocketItem->socket = connectedSocket;
+    126c:	69fb      	ldr	r3, [r7, #28]
+    126e:	6a7a      	ldr	r2, [r7, #36]	; 0x24
+    1270:	611a      	str	r2, [r3, #16]
+	memset(&connectedSocketItem->peerAddr, 0, sizeof(connectedSocketItem->peerAddr));
+    1272:	69fb      	ldr	r3, [r7, #28]
+    1274:	f103 0314 	add.w	r3, r3, #20
+    1278:	4618      	mov	r0, r3
+    127a:	f04f 0100 	mov.w	r1, #0
+    127e:	f04f 0210 	mov.w	r2, #16
+    1282:	f7ff fffe 	bl	0 <memset>
+			1282: R_ARM_THM_CALL	memset
+	memcpy(&connectedSocketItem->peerAddr, &peerAddr, addrLength);
+    1286:	69fb      	ldr	r3, [r7, #28]
+    1288:	f103 0114 	add.w	r1, r3, #20
+    128c:	68bb      	ldr	r3, [r7, #8]
+    128e:	f107 020c 	add.w	r2, r7, #12
+    1292:	4608      	mov	r0, r1
+    1294:	4611      	mov	r1, r2
+    1296:	461a      	mov	r2, r3
+    1298:	f7ff fffe 	bl	0 <memcpy>
+			1298: R_ARM_THM_CALL	memcpy
+	connectedSocketItem->connected = true;
+    129c:	69fb      	ldr	r3, [r7, #28]
+    129e:	f04f 0201 	mov.w	r2, #1
+    12a2:	f883 2024 	strb.w	r2, [r3, #36]	; 0x24
+
+	// Also apply the intended blocking behavior to the client socket
+	XME_CHECK_REC
+    12a6:	f897 302b 	ldrb.w	r3, [r7, #43]	; 0x2b
+    12aa:	f083 0301 	eor.w	r3, r3, #1
+    12ae:	b2db      	uxtb	r3, r3
+    12b0:	b2db      	uxtb	r3, r3
+    12b2:	8c7a      	ldrh	r2, [r7, #34]	; 0x22
+    12b4:	4610      	mov	r0, r2
+    12b6:	4619      	mov	r1, r3
+    12b8:	f7ff fffe 	bl	710 <xme_hal_net_setBlockingBehavior>
+			12b8: R_ARM_THM_CALL	xme_hal_net_setBlockingBehavior
+    12bc:	4603      	mov	r3, r0
+    12be:	2b00      	cmp	r3, #0
+    12c0:	d00d      	beq.n	12de <xme_hal_net_waitForConnection+0x222>
+    12c2:	6a78      	ldr	r0, [r7, #36]	; 0x24
+    12c4:	f7ff fffe 	bl	0 <lwip_close>
+			12c4: R_ARM_THM_CALL	lwip_close
+    12c8:	4a08      	ldr	r2, [pc, #32]	; (12ec <xme_hal_net_waitForConnection+0x230>)
+    12ca:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+    12cc:	4610      	mov	r0, r2
+    12ce:	4619      	mov	r1, r3
+    12d0:	f04f 020a 	mov.w	r2, #10
+    12d4:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			12d4: R_ARM_THM_CALL	xme_hal_table_removeItem
+    12d8:	f04f 0300 	mov.w	r3, #0
+    12dc:	e000      	b.n	12e0 <xme_hal_net_waitForConnection+0x224>
+			XME_HAL_TABLE_REMOVE_ITEM(xme_hal_net_config.sockets, (xme_hal_table_rowHandle_t)connectedSocketHandle);
+		}
+	);
+
+	// Return the connected socket handle
+	return connectedSocketHandle;
+    12de:	8c7b      	ldrh	r3, [r7, #34]	; 0x22
+}
+    12e0:	4618      	mov	r0, r3
+    12e2:	f107 0730 	add.w	r7, r7, #48	; 0x30
+    12e6:	46bd      	mov	sp, r7
+    12e8:	bd80      	pop	{r7, pc}
+    12ea:	bf00      	nop
+    12ec:	00000004 	.word	0x00000004
+			12ec: R_ARM_ABS32	.bss
+    12f0:	00000014 	.word	0x00000014
+			12f0: R_ARM_ABS32	.bss
+
+000012f4 <xme_hal_net_readSocket>:
+(
+	xme_hal_net_socketHandle_t socketHandle, 
+	void* buffer, 
+	uint16_t count
+)
+{
+    12f4:	b580      	push	{r7, lr}
+    12f6:	b08a      	sub	sp, #40	; 0x28
+    12f8:	af02      	add	r7, sp, #8
+    12fa:	60b9      	str	r1, [r7, #8]
+    12fc:	4613      	mov	r3, r2
+    12fe:	4602      	mov	r2, r0
+    1300:	81fa      	strh	r2, [r7, #14]
+    1302:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+	socklen_t addrLength;
+
+	int numBytes;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1304:	4b30      	ldr	r3, [pc, #192]	; (13c8 <xme_hal_net_readSocket+0xd4>)
+    1306:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    130a:	4618      	mov	r0, r3
+    130c:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			130c: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    1310:	89fb      	ldrh	r3, [r7, #14]
+    1312:	2b00      	cmp	r3, #0
+    1314:	d019      	beq.n	134a <xme_hal_net_readSocket+0x56>
+    1316:	4b2c      	ldr	r3, [pc, #176]	; (13c8 <xme_hal_net_readSocket+0xd4>)
+    1318:	885b      	ldrh	r3, [r3, #2]
+    131a:	89fa      	ldrh	r2, [r7, #14]
+    131c:	429a      	cmp	r2, r3
+    131e:	d814      	bhi.n	134a <xme_hal_net_readSocket+0x56>
+    1320:	89fb      	ldrh	r3, [r7, #14]
+    1322:	f103 33ff 	add.w	r3, r3, #4294967295
+    1326:	4a28      	ldr	r2, [pc, #160]	; (13c8 <xme_hal_net_readSocket+0xd4>)
+    1328:	18d3      	adds	r3, r2, r3
+    132a:	791b      	ldrb	r3, [r3, #4]
+    132c:	2b00      	cmp	r3, #0
+    132e:	d00c      	beq.n	134a <xme_hal_net_readSocket+0x56>
+    1330:	89fb      	ldrh	r3, [r7, #14]
+    1332:	f103 32ff 	add.w	r2, r3, #4294967295
+    1336:	4613      	mov	r3, r2
+    1338:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    133c:	189b      	adds	r3, r3, r2
+    133e:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    1342:	461a      	mov	r2, r3
+    1344:	4b21      	ldr	r3, [pc, #132]	; (13cc <xme_hal_net_readSocket+0xd8>)
+    1346:	18d3      	adds	r3, r2, r3
+    1348:	e001      	b.n	134e <xme_hal_net_readSocket+0x5a>
+    134a:	f04f 0300 	mov.w	r3, #0
+    134e:	61fb      	str	r3, [r7, #28]
+    1350:	69fb      	ldr	r3, [r7, #28]
+    1352:	2b00      	cmp	r3, #0
+    1354:	d108      	bne.n	1368 <xme_hal_net_readSocket+0x74>
+    1356:	4b1c      	ldr	r3, [pc, #112]	; (13c8 <xme_hal_net_readSocket+0xd4>)
+    1358:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    135c:	4618      	mov	r0, r3
+    135e:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			135e: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    1362:	f04f 0300 	mov.w	r3, #0
+    1366:	e02a      	b.n	13be <xme_hal_net_readSocket+0xca>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1368:	4b17      	ldr	r3, [pc, #92]	; (13c8 <xme_hal_net_readSocket+0xd4>)
+    136a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    136e:	4618      	mov	r0, r3
+    1370:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1370: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	memset(buffer, 0, count);
+    1374:	88fb      	ldrh	r3, [r7, #6]
+    1376:	68b8      	ldr	r0, [r7, #8]
+    1378:	f04f 0100 	mov.w	r1, #0
+    137c:	461a      	mov	r2, r3
+    137e:	f7ff fffe 	bl	0 <memset>
+			137e: R_ARM_THM_CALL	memset
+
+	addrLength = sizeof(struct sockaddr);
+    1382:	f04f 0310 	mov.w	r3, #16
+    1386:	617b      	str	r3, [r7, #20]
+
+	numBytes = lwip_recvfrom(socketItem->socket, buffer, count, 0, (struct sockaddr*)&socketItem->peerAddr, &addrLength);
+    1388:	69fb      	ldr	r3, [r7, #28]
+    138a:	691a      	ldr	r2, [r3, #16]
+    138c:	88fb      	ldrh	r3, [r7, #6]
+    138e:	69f9      	ldr	r1, [r7, #28]
+    1390:	f101 0114 	add.w	r1, r1, #20
+    1394:	9100      	str	r1, [sp, #0]
+    1396:	f107 0114 	add.w	r1, r7, #20
+    139a:	9101      	str	r1, [sp, #4]
+    139c:	4610      	mov	r0, r2
+    139e:	68b9      	ldr	r1, [r7, #8]
+    13a0:	461a      	mov	r2, r3
+    13a2:	f04f 0300 	mov.w	r3, #0
+    13a6:	f7ff fffe 	bl	0 <lwip_recvfrom>
+			13a6: R_ARM_THM_CALL	lwip_recvfrom
+    13aa:	61b8      	str	r0, [r7, #24]
+
+	XME_CHECK
+    13ac:	69bb      	ldr	r3, [r7, #24]
+    13ae:	f1b3 3fff 	cmp.w	r3, #4294967295
+    13b2:	d102      	bne.n	13ba <xme_hal_net_readSocket+0xc6>
+    13b4:	f04f 0300 	mov.w	r3, #0
+    13b8:	e001      	b.n	13be <xme_hal_net_readSocket+0xca>
+	(
+		-1 != numBytes,
+		0
+	);
+
+	return numBytes;
+    13ba:	69bb      	ldr	r3, [r7, #24]
+    13bc:	b29b      	uxth	r3, r3
+}
+    13be:	4618      	mov	r0, r3
+    13c0:	f107 0720 	add.w	r7, r7, #32
+    13c4:	46bd      	mov	sp, r7
+    13c6:	bd80      	pop	{r7, pc}
+    13c8:	00000004 	.word	0x00000004
+			13c8: R_ARM_ABS32	.bss
+    13cc:	00000014 	.word	0x00000014
+			13cc: R_ARM_ABS32	.bss
+
+000013d0 <xme_hal_net_writeSocket>:
+(
+	xme_hal_net_socketHandle_t socketHandle,
+	const void* buffer,
+	uint16_t count
+)
+{
+    13d0:	b580      	push	{r7, lr}
+    13d2:	b088      	sub	sp, #32
+    13d4:	af02      	add	r7, sp, #8
+    13d6:	60b9      	str	r1, [r7, #8]
+    13d8:	4613      	mov	r3, r2
+    13da:	4602      	mov	r2, r0
+    13dc:	81fa      	strh	r2, [r7, #14]
+    13de:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+	int numBytes = 0;
+    13e0:	f04f 0300 	mov.w	r3, #0
+    13e4:	617b      	str	r3, [r7, #20]
+
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    13e6:	4b3e      	ldr	r3, [pc, #248]	; (14e0 <xme_hal_net_writeSocket+0x110>)
+    13e8:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    13ec:	4618      	mov	r0, r3
+    13ee:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			13ee: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    13f2:	89fb      	ldrh	r3, [r7, #14]
+    13f4:	2b00      	cmp	r3, #0
+    13f6:	d019      	beq.n	142c <xme_hal_net_writeSocket+0x5c>
+    13f8:	4b39      	ldr	r3, [pc, #228]	; (14e0 <xme_hal_net_writeSocket+0x110>)
+    13fa:	885b      	ldrh	r3, [r3, #2]
+    13fc:	89fa      	ldrh	r2, [r7, #14]
+    13fe:	429a      	cmp	r2, r3
+    1400:	d814      	bhi.n	142c <xme_hal_net_writeSocket+0x5c>
+    1402:	89fb      	ldrh	r3, [r7, #14]
+    1404:	f103 33ff 	add.w	r3, r3, #4294967295
+    1408:	4a35      	ldr	r2, [pc, #212]	; (14e0 <xme_hal_net_writeSocket+0x110>)
+    140a:	18d3      	adds	r3, r2, r3
+    140c:	791b      	ldrb	r3, [r3, #4]
+    140e:	2b00      	cmp	r3, #0
+    1410:	d00c      	beq.n	142c <xme_hal_net_writeSocket+0x5c>
+    1412:	89fb      	ldrh	r3, [r7, #14]
+    1414:	f103 32ff 	add.w	r2, r3, #4294967295
+    1418:	4613      	mov	r3, r2
+    141a:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    141e:	189b      	adds	r3, r3, r2
+    1420:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    1424:	461a      	mov	r2, r3
+    1426:	4b2f      	ldr	r3, [pc, #188]	; (14e4 <xme_hal_net_writeSocket+0x114>)
+    1428:	18d3      	adds	r3, r2, r3
+    142a:	e001      	b.n	1430 <xme_hal_net_writeSocket+0x60>
+    142c:	f04f 0300 	mov.w	r3, #0
+    1430:	613b      	str	r3, [r7, #16]
+    1432:	693b      	ldr	r3, [r7, #16]
+    1434:	2b00      	cmp	r3, #0
+    1436:	d108      	bne.n	144a <xme_hal_net_writeSocket+0x7a>
+    1438:	4b29      	ldr	r3, [pc, #164]	; (14e0 <xme_hal_net_writeSocket+0x110>)
+    143a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    143e:	4618      	mov	r0, r3
+    1440:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1440: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    1444:	f04f 0300 	mov.w	r3, #0
+    1448:	e045      	b.n	14d6 <xme_hal_net_writeSocket+0x106>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    144a:	4b25      	ldr	r3, [pc, #148]	; (14e0 <xme_hal_net_writeSocket+0x110>)
+    144c:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1450:	4618      	mov	r0, r3
+    1452:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1452: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	if (socketItem->connected)
+    1456:	693b      	ldr	r3, [r7, #16]
+    1458:	f893 3024 	ldrb.w	r3, [r3, #36]	; 0x24
+    145c:	2b00      	cmp	r3, #0
+    145e:	d00b      	beq.n	1478 <xme_hal_net_writeSocket+0xa8>
+	{
+		// Dedicated connection
+		numBytes = lwip_send(socketItem->socket, (char*)buffer, count, 0);
+    1460:	693b      	ldr	r3, [r7, #16]
+    1462:	691a      	ldr	r2, [r3, #16]
+    1464:	88fb      	ldrh	r3, [r7, #6]
+    1466:	4610      	mov	r0, r2
+    1468:	68b9      	ldr	r1, [r7, #8]
+    146a:	461a      	mov	r2, r3
+    146c:	f04f 0300 	mov.w	r3, #0
+    1470:	f7ff fffe 	bl	0 <lwip_send>
+			1470: R_ARM_THM_CALL	lwip_send
+    1474:	6178      	str	r0, [r7, #20]
+    1476:	e025      	b.n	14c4 <xme_hal_net_writeSocket+0xf4>
+	}
+	else if (socketItem->flags & XME_HAL_NET_SOCKET_BROADCAST)
+    1478:	693b      	ldr	r3, [r7, #16]
+    147a:	889b      	ldrh	r3, [r3, #4]
+    147c:	f003 0304 	and.w	r3, r3, #4
+    1480:	2b00      	cmp	r3, #0
+    1482:	d00d      	beq.n	14a0 <xme_hal_net_writeSocket+0xd0>
+	{
+		// Broadcast
+		numBytes = xme_hal_net_writeDatagram_ipaddress(
+			socketItem,
+			INADDR_BROADCAST,
+			socketItem->port,
+    1484:	693b      	ldr	r3, [r7, #16]
+		numBytes = lwip_send(socketItem->socket, (char*)buffer, count, 0);
+	}
+	else if (socketItem->flags & XME_HAL_NET_SOCKET_BROADCAST)
+	{
+		// Broadcast
+		numBytes = xme_hal_net_writeDatagram_ipaddress(
+    1486:	899b      	ldrh	r3, [r3, #12]
+    1488:	88fa      	ldrh	r2, [r7, #6]
+    148a:	9200      	str	r2, [sp, #0]
+    148c:	6938      	ldr	r0, [r7, #16]
+    148e:	f04f 31ff 	mov.w	r1, #4294967295
+    1492:	461a      	mov	r2, r3
+    1494:	68bb      	ldr	r3, [r7, #8]
+    1496:	f7ff fffe 	bl	1598 <xme_hal_net_writeDatagram_ipaddress>
+			1496: R_ARM_THM_CALL	xme_hal_net_writeDatagram_ipaddress
+    149a:	4603      	mov	r3, r0
+    149c:	617b      	str	r3, [r7, #20]
+    149e:	e011      	b.n	14c4 <xme_hal_net_writeSocket+0xf4>
+	}
+	else
+	{
+		// Reply
+
+		numBytes = lwip_sendto(socketItem->socket, (char*)buffer, count, 0, (struct sockaddr*)&socketItem->peerAddr, sizeof(struct sockaddr_in));
+    14a0:	693b      	ldr	r3, [r7, #16]
+    14a2:	691a      	ldr	r2, [r3, #16]
+    14a4:	88fb      	ldrh	r3, [r7, #6]
+    14a6:	6939      	ldr	r1, [r7, #16]
+    14a8:	f101 0114 	add.w	r1, r1, #20
+    14ac:	9100      	str	r1, [sp, #0]
+    14ae:	f04f 0110 	mov.w	r1, #16
+    14b2:	9101      	str	r1, [sp, #4]
+    14b4:	4610      	mov	r0, r2
+    14b6:	68b9      	ldr	r1, [r7, #8]
+    14b8:	461a      	mov	r2, r3
+    14ba:	f04f 0300 	mov.w	r3, #0
+    14be:	f7ff fffe 	bl	0 <lwip_sendto>
+			14be: R_ARM_THM_CALL	lwip_sendto
+    14c2:	6178      	str	r0, [r7, #20]
+
+		//printf("\nSent to peer: %d.%d.%d.%d\n", socketItem->peerAddr.sa_data[2], socketItem->peerAddr.sa_data[3], socketItem->peerAddr.sa_data[4], socketItem->peerAddr.sa_data[5]);
+	}
+
+	XME_CHECK
+    14c4:	697b      	ldr	r3, [r7, #20]
+    14c6:	f1b3 3fff 	cmp.w	r3, #4294967295
+    14ca:	d102      	bne.n	14d2 <xme_hal_net_writeSocket+0x102>
+    14cc:	f04f 0300 	mov.w	r3, #0
+    14d0:	e001      	b.n	14d6 <xme_hal_net_writeSocket+0x106>
+	(
+		-1 != numBytes,
+		0
+	);
+
+	return numBytes;
+    14d2:	697b      	ldr	r3, [r7, #20]
+    14d4:	b29b      	uxth	r3, r3
+}
+    14d6:	4618      	mov	r0, r3
+    14d8:	f107 0718 	add.w	r7, r7, #24
+    14dc:	46bd      	mov	sp, r7
+    14de:	bd80      	pop	{r7, pc}
+    14e0:	00000004 	.word	0x00000004
+			14e0: R_ARM_ABS32	.bss
+    14e4:	00000014 	.word	0x00000014
+			14e4: R_ARM_ABS32	.bss
+
+000014e8 <xme_hal_net_writeDatagram>:
+	xme_hal_net_socketHandle_t socketHandle,
+	xme_core_interface_address_t* remoteAddress,
+	const void* buffer,
+	uint16_t count
+)
+{
+    14e8:	b580      	push	{r7, lr}
+    14ea:	b088      	sub	sp, #32
+    14ec:	af02      	add	r7, sp, #8
+    14ee:	60b9      	str	r1, [r7, #8]
+    14f0:	607a      	str	r2, [r7, #4]
+    14f2:	4602      	mov	r2, r0
+    14f4:	81fa      	strh	r2, [r7, #14]
+    14f6:	807b      	strh	r3, [r7, #2]
+	xme_hal_net_socketItem* socketItem;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    14f8:	4b25      	ldr	r3, [pc, #148]	; (1590 <xme_hal_net_writeDatagram+0xa8>)
+    14fa:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    14fe:	4618      	mov	r0, r3
+    1500:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			1500: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    1504:	89fb      	ldrh	r3, [r7, #14]
+    1506:	2b00      	cmp	r3, #0
+    1508:	d019      	beq.n	153e <xme_hal_net_writeDatagram+0x56>
+    150a:	4b21      	ldr	r3, [pc, #132]	; (1590 <xme_hal_net_writeDatagram+0xa8>)
+    150c:	885b      	ldrh	r3, [r3, #2]
+    150e:	89fa      	ldrh	r2, [r7, #14]
+    1510:	429a      	cmp	r2, r3
+    1512:	d814      	bhi.n	153e <xme_hal_net_writeDatagram+0x56>
+    1514:	89fb      	ldrh	r3, [r7, #14]
+    1516:	f103 33ff 	add.w	r3, r3, #4294967295
+    151a:	4a1d      	ldr	r2, [pc, #116]	; (1590 <xme_hal_net_writeDatagram+0xa8>)
+    151c:	18d3      	adds	r3, r2, r3
+    151e:	791b      	ldrb	r3, [r3, #4]
+    1520:	2b00      	cmp	r3, #0
+    1522:	d00c      	beq.n	153e <xme_hal_net_writeDatagram+0x56>
+    1524:	89fb      	ldrh	r3, [r7, #14]
+    1526:	f103 32ff 	add.w	r2, r3, #4294967295
+    152a:	4613      	mov	r3, r2
+    152c:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    1530:	189b      	adds	r3, r3, r2
+    1532:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    1536:	461a      	mov	r2, r3
+    1538:	4b16      	ldr	r3, [pc, #88]	; (1594 <xme_hal_net_writeDatagram+0xac>)
+    153a:	18d3      	adds	r3, r2, r3
+    153c:	e001      	b.n	1542 <xme_hal_net_writeDatagram+0x5a>
+    153e:	f04f 0300 	mov.w	r3, #0
+    1542:	617b      	str	r3, [r7, #20]
+    1544:	697b      	ldr	r3, [r7, #20]
+    1546:	2b00      	cmp	r3, #0
+    1548:	d108      	bne.n	155c <xme_hal_net_writeDatagram+0x74>
+    154a:	4b11      	ldr	r3, [pc, #68]	; (1590 <xme_hal_net_writeDatagram+0xa8>)
+    154c:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1550:	4618      	mov	r0, r3
+    1552:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1552: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    1556:	f04f 0300 	mov.w	r3, #0
+    155a:	e014      	b.n	1586 <xme_hal_net_writeDatagram+0x9e>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    155c:	4b0c      	ldr	r3, [pc, #48]	; (1590 <xme_hal_net_writeDatagram+0xa8>)
+    155e:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1562:	4618      	mov	r0, r3
+    1564:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1564: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	return xme_hal_net_writeDatagram_ipaddress(
+		socketItem,
+		GENERIC_ADDRESS_TO_IP4(remoteAddress),
+    1568:	68bb      	ldr	r3, [r7, #8]
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+
+	return xme_hal_net_writeDatagram_ipaddress(
+    156a:	681a      	ldr	r2, [r3, #0]
+		socketItem,
+		GENERIC_ADDRESS_TO_IP4(remoteAddress),
+		GENERIC_ADDRESS_TO_PORT(remoteAddress),
+    156c:	68bb      	ldr	r3, [r7, #8]
+    156e:	f103 0304 	add.w	r3, r3, #4
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+
+	return xme_hal_net_writeDatagram_ipaddress(
+    1572:	881b      	ldrh	r3, [r3, #0]
+    1574:	8879      	ldrh	r1, [r7, #2]
+    1576:	9100      	str	r1, [sp, #0]
+    1578:	6978      	ldr	r0, [r7, #20]
+    157a:	4611      	mov	r1, r2
+    157c:	461a      	mov	r2, r3
+    157e:	687b      	ldr	r3, [r7, #4]
+    1580:	f7ff fffe 	bl	1598 <xme_hal_net_writeDatagram_ipaddress>
+			1580: R_ARM_THM_CALL	xme_hal_net_writeDatagram_ipaddress
+    1584:	4603      	mov	r3, r0
+		socketItem,
+		GENERIC_ADDRESS_TO_IP4(remoteAddress),
+		GENERIC_ADDRESS_TO_PORT(remoteAddress),
+		buffer,
+		count);
+}
+    1586:	4618      	mov	r0, r3
+    1588:	f107 0718 	add.w	r7, r7, #24
+    158c:	46bd      	mov	sp, r7
+    158e:	bd80      	pop	{r7, pc}
+    1590:	00000004 	.word	0x00000004
+			1590: R_ARM_ABS32	.bss
+    1594:	00000014 	.word	0x00000014
+			1594: R_ARM_ABS32	.bss
+
+00001598 <xme_hal_net_writeDatagram_ipaddress>:
+	uint32_t remoteAddress,
+	uint16_t remotePort,
+	const void* buffer,
+	uint16_t count
+)
+{
+    1598:	b580      	push	{r7, lr}
+    159a:	b08c      	sub	sp, #48	; 0x30
+    159c:	af02      	add	r7, sp, #8
+    159e:	60f8      	str	r0, [r7, #12]
+    15a0:	60b9      	str	r1, [r7, #8]
+    15a2:	603b      	str	r3, [r7, #0]
+    15a4:	4613      	mov	r3, r2
+    15a6:	80fb      	strh	r3, [r7, #6]
+	struct sockaddr_in broadcastAddr;
+
+	int numBytes;
+
+	if ( socketItem -> connected )
+    15a8:	68fb      	ldr	r3, [r7, #12]
+    15aa:	f893 3024 	ldrb.w	r3, [r3, #36]	; 0x24
+    15ae:	2b00      	cmp	r3, #0
+    15b0:	d002      	beq.n	15b8 <xme_hal_net_writeDatagram_ipaddress+0x20>
+	{
+		return 0;
+    15b2:	f04f 0300 	mov.w	r3, #0
+    15b6:	e033      	b.n	1620 <xme_hal_net_writeDatagram_ipaddress+0x88>
+	}
+
+	// Broadcast
+	memset(&broadcastAddr, 0, sizeof(struct sockaddr_in));
+    15b8:	f107 0314 	add.w	r3, r7, #20
+    15bc:	4618      	mov	r0, r3
+    15be:	f04f 0100 	mov.w	r1, #0
+    15c2:	f04f 0210 	mov.w	r2, #16
+    15c6:	f7ff fffe 	bl	0 <memset>
+			15c6: R_ARM_THM_CALL	memset
+	broadcastAddr.sin_len = sizeof(broadcastAddr);
+    15ca:	f04f 0310 	mov.w	r3, #16
+    15ce:	753b      	strb	r3, [r7, #20]
+	broadcastAddr.sin_family = AF_INET;
+    15d0:	f04f 0302 	mov.w	r3, #2
+    15d4:	757b      	strb	r3, [r7, #21]
+	broadcastAddr.sin_port = htons( remotePort );
+    15d6:	88fb      	ldrh	r3, [r7, #6]
+    15d8:	4618      	mov	r0, r3
+    15da:	f7ff fffe 	bl	0 <lwip_htons>
+			15da: R_ARM_THM_CALL	lwip_htons
+    15de:	4603      	mov	r3, r0
+    15e0:	82fb      	strh	r3, [r7, #22]
+	broadcastAddr.sin_addr.s_addr = htonl( remoteAddress );
+    15e2:	68b8      	ldr	r0, [r7, #8]
+    15e4:	f7ff fffe 	bl	0 <lwip_htonl>
+			15e4: R_ARM_THM_CALL	lwip_htonl
+    15e8:	4603      	mov	r3, r0
+    15ea:	61bb      	str	r3, [r7, #24]
+
+	numBytes = lwip_sendto(socketItem->socket, (char*)buffer, count, 0, (struct sockaddr*)&broadcastAddr, sizeof(struct sockaddr_in));
+    15ec:	68fb      	ldr	r3, [r7, #12]
+    15ee:	691a      	ldr	r2, [r3, #16]
+    15f0:	8e3b      	ldrh	r3, [r7, #48]	; 0x30
+    15f2:	f107 0114 	add.w	r1, r7, #20
+    15f6:	9100      	str	r1, [sp, #0]
+    15f8:	f04f 0110 	mov.w	r1, #16
+    15fc:	9101      	str	r1, [sp, #4]
+    15fe:	4610      	mov	r0, r2
+    1600:	6839      	ldr	r1, [r7, #0]
+    1602:	461a      	mov	r2, r3
+    1604:	f04f 0300 	mov.w	r3, #0
+    1608:	f7ff fffe 	bl	0 <lwip_sendto>
+			1608: R_ARM_THM_CALL	lwip_sendto
+    160c:	6278      	str	r0, [r7, #36]	; 0x24
+
+	XME_CHECK
+    160e:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+    1610:	f1b3 3fff 	cmp.w	r3, #4294967295
+    1614:	d102      	bne.n	161c <xme_hal_net_writeDatagram_ipaddress+0x84>
+    1616:	f04f 0300 	mov.w	r3, #0
+    161a:	e001      	b.n	1620 <xme_hal_net_writeDatagram_ipaddress+0x88>
+	(
+		-1 != numBytes,
+		0
+	);
+
+	return numBytes;
+    161c:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+    161e:	b29b      	uxth	r3, r3
+}
+    1620:	4618      	mov	r0, r3
+    1622:	f107 0728 	add.w	r7, r7, #40	; 0x28
+    1626:	46bd      	mov	sp, r7
+    1628:	bd80      	pop	{r7, pc}
+    162a:	bf00      	nop
+
+0000162c <xme_hal_net_joinMulticastGroup>:
+xme_hal_net_joinMulticastGroup
+(
+	xme_hal_net_socketHandle_t socketHandle,
+	xme_core_interface_address_t* remoteAddress
+)
+{
+    162c:	b580      	push	{r7, lr}
+    162e:	b088      	sub	sp, #32
+    1630:	af02      	add	r7, sp, #8
+    1632:	4603      	mov	r3, r0
+    1634:	6039      	str	r1, [r7, #0]
+    1636:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+	struct ip_mreq imr; 
+	int ret;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1638:	4b2e      	ldr	r3, [pc, #184]	; (16f4 <xme_hal_net_joinMulticastGroup+0xc8>)
+    163a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    163e:	4618      	mov	r0, r3
+    1640:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			1640: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    1644:	88fb      	ldrh	r3, [r7, #6]
+    1646:	2b00      	cmp	r3, #0
+    1648:	d019      	beq.n	167e <xme_hal_net_joinMulticastGroup+0x52>
+    164a:	4b2a      	ldr	r3, [pc, #168]	; (16f4 <xme_hal_net_joinMulticastGroup+0xc8>)
+    164c:	885b      	ldrh	r3, [r3, #2]
+    164e:	88fa      	ldrh	r2, [r7, #6]
+    1650:	429a      	cmp	r2, r3
+    1652:	d814      	bhi.n	167e <xme_hal_net_joinMulticastGroup+0x52>
+    1654:	88fb      	ldrh	r3, [r7, #6]
+    1656:	f103 33ff 	add.w	r3, r3, #4294967295
+    165a:	4a26      	ldr	r2, [pc, #152]	; (16f4 <xme_hal_net_joinMulticastGroup+0xc8>)
+    165c:	18d3      	adds	r3, r2, r3
+    165e:	791b      	ldrb	r3, [r3, #4]
+    1660:	2b00      	cmp	r3, #0
+    1662:	d00c      	beq.n	167e <xme_hal_net_joinMulticastGroup+0x52>
+    1664:	88fb      	ldrh	r3, [r7, #6]
+    1666:	f103 32ff 	add.w	r2, r3, #4294967295
+    166a:	4613      	mov	r3, r2
+    166c:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    1670:	189b      	adds	r3, r3, r2
+    1672:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    1676:	461a      	mov	r2, r3
+    1678:	4b1f      	ldr	r3, [pc, #124]	; (16f8 <xme_hal_net_joinMulticastGroup+0xcc>)
+    167a:	18d3      	adds	r3, r2, r3
+    167c:	e001      	b.n	1682 <xme_hal_net_joinMulticastGroup+0x56>
+    167e:	f04f 0300 	mov.w	r3, #0
+    1682:	617b      	str	r3, [r7, #20]
+    1684:	697b      	ldr	r3, [r7, #20]
+    1686:	2b00      	cmp	r3, #0
+    1688:	d108      	bne.n	169c <xme_hal_net_joinMulticastGroup+0x70>
+    168a:	4b1a      	ldr	r3, [pc, #104]	; (16f4 <xme_hal_net_joinMulticastGroup+0xc8>)
+    168c:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1690:	4618      	mov	r0, r3
+    1692:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1692: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    1696:	f04f 0306 	mov.w	r3, #6
+    169a:	e026      	b.n	16ea <xme_hal_net_joinMulticastGroup+0xbe>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    169c:	4b15      	ldr	r3, [pc, #84]	; (16f4 <xme_hal_net_joinMulticastGroup+0xc8>)
+    169e:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    16a2:	4618      	mov	r0, r3
+    16a4:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			16a4: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	imr.imr_multiaddr.s_addr  = htonl( GENERIC_ADDRESS_TO_IP4(remoteAddress) );
+    16a8:	683b      	ldr	r3, [r7, #0]
+    16aa:	681b      	ldr	r3, [r3, #0]
+    16ac:	4618      	mov	r0, r3
+    16ae:	f7ff fffe 	bl	0 <lwip_htonl>
+			16ae: R_ARM_THM_CALL	lwip_htonl
+    16b2:	4603      	mov	r3, r0
+    16b4:	60bb      	str	r3, [r7, #8]
+	imr.imr_interface.s_addr  = INADDR_ANY;
+    16b6:	f04f 0300 	mov.w	r3, #0
+    16ba:	60fb      	str	r3, [r7, #12]
+
+	ret = lwip_setsockopt(socketItem->socket, IPPROTO_IP, IP_ADD_MEMBERSHIP, (char *) &imr, sizeof(imr));
+    16bc:	697b      	ldr	r3, [r7, #20]
+    16be:	691a      	ldr	r2, [r3, #16]
+    16c0:	f107 0308 	add.w	r3, r7, #8
+    16c4:	f04f 0108 	mov.w	r1, #8
+    16c8:	9100      	str	r1, [sp, #0]
+    16ca:	4610      	mov	r0, r2
+    16cc:	f04f 0100 	mov.w	r1, #0
+    16d0:	f04f 0203 	mov.w	r2, #3
+    16d4:	f7ff fffe 	bl	0 <lwip_setsockopt>
+			16d4: R_ARM_THM_CALL	lwip_setsockopt
+    16d8:	6138      	str	r0, [r7, #16]
+
+	if ( ret == 0 ) return XME_CORE_STATUS_SUCCESS;
+    16da:	693b      	ldr	r3, [r7, #16]
+    16dc:	2b00      	cmp	r3, #0
+    16de:	d102      	bne.n	16e6 <xme_hal_net_joinMulticastGroup+0xba>
+    16e0:	f04f 0300 	mov.w	r3, #0
+    16e4:	e001      	b.n	16ea <xme_hal_net_joinMulticastGroup+0xbe>
+
+	return XME_CORE_STATUS_INTERNAL_ERROR;
+    16e6:	f04f 0303 	mov.w	r3, #3
+}
+    16ea:	4618      	mov	r0, r3
+    16ec:	f107 0718 	add.w	r7, r7, #24
+    16f0:	46bd      	mov	sp, r7
+    16f2:	bd80      	pop	{r7, pc}
+    16f4:	00000004 	.word	0x00000004
+			16f4: R_ARM_ABS32	.bss
+    16f8:	00000014 	.word	0x00000014
+			16f8: R_ARM_ABS32	.bss
+
+000016fc <xme_hal_net_leaveMulticastGroup>:
+
+xme_core_status_t
+xme_hal_net_leaveMulticastGroup(xme_hal_net_socketHandle_t socketHandle, xme_core_interface_address_t* remoteAddress)
+{
+    16fc:	b580      	push	{r7, lr}
+    16fe:	b088      	sub	sp, #32
+    1700:	af02      	add	r7, sp, #8
+    1702:	4603      	mov	r3, r0
+    1704:	6039      	str	r1, [r7, #0]
+    1706:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+	struct ip_mreq imr;
+	int ret;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1708:	4b2e      	ldr	r3, [pc, #184]	; (17c4 <xme_hal_net_leaveMulticastGroup+0xc8>)
+    170a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    170e:	4618      	mov	r0, r3
+    1710:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			1710: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    1714:	88fb      	ldrh	r3, [r7, #6]
+    1716:	2b00      	cmp	r3, #0
+    1718:	d019      	beq.n	174e <xme_hal_net_leaveMulticastGroup+0x52>
+    171a:	4b2a      	ldr	r3, [pc, #168]	; (17c4 <xme_hal_net_leaveMulticastGroup+0xc8>)
+    171c:	885b      	ldrh	r3, [r3, #2]
+    171e:	88fa      	ldrh	r2, [r7, #6]
+    1720:	429a      	cmp	r2, r3
+    1722:	d814      	bhi.n	174e <xme_hal_net_leaveMulticastGroup+0x52>
+    1724:	88fb      	ldrh	r3, [r7, #6]
+    1726:	f103 33ff 	add.w	r3, r3, #4294967295
+    172a:	4a26      	ldr	r2, [pc, #152]	; (17c4 <xme_hal_net_leaveMulticastGroup+0xc8>)
+    172c:	18d3      	adds	r3, r2, r3
+    172e:	791b      	ldrb	r3, [r3, #4]
+    1730:	2b00      	cmp	r3, #0
+    1732:	d00c      	beq.n	174e <xme_hal_net_leaveMulticastGroup+0x52>
+    1734:	88fb      	ldrh	r3, [r7, #6]
+    1736:	f103 32ff 	add.w	r2, r3, #4294967295
+    173a:	4613      	mov	r3, r2
+    173c:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    1740:	189b      	adds	r3, r3, r2
+    1742:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    1746:	461a      	mov	r2, r3
+    1748:	4b1f      	ldr	r3, [pc, #124]	; (17c8 <xme_hal_net_leaveMulticastGroup+0xcc>)
+    174a:	18d3      	adds	r3, r2, r3
+    174c:	e001      	b.n	1752 <xme_hal_net_leaveMulticastGroup+0x56>
+    174e:	f04f 0300 	mov.w	r3, #0
+    1752:	617b      	str	r3, [r7, #20]
+    1754:	697b      	ldr	r3, [r7, #20]
+    1756:	2b00      	cmp	r3, #0
+    1758:	d108      	bne.n	176c <xme_hal_net_leaveMulticastGroup+0x70>
+    175a:	4b1a      	ldr	r3, [pc, #104]	; (17c4 <xme_hal_net_leaveMulticastGroup+0xc8>)
+    175c:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1760:	4618      	mov	r0, r3
+    1762:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1762: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    1766:	f04f 0306 	mov.w	r3, #6
+    176a:	e026      	b.n	17ba <xme_hal_net_leaveMulticastGroup+0xbe>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    176c:	4b15      	ldr	r3, [pc, #84]	; (17c4 <xme_hal_net_leaveMulticastGroup+0xc8>)
+    176e:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1772:	4618      	mov	r0, r3
+    1774:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1774: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	imr.imr_multiaddr.s_addr = htonl( GENERIC_ADDRESS_TO_IP4(remoteAddress) );
+    1778:	683b      	ldr	r3, [r7, #0]
+    177a:	681b      	ldr	r3, [r3, #0]
+    177c:	4618      	mov	r0, r3
+    177e:	f7ff fffe 	bl	0 <lwip_htonl>
+			177e: R_ARM_THM_CALL	lwip_htonl
+    1782:	4603      	mov	r3, r0
+    1784:	60bb      	str	r3, [r7, #8]
+	imr.imr_interface.s_addr = INADDR_ANY;
+    1786:	f04f 0300 	mov.w	r3, #0
+    178a:	60fb      	str	r3, [r7, #12]
+
+	ret = lwip_setsockopt(socketItem->socket, IPPROTO_IP, IP_DROP_MEMBERSHIP, (char *) &imr, sizeof(imr));
+    178c:	697b      	ldr	r3, [r7, #20]
+    178e:	691a      	ldr	r2, [r3, #16]
+    1790:	f107 0308 	add.w	r3, r7, #8
+    1794:	f04f 0108 	mov.w	r1, #8
+    1798:	9100      	str	r1, [sp, #0]
+    179a:	4610      	mov	r0, r2
+    179c:	f04f 0100 	mov.w	r1, #0
+    17a0:	f04f 0204 	mov.w	r2, #4
+    17a4:	f7ff fffe 	bl	0 <lwip_setsockopt>
+			17a4: R_ARM_THM_CALL	lwip_setsockopt
+    17a8:	6138      	str	r0, [r7, #16]
+
+	if ( ret == 0 ) return XME_CORE_STATUS_SUCCESS;
+    17aa:	693b      	ldr	r3, [r7, #16]
+    17ac:	2b00      	cmp	r3, #0
+    17ae:	d102      	bne.n	17b6 <xme_hal_net_leaveMulticastGroup+0xba>
+    17b0:	f04f 0300 	mov.w	r3, #0
+    17b4:	e001      	b.n	17ba <xme_hal_net_leaveMulticastGroup+0xbe>
+
+	return XME_CORE_STATUS_INTERNAL_ERROR;
+    17b6:	f04f 0303 	mov.w	r3, #3
+}
+    17ba:	4618      	mov	r0, r3
+    17bc:	f107 0718 	add.w	r7, r7, #24
+    17c0:	46bd      	mov	sp, r7
+    17c2:	bd80      	pop	{r7, pc}
+    17c4:	00000004 	.word	0x00000004
+			17c4: R_ARM_ABS32	.bss
+    17c8:	00000014 	.word	0x00000014
+			17c8: R_ARM_ABS32	.bss
+
+000017cc <xme_hal_net_getAddressOfLastReception>:
+void
+xme_hal_net_getAddressOfLastReception
+(
+	xme_hal_net_socketHandle_t socketHandle, xme_core_interface_address_t* remoteAddress
+)
+{
+    17cc:	b590      	push	{r4, r7, lr}
+    17ce:	b085      	sub	sp, #20
+    17d0:	af00      	add	r7, sp, #0
+    17d2:	4603      	mov	r3, r0
+    17d4:	6039      	str	r1, [r7, #0]
+    17d6:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+	struct sockaddr_in *sAdd;
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    17d8:	4b28      	ldr	r3, [pc, #160]	; (187c <xme_hal_net_getAddressOfLastReception+0xb0>)
+    17da:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    17de:	4618      	mov	r0, r3
+    17e0:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			17e0: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    17e4:	88fb      	ldrh	r3, [r7, #6]
+    17e6:	2b00      	cmp	r3, #0
+    17e8:	d019      	beq.n	181e <xme_hal_net_getAddressOfLastReception+0x52>
+    17ea:	4b24      	ldr	r3, [pc, #144]	; (187c <xme_hal_net_getAddressOfLastReception+0xb0>)
+    17ec:	885b      	ldrh	r3, [r3, #2]
+    17ee:	88fa      	ldrh	r2, [r7, #6]
+    17f0:	429a      	cmp	r2, r3
+    17f2:	d814      	bhi.n	181e <xme_hal_net_getAddressOfLastReception+0x52>
+    17f4:	88fb      	ldrh	r3, [r7, #6]
+    17f6:	f103 33ff 	add.w	r3, r3, #4294967295
+    17fa:	4a20      	ldr	r2, [pc, #128]	; (187c <xme_hal_net_getAddressOfLastReception+0xb0>)
+    17fc:	18d3      	adds	r3, r2, r3
+    17fe:	791b      	ldrb	r3, [r3, #4]
+    1800:	2b00      	cmp	r3, #0
+    1802:	d00c      	beq.n	181e <xme_hal_net_getAddressOfLastReception+0x52>
+    1804:	88fb      	ldrh	r3, [r7, #6]
+    1806:	f103 32ff 	add.w	r2, r3, #4294967295
+    180a:	4613      	mov	r3, r2
+    180c:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    1810:	189b      	adds	r3, r3, r2
+    1812:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    1816:	461a      	mov	r2, r3
+    1818:	4b19      	ldr	r3, [pc, #100]	; (1880 <xme_hal_net_getAddressOfLastReception+0xb4>)
+    181a:	18d3      	adds	r3, r2, r3
+    181c:	e001      	b.n	1822 <xme_hal_net_getAddressOfLastReception+0x56>
+    181e:	f04f 0300 	mov.w	r3, #0
+    1822:	60fb      	str	r3, [r7, #12]
+    1824:	68fb      	ldr	r3, [r7, #12]
+    1826:	2b00      	cmp	r3, #0
+    1828:	d106      	bne.n	1838 <xme_hal_net_getAddressOfLastReception+0x6c>
+    182a:	4b14      	ldr	r3, [pc, #80]	; (187c <xme_hal_net_getAddressOfLastReception+0xb0>)
+    182c:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    1830:	4618      	mov	r0, r3
+    1832:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1832: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    1836:	e01d      	b.n	1874 <xme_hal_net_getAddressOfLastReception+0xa8>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1838:	4b10      	ldr	r3, [pc, #64]	; (187c <xme_hal_net_getAddressOfLastReception+0xb0>)
+    183a:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    183e:	4618      	mov	r0, r3
+    1840:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1840: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+	
+	sAdd = (struct sockaddr_in *)(&(socketItem->peerAddr));
+    1844:	68fb      	ldr	r3, [r7, #12]
+    1846:	f103 0314 	add.w	r3, r3, #20
+    184a:	60bb      	str	r3, [r7, #8]
+	
+	GENERIC_ADDRESS_TO_IP4(remoteAddress) = ntohl( *(uint32_t *)&(sAdd->sin_addr) );
+    184c:	683c      	ldr	r4, [r7, #0]
+    184e:	68bb      	ldr	r3, [r7, #8]
+    1850:	f103 0304 	add.w	r3, r3, #4
+    1854:	681b      	ldr	r3, [r3, #0]
+    1856:	4618      	mov	r0, r3
+    1858:	f7ff fffe 	bl	0 <lwip_ntohl>
+			1858: R_ARM_THM_CALL	lwip_ntohl
+    185c:	4603      	mov	r3, r0
+    185e:	6023      	str	r3, [r4, #0]
+	GENERIC_ADDRESS_TO_PORT(remoteAddress) = ntohs( sAdd->sin_port );
+    1860:	683b      	ldr	r3, [r7, #0]
+    1862:	f103 0404 	add.w	r4, r3, #4
+    1866:	68bb      	ldr	r3, [r7, #8]
+    1868:	885b      	ldrh	r3, [r3, #2]
+    186a:	4618      	mov	r0, r3
+    186c:	f7ff fffe 	bl	0 <lwip_ntohs>
+			186c: R_ARM_THM_CALL	lwip_ntohs
+    1870:	4603      	mov	r3, r0
+    1872:	8023      	strh	r3, [r4, #0]
+}
+    1874:	f107 0714 	add.w	r7, r7, #20
+    1878:	46bd      	mov	sp, r7
+    187a:	bd90      	pop	{r4, r7, pc}
+    187c:	00000004 	.word	0x00000004
+			187c: R_ARM_ABS32	.bss
+    1880:	00000014 	.word	0x00000014
+			1880: R_ARM_ABS32	.bss
+
+00001884 <xme_hal_net_get_available_data_size>:
+uint16_t
+xme_hal_net_get_available_data_size
+(
+	xme_hal_net_socketHandle_t socketHandle
+)
+{
+    1884:	b580      	push	{r7, lr}
+    1886:	b084      	sub	sp, #16
+    1888:	af00      	add	r7, sp, #0
+    188a:	4603      	mov	r3, r0
+    188c:	80fb      	strh	r3, [r7, #6]
+	xme_hal_net_socketItem* socketItem;
+	unsigned long dataCount = 0;
+    188e:	f04f 0300 	mov.w	r3, #0
+    1892:	60bb      	str	r3, [r7, #8]
+
+	xme_hal_sync_enterCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    1894:	4b2b      	ldr	r3, [pc, #172]	; (1944 <xme_hal_net_get_available_data_size+0xc0>)
+    1896:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    189a:	4618      	mov	r0, r3
+    189c:	f7ff fffe 	bl	0 <xme_hal_sync_enterCriticalSection>
+			189c: R_ARM_THM_CALL	xme_hal_sync_enterCriticalSection
+	{
+		// Verify socket handle
+		XME_CHECK_REC
+    18a0:	88fb      	ldrh	r3, [r7, #6]
+    18a2:	2b00      	cmp	r3, #0
+    18a4:	d019      	beq.n	18da <xme_hal_net_get_available_data_size+0x56>
+    18a6:	4b27      	ldr	r3, [pc, #156]	; (1944 <xme_hal_net_get_available_data_size+0xc0>)
+    18a8:	885b      	ldrh	r3, [r3, #2]
+    18aa:	88fa      	ldrh	r2, [r7, #6]
+    18ac:	429a      	cmp	r2, r3
+    18ae:	d814      	bhi.n	18da <xme_hal_net_get_available_data_size+0x56>
+    18b0:	88fb      	ldrh	r3, [r7, #6]
+    18b2:	f103 33ff 	add.w	r3, r3, #4294967295
+    18b6:	4a23      	ldr	r2, [pc, #140]	; (1944 <xme_hal_net_get_available_data_size+0xc0>)
+    18b8:	18d3      	adds	r3, r2, r3
+    18ba:	791b      	ldrb	r3, [r3, #4]
+    18bc:	2b00      	cmp	r3, #0
+    18be:	d00c      	beq.n	18da <xme_hal_net_get_available_data_size+0x56>
+    18c0:	88fb      	ldrh	r3, [r7, #6]
+    18c2:	f103 32ff 	add.w	r2, r3, #4294967295
+    18c6:	4613      	mov	r3, r2
+    18c8:	ea4f 0383 	mov.w	r3, r3, lsl #2
+    18cc:	189b      	adds	r3, r3, r2
+    18ce:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+    18d2:	461a      	mov	r2, r3
+    18d4:	4b1c      	ldr	r3, [pc, #112]	; (1948 <xme_hal_net_get_available_data_size+0xc4>)
+    18d6:	18d3      	adds	r3, r2, r3
+    18d8:	e001      	b.n	18de <xme_hal_net_get_available_data_size+0x5a>
+    18da:	f04f 0300 	mov.w	r3, #0
+    18de:	60fb      	str	r3, [r7, #12]
+    18e0:	68fb      	ldr	r3, [r7, #12]
+    18e2:	2b00      	cmp	r3, #0
+    18e4:	d108      	bne.n	18f8 <xme_hal_net_get_available_data_size+0x74>
+    18e6:	4b17      	ldr	r3, [pc, #92]	; (1944 <xme_hal_net_get_available_data_size+0xc0>)
+    18e8:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    18ec:	4618      	mov	r0, r3
+    18ee:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			18ee: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+    18f2:	f04f 0300 	mov.w	r3, #0
+    18f6:	e01f      	b.n	1938 <xme_hal_net_get_available_data_size+0xb4>
+			{
+				xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+			}
+		);
+	}
+	xme_hal_sync_leaveCriticalSection(xme_hal_net_config.criticalSectionHandle);
+    18f8:	4b12      	ldr	r3, [pc, #72]	; (1944 <xme_hal_net_get_available_data_size+0xc0>)
+    18fa:	f8b3 31a0 	ldrh.w	r3, [r3, #416]	; 0x1a0
+    18fe:	4618      	mov	r0, r3
+    1900:	f7ff fffe 	bl	0 <xme_hal_sync_leaveCriticalSection>
+			1900: R_ARM_THM_CALL	xme_hal_sync_leaveCriticalSection
+
+	// Determine number of bytes ready to be read
+	XME_CHECK
+    1904:	68fb      	ldr	r3, [r7, #12]
+    1906:	691a      	ldr	r2, [r3, #16]
+    1908:	f107 0308 	add.w	r3, r7, #8
+    190c:	4610      	mov	r0, r2
+    190e:	490f      	ldr	r1, [pc, #60]	; (194c <xme_hal_net_get_available_data_size+0xc8>)
+    1910:	461a      	mov	r2, r3
+    1912:	f7ff fffe 	bl	0 <lwip_ioctl>
+			1912: R_ARM_THM_CALL	lwip_ioctl
+    1916:	4603      	mov	r3, r0
+    1918:	f1b3 3fff 	cmp.w	r3, #4294967295
+    191c:	d102      	bne.n	1924 <xme_hal_net_get_available_data_size+0xa0>
+    191e:	f04f 0300 	mov.w	r3, #0
+    1922:	e009      	b.n	1938 <xme_hal_net_get_available_data_size+0xb4>
+	(
+		-1 != ioctlsocket(socketItem->socket, FIONREAD, &dataCount),
+		0
+	);
+
+	return (uint16_t)XME_HAL_MATH_MIN(dataCount, 0xFFFF);
+    1924:	68ba      	ldr	r2, [r7, #8]
+    1926:	f64f 73fe 	movw	r3, #65534	; 0xfffe
+    192a:	429a      	cmp	r2, r3
+    192c:	d802      	bhi.n	1934 <xme_hal_net_get_available_data_size+0xb0>
+    192e:	68bb      	ldr	r3, [r7, #8]
+    1930:	b29b      	uxth	r3, r3
+    1932:	e001      	b.n	1938 <xme_hal_net_get_available_data_size+0xb4>
+    1934:	f64f 73ff 	movw	r3, #65535	; 0xffff
+}
+    1938:	4618      	mov	r0, r3
+    193a:	f107 0710 	add.w	r7, r7, #16
+    193e:	46bd      	mov	sp, r7
+    1940:	bd80      	pop	{r7, pc}
+    1942:	bf00      	nop
+    1944:	00000004 	.word	0x00000004
+			1944: R_ARM_ABS32	.bss
+    1948:	00000014 	.word	0x00000014
+			1948: R_ARM_ABS32	.bss
+    194c:	4004667f 	.word	0x4004667f

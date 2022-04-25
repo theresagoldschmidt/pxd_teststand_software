@@ -1,0 +1,87 @@
+%
+% Copyright (c) 2011-2012, fortiss GmbH.
+% Licensed under the Apache License, Version 2.0.
+% 
+% Use, modification and distribution are subject to the terms specified
+% in the accompanying license file LICENSE.txt located at the root directory
+% of this software distribution. A copy is available at
+% http://chromosome.fortiss.org/.
+%
+% This file is part of CHROMOSOME.
+%
+% $Id$
+%
+% Author:
+%         Dominik Sojer <sojer@fortiss.org>
+%         Michael Geisinger <geisinger@fortiss.org>
+%
+
+\section{Introduction} \label{sec:intro}
+
+For a long time, the focus of embedded systems development has been the implementation of isolated systems with clearly defined borders and interfaces.
+Recently, the trend of integrating these complex independent systems into larger \emph{systems of systems} arises:
+manufacturing plants get connected with logistics, intelligent cars communicate with each other and the infrastructure. 
+Due to the different life cycles of the different involved systems, adaptability in the sense of plug\&play becomes more and more important. Systems must 
+be integrated with other systems although the concrete systems were not know at design time. Future embedded systems have to be developed in a way so 
+that they can be integrated into these systems of systems without losing their safety, security and real-time capabilities. 
+
+In order to achieve this, a powerful domain-independent software platform is required,
+which can flexibly be adapted to various application scenarios.
+\xme\footnote{\url{http://chromosome.fortiss.org/}} is a middleware and runtime system intended to meet these requirements. It combines features known
+from the embedded domain such as determinism where necessary with adaptivity known from internet technologies. \xme treats extra-functional requirements as 
+first-class entity and provides according mechanisms to fulfill the application requirements.
+
+\xme has a large set of designated features and is designed to evolve over time.
+It is completely open source and hence transparent to developers and end users.
+The current release includes a first subset of the features that will be available in future versions.
+Although we have a clear vision of the final system, \xme's development is demand driven.
+Its goal is to provide adequate platform support and tooling for maximum efficiency.
+
+The following tutorial will introduce you to the main concepts of \xme and illustrate them with examples that are easy to understand.
+Including installation of required prerequisites, this tutorial will take about two hours to complete.
+
+\subsection{The Name \xme}
+\xme stands for \textbf{\underbar{Cro}}ss-domain \textbf{\underbar{M}}odular
+\textbf{\underbar{O}}perating \textbf{\underbar{S}}ystem \textbf{\underbar{o}}r
+\textbf{\underbar{M}}iddlewar\textbf{\underbar{e}}.
+The name expresses the vision of \xme:
+\begin{enumerate}
+	\item We believe that in the future cross-domain solutions will be required.
+	\item As different applications might have many different requirements
+		and the middleware will be deployed to very heterogeneous platforms,
+		a scalable and modular solution is required.
+	\item \xme will sometimes operate on top of an operating system (OS),
+		but it might also replace an OS due to resource reasons.
+		Therefore, we think that in the future,
+		the boundary between an operating system and a middleware might get blurred.
+\end{enumerate}
+
+Similar to biology, a \xme instance can be built up a number of genes (modules).
+It is not the intention of \xme to invent new genes, but instead to use
+existing protocols / solutions to implement components for specific tasks.
+The major idea is that \xme offers a flexible blueprint that enables the
+selection of different solutions to adapt a system to the specific requirements.
+
+Analog to the evolution of mankind, we do not believe that the genes,
+but also the blueprint provided by \xme are initialy perfect.
+Instead we believe in constant improvement based on discussions about specific components.
+This is one of the reasons why we are offering \xme as open-source software.
+In case you have any questions or suggestions for improvement, we are looking forward to your comments.
+
+\subsection{Questions and Contact Information}
+
+If you have any questions with respect to this tutorial or want to report a bug,
+please check the Frequently Asked Questions in Appendix~\ref{appx:faq}.
+If your question is not answered, please do not hesitate to send an e-mail to \url{chromosome@fortiss.org}. Thank you!
+
+\subsection{Acknowledgements}
+
+This work is partially funded by the following research grants:
+\begin{itemize}
+	\item German Federal Ministry of Economics and Technology (BMWi) research grant 01ME12009
+		(project RACE\footnote{\url{http://www.projekt-race.de/}})
+	\item German Federal Ministry of Economics and Technology (BMWi) research grant 01MA11002
+		(project AutoPnP\footnote{\url{http://www.autopnp.com/}})
+	\item Bavarian Ministry of Economic Affairs, Infrastructure, Transport and Technology grant programme 1330/686
+		(Vorlaufforschung Fortiss)
+\end{itemize}

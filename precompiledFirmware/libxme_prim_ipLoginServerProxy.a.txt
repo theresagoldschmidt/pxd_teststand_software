@@ -1,0 +1,905 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_prim_ipLoginServerProxy.a:
+
+ipLoginServerProxy.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  50536 Jul 30 19:07 2021 ipLoginServerProxy.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000578  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, RELOC, READONLY, CODE
+  1 .data         00000000  00000000  00000000  000005ac  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000048  00000000  00000000  000005ac  2**2
+                  ALLOC
+  3 .debug_abbrev 00000198  00000000  00000000  000005ac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   00000c9c  00000000  00000000  00000744  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   000007b2  00000000  00000000  000013e0  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 000076b8  00000000  00000000  00001b92  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .rodata       00000194  00000000  00000000  0000924c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  8 .debug_loc    00000154  00000000  00000000  000093e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_pubnames 0000013e  00000000  00000000  00009534  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_pubtypes 00000465  00000000  00000000  00009672  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_aranges 00000020  00000000  00000000  00009ad7  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 12 .debug_str    00001349  00000000  00000000  00009af7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .comment      0000002b  00000000  00000000  0000ae40  2**0
+                  CONTENTS, READONLY
+ 14 .ARM.attributes 00000031  00000000  00000000  0000ae6b  2**0
+                  CONTENTS, READONLY
+ 15 .debug_frame  000000d0  00000000  00000000  0000ae9c  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 ipLoginServerProxy.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xme_core_config
+00000004 l       .bss	00000000 intf.5627
+00000000 l    d  .rodata	00000000 .rodata
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000004       O *COM*	00000004 xme_core_log_logCallback
+00000000 g     F .text	00000120 xme_prim_ipLoginServerProxy_create
+00000000         *UND*	00000000 memset
+00000000         *UND*	00000000 xme_core_rr_publishRequestHandler
+00000000         *UND*	00000000 xme_hal_net_createSocket
+00000000         *UND*	00000000 xme_core_rr_unpublishRequestHandler
+00000000         *UND*	00000000 xme_core_resourceManager_scheduleTask
+00000000         *UND*	00000000 xme_hal_net_destroySocket
+000001c0 g     F .text	00000234 xme_prim_ipLoginServerProxy_receiveLoginRequest
+000003f4 g     F .text	00000184 xme_prim_ipLoginServerProxy_taskCheckLoginResponses
+00000120 g     F .text	0000002c xme_prim_ipLoginServerProxy_activate
+00000000         *UND*	00000000 xme_hal_net_openSocket
+0000014c g     F .text	0000001a xme_prim_ipLoginServerProxy_deactivate
+00000000         *UND*	00000000 xme_hal_net_closeSocket
+00000168 g     F .text	00000056 xme_prim_ipLoginServerProxy_destroy
+00000000         *UND*	00000000 xme_hal_sched_removeTask
+00000000         *UND*	00000000 memcpy
+00000000         *UND*	00000000 xme_hal_net_writeSocket
+00000000         *UND*	00000000 xme_hal_time_getInterval
+00000000         *UND*	00000000 xme_hal_table_removeItem
+00000000         *UND*	00000000 xme_hal_table_addItem
+00000000         *UND*	00000000 xme_hal_time_getCurrentTime
+00000000         *UND*	00000000 xme_hal_sched_setTaskExecutionState
+00000000         *UND*	00000000 xme_hal_net_selectSocket
+00000000         *UND*	00000000 xme_hal_net_readSocket
+00000000         *UND*	00000000 xme_core_rr_sendResponse
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_prim_ipLoginServerProxy_create>:
+/***   Implementation                                                       ***/
+/******************************************************************************/
+
+xme_core_status_t
+xme_prim_ipLoginServerProxy_create(xme_prim_ipLoginServerProxy_configStruct_t* config)
+{
+   0:	b580      	push	{r7, lr}
+   2:	b086      	sub	sp, #24
+   4:	af04      	add	r7, sp, #16
+   6:	6078      	str	r0, [r7, #4]
+	// TODO: How to determine on which interface this login client proxy instance listens on? See ticket #746
+	static xme_hal_net_interfaceDescr_t intf;
+
+	// Initialize configuration structure
+	config->loginRequestHandlerHandle = XME_CORE_RR_INVALID_REQUEST_HANDLER_HANDLE;
+   8:	687b      	ldr	r3, [r7, #4]
+   a:	f04f 0200 	mov.w	r2, #0
+   e:	801a      	strh	r2, [r3, #0]
+	config->loginClientSocket = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+  10:	687b      	ldr	r3, [r7, #4]
+  12:	f04f 0200 	mov.w	r2, #0
+  16:	805a      	strh	r2, [r3, #2]
+	config->loginResponseTaskHandle = XME_HAL_SCHED_INVALID_TASK_HANDLE;
+  18:	687b      	ldr	r3, [r7, #4]
+  1a:	f04f 0200 	mov.w	r2, #0
+  1e:	809a      	strh	r2, [r3, #4]
+
+	XME_HAL_TABLE_INIT(config->pendingResponses);
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	f04f 0200 	mov.w	r2, #0
+  26:	811a      	strh	r2, [r3, #8]
+  28:	687b      	ldr	r3, [r7, #4]
+  2a:	f04f 0200 	mov.w	r2, #0
+  2e:	815a      	strh	r2, [r3, #10]
+  30:	687b      	ldr	r3, [r7, #4]
+  32:	f103 030c 	add.w	r3, r3, #12
+  36:	4618      	mov	r0, r3
+  38:	f04f 0100 	mov.w	r1, #0
+  3c:	f04f 0205 	mov.w	r2, #5
+  40:	f7ff fffe 	bl	0 <memset>
+			40: R_ARM_THM_CALL	memset
+
+	// Announce that this component can handle login requests
+	XME_CHECK
+  44:	f04f 0301 	mov.w	r3, #1
+  48:	9300      	str	r3, [sp, #0]
+  4a:	4b32      	ldr	r3, [pc, #200]	; (114 <xme_prim_ipLoginServerProxy_create+0x114>)
+  4c:	9301      	str	r3, [sp, #4]
+  4e:	687b      	ldr	r3, [r7, #4]
+  50:	9302      	str	r3, [sp, #8]
+  52:	f04f 0010 	mov.w	r0, #16
+  56:	f04f 0100 	mov.w	r1, #0
+  5a:	f04f 0211 	mov.w	r2, #17
+  5e:	f04f 0300 	mov.w	r3, #0
+  62:	f7ff fffe 	bl	0 <xme_core_rr_publishRequestHandler>
+			62: R_ARM_THM_CALL	xme_core_rr_publishRequestHandler
+  66:	4603      	mov	r3, r0
+  68:	461a      	mov	r2, r3
+  6a:	687b      	ldr	r3, [r7, #4]
+  6c:	801a      	strh	r2, [r3, #0]
+  6e:	687b      	ldr	r3, [r7, #4]
+  70:	881b      	ldrh	r3, [r3, #0]
+  72:	2b00      	cmp	r3, #0
+  74:	d102      	bne.n	7c <xme_prim_ipLoginServerProxy_create+0x7c>
+  76:	f04f 030a 	mov.w	r3, #10
+  7a:	e046      	b.n	10a <xme_prim_ipLoginServerProxy_create+0x10a>
+		),
+		XME_CORE_STATUS_OUT_OF_RESOURCES
+	);
+
+	// Create a UDP socket to the port where login requests are sent to
+	XME_CHECK_REC
+  7c:	4826      	ldr	r0, [pc, #152]	; (118 <xme_prim_ipLoginServerProxy_create+0x118>)
+  7e:	f04f 010d 	mov.w	r1, #13
+  82:	f04f 0200 	mov.w	r2, #0
+  86:	f248 034e 	movw	r3, #32846	; 0x804e
+  8a:	f7ff fffe 	bl	0 <xme_hal_net_createSocket>
+			8a: R_ARM_THM_CALL	xme_hal_net_createSocket
+  8e:	4603      	mov	r3, r0
+  90:	461a      	mov	r2, r3
+  92:	687b      	ldr	r3, [r7, #4]
+  94:	805a      	strh	r2, [r3, #2]
+  96:	687b      	ldr	r3, [r7, #4]
+  98:	885b      	ldrh	r3, [r3, #2]
+  9a:	2b00      	cmp	r3, #0
+  9c:	d10b      	bne.n	b6 <xme_prim_ipLoginServerProxy_create+0xb6>
+  9e:	687b      	ldr	r3, [r7, #4]
+  a0:	881b      	ldrh	r3, [r3, #0]
+  a2:	4618      	mov	r0, r3
+  a4:	f7ff fffe 	bl	0 <xme_core_rr_unpublishRequestHandler>
+			a4: R_ARM_THM_CALL	xme_core_rr_unpublishRequestHandler
+  a8:	687b      	ldr	r3, [r7, #4]
+  aa:	f04f 0200 	mov.w	r2, #0
+  ae:	801a      	strh	r2, [r3, #0]
+  b0:	f04f 030a 	mov.w	r3, #10
+  b4:	e029      	b.n	10a <xme_prim_ipLoginServerProxy_create+0x10a>
+			config->loginRequestHandlerHandle = XME_CORE_RR_INVALID_REQUEST_HANDLER_HANDLE;
+		}
+	);
+
+	// Create a task that will check for incoming login responses
+	XME_CHECK_REC
+  b6:	687b      	ldr	r3, [r7, #4]
+  b8:	9300      	str	r3, [sp, #0]
+  ba:	f64f 70ff 	movw	r0, #65535	; 0xffff
+  be:	f44f 717a 	mov.w	r1, #1000	; 0x3e8
+  c2:	f04f 0202 	mov.w	r2, #2
+  c6:	4b15      	ldr	r3, [pc, #84]	; (58 <xme_core_resourceManager_scheduleTask+0x58>)
+  c8:	f7ff fffe 	bl	0 <xme_core_resourceManager_scheduleTask>
+			c8: R_ARM_THM_CALL	xme_core_resourceManager_scheduleTask
+  cc:	4603      	mov	r3, r0
+  ce:	461a      	mov	r2, r3
+  d0:	687b      	ldr	r3, [r7, #4]
+  d2:	809a      	strh	r2, [r3, #4]
+  d4:	687b      	ldr	r3, [r7, #4]
+  d6:	889b      	ldrh	r3, [r3, #4]
+  d8:	2b00      	cmp	r3, #0
+  da:	d114      	bne.n	106 <xme_prim_ipLoginServerProxy_create+0x106>
+  dc:	687b      	ldr	r3, [r7, #4]
+  de:	885b      	ldrh	r3, [r3, #2]
+  e0:	4618      	mov	r0, r3
+  e2:	f7ff fffe 	bl	0 <xme_hal_net_destroySocket>
+			e2: R_ARM_THM_CALL	xme_hal_net_destroySocket
+  e6:	687b      	ldr	r3, [r7, #4]
+  e8:	f04f 0200 	mov.w	r2, #0
+  ec:	805a      	strh	r2, [r3, #2]
+  ee:	687b      	ldr	r3, [r7, #4]
+  f0:	881b      	ldrh	r3, [r3, #0]
+  f2:	4618      	mov	r0, r3
+  f4:	f7ff fffe 	bl	0 <xme_core_rr_unpublishRequestHandler>
+			f4: R_ARM_THM_CALL	xme_core_rr_unpublishRequestHandler
+  f8:	687b      	ldr	r3, [r7, #4]
+  fa:	f04f 0200 	mov.w	r2, #0
+  fe:	801a      	strh	r2, [r3, #0]
+ 100:	f04f 030a 	mov.w	r3, #10
+ 104:	e001      	b.n	10a <xme_prim_ipLoginServerProxy_create+0x10a>
+			xme_core_rr_unpublishRequestHandler(config->loginRequestHandlerHandle);
+			config->loginRequestHandlerHandle = XME_CORE_RR_INVALID_REQUEST_HANDLER_HANDLE;
+		}
+	);
+
+	return XME_CORE_STATUS_SUCCESS;
+ 106:	f04f 0300 	mov.w	r3, #0
+}
+ 10a:	4618      	mov	r0, r3
+ 10c:	f107 0708 	add.w	r7, r7, #8
+ 110:	46bd      	mov	sp, r7
+ 112:	bd80      	pop	{r7, pc}
+ 114:	00000000 	.word	0x00000000
+			114: R_ARM_ABS32	xme_prim_ipLoginServerProxy_receiveLoginRequest
+ 118:	00000004 	.word	0x00000004
+			118: R_ARM_ABS32	.bss
+ 11c:	00000000 	.word	0x00000000
+			11c: R_ARM_ABS32	xme_prim_ipLoginServerProxy_taskCheckLoginResponses
+
+00000120 <xme_prim_ipLoginServerProxy_activate>:
+
+xme_core_status_t
+xme_prim_ipLoginServerProxy_activate(xme_prim_ipLoginServerProxy_configStruct_t* config)
+{
+ 120:	b580      	push	{r7, lr}
+ 122:	b082      	sub	sp, #8
+ 124:	af00      	add	r7, sp, #0
+ 126:	6078      	str	r0, [r7, #4]
+	// Open the UDP socket
+	XME_CHECK
+ 128:	687b      	ldr	r3, [r7, #4]
+ 12a:	885b      	ldrh	r3, [r3, #2]
+ 12c:	4618      	mov	r0, r3
+ 12e:	f7ff fffe 	bl	0 <xme_hal_net_openSocket>
+			12e: R_ARM_THM_CALL	xme_hal_net_openSocket
+ 132:	4603      	mov	r3, r0
+ 134:	2b00      	cmp	r3, #0
+ 136:	d002      	beq.n	13e <xme_prim_ipLoginServerProxy_activate+0x1e>
+ 138:	f04f 030a 	mov.w	r3, #10
+ 13c:	e001      	b.n	142 <xme_prim_ipLoginServerProxy_activate+0x22>
+	(
+		XME_CORE_STATUS_SUCCESS == xme_hal_net_openSocket(config->loginClientSocket),
+		XME_CORE_STATUS_OUT_OF_RESOURCES
+	);
+
+	return XME_CORE_STATUS_SUCCESS;
+ 13e:	f04f 0300 	mov.w	r3, #0
+}
+ 142:	4618      	mov	r0, r3
+ 144:	f107 0708 	add.w	r7, r7, #8
+ 148:	46bd      	mov	sp, r7
+ 14a:	bd80      	pop	{r7, pc}
+
+0000014c <xme_prim_ipLoginServerProxy_deactivate>:
+
+void
+xme_prim_ipLoginServerProxy_deactivate(xme_prim_ipLoginServerProxy_configStruct_t* config)
+{
+ 14c:	b580      	push	{r7, lr}
+ 14e:	b082      	sub	sp, #8
+ 150:	af00      	add	r7, sp, #0
+ 152:	6078      	str	r0, [r7, #4]
+	// Close the UDP socket
+	xme_hal_net_closeSocket(config->loginClientSocket);
+ 154:	687b      	ldr	r3, [r7, #4]
+ 156:	885b      	ldrh	r3, [r3, #2]
+ 158:	4618      	mov	r0, r3
+ 15a:	f7ff fffe 	bl	0 <xme_hal_net_closeSocket>
+			15a: R_ARM_THM_CALL	xme_hal_net_closeSocket
+}
+ 15e:	f107 0708 	add.w	r7, r7, #8
+ 162:	46bd      	mov	sp, r7
+ 164:	bd80      	pop	{r7, pc}
+ 166:	bf00      	nop
+
+00000168 <xme_prim_ipLoginServerProxy_destroy>:
+
+void
+xme_prim_ipLoginServerProxy_destroy(xme_prim_ipLoginServerProxy_configStruct_t* config)
+{
+ 168:	b580      	push	{r7, lr}
+ 16a:	b082      	sub	sp, #8
+ 16c:	af00      	add	r7, sp, #0
+ 16e:	6078      	str	r0, [r7, #4]
+	XME_HAL_TABLE_FINI(config->pendingResponses);
+ 170:	687b      	ldr	r3, [r7, #4]
+ 172:	f04f 0200 	mov.w	r2, #0
+ 176:	811a      	strh	r2, [r3, #8]
+ 178:	687b      	ldr	r3, [r7, #4]
+ 17a:	f04f 0200 	mov.w	r2, #0
+ 17e:	815a      	strh	r2, [r3, #10]
+
+	xme_hal_sched_removeTask(config->loginResponseTaskHandle);
+ 180:	687b      	ldr	r3, [r7, #4]
+ 182:	889b      	ldrh	r3, [r3, #4]
+ 184:	4618      	mov	r0, r3
+ 186:	f7ff fffe 	bl	0 <xme_hal_sched_removeTask>
+			186: R_ARM_THM_CALL	xme_hal_sched_removeTask
+	config->loginResponseTaskHandle = XME_HAL_SCHED_INVALID_TASK_HANDLE;
+ 18a:	687b      	ldr	r3, [r7, #4]
+ 18c:	f04f 0200 	mov.w	r2, #0
+ 190:	809a      	strh	r2, [r3, #4]
+
+	xme_hal_net_destroySocket(config->loginClientSocket);
+ 192:	687b      	ldr	r3, [r7, #4]
+ 194:	885b      	ldrh	r3, [r3, #2]
+ 196:	4618      	mov	r0, r3
+ 198:	f7ff fffe 	bl	0 <xme_hal_net_destroySocket>
+			198: R_ARM_THM_CALL	xme_hal_net_destroySocket
+	config->loginClientSocket = XME_HAL_NET_INVALID_SOCKET_HANDLE;
+ 19c:	687b      	ldr	r3, [r7, #4]
+ 19e:	f04f 0200 	mov.w	r2, #0
+ 1a2:	805a      	strh	r2, [r3, #2]
+
+	xme_core_rr_unpublishRequestHandler(config->loginRequestHandlerHandle);
+ 1a4:	687b      	ldr	r3, [r7, #4]
+ 1a6:	881b      	ldrh	r3, [r3, #0]
+ 1a8:	4618      	mov	r0, r3
+ 1aa:	f7ff fffe 	bl	0 <xme_core_rr_unpublishRequestHandler>
+			1aa: R_ARM_THM_CALL	xme_core_rr_unpublishRequestHandler
+	config->loginRequestHandlerHandle = XME_CORE_RR_INVALID_REQUEST_HANDLER_HANDLE;
+ 1ae:	687b      	ldr	r3, [r7, #4]
+ 1b0:	f04f 0200 	mov.w	r2, #0
+ 1b4:	801a      	strh	r2, [r3, #0]
+}
+ 1b6:	f107 0708 	add.w	r7, r7, #8
+ 1ba:	46bd      	mov	sp, r7
+ 1bc:	bd80      	pop	{r7, pc}
+ 1be:	bf00      	nop
+
+000001c0 <xme_prim_ipLoginServerProxy_receiveLoginRequest>:
+	void* responseData,
+	uint16_t* responseSize,
+	xme_hal_time_interval_t responseTimeoutMs,
+	void* userData
+)
+{
+ 1c0:	b590      	push	{r4, r7, lr}
+ 1c2:	b093      	sub	sp, #76	; 0x4c
+ 1c4:	af00      	add	r7, sp, #0
+ 1c6:	60f8      	str	r0, [r7, #12]
+ 1c8:	60b9      	str	r1, [r7, #8]
+ 1ca:	603b      	str	r3, [r7, #0]
+ 1cc:	4613      	mov	r3, r2
+ 1ce:	80fb      	strh	r3, [r7, #6]
+
+	XME_ASSERT_RVAL(XME_CORE_TOPIC_LOGIN_REQUEST == requestTopic, XME_CORE_RR_STATUS_SERVER_ERROR);
+	XME_ASSERT_RVAL(responseSize != NULL, XME_CORE_RR_STATUS_SERVER_ERROR);
+
+	{
+		uint16_t oldSize = *responseSize;
+ 1d0:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+ 1d2:	881b      	ldrh	r3, [r3, #0]
+ 1d4:	f8a7 3040 	strh.w	r3, [r7, #64]	; 0x40
+
+		// Set response size
+		*responseSize = sizeof(xme_core_topic_loginResponseData_t);
+ 1d8:	6dbb      	ldr	r3, [r7, #88]	; 0x58
+ 1da:	f04f 021e 	mov.w	r2, #30
+ 1de:	801a      	strh	r2, [r3, #0]
+
+		XME_CHECK(oldSize >= sizeof(xme_core_topic_loginResponseData_t), XME_CORE_RR_STATUS_BUFFER_TOO_SMALL);
+ 1e0:	f8b7 3040 	ldrh.w	r3, [r7, #64]	; 0x40
+ 1e4:	2b1d      	cmp	r3, #29
+ 1e6:	d802      	bhi.n	1ee <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x2e>
+ 1e8:	f04f 030c 	mov.w	r3, #12
+ 1ec:	e0f4      	b.n	3d8 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x218>
+	}
+
+	loginRequest = (xme_core_topic_loginRequestData_t*)requestData;
+ 1ee:	68bb      	ldr	r3, [r7, #8]
+ 1f0:	63fb      	str	r3, [r7, #60]	; 0x3c
+	loginResponse = (xme_core_topic_loginResponseData_t*)responseData;
+ 1f2:	683b      	ldr	r3, [r7, #0]
+ 1f4:	63bb      	str	r3, [r7, #56]	; 0x38
+	config = (xme_prim_ipLoginServerProxy_configStruct_t*)userData;
+ 1f6:	6e3b      	ldr	r3, [r7, #96]	; 0x60
+ 1f8:	637b      	str	r3, [r7, #52]	; 0x34
+
+	XME_LOG
+ 1fa:	4b7a      	ldr	r3, [pc, #488]	; (3e4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x224>)
+ 1fc:	681b      	ldr	r3, [r3, #0]
+ 1fe:	2b00      	cmp	r3, #0
+ 200:	d005      	beq.n	20e <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x4e>
+ 202:	4b78      	ldr	r3, [pc, #480]	; (3e4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x224>)
+ 204:	681b      	ldr	r3, [r3, #0]
+ 206:	f06f 0001 	mvn.w	r0, #1
+ 20a:	4977      	ldr	r1, [pc, #476]	; (3e8 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x228>)
+ 20c:	4798      	blx	r3
+	);
+
+	{
+		// Send a login request via UDP broadcast
+		xme_core_packet_loginRequest_t loginRequestPacket;
+		XME_CORE_PACKET_INIT(loginRequestPacket, XME_CORE_PACKET_HEADER_TYPE_LOGINREQUEST);
+ 20e:	f04f 03d7 	mov.w	r3, #215	; 0xd7
+ 212:	753b      	strb	r3, [r7, #20]
+ 214:	f04f 0301 	mov.w	r3, #1
+ 218:	757b      	strb	r3, [r7, #21]
+ 21a:	f04f 0301 	mov.w	r3, #1
+ 21e:	75bb      	strb	r3, [r7, #22]
+
+		memcpy(&XME_CORE_PACKET_PAYLOAD(loginRequestPacket), loginRequest, sizeof(xme_core_topic_loginRequestData_t));
+ 220:	f107 0314 	add.w	r3, r7, #20
+ 224:	f103 0303 	add.w	r3, r3, #3
+ 228:	4618      	mov	r0, r3
+ 22a:	6bf9      	ldr	r1, [r7, #60]	; 0x3c
+ 22c:	f04f 0216 	mov.w	r2, #22
+ 230:	f7ff fffe 	bl	0 <memcpy>
+			230: R_ARM_THM_CALL	memcpy
+
+		XME_LOG
+ 234:	4b6b      	ldr	r3, [pc, #428]	; (3e4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x224>)
+ 236:	681b      	ldr	r3, [r3, #0]
+ 238:	2b00      	cmp	r3, #0
+ 23a:	d005      	beq.n	248 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x88>
+ 23c:	4b69      	ldr	r3, [pc, #420]	; (3e4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x224>)
+ 23e:	681b      	ldr	r3, [r3, #0]
+ 240:	f06f 0001 	mvn.w	r0, #1
+ 244:	4969      	ldr	r1, [pc, #420]	; (3ec <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x22c>)
+ 246:	4798      	blx	r3
+			(uint32_t)(XME_CORE_PACKET_PAYLOAD(loginRequestPacket).deviceGuid >> 32), (uint32_t)(XME_CORE_PACKET_PAYLOAD(loginRequestPacket).deviceGuid & 0xFFFFFFFF),
+			XME_CORE_PACKET_PAYLOAD(loginRequestPacket).newNodeInterfaceId,
+			XME_CORE_PACKET_PAYLOAD(loginRequestPacket).edgeNodeId, XME_CORE_PACKET_PAYLOAD(loginRequestPacket).edgeNodeInterfaceId
+		);
+
+		if (sizeof(loginRequestPacket) != xme_hal_net_writeSocket(config->loginClientSocket, &loginRequestPacket, sizeof(loginRequestPacket)))
+ 248:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 24a:	885a      	ldrh	r2, [r3, #2]
+ 24c:	f107 0314 	add.w	r3, r7, #20
+ 250:	4610      	mov	r0, r2
+ 252:	4619      	mov	r1, r3
+ 254:	f04f 0219 	mov.w	r2, #25
+ 258:	f7ff fffe 	bl	0 <xme_hal_net_writeSocket>
+			258: R_ARM_THM_CALL	xme_hal_net_writeSocket
+ 25c:	4603      	mov	r3, r0
+ 25e:	2b19      	cmp	r3, #25
+ 260:	d00b      	beq.n	27a <xme_prim_ipLoginServerProxy_receiveLoginRequest+0xba>
+		{
+			XME_LOG(XME_LOG_WARNING, "Unable to broadcast login request!\n");
+ 262:	4b60      	ldr	r3, [pc, #384]	; (3e4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x224>)
+ 264:	681b      	ldr	r3, [r3, #0]
+ 266:	2b00      	cmp	r3, #0
+ 268:	f000 80b4 	beq.w	3d4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x214>
+ 26c:	4b5d      	ldr	r3, [pc, #372]	; (3e4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x224>)
+ 26e:	681b      	ldr	r3, [r3, #0]
+ 270:	f04f 0002 	mov.w	r0, #2
+ 274:	495e      	ldr	r1, [pc, #376]	; (3f0 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x230>)
+ 276:	4798      	blx	r3
+ 278:	e0ac      	b.n	3d4 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x214>
+		}
+		else
+		{
+			xme_prim_ipLoginServerProxy_pendingResponseItem_t* responseItem = NULL;
+ 27a:	f04f 0300 	mov.w	r3, #0
+ 27e:	647b      	str	r3, [r7, #68]	; 0x44
+
+			// Clean up the list of response handles where the corresponding
+			// responses have already timed out and also determine whether we
+			// have received a login request from the same device before
+			XME_HAL_TABLE_ITERATE
+ 280:	f04f 0301 	mov.w	r3, #1
+ 284:	f8a7 3042 	strh.w	r3, [r7, #66]	; 0x42
+ 288:	e04f      	b.n	32a <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x16a>
+ 28a:	f8b7 3042 	ldrh.w	r3, [r7, #66]	; 0x42
+ 28e:	f103 33ff 	add.w	r3, r3, #4294967295
+ 292:	6b7a      	ldr	r2, [r7, #52]	; 0x34
+ 294:	18d3      	adds	r3, r2, r3
+ 296:	7b1b      	ldrb	r3, [r3, #12]
+ 298:	2b00      	cmp	r3, #0
+ 29a:	d040      	beq.n	31e <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x15e>
+ 29c:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 29e:	f103 0218 	add.w	r2, r3, #24
+ 2a2:	f8b7 3042 	ldrh.w	r3, [r7, #66]	; 0x42
+ 2a6:	f103 33ff 	add.w	r3, r3, #4294967295
+ 2aa:	ea4f 1343 	mov.w	r3, r3, lsl #5
+ 2ae:	18d3      	adds	r3, r2, r3
+ 2b0:	633b      	str	r3, [r7, #48]	; 0x30
+ 2b2:	6b3b      	ldr	r3, [r7, #48]	; 0x30
+ 2b4:	e9d3 0102 	ldrd	r0, r1, [r3, #8]
+ 2b8:	6bfc      	ldr	r4, [r7, #60]	; 0x3c
+ 2ba:	6822      	ldr	r2, [r4, #0]
+ 2bc:	6863      	ldr	r3, [r4, #4]
+ 2be:	ea82 0200 	eor.w	r2, r2, r0
+ 2c2:	ea83 0301 	eor.w	r3, r3, r1
+ 2c6:	ea52 0103 	orrs.w	r1, r2, r3
+ 2ca:	d10f      	bne.n	2ec <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x12c>
+ 2cc:	6b3b      	ldr	r3, [r7, #48]	; 0x30
+ 2ce:	e9d3 0104 	ldrd	r0, r1, [r3, #16]
+ 2d2:	6bfc      	ldr	r4, [r7, #60]	; 0x3c
+ 2d4:	68a2      	ldr	r2, [r4, #8]
+ 2d6:	68e3      	ldr	r3, [r4, #12]
+ 2d8:	ea82 0200 	eor.w	r2, r2, r0
+ 2dc:	ea83 0301 	eor.w	r3, r3, r1
+ 2e0:	ea52 0103 	orrs.w	r1, r2, r3
+ 2e4:	d102      	bne.n	2ec <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x12c>
+ 2e6:	6b3b      	ldr	r3, [r7, #48]	; 0x30
+ 2e8:	647b      	str	r3, [r7, #68]	; 0x44
+ 2ea:	e018      	b.n	31e <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x15e>
+ 2ec:	6b3b      	ldr	r3, [r7, #48]	; 0x30
+ 2ee:	f103 031c 	add.w	r3, r3, #28
+ 2f2:	4618      	mov	r0, r3
+ 2f4:	f04f 0100 	mov.w	r1, #0
+ 2f8:	f7ff fffe 	bl	0 <xme_hal_time_getInterval>
+			2f8: R_ARM_THM_CALL	xme_hal_time_getInterval
+ 2fc:	4602      	mov	r2, r0
+ 2fe:	6b3b      	ldr	r3, [r7, #48]	; 0x30
+ 300:	699b      	ldr	r3, [r3, #24]
+ 302:	429a      	cmp	r2, r3
+ 304:	d90b      	bls.n	31e <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x15e>
+ 306:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 308:	f103 0308 	add.w	r3, r3, #8
+ 30c:	461a      	mov	r2, r3
+ 30e:	f8b7 3042 	ldrh.w	r3, [r7, #66]	; 0x42
+ 312:	4610      	mov	r0, r2
+ 314:	4619      	mov	r1, r3
+ 316:	f04f 0205 	mov.w	r2, #5
+ 31a:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			31a: R_ARM_THM_CALL	xme_hal_table_removeItem
+ 31e:	f8b7 3042 	ldrh.w	r3, [r7, #66]	; 0x42
+ 322:	f103 0301 	add.w	r3, r3, #1
+ 326:	f8a7 3042 	strh.w	r3, [r7, #66]	; 0x42
+ 32a:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 32c:	895b      	ldrh	r3, [r3, #10]
+ 32e:	f8b7 2042 	ldrh.w	r2, [r7, #66]	; 0x42
+ 332:	429a      	cmp	r2, r3
+ 334:	d9a9      	bls.n	28a <xme_prim_ipLoginServerProxy_receiveLoginRequest+0xca>
+					}
+				}
+			);
+
+			// Remember the response handle
+			if (NULL == responseItem)
+ 336:	6c7b      	ldr	r3, [r7, #68]	; 0x44
+ 338:	2b00      	cmp	r3, #0
+ 33a:	d12d      	bne.n	398 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x1d8>
+			{
+				xme_hal_table_rowHandle_t responseHandle;
+
+				XME_CHECK
+ 33c:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 33e:	f103 0308 	add.w	r3, r3, #8
+ 342:	4618      	mov	r0, r3
+ 344:	f04f 0105 	mov.w	r1, #5
+ 348:	f7ff fffe 	bl	0 <xme_hal_table_addItem>
+			348: R_ARM_THM_CALL	xme_hal_table_addItem
+ 34c:	4603      	mov	r3, r0
+ 34e:	85fb      	strh	r3, [r7, #46]	; 0x2e
+ 350:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+ 352:	2b00      	cmp	r3, #0
+ 354:	d102      	bne.n	35c <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x19c>
+ 356:	f04f 0302 	mov.w	r3, #2
+ 35a:	e03d      	b.n	3d8 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x218>
+				(
+					XME_HAL_TABLE_INVALID_ROW_HANDLE != (responseHandle = XME_HAL_TABLE_ADD_ITEM(config->pendingResponses)),
+					XME_CORE_RR_STATUS_SERVER_ERROR
+				);
+
+				responseItem = XME_HAL_TABLE_ITEM_FROM_HANDLE(config->pendingResponses, responseHandle);
+ 35c:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+ 35e:	2b00      	cmp	r3, #0
+ 360:	d016      	beq.n	390 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x1d0>
+ 362:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 364:	895b      	ldrh	r3, [r3, #10]
+ 366:	8dfa      	ldrh	r2, [r7, #46]	; 0x2e
+ 368:	429a      	cmp	r2, r3
+ 36a:	d811      	bhi.n	390 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x1d0>
+ 36c:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+ 36e:	f103 33ff 	add.w	r3, r3, #4294967295
+ 372:	6b7a      	ldr	r2, [r7, #52]	; 0x34
+ 374:	18d3      	adds	r3, r2, r3
+ 376:	7b1b      	ldrb	r3, [r3, #12]
+ 378:	2b00      	cmp	r3, #0
+ 37a:	d009      	beq.n	390 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x1d0>
+ 37c:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 37e:	f103 0218 	add.w	r2, r3, #24
+ 382:	8dfb      	ldrh	r3, [r7, #46]	; 0x2e
+ 384:	f103 33ff 	add.w	r3, r3, #4294967295
+ 388:	ea4f 1343 	mov.w	r3, r3, lsl #5
+ 38c:	18d3      	adds	r3, r2, r3
+ 38e:	e001      	b.n	394 <xme_prim_ipLoginServerProxy_receiveLoginRequest+0x1d4>
+ 390:	f04f 0300 	mov.w	r3, #0
+ 394:	647b      	str	r3, [r7, #68]	; 0x44
+				XME_ASSERT_RVAL(NULL != responseItem, XME_CORE_RR_STATUS_SERVER_ERROR);
+ 396:	bf00      	nop
+			}
+
+			responseItem->responseInstanceHandle = responseInstanceHandle;
+ 398:	6c7b      	ldr	r3, [r7, #68]	; 0x44
+ 39a:	88fa      	ldrh	r2, [r7, #6]
+ 39c:	801a      	strh	r2, [r3, #0]
+			responseItem->deviceType = loginRequest->deviceType;
+ 39e:	6bf9      	ldr	r1, [r7, #60]	; 0x3c
+ 3a0:	680a      	ldr	r2, [r1, #0]
+ 3a2:	684b      	ldr	r3, [r1, #4]
+ 3a4:	6c79      	ldr	r1, [r7, #68]	; 0x44
+ 3a6:	e9c1 2302 	strd	r2, r3, [r1, #8]
+			responseItem->deviceGuid = loginRequest->deviceGuid;
+ 3aa:	6bf9      	ldr	r1, [r7, #60]	; 0x3c
+ 3ac:	688a      	ldr	r2, [r1, #8]
+ 3ae:	68cb      	ldr	r3, [r1, #12]
+ 3b0:	6c79      	ldr	r1, [r7, #68]	; 0x44
+ 3b2:	e9c1 2304 	strd	r2, r3, [r1, #16]
+			responseItem->responseTimeoutMs = responseTimeoutMs;
+ 3b6:	6c7b      	ldr	r3, [r7, #68]	; 0x44
+ 3b8:	6dfa      	ldr	r2, [r7, #92]	; 0x5c
+ 3ba:	619a      	str	r2, [r3, #24]
+			responseItem->lastUpdate = xme_hal_time_getCurrentTime();
+ 3bc:	f7ff fffe 	bl	0 <xme_hal_time_getCurrentTime>
+			3bc: R_ARM_THM_CALL	xme_hal_time_getCurrentTime
+ 3c0:	4602      	mov	r2, r0
+ 3c2:	6c7b      	ldr	r3, [r7, #68]	; 0x44
+ 3c4:	61da      	str	r2, [r3, #28]
+
+			// Activate the response handler task
+			xme_hal_sched_setTaskExecutionState(config->loginResponseTaskHandle, true);
+ 3c6:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 3c8:	889b      	ldrh	r3, [r3, #4]
+ 3ca:	4618      	mov	r0, r3
+ 3cc:	f04f 0101 	mov.w	r1, #1
+ 3d0:	f7ff fffe 	bl	0 <xme_hal_sched_setTaskExecutionState>
+			3d0: R_ARM_THM_CALL	xme_hal_sched_setTaskExecutionState
+		}
+	}
+
+	// Response will follow as soon as available
+	return XME_CORE_RR_STATUS_RESPONSE_DELAYED;
+ 3d4:	f04f 030d 	mov.w	r3, #13
+}
+ 3d8:	4618      	mov	r0, r3
+ 3da:	f107 074c 	add.w	r7, r7, #76	; 0x4c
+ 3de:	46bd      	mov	sp, r7
+ 3e0:	bd90      	pop	{r4, r7, pc}
+ 3e2:	bf00      	nop
+	...
+			3e4: R_ARM_ABS32	xme_core_log_logCallback
+			3e8: R_ARM_ABS32	.rodata
+ 3ec:	0000004c 	.word	0x0000004c
+			3ec: R_ARM_ABS32	.rodata
+ 3f0:	0000009c 	.word	0x0000009c
+			3f0: R_ARM_ABS32	.rodata
+
+000003f4 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses>:
+
+void
+xme_prim_ipLoginServerProxy_taskCheckLoginResponses(void* userData)
+{
+ 3f4:	b580      	push	{r7, lr}
+ 3f6:	b092      	sub	sp, #72	; 0x48
+ 3f8:	af02      	add	r7, sp, #8
+ 3fa:	6078      	str	r0, [r7, #4]
+	//                         are served over a single login server proxy? If not, we can assume
+	//                         that we will only serve responses for the device type and device
+	//                         GUID of the first request arriving at this component, which
+	//                         simplifies things a lot.
+
+	xme_prim_ipLoginServerProxy_configStruct_t* config = (xme_prim_ipLoginServerProxy_configStruct_t*)userData;
+ 3fc:	687b      	ldr	r3, [r7, #4]
+ 3fe:	63bb      	str	r3, [r7, #56]	; 0x38
+
+	// Check for login responses
+	if (XME_CORE_STATUS_SUCCESS == xme_hal_net_selectSocket(config->loginClientSocket, true, false, 100))
+ 400:	6bbb      	ldr	r3, [r7, #56]	; 0x38
+ 402:	885b      	ldrh	r3, [r3, #2]
+ 404:	4618      	mov	r0, r3
+ 406:	f04f 0101 	mov.w	r1, #1
+ 40a:	f04f 0200 	mov.w	r2, #0
+ 40e:	f04f 0364 	mov.w	r3, #100	; 0x64
+ 412:	f7ff fffe 	bl	0 <xme_hal_net_selectSocket>
+			412: R_ARM_THM_CALL	xme_hal_net_selectSocket
+ 416:	4603      	mov	r3, r0
+ 418:	2b00      	cmp	r3, #0
+ 41a:	f040 80a0 	bne.w	55e <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x16a>
+	{
+		// A login response has been received
+		xme_core_packet_loginResponse_t loginResponsePacket;
+
+		// TODO: Handle partial reception! See ticket #756
+		xme_hal_net_readSocket(config->loginClientSocket, &loginResponsePacket, sizeof(loginResponsePacket));
+ 41e:	6bbb      	ldr	r3, [r7, #56]	; 0x38
+ 420:	885a      	ldrh	r2, [r3, #2]
+ 422:	f107 030c 	add.w	r3, r7, #12
+ 426:	4610      	mov	r0, r2
+ 428:	4619      	mov	r1, r3
+ 42a:	f04f 0221 	mov.w	r2, #33	; 0x21
+ 42e:	f7ff fffe 	bl	0 <xme_hal_net_readSocket>
+			42e: R_ARM_THM_CALL	xme_hal_net_readSocket
+
+		if (
+			XME_CORE_PACKET_VALID(loginResponsePacket) &&
+ 432:	7b3b      	ldrb	r3, [r7, #12]
+		xme_core_packet_loginResponse_t loginResponsePacket;
+
+		// TODO: Handle partial reception! See ticket #756
+		xme_hal_net_readSocket(config->loginClientSocket, &loginResponsePacket, sizeof(loginResponsePacket));
+
+		if (
+ 434:	2bd7      	cmp	r3, #215	; 0xd7
+ 436:	f040 8092 	bne.w	55e <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x16a>
+			XME_CORE_PACKET_VALID(loginResponsePacket) &&
+ 43a:	7b7b      	ldrb	r3, [r7, #13]
+ 43c:	2b01      	cmp	r3, #1
+ 43e:	f040 808e 	bne.w	55e <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x16a>
+			XME_CORE_PACKET_HEADER_TYPE_LOGINRESPONSE == XME_CORE_PACKET_TYPE(loginResponsePacket)
+ 442:	7bbb      	ldrb	r3, [r7, #14]
+
+		// TODO: Handle partial reception! See ticket #756
+		xme_hal_net_readSocket(config->loginClientSocket, &loginResponsePacket, sizeof(loginResponsePacket));
+
+		if (
+			XME_CORE_PACKET_VALID(loginResponsePacket) &&
+ 444:	2b02      	cmp	r3, #2
+ 446:	f040 808a 	bne.w	55e <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x16a>
+			XME_CORE_PACKET_HEADER_TYPE_LOGINRESPONSE == XME_CORE_PACKET_TYPE(loginResponsePacket)
+		)
+		{
+			xme_core_rr_responseInstanceHandle_t responseInstanceHandle = XME_CORE_RR_INVALID_RESPONSE_INSTANCE_HANDLE;
+ 44a:	f04f 0300 	mov.w	r3, #0
+ 44e:	87fb      	strh	r3, [r7, #62]	; 0x3e
+			xme_core_topic_loginResponseData_t* loginResponse;
+
+			// Check whether we are still capable of forwarding the response to the sender
+			XME_HAL_TABLE_ITERATE
+ 450:	f04f 0301 	mov.w	r3, #1
+ 454:	87bb      	strh	r3, [r7, #60]	; 0x3c
+ 456:	e040      	b.n	4da <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0xe6>
+ 458:	8fbb      	ldrh	r3, [r7, #60]	; 0x3c
+ 45a:	f103 33ff 	add.w	r3, r3, #4294967295
+ 45e:	6bba      	ldr	r2, [r7, #56]	; 0x38
+ 460:	18d3      	adds	r3, r2, r3
+ 462:	7b1b      	ldrb	r3, [r3, #12]
+ 464:	2b00      	cmp	r3, #0
+ 466:	d034      	beq.n	4d2 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0xde>
+ 468:	6bbb      	ldr	r3, [r7, #56]	; 0x38
+ 46a:	f103 0218 	add.w	r2, r3, #24
+ 46e:	8fbb      	ldrh	r3, [r7, #60]	; 0x3c
+ 470:	f103 33ff 	add.w	r3, r3, #4294967295
+ 474:	ea4f 1343 	mov.w	r3, r3, lsl #5
+ 478:	18d3      	adds	r3, r2, r3
+ 47a:	637b      	str	r3, [r7, #52]	; 0x34
+ 47c:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 47e:	e9d3 0102 	ldrd	r0, r1, [r3, #8]
+ 482:	f8d7 200f 	ldr.w	r2, [r7, #15]
+ 486:	f8d7 3013 	ldr.w	r3, [r7, #19]
+ 48a:	ea82 0200 	eor.w	r2, r2, r0
+ 48e:	ea83 0301 	eor.w	r3, r3, r1
+ 492:	ea52 0103 	orrs.w	r1, r2, r3
+ 496:	d11c      	bne.n	4d2 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0xde>
+ 498:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 49a:	e9d3 0104 	ldrd	r0, r1, [r3, #16]
+ 49e:	f8d7 2017 	ldr.w	r2, [r7, #23]
+ 4a2:	f8d7 301b 	ldr.w	r3, [r7, #27]
+ 4a6:	ea82 0200 	eor.w	r2, r2, r0
+ 4aa:	ea83 0301 	eor.w	r3, r3, r1
+ 4ae:	ea52 0103 	orrs.w	r1, r2, r3
+ 4b2:	d10e      	bne.n	4d2 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0xde>
+ 4b4:	6b7b      	ldr	r3, [r7, #52]	; 0x34
+ 4b6:	881b      	ldrh	r3, [r3, #0]
+ 4b8:	87fb      	strh	r3, [r7, #62]	; 0x3e
+ 4ba:	6bbb      	ldr	r3, [r7, #56]	; 0x38
+ 4bc:	f103 0308 	add.w	r3, r3, #8
+ 4c0:	461a      	mov	r2, r3
+ 4c2:	8fbb      	ldrh	r3, [r7, #60]	; 0x3c
+ 4c4:	4610      	mov	r0, r2
+ 4c6:	4619      	mov	r1, r3
+ 4c8:	f04f 0205 	mov.w	r2, #5
+ 4cc:	f7ff fffe 	bl	0 <xme_hal_table_removeItem>
+			4cc: R_ARM_THM_CALL	xme_hal_table_removeItem
+ 4d0:	e008      	b.n	4e4 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0xf0>
+ 4d2:	8fbb      	ldrh	r3, [r7, #60]	; 0x3c
+ 4d4:	f103 0301 	add.w	r3, r3, #1
+ 4d8:	87bb      	strh	r3, [r7, #60]	; 0x3c
+ 4da:	6bbb      	ldr	r3, [r7, #56]	; 0x38
+ 4dc:	895b      	ldrh	r3, [r3, #10]
+ 4de:	8fba      	ldrh	r2, [r7, #60]	; 0x3c
+ 4e0:	429a      	cmp	r2, r3
+ 4e2:	d9b9      	bls.n	458 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x64>
+						break;
+					}
+				}
+			);
+
+			XME_CHECK
+ 4e4:	8ffb      	ldrh	r3, [r7, #62]	; 0x3e
+ 4e6:	2b00      	cmp	r3, #0
+ 4e8:	d039      	beq.n	55e <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x16a>
+			(
+				XME_CORE_RR_INVALID_RESPONSE_INSTANCE_HANDLE != responseInstanceHandle,
+			);
+
+			loginResponse = (xme_core_topic_loginResponseData_t*)&XME_CORE_PACKET_PAYLOAD(loginResponsePacket);
+ 4ea:	f107 030c 	add.w	r3, r7, #12
+ 4ee:	f103 0303 	add.w	r3, r3, #3
+ 4f2:	633b      	str	r3, [r7, #48]	; 0x30
+
+			XME_LOG
+ 4f4:	4b1c      	ldr	r3, [pc, #112]	; (568 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x174>)
+ 4f6:	681b      	ldr	r3, [r3, #0]
+ 4f8:	2b00      	cmp	r3, #0
+ 4fa:	d005      	beq.n	508 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x114>
+ 4fc:	4b1a      	ldr	r3, [pc, #104]	; (568 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x174>)
+ 4fe:	681b      	ldr	r3, [r3, #0]
+ 500:	f06f 0001 	mvn.w	r0, #1
+ 504:	4919      	ldr	r1, [pc, #100]	; (56c <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x178>)
+ 506:	4798      	blx	r3
+			);
+
+			// Overwrite edge node ID with invalid node ID
+			XME_ASSERT_NORVAL(XME_CORE_NODE_INVALID_NODE_ID != loginResponse->edgeNodeId);
+			XME_ASSERT_NORVAL(XME_CORE_NODE_LOCAL_NODE_ID != loginResponse->edgeNodeId);
+			loginResponse->edgeNodeId = XME_CORE_NODE_INVALID_NODE_ID;
+ 508:	6b3b      	ldr	r3, [r7, #48]	; 0x30
+ 50a:	f04f 0200 	mov.w	r2, #0
+ 50e:	749a      	strb	r2, [r3, #18]
+ 510:	f04f 0200 	mov.w	r2, #0
+ 514:	74da      	strb	r2, [r3, #19]
+
+			XME_LOG
+ 516:	4b14      	ldr	r3, [pc, #80]	; (568 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x174>)
+ 518:	681b      	ldr	r3, [r3, #0]
+ 51a:	2b00      	cmp	r3, #0
+ 51c:	d005      	beq.n	52a <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x136>
+ 51e:	4b12      	ldr	r3, [pc, #72]	; (568 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x174>)
+ 520:	681b      	ldr	r3, [r3, #0]
+ 522:	f06f 0001 	mvn.w	r0, #1
+ 526:	4912      	ldr	r1, [pc, #72]	; (570 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x17c>)
+ 528:	4798      	blx	r3
+				loginResponse->edgeNodeId, loginResponse->edgeNodeInterfaceId,
+				loginResponse->remoteAnnouncementDataChannel,
+				loginResponse->remoteModifyRoutingTableDataChannel
+			);
+
+			XME_LOG_IF
+ 52a:	6bbb      	ldr	r3, [r7, #56]	; 0x38
+ 52c:	881a      	ldrh	r2, [r3, #0]
+ 52e:	8ffb      	ldrh	r3, [r7, #62]	; 0x3e
+ 530:	f04f 011e 	mov.w	r1, #30
+ 534:	9100      	str	r1, [sp, #0]
+ 536:	f04f 0000 	mov.w	r0, #0
+ 53a:	4611      	mov	r1, r2
+ 53c:	461a      	mov	r2, r3
+ 53e:	6b3b      	ldr	r3, [r7, #48]	; 0x30
+ 540:	f7ff fffe 	bl	0 <xme_core_rr_sendResponse>
+			540: R_ARM_THM_CALL	xme_core_rr_sendResponse
+ 544:	4603      	mov	r3, r0
+ 546:	2b00      	cmp	r3, #0
+ 548:	d009      	beq.n	55e <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x16a>
+ 54a:	4b07      	ldr	r3, [pc, #28]	; (568 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x174>)
+ 54c:	681b      	ldr	r3, [r3, #0]
+ 54e:	2b00      	cmp	r3, #0
+ 550:	d005      	beq.n	55e <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x16a>
+ 552:	4b05      	ldr	r3, [pc, #20]	; (568 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x174>)
+ 554:	681b      	ldr	r3, [r3, #0]
+ 556:	f04f 0002 	mov.w	r0, #2
+ 55a:	4906      	ldr	r1, [pc, #24]	; (574 <xme_prim_ipLoginServerProxy_taskCheckLoginResponses+0x180>)
+ 55c:	4798      	blx	r3
+				XME_LOG_WARNING,
+				"Unable to send login response!\n"
+			);
+		}
+	}
+}
+ 55e:	f107 0740 	add.w	r7, r7, #64	; 0x40
+ 562:	46bd      	mov	sp, r7
+ 564:	bd80      	pop	{r7, pc}
+ 566:	bf00      	nop
+ 568:	00000000 	.word	0x00000000
+			568: R_ARM_ABS32	xme_core_log_logCallback
+ 56c:	000000c0 	.word	0x000000c0
+			56c: R_ARM_ABS32	.rodata
+ 570:	00000118 	.word	0x00000118
+			570: R_ARM_ABS32	.rodata
+ 574:	00000174 	.word	0x00000174
+			574: R_ARM_ABS32	.rodata

@@ -1,0 +1,196 @@
+#
+# Copyright (c) 2011, fortiss GmbH.
+# All rights reserved.
+#
+# Autor:
+#    Simon Barner <barner@fortiss.org>
+#    Nadine Keddis <keddis@fortiss.org>
+#
+
+
+
+
+cmake_minimum_required(VERSION 2.8.6)
+
+
+
+# 2.8.6 - automoc
+# If Cmake 2.8.7 is used comment the two lines ( line 152 and 153 )at the end of the file.
+
+
+
+set (
+	CMAKE_MODULE_PATH
+	"${CMAKE_CURRENT_SOURCE_DIR}/cmake"
+)
+
+
+set(NAME scgui)
+project(${NAME})
+
+### Sources, headers and resources ###
+set(
+	SRCS
+	belle_II_GUI_XME.c
+	belle_II_GUI_XME_Component.c
+	mainwindow.cpp
+	calibrationwindow.cpp
+	monitoringwindow.cpp
+	startGui.cpp
+	file.cpp
+	calibration.cpp
+	NetworkInter.cpp
+)
+
+set(
+	HDRS
+	belle_II_GUI_XME_Component.h
+	mainwindow.h
+	calibrationwindow.h
+	monitoringwindow.h
+	wrapperHeader.h
+	file.h
+    logdataDefines.h
+	calibration.h
+	NetworkInter.h
+)
+
+set(
+	UIS
+	mainwindow.ui
+	calibrationwindow.ui
+	monitoringwindow.ui
+	calibration.ui
+	NetworkInterface.ui
+)
+
+#set(
+#	RCS
+#)
+
+
+
+### Qt configuration ###
+# Qt modules (QtCore and QtGui are enabled by default)
+set (QT_USE_QTMAIN TRUE)
+set  (QT_USE_QTNETWORK TRUE)
+
+set (CMAKE_AUTOMOC TRUE)
+
+find_package(Qt4 REQUIRED)
+
+# Add some useful macros and variables
+# (QT_USE_FILE is a variable defined by find_package(Qt4) that contains a path to CMake script)
+include(${QT_USE_FILE})
+
+# Run rcc on all files from RCS
+qt4_add_resources (RC_SRCS ${RCS} )
+
+# Run uic on .ui files
+qt4_wrap_ui (UI_HDRS ${UIS})
+
+# TODO use XME macro here
+include_directories (${CMAKE_BINARY_DIR})
+
+# Find CHROMOSOME
+set (XME_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../xme/trunk")
+set (
+	CMAKE_MODULE_PATH
+	"${XME_ROOT}/tools/cmake"
+	"${CMAKE_CURRENT_SOURCE_DIR}/cmake"
+)
+# Cannot use xme_set() since package XME has not been loaded (we're actually
+# preparing to do so right now...)
+set_property (GLOBAL PROPERTY XME_PLATFORM "windows")
+set_property (GLOBAL PROPERTY XME_ARCHITECTURE "x86")
+set (XME_TESTSUITE YES)
+find_package (XME REQUIRED)
+
+### Target defintions ###
+# TODO use XME macro here
+# Setup output directories
+set(
+	CMAKE_LIBRARY_OUTPUT_DIRECTORY
+	${PROJECT_BINARY_DIR}/target
+	CACHE PATH
+	"Target directory for all libraries"
+)
+set(
+	CMAKE_RUNTIME_OUTPUT_DIRECTORY
+	${PROJECT_BINARY_DIR}/target
+	CACHE PATH
+	"Target directory for all executables"
+)
+set(
+	CMAKE_ARCHIVE_OUTPUT_DIRECTORY
+	${PROJECT_BINARY_DIR}/target
+	CACHE PATH
+	"Target directory for all static libraries"
+)
+
+
+# Add definitions
+add_definitions (-DXME_CORE_DIRECTORY_TYPE_LOCAL)
+
+add_executable (
+	${NAME}
+	WIN32
+	${SRCS}
+	${HDRS}
+	${RC_SRCS}
+	${UI_HDRS}
+)
+
+# TODO use XME macro here
+target_link_libraries(
+	${NAME}
+	${QT_LIBRARIES}
+)
+
+# Build XME components
+xme_link_components(
+	${NAME}
+	xme_prim_ipLoginServerProxy
+	xme_core_core
+	xme_hal_dio
+	xme_hal_net
+	xme_adv_heartbeat
+)
+
+### Create installer ###
+include (MSVCRedist)
+# TODO: cleanup install directory before executing installation
+set (CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_BINARY_DIR}/install)
+
+install (
+	TARGETS
+	${NAME}
+	RUNTIME DESTINATION bin
+)
+
+# If Cmake 2.8.7 is used comment the following two lines. (include(DeployQt4) and install_qt4_executable)
+# Copy required Qt DLLs to installation directory
+include(DeployQt4)
+install_qt4_executable (bin/${NAME}${CMAKE_EXECUTABLE_SUFFIX})
+
+### Create installer ###
+# http://nsis.sourceforge.net/
+if (WIN32)
+set (CPACK_GENERATOR NSIS)
+else (WIN32)
+	message (FATAL_ERROR "Need to select cpack generator.")
+endif (WIN32)
+include(CPack)
+
+
+# Build documentation
+xme_build_documentation(
+	"scgui"
+	TARGET "scgui_doc"
+	OUTPUT_DIR ""
+	OUTPUT_NAME "scgui.chm"
+	INSTALL_DIR ${CMAKE_CURRENT_SOURCE_DIR}
+	#AUTO
+	CLEAN
+	FILES ${SRCS} ${HDRS}
+)

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.ui.externaltools.ProgramLaunchConfigurationType">
+<stringAttribute key="org.eclipse.debug.core.ATTR_REFRESH_SCOPE" value="${project}"/>
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.ui.externaltools.launchGroup"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LAUNCH_CONFIGURATION_BUILD_SCOPE" value="${none}"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="@DEBUGGER_WRAPPER@"/>
+<!-- TODO: We currently erase the entire chip although this might not always be desireable. -->
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-ex &quot;target @_XME_DEBUGGER_TARGET@&quot; -ex &quot;monitor halt&quot;  -ex &quot;monitor dump_image @CMAKE_RUNTIME_OUTPUT_DIRECTORY@/@_DUMP_FILE@ @_XME_TARGET_FLASH_ADDRESS@ @_XME_TARGET_FLASH_SIZE@&quot; -ex &quot;monitor reset init&quot; -ex &quot;monitor halt&quot; -ex &quot;disconnect&quot; -ex &quot;quit&quot;"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc}"/>
+</launchConfiguration>

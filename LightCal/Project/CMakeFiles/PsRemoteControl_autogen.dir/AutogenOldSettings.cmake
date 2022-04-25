@@ -1,0 +1,1 @@
+set(AM_MOC_OLD_SETTINGS "QT_CORE_LIB;QT_DLL;QT_GUI_LIB;QT_NETWORK_LIB;QT_TEST_LIB ~~~ C:/LightCal/Project/PsRemoteControl_autogen/include;C:/Qt/4.8.4/include;C:/Qt/4.8.4/include/QtGui;C:/Qt/4.8.4/include/QtTest;C:/Qt/4.8.4/include/QtNetwork;C:/Qt/4.8.4/include/QtCore;C:/LightCal/Project ~~~  ~~~ FALSE ~~~ ")

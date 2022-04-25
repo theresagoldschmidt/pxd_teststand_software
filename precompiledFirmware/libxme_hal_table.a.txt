@@ -1,0 +1,289 @@
+In archive C:/BelleII/devenv/workspace/kekSVN-firmware-2/target/libxme_hal_table.a:
+
+table_arch.c.obj:     file format elf32-littlearm
+rw-rw-rw- 0/0  37200 Jul 30 19:07 2021 table_arch.c.obj
+architecture: arm, flags 0x00000011:
+HAS_RELOC, HAS_SYMS
+start address 0x00000000
+private flags = 5000000: [Version5 EABI]
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000134  00000000  00000000  00000034  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00000000  00000000  00000168  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000004  00000000  00000000  00000168  2**2
+                  ALLOC
+  3 .debug_abbrev 000000f9  00000000  00000000  00000168  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  4 .debug_info   0000030f  00000000  00000000  00000261  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  5 .debug_line   000005e6  00000000  00000000  00000570  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  6 .debug_macinfo 00007475  00000000  00000000  00000b56  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_loc    00000070  00000000  00000000  00007fcb  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_pubnames 00000066  00000000  00000000  0000803b  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+  9 .debug_pubtypes 0000011b  00000000  00000000  000080a1  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 10 .debug_aranges 00000020  00000000  00000000  000081bc  2**0
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+ 11 .debug_str    00000540  00000000  00000000  000081dc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .comment      0000002b  00000000  00000000  0000871c  2**0
+                  CONTENTS, READONLY
+ 13 .ARM.attributes 00000031  00000000  00000000  00008747  2**0
+                  CONTENTS, READONLY
+ 14 .debug_frame  00000048  00000000  00000000  00008778  2**2
+                  CONTENTS, RELOC, READONLY, DEBUGGING
+SYMBOL TABLE:
+00000000 l    df *ABS*	00000000 table_arch.c
+00000000 l    d  .text	00000000 .text
+00000000 l    d  .data	00000000 .data
+00000000 l    d  .bss	00000000 .bss
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_macinfo	00000000 .debug_macinfo
+00000000 l       .bss	00000000 xme_core_config
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_pubnames	00000000 .debug_pubnames
+00000000 l    d  .debug_pubtypes	00000000 .debug_pubtypes
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
+00000004       O *COM*	00000004 xme_core_log_logCallback
+00000000 g     F .text	000000c0 xme_hal_table_addItem
+000000c0 g     F .text	00000072 xme_hal_table_removeItem
+
+
+
+Disassembly of section .text:
+
+00000000 <xme_hal_table_addItem>:
+/******************************************************************************/
+/***   Implementation                                                       ***/
+/******************************************************************************/
+xme_hal_table_rowHandle_t
+xme_hal_table_addItem(xme_hal_table_arrayStruct_t* table, uint16_t capacity)
+{
+   0:	b480      	push	{r7}
+   2:	b085      	sub	sp, #20
+   4:	af00      	add	r7, sp, #0
+   6:	6078      	str	r0, [r7, #4]
+   8:	460b      	mov	r3, r1
+   a:	807b      	strh	r3, [r7, #2]
+	xme_hal_table_rowHandle_t handle = XME_HAL_TABLE_INVALID_ROW_HANDLE;
+   c:	f04f 0300 	mov.w	r3, #0
+  10:	81fb      	strh	r3, [r7, #14]
+
+	// Table is allocated statically, so return an error if it's full.
+	if (table->count == capacity)
+  12:	687b      	ldr	r3, [r7, #4]
+  14:	881b      	ldrh	r3, [r3, #0]
+  16:	887a      	ldrh	r2, [r7, #2]
+  18:	429a      	cmp	r2, r3
+  1a:	d101      	bne.n	20 <xme_hal_table_addItem+0x20>
+	{
+		return handle;
+  1c:	89fb      	ldrh	r3, [r7, #14]
+  1e:	e049      	b.n	b4 <xme_hal_table_addItem+0xb4>
+
+	// If the memory is fragmented, we search for the first empty item
+	// and return a handle to that item. The memory is fragmented when
+	// the number of items in the table is less than the highest valid
+	// handle (which is a one-based index into the array of table items).
+	if (table->count != table->maxHandle)
+  20:	687b      	ldr	r3, [r7, #4]
+  22:	881a      	ldrh	r2, [r3, #0]
+  24:	687b      	ldr	r3, [r7, #4]
+  26:	885b      	ldrh	r3, [r3, #2]
+  28:	429a      	cmp	r2, r3
+  2a:	d028      	beq.n	7e <xme_hal_table_addItem+0x7e>
+		// for loop, but it only complicates the calculation and doesn't
+		// change behavior because the above assertion ensures that the
+		// last table item is never unused when we reach this code, so we
+		// can safely omit it.
+		xme_hal_table_rowHandleBaseType_t i;
+		for (i=0; i<table->maxHandle/*-1*/; i++)
+  2c:	f04f 0300 	mov.w	r3, #0
+  30:	81bb      	strh	r3, [r7, #12]
+  32:	e01e      	b.n	72 <xme_hal_table_addItem+0x72>
+		{
+			// If the table item is unused...
+			if (XME_HAL_TABLE_ARCH_ROW_AVAILABLE == table->bitmap[i])
+  34:	89bb      	ldrh	r3, [r7, #12]
+  36:	687a      	ldr	r2, [r7, #4]
+  38:	18d3      	adds	r3, r2, r3
+  3a:	791b      	ldrb	r3, [r3, #4]
+  3c:	f083 0301 	eor.w	r3, r3, #1
+  40:	b2db      	uxtb	r3, r3
+  42:	2b00      	cmp	r3, #0
+  44:	d011      	beq.n	6a <xme_hal_table_addItem+0x6a>
+			{
+				// ...use its index as base for the handle and return
+				table->bitmap[i] = XME_HAL_TABLE_ARCH_ROW_OCCUPIED;
+  46:	89bb      	ldrh	r3, [r7, #12]
+  48:	687a      	ldr	r2, [r7, #4]
+  4a:	18d3      	adds	r3, r2, r3
+  4c:	f04f 0201 	mov.w	r2, #1
+  50:	711a      	strb	r2, [r3, #4]
+				table->count++;
+  52:	687b      	ldr	r3, [r7, #4]
+  54:	881b      	ldrh	r3, [r3, #0]
+  56:	f103 0301 	add.w	r3, r3, #1
+  5a:	b29a      	uxth	r2, r3
+  5c:	687b      	ldr	r3, [r7, #4]
+  5e:	801a      	strh	r2, [r3, #0]
+				return (xme_hal_table_rowHandle_t)(i+1);
+  60:	89bb      	ldrh	r3, [r7, #12]
+  62:	f103 0301 	add.w	r3, r3, #1
+  66:	b29b      	uxth	r3, r3
+  68:	e024      	b.n	b4 <xme_hal_table_addItem+0xb4>
+		// for loop, but it only complicates the calculation and doesn't
+		// change behavior because the above assertion ensures that the
+		// last table item is never unused when we reach this code, so we
+		// can safely omit it.
+		xme_hal_table_rowHandleBaseType_t i;
+		for (i=0; i<table->maxHandle/*-1*/; i++)
+  6a:	89bb      	ldrh	r3, [r7, #12]
+  6c:	f103 0301 	add.w	r3, r3, #1
+  70:	81bb      	strh	r3, [r7, #12]
+  72:	687b      	ldr	r3, [r7, #4]
+  74:	885b      	ldrh	r3, [r3, #2]
+  76:	89ba      	ldrh	r2, [r7, #12]
+  78:	429a      	cmp	r2, r3
+  7a:	d3db      	bcc.n	34 <xme_hal_table_addItem+0x34>
+  7c:	e019      	b.n	b2 <xme_hal_table_addItem+0xb2>
+	}
+	else
+	{
+		// Table is contiguously filled: Use the next available item
+		// at the back of the table.
+		handle = (xme_hal_table_rowHandle_t)(++table->count);
+  7e:	687b      	ldr	r3, [r7, #4]
+  80:	881b      	ldrh	r3, [r3, #0]
+  82:	f103 0301 	add.w	r3, r3, #1
+  86:	b29a      	uxth	r2, r3
+  88:	687b      	ldr	r3, [r7, #4]
+  8a:	801a      	strh	r2, [r3, #0]
+  8c:	687b      	ldr	r3, [r7, #4]
+  8e:	881b      	ldrh	r3, [r3, #0]
+  90:	81fb      	strh	r3, [r7, #14]
+		
+		// Table is allocated statically, so respect it's capacity.
+		if (table->maxHandle < capacity)
+  92:	687b      	ldr	r3, [r7, #4]
+  94:	885b      	ldrh	r3, [r3, #2]
+  96:	887a      	ldrh	r2, [r7, #2]
+  98:	429a      	cmp	r2, r3
+  9a:	d902      	bls.n	a2 <xme_hal_table_addItem+0xa2>
+		{
+			table->maxHandle = handle;
+  9c:	687b      	ldr	r3, [r7, #4]
+  9e:	89fa      	ldrh	r2, [r7, #14]
+  a0:	805a      	strh	r2, [r3, #2]
+		}
+
+		// Mark item as occupied
+		table->bitmap[handle-1] = XME_HAL_TABLE_ARCH_ROW_OCCUPIED;
+  a2:	89fb      	ldrh	r3, [r7, #14]
+  a4:	f103 33ff 	add.w	r3, r3, #4294967295
+  a8:	687a      	ldr	r2, [r7, #4]
+  aa:	18d3      	adds	r3, r2, r3
+  ac:	f04f 0201 	mov.w	r2, #1
+  b0:	711a      	strb	r2, [r3, #4]
+	}
+
+	return handle;
+  b2:	89fb      	ldrh	r3, [r7, #14]
+}
+  b4:	4618      	mov	r0, r3
+  b6:	f107 0714 	add.w	r7, r7, #20
+  ba:	46bd      	mov	sp, r7
+  bc:	bc80      	pop	{r7}
+  be:	4770      	bx	lr
+
+000000c0 <xme_hal_table_removeItem>:
+
+xme_core_status_t
+xme_hal_table_removeItem(xme_hal_table_arrayStruct_t* table, xme_hal_table_rowHandle_t handle, uint16_t capacity)
+{
+  c0:	b480      	push	{r7}
+  c2:	b083      	sub	sp, #12
+  c4:	af00      	add	r7, sp, #0
+  c6:	6078      	str	r0, [r7, #4]
+  c8:	4613      	mov	r3, r2
+  ca:	460a      	mov	r2, r1
+  cc:	807a      	strh	r2, [r7, #2]
+  ce:	803b      	strh	r3, [r7, #0]
+	XME_ASSERT(0 < table->maxHandle);
+	XME_ASSERT(table->count <= table->maxHandle);
+	XME_ASSERT_RVAL(table->count <= table->maxHandle, XME_HAL_TABLE_INVALID_ROW_HANDLE);
+	XME_ASSERT_RVAL(table->maxHandle <= capacity, XME_HAL_TABLE_INVALID_ROW_HANDLE);
+	//XME_ASSERT_RVAL(table->bitmap != NULL, XME_HAL_TABLE_INVALID_ROW_HANDLE);
+	XME_CHECK(XME_HAL_TABLE_INVALID_ROW_HANDLE != handle, XME_CORE_STATUS_INVALID_HANDLE);
+  d0:	887b      	ldrh	r3, [r7, #2]
+  d2:	2b00      	cmp	r3, #0
+  d4:	d102      	bne.n	dc <xme_hal_table_removeItem+0x1c>
+  d6:	f04f 0306 	mov.w	r3, #6
+  da:	e024      	b.n	126 <xme_hal_table_removeItem+0x66>
+	XME_CHECK(handle <= table->maxHandle, XME_CORE_STATUS_INVALID_HANDLE);
+  dc:	687b      	ldr	r3, [r7, #4]
+  de:	885b      	ldrh	r3, [r3, #2]
+  e0:	887a      	ldrh	r2, [r7, #2]
+  e2:	429a      	cmp	r2, r3
+  e4:	d902      	bls.n	ec <xme_hal_table_removeItem+0x2c>
+  e6:	f04f 0306 	mov.w	r3, #6
+  ea:	e01c      	b.n	126 <xme_hal_table_removeItem+0x66>
+
+	// Free the table item
+	table->bitmap[handle-1] = XME_HAL_TABLE_ARCH_ROW_AVAILABLE;
+  ec:	887b      	ldrh	r3, [r7, #2]
+  ee:	f103 33ff 	add.w	r3, r3, #4294967295
+  f2:	687a      	ldr	r2, [r7, #4]
+  f4:	18d3      	adds	r3, r2, r3
+  f6:	f04f 0200 	mov.w	r2, #0
+  fa:	711a      	strb	r2, [r3, #4]
+	--table->count;
+  fc:	687b      	ldr	r3, [r7, #4]
+  fe:	881b      	ldrh	r3, [r3, #0]
+ 100:	f103 33ff 	add.w	r3, r3, #4294967295
+ 104:	b29a      	uxth	r2, r3
+ 106:	687b      	ldr	r3, [r7, #4]
+ 108:	801a      	strh	r2, [r3, #0]
+	// of xme_hal_table_removeItem() in O(n).
+	//
+	// We do not try to detect the fact that the table has
+	// become fully contiguous by multiple calls of xme_hal_table_removeItem()
+	// in order to keep this function O(1).
+	if (table->maxHandle == handle)
+ 10a:	687b      	ldr	r3, [r7, #4]
+ 10c:	885b      	ldrh	r3, [r3, #2]
+ 10e:	887a      	ldrh	r2, [r7, #2]
+ 110:	429a      	cmp	r2, r3
+ 112:	d106      	bne.n	122 <xme_hal_table_removeItem+0x62>
+	{
+		--table->maxHandle;
+ 114:	687b      	ldr	r3, [r7, #4]
+ 116:	885b      	ldrh	r3, [r3, #2]
+ 118:	f103 33ff 	add.w	r3, r3, #4294967295
+ 11c:	b29a      	uxth	r2, r3
+ 11e:	687b      	ldr	r3, [r7, #4]
+ 120:	805a      	strh	r2, [r3, #2]
+	}
+
+	return XME_CORE_STATUS_SUCCESS;
+ 122:	f04f 0300 	mov.w	r3, #0
+}
+ 126:	4618      	mov	r0, r3
+ 128:	f107 070c 	add.w	r7, r7, #12
+ 12c:	46bd      	mov	sp, r7
+ 12e:	bc80      	pop	{r7}
+ 130:	4770      	bx	lr
+ 132:	bf00      	nop

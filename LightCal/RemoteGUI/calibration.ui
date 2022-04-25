@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>calibration</class>
+ <widget class="QWidget" name="calibration">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>290</width>
+    <height>268</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="gridLayoutWidget_4">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>10</y>
+     <width>160</width>
+     <height>67</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4">
+    <item row="1" column="0">
+     <widget class="QSpinBox" name="calibrateNodeNumber">
+      <property name="minimum">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <number>200</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="nodeID_label">
+      <property name="text">
+       <string>Node ID</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QComboBox" name="calibrationChannel">
+      <item>
+       <property name="text">
+        <string>DCD_DVDD</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DHP_IO</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DHP_CORE</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SW_DVDD</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DCD_AVDD</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DCD_REFIN</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>DCD_AMPLOW</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Source</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_OFF</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_ON1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_ON2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>GATE_ON3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Clear_ON</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Clear_OFF</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Bulk</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Guard</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NOT_USED_1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SW_SUB</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>SW_REF</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>HV</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CCG1</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CCG2</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>CCG3</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>NOT_USED_2</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLabel" name="channelNumber">
+      <property name="text">
+       <string>Channel</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>231</width>
+     <height>81</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Calibration Data</string>
+   </property>
+   <widget class="QWidget" name="gridLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>20</y>
+      <width>137</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QLabel" name="value1Label">
+       <property name="text">
+        <string>Voltage in mV</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="value2Label">
+       <property name="text">
+        <string>Current in mA</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSpinBox" name="voltage">
+       <property name="minimum">
+        <number>-30000</number>
+       </property>
+       <property name="maximum">
+        <number>30000</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="current">
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>5000</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="setCalibratedValueCurrentButton">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>220</y>
+     <width>130</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>130</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>114</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Set Calibrated Current</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setCalibratedValueVoltageButton">
+   <property name="geometry">
+    <rect>
+     <x>4</x>
+     <y>220</y>
+     <width>130</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>130</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>114</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Set Calibrated Voltage</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setValueVoltageButton">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>190</y>
+     <width>130</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>130</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>114</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Set Uncalibrated Voltage</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setValueCurrentButton">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>190</y>
+     <width>130</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>130</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>114</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="text">
+    <string>Set Uncalibrated Current</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
