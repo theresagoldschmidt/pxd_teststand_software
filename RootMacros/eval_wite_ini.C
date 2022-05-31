@@ -1,8 +1,10 @@
 {
 
 //#include <iostream>
+//#include <format>
 //#include <fstream>
 #include <sstream>
+#include "TString.h"
 
 //********************************************************
 // some definitions
@@ -14,8 +16,9 @@ gROOT->ProcessLine(".L bisec.C");
 gROOT->ProcessLine(".L graphCleaner.C");
 int num_files=24; // fixed value! --> files have ID, files not there are set to default
 //int num_cal=5;   // not used
-int node=49;
+int node=56;
 int max_point=1000;
+TString pathname;
 
 bool data_available[24];
 
@@ -53,13 +56,15 @@ cout<<"Define Path to Data:"<< endl;
 TString path="";
 
 // this is the default path the calibration outputs to
-// path="C:/LightCal/Project/target/Debug/";
+path="C:/Users/LMUPS/Documents/GitHub/pxd_teststand_software/LightCal_build/target/Debug/4_Calibration_ps15/";
+
 // all the following pathes are for debugging only
 // path = "C:/root/callibration/test2_PS41_FS/";
 // testing only
 // path="C:/root/callibration/test_PS41_fastShutdown_oldMCU/";
 // path="C:/root/callibration/test_PS41_reworked_frontPCBv3_2/";
-path="C:/root/callibration/MainProdNode49/";
+//path="C:/root/callibration/MainProdNode49/";#
+
 
 //path="C:/root/Callibration/PreprodNODE";
 //path="C:/root/Callibration/MainProdNODE";
@@ -394,9 +399,12 @@ if (j==3){
 	text.DrawLatex(0.2, 0.6, p0.Data());
 	text.DrawLatex(0.2, 0.4, p1.Data());
 }
-	
-		
 	}// channel fit loop
+
+pathname = Form("C:/Users/LMUPS/Documents/GitHub/pxd_teststand_software/LightCal_build/target/Debug/4_Calibration_ps15/plots/Channel%d.pdf", i);
+
+cout << endl << "The path is " << pathname << endl;
+tcan[i]->SaveAs(pathname);	
 	
 	
 
@@ -425,7 +433,9 @@ cout<<"Open callibration File"<<endl;
 TString calli;
 ofstream myfile;
 
-TString filename="C:/root/Callibration/constants_node_";
+//TString filename="C:/root/Callibration/constants_node_";
+TString filename="C:/Users/LMUPS/Documents/GitHub/pxd_teststand_software/LightCal_build/target/Debug/4_Calibration_ps15/constants_node_";
+
 filename+=node;
 filename+=".ini";
 
@@ -473,6 +483,10 @@ for( int i=0; i<num_files;i++){
 	
   
 			} // for all measurements
+
+
+
+
 	} // for all channels
 
   myfile.close();
