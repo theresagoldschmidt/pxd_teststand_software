@@ -7,7 +7,9 @@ config = configparser.ConfigParser()
 config_ini = configparser.ConfigParser()
 config_ini.optionxform = str
 
-config_ini['0'] = {}
+channel = 0
+#config_ini['0'] = {}
+
 """
 The graphs:
 0) U Cal: Uset vs. Uout (x_axis: U_dac[mV], y_axis: U_output[mV]) 
@@ -24,7 +26,12 @@ PLOTS (0)-(2)________________________________________#__________________________
 config.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/path.ini")
 config["calibration_data"].get("data_path")
 
-data_UvsU = pd.read_csv(config["calibration_data"].get("data_path"),sep=" ",header=None)
+
+#print('HERE:',os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_U_vs_U'%channel + '.dat'))
+path_UvsU = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_U_vs_U'%channel + '.dat')
+data_UvsU = pd.read_csv(path_UvsU,sep=" ",header=None)
+
+#data_UvsU = pd.read_csv(config["calibration_data"].get("data_path"),sep=" ",header=None)
 data_UvsU.columns=["1","2","3","4","5","6"]# Number of columns you can see in the dat file.
 
 
@@ -81,8 +88,8 @@ plt.legend()
 
 #print(f'ADC_U_LOAD_GAIN={round(m_1, 4)*10000} {os.linesep}ADC_U_LOAD_OFFSET={round(b_1,4)*100} ')
 #plt.show()
-config_ini['0'] = {f'ADC_U_LOAD_GAIN':round(m_1, 4)*10000,
-                   f'ADC_U_LOAD_OFFSET':round(b_1,4)*100}
+#config_ini['0'] = {'ADC_U_LOAD_GAIN':round(m_1, 4)*10000,
+#                   'ADC_U_LOAD_OFFSET':round(b_1,4)*100}
 """                                                                                               
 2) U Cal: Uout vs. MonUload                                                                        
 """
@@ -104,14 +111,15 @@ plt.legend()
 
 #print(f'ADC_U_REGULATOR_GAIN={round(m_2, 4)*10000} {os.linesep}ADC_U_REGULATOR_={round(b_2,4)*100} ')
 #plt.show()
-config_ini['0'] = {f'ADC_U_REGULATOR_GAIN':round(m_2, 4)*10000,
-                   f'ADC_U_REGULATOR':round(b_2,4)*100}
+#config_ini['0'] = {f'ADC_U_REGULATOR_GAIN':round(m_2, 4)*10000,
+#                   f'ADC_U_REGULATOR':round(b_2,4)*100}
 """                                                                                                                 
 PLOTS (3)___________________________________________________________________________________________________        
 """
-#still need a dynamic solution for the path stuff
 
-data_IvsI = pd.read_csv(config["calibration_data"].get("data_path_2"),sep=" ",header=None)
+#changing to I_vs_I.dat file
+path_IvsI = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_I_vs_I'%channel + '.dat')
+data_IvsI = pd.read_csv(path_IvsI,sep=" ",header=None)
 data_IvsI.columns=["1","2","3","4","5","6"]# Number of columns you can see in the dat file.
 
 """
@@ -136,15 +144,17 @@ plt.legend()
 
 #print(f'ADC_I_MON_GAIN={round(m_3, 4)*10000} {os.linesep}ADC_I_MON_OFFSET={round(b_3,2)*100} ')
 #plt.show()
-config_ini['0'] = {f'ADC_I_MON_GAIN':round(m_3, 4)*10000,
-                   f'ADC_I_MON_OFFSET':round(b_3,4)*100}
+#config_ini['0'] = {'ADC_I_MON_GAIN':round(m_3, 4)*10000,
+#                   'ADC_I_MON_OFFSET':round(b_3,4)*100}
 
 
 """ 
 PLOTS (4)_______________________________________________________________________________________________data_IvsI = pd.read_csv(config["calibration_data"].get("data_path"),sep=" ",header=None)
 """
 
-data_IvsI = pd.read_csv(config["calibration_data"].get("data_path_3"),sep=" ",header=None)
+#changing to Ilimit_vs_I.dat file
+path_Ilimit_vs_I = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_Ilimit_vs_I'%channel + '.dat')
+data_IvsI = pd.read_csv(path_Ilimit_vs_I,sep=" ",header=None)
 data_IvsI.columns=["1","2","3","4","5"]# Number of columns you can see in the dat file.
 
 """
@@ -179,22 +189,22 @@ try:
 except FileExistsError:
     print("Directory " , dirName ,  " already exists")
 
-plt.savefig('plots/Channel_0.pdf', format='pdf')
+plt.savefig("plots/Channel_%d.pdf"%channel, format='pdf')
 """
 writing in constants ini file
 guess there would be a nicer solution, but hevent found it yet
 wanted to do it after each plotting but only shoed the last constants 
 """
-config_ini['0'] = {f'DAC_VOLTAGE_GAIN':round(m_0, 4)*10000,
-                   f'DAC_VOLTAGE_OFFSET':round(b_0,2)*100,
-                   f'ADC_U_LOAD_GAIN':round(m_1, 4)*10000,
-                   f'ADC_U_LOAD_OFFSET':round(b_1,2)*100,
-                   f'ADC_U_REGULATOR_GAIN':round(m_2, 4)*10000,
-                   f'ADC_U_REGULATOR':round(b_2,2)*100,
-                   f'ADC_I_MON_GAIN':round(m_3, 4)*10000,
-                   f'ADC_I_MON_OFFSET':round(b_3, 2)*100,
-                   f'DAC_CURRENT_GAIN':round(m_4, 4)*10000,
-                   f'DAC_CURRENT_OFFSET':round(b_4,2)*100}
+config_ini[f'{channel}'] = {'DAC_VOLTAGE_GAIN':round(m_0, 4)*10000,
+                   'DAC_VOLTAGE_OFFSET':round(b_0,2)*100,
+                   'ADC_U_LOAD_GAIN':round(m_1, 4)*10000,
+                   'ADC_U_LOAD_OFFSET':round(b_1,2)*100,
+                   'ADC_U_REGULATOR_GAIN':round(m_2, 4)*10000,
+                   'ADC_U_REGULATOR':round(b_2,2)*100,
+                   'ADC_I_MON_GAIN':round(m_3, 4)*10000,
+                   'ADC_I_MON_OFFSET':round(b_3, 2)*100,
+                   'DAC_CURRENT_GAIN':round(m_4, 4)*10000,
+                   'DAC_CURRENT_OFFSET':round(b_4,2)*100}
 
 
 with open('constants.ini', 'w') as configfile:
