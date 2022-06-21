@@ -53,7 +53,7 @@ plt.ylabel('$U_{out}$ [mV]')
 plt.legend()
 
 
-print(f'DAC_VOLTAGE_GAIN={round(m_0, 4)*10000} {os.linesep}DAC_VOLTAGE_OFFSET={round(b_0,4)*100}  ')
+#print(f'DAC_VOLTAGE_GAIN={round(m_0, 4)*10000} {os.linesep}DAC_VOLTAGE_OFFSET={round(b_0,4)*100}  ')
 #plt.show()
 #config_ini['0'] = {f'DAC_VOLTAGE_GAIN':round(m_0, 4)*10000,
 #                   f'DAC_VOLTAGE_OFFSET':round(b_0,4)*100}
@@ -79,7 +79,7 @@ plt.ylabel('$U_{regulator}$ [mV]')
 #plt.title('$U_{out} vs. U_{regulator}$')
 plt.legend()
 
-print(f'ADC_U_LOAD_GAIN={round(m_1, 4)*10000} {os.linesep}ADC_U_LOAD_OFFSET={round(b_1,4)*100} ')
+#print(f'ADC_U_LOAD_GAIN={round(m_1, 4)*10000} {os.linesep}ADC_U_LOAD_OFFSET={round(b_1,4)*100} ')
 #plt.show()
 config_ini['0'] = {f'ADC_U_LOAD_GAIN':round(m_1, 4)*10000,
                    f'ADC_U_LOAD_OFFSET':round(b_1,4)*100}
@@ -102,7 +102,7 @@ plt.ylabel('$U_{load}$ [mV]')
 #plt.title('$U_{out} vs. U_{load}$')
 plt.legend()
 
-print(f'ADC_U_REGULATOR_GAIN={round(m_2, 4)*10000} {os.linesep}ADC_U_REGULATOR_={round(b_2,4)*100} ')
+#print(f'ADC_U_REGULATOR_GAIN={round(m_2, 4)*10000} {os.linesep}ADC_U_REGULATOR_={round(b_2,4)*100} ')
 #plt.show()
 config_ini['0'] = {f'ADC_U_REGULATOR_GAIN':round(m_2, 4)*10000,
                    f'ADC_U_REGULATOR':round(b_2,4)*100}
@@ -134,7 +134,7 @@ plt.legend()
 #plt.title('$I_{out} vs. I_{outMon}$')
 #plt.text(-1000,200, f'slope = {round(m_3, 4)}, int= {round(b_3,4)}')
 
-print(f'ADC_I_MON_GAIN={round(m_3, 4)*10000} {os.linesep}ADC_I_MON_OFFSET={round(b_3,2)*100} ')
+#print(f'ADC_I_MON_GAIN={round(m_3, 4)*10000} {os.linesep}ADC_I_MON_OFFSET={round(b_3,2)*100} ')
 #plt.show()
 config_ini['0'] = {f'ADC_I_MON_GAIN':round(m_3, 4)*10000,
                    f'ADC_I_MON_OFFSET':round(b_3,4)*100}
@@ -167,9 +167,19 @@ plt.ylabel('$Limit Current$ [mA]')
 plt.legend()
 
 
-print(f'DAC_CURRENT_GAIN={round(m_4, 4)*10000} {os.linesep}DAC_CURRENT_OFFSET={round(b_4,4)*100}  ')
-plt.show()
+#print(f'DAC_CURRENT_GAIN={round(m_4, 4)*10000} {os.linesep}DAC_CURRENT_OFFSET={round(b_4,4)*100}  ')
+#plt.show()
 
+dirName = 'plots'
+
+try:
+    # Create target Directory
+    os.mkdir(dirName)
+    print("Directory " , dirName ,  " Created ")
+except FileExistsError:
+    print("Directory " , dirName ,  " already exists")
+
+plt.savefig('plots/Channel_0.pdf', format='pdf')
 """
 writing in constants ini file
 guess there would be a nicer solution, but hevent found it yet
