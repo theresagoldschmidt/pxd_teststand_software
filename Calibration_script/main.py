@@ -7,18 +7,27 @@ config = configparser.ConfigParser()
 config_ini = configparser.ConfigParser()
 config_ini.optionxform = str
 
+"""
+def clean_graph(x, y)
+    for i, coord_x in enumerate(x):
+        window_x_left = list(x[max(0,i-7):i])
+        window_x_right = list(x[i+1:min(i+9,len(x))])
+        print(f"point {i}: window {window_x_left+window_x_right})
+        if i == 10:
+            break
+"""
 def plot_and_fit(x, y, xlabel, ylabel, label):
 
     (m, b), (SSE,), *_ = np.polyfit(x, y, deg=1, full=True)
 
     # plot
-    plt.scatter(x, y, color='grey', marker='x', label=label)
+    plt.scatter(x, y, color='grey', marker='x', label=label, linewidths=1.0)
     plt.plot(x, m * x + b, color='r', label=f'slope = {round(m, 4)}, int= {round(b, 4)}')
+    plt.rcParams["figure.autolayout"] = True
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
-    # plt.title('$U_{set} vs. U_{out}$')
-    plt.legend(prop={'size':5})
-    #plt.figure(figsize=(15, 15), dpi=100)
+    plt.legend(prop={'size':8})
+
     return (m, b)
 
 
@@ -33,6 +42,7 @@ for channel in range(24):
     3) I Cal: Iout vs. IoutMon  (x_axis: I_output[mA], y_axis: I_monitoring[mA])
     4) I Cal: DAC limit vs. IMeasured  (x_axis: Limit DAC[mV], y_axis: limit current[mA])
     """
+    plt.subplots(figsize=(12, 6))
 
     #Getting path from .ini file
     config.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/path.ini")
@@ -105,8 +115,8 @@ for channel in range(24):
                         wspace=0.6,
                         hspace=0.6)
 
-    plt.savefig("plots/Channel_%d.pdf"%channel, format='pdf', dpi=1000, bbox_inches='tight')
-    plt.clf()
+    plt.savefig("plots/Channel_%d.pdf"%channel, format='pdf', bbox_inches='tight')
+    plt.close()
 
 
     #writing in constants ini file
@@ -115,7 +125,7 @@ for channel in range(24):
                                 'ADC_U_LOAD_GAIN':round(m_1*10000, 0),
                                 'ADC_U_LOAD_OFFSET':round(b_1*100,0),
                                 'ADC_U_REGULATOR_GAIN':round(m_2*10000,0),
-                                'ADC_U_REGULATOR':round(b_2*100,0),
+                                'ADC_U_REGULATOR_OFFSET':round(b_2*100,0),
                                 'ADC_I_MON_GAIN':round(m_3*10000,0),
                                 'ADC_I_MON_OFFSET':round(b_3*100, 0),
                                 'DAC_CURRENT_GAIN':round(m_4*10000,0),
