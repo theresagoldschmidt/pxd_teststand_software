@@ -12,13 +12,13 @@ def plot_and_fit(x, y, xlabel, ylabel, label):
     (m, b), (SSE,), *_ = np.polyfit(x, y, deg=1, full=True)
 
     # plot
-    plt.scatter(x, y, color='grey', marker='x', label=label)
+    plt.scatter(x, y, color='grey', marker='x', label=label, linewidths=1.0)
     plt.plot(x, m * x + b, color='r', label=f'slope = {round(m, 4)}, int= {round(b, 4)}')
+    plt.rcParams["figure.autolayout"] = True
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
-    # plt.title('$U_{set} vs. U_{out}$')
-    plt.legend(prop={'size':5})
-    #plt.figure(figsize=(15, 15), dpi=100)
+    plt.legend(prop={'size':8})
+
     return (m, b)
 
 
@@ -33,6 +33,7 @@ for channel in range(24):
     3) I Cal: Iout vs. IoutMon  (x_axis: I_output[mA], y_axis: I_monitoring[mA])
     4) I Cal: DAC limit vs. IMeasured  (x_axis: Limit DAC[mV], y_axis: limit current[mA])
     """
+    plt.subplots(figsize=(12, 6))
 
     #Getting path from .ini file
     config.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/path.ini")
@@ -105,8 +106,8 @@ for channel in range(24):
                         wspace=0.6,
                         hspace=0.6)
 
-    plt.savefig("plots/Channel_%d.pdf"%channel, format='pdf', dpi=1000, bbox_inches='tight')
-    plt.clf()
+    plt.savefig("plots/Channel_%d.pdf"%channel, format='pdf', bbox_inches='tight')
+    plt.close()
 
 
     #writing in constants ini file
