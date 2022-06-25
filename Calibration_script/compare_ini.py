@@ -1,9 +1,7 @@
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 import configparser
-import os
 import csv
+
 config_old = configparser.ConfigParser()
 config_new = configparser.ConfigParser()
 
