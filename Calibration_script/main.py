@@ -11,6 +11,7 @@ config_ini.optionxform = str
 
 
 
+
 def prepare_data(x, y):
     """
     Excluding none and inf in data
@@ -109,6 +110,14 @@ def plot_and_fit(x, y, dx, dy, x_cut, y_cut, xlabel, ylabel, label):
 
     return m, b
 
+def residual_plots(data, data_x, data_y, m, b, n):
+    x_0 = data[data_x]
+    y_0 = data[data_y]
+    plt.subplot(2,3,n)
+    plt.scatter(x_0, y_0-(m * x_0 + b) , color='g', marker='.', linewidths=1.0, label="Residual:\n"+data_x+" vs. "+data_y)
+    plt.xlabel(data_x)
+    plt.ylabel(data_y)
+    plt.legend(prop={'size': 8})
 
 def read_data(path, columns):
     """
@@ -125,6 +134,18 @@ def read_data(path, columns):
 def main():
     # Getting path from .ini file
     config.read("path.ini")
+
+    # Making the folders for the  plots
+    if os.path.exists("plots") == True:
+        pass
+    else:
+        os.mkdir("plots")
+
+    if os.path.exists("plots/residuals") == True:
+        pass
+    else:
+        os.mkdir("plots/residuals")
+
     for channel in range(24):
 
         """
@@ -145,19 +166,24 @@ def main():
         data_UvsU = read_data(path_UvsU, columns_UvsU)
 
         # 0) Plot(U Cal: Uset vs. U out)
-        x_0 = data_UvsU['$U_{dac}$ [mV]']
-        y_0 = data_UvsU['$U_{out}$ [mV]']
-        x_0,y_0 = prepare_data(x_0, y_0)
+        x_0_all = data_UvsU['$U_{dac}$ [mV]']
+        y_0_all = data_UvsU['$U_{out}$ [mV]']
+        x_0,y_0 = prepare_data(x_0_all, y_0_all)
         x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
 
         plt.subplot(2, 3, 1)
         m_0, b_0 = plot_and_fit(x_0, y_0, 10, 10, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$')
+
+
+        #plt.scatter(x_0_all,(m_0*x_0_all+b_0)-y_0_all, color='g')
+
 
         # 1) U Cal: Uout vs. MonUreg
         x_1 = data_UvsU['$U_{out}$ [mV]']
         y_1 = data_UvsU['$U_{regulator}$ [mV]']
         x_1, y_1 = prepare_data(x_1, y_1)
         x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
+
         plt.subplot(2, 3, 2)
         m_1, b_1 = plot_and_fit(x_1, y_1, 10, 10 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{out} vs. U_{regulator}$')
 
@@ -166,6 +192,7 @@ def main():
         y_2 = data_UvsU['$U_{load}$ [mV]']
         x_2, y_2 = prepare_data(x_2, y_2)
         x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
+
         plt.subplot(2, 3, 3)
         m_2, b_2 = plot_and_fit(x_2, y_2, 10, 10, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{out} vs. U_{load}$')
 
@@ -181,6 +208,7 @@ def main():
         y_3 = data_IvsI['$I_{outMon}$ [mA]']
         x_3, y_3 = prepare_data(x_3, y_3)
         x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
+
         plt.subplot(2, 3, 4)
         if (channel == 13):
             m_3, b_3 = plot_and_fit(x_3, y_3, 0.001, 0.001,x_cut_3,y_cut_3,'$I_{dac}$ [mA]', '$I_{outMon}$ [$mu$A]', '$I_{out} vs. I_{outMon}$')
@@ -201,6 +229,7 @@ def main():
         y_4 = data_IlimitvsI['$Limit Current$ [mA]']
         x_4, y_4 = prepare_data(x_4, y_4)
         x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
+
         plt.subplot(2, 3, 5)
         m_4, b_4 = plot_and_fit(x_4, y_4, 10, 1, x_cut_4,y_cut_4, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', '$DAC LIMIT vs. I_{Measured}$')
         if channel == 13:
@@ -217,6 +246,37 @@ def main():
 
         plt.savefig("plots/Channel_%d.pdf" % channel, format='pdf', bbox_inches='tight')
         plt.close()
+
+        #Now plotting the residual PLots
+        plt.subplots(figsize=(12, 6))
+
+
+        # 0) Plot(U Cal: Uset vs. U out)
+        residual_plots(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]', m_0, b_0,1)
+        # 1) U Cal: Uout vs. MonUreg
+        residual_plots(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', m_1, b_1,2)
+        # 2) U Cal: Uout vs. MonUload
+        residual_plots(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]', m_2, b_2,3)
+        # (3) I Cal: Iout vs. IoutMon
+        if (channel == 13):
+            residual_plots(data_IvsI, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
+        else:
+            residual_plots(data_IvsI, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
+        # 4) I Cal: DAC LIMIT vs. I Measured
+        residual_plots(data_IlimitvsI, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', m_4, b_4, 5)
+
+        # All 5 residual plots in one figure
+        plt.subplots_adjust(left=0.1,
+                            bottom=0.1,
+                            right=0.9,
+                            top=0.9,
+                            wspace=0.6,
+                            hspace=0.6)
+
+        plt.savefig("plots/residuals/Channel_%d.pdf" % channel, format='pdf', bbox_inches='tight')
+        plt.close()
+
+
 
         # writing in constants ini file
         config_ini[f'{channel}'] = {'DAC_VOLTAGE_GAIN': round(m_0 * 10000, 0),
