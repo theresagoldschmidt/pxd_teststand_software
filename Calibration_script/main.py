@@ -6,6 +6,7 @@ from Calibration_script import fit
 from matplotlib.backends.backend_pdf import PdfPages
 
 
+
 config = configparser.ConfigParser()
 config_ini = configparser.ConfigParser()
 config_ini.optionxform = str
@@ -70,9 +71,10 @@ def linear(m,x,b):
 def get_and_prepare(data,x_data,y_data):
     x_1 = data[x_data]
     y_1 = data[y_data]
+    length = len(x_1)
     x_2,y_2 = prepare_data(x_1, y_1)
 
-    return x_2,y_2
+    return x_2,y_2, length
 
 def plot_and_fit(x, y, dx, dy, x_cut, y_cut, xlabel, ylabel, label,n):
     """
@@ -201,22 +203,22 @@ def main():
 
 
             # 0) Plot(U Cal: Uset vs. U out)
-            x_0,y_0= get_and_prepare(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]')
+            x_0,y_0,l_0= get_and_prepare(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]')
             x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
             m_0, b_0 = plot_and_fit(x_0, y_0, 10, 10, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$',1)
 
             # 1) U Cal: Uout vs. MonUreg
-            x_1,y_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]')
+            x_1,y_1, l_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]')
             x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
             m_1, b_1 = plot_and_fit(x_1, y_1, 10, 10 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{out} vs. U_{regulator}$',2)
 
             # 2) U Cal: Uout vs. MonUload
-            x_2,y_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]')
+            x_2,y_2, l_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]')
             x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
             m_2, b_2 = plot_and_fit(x_2, y_2, 10, 10, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{out} vs. U_{load}$',3)
 
-            # (3) I Cal: Iout vs. IoutMon
-            x_3,y_3 = get_and_prepare(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]')
+            # 3) I Cal: Iout vs. IoutMon
+            x_3,y_3, l_3 = get_and_prepare(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]')
             x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
             if channel == 13:
                 m_3, b_3 = plot_and_fit(x_3, y_3, 0.001, 0.001,x_cut_3,y_cut_3,'$I_{dac}$ [mA]', '$I_{outMon}$ [$mu$A]', '$I_{out} vs. I_{outMon}$',4)
@@ -225,12 +227,22 @@ def main():
                 m_3, b_3 = plot_and_fit(x_3, y_3, 1, 1, x_cut_3,y_cut_3, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', '$I_{out} vs. I_{outMon}$',4)
 
             # 4) I Cal: DAC LIMIT vs. I Measured
-            x_4,y_4 = get_and_prepare(data_IlimitvsI, '$Limit DAC$ [mV]', '$Limit Current$ [mA]')
+            x_4,y_4,l_4 = get_and_prepare(data_IlimitvsI, '$Limit DAC$ [mV]', '$Limit Current$ [mA]')
             x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
             m_4, b_4 = plot_and_fit(x_4, y_4, 10, 1, x_cut_4,y_cut_4, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', '$DAC LIMIT vs. I_{Measured}$',5)
             if channel == 13:
                 m_4 = m_4 * 1000
                 b_4 = b_4 * 1000
+
+            # Calculating
+            title = 'Number of deleted points:\n\n'
+            plot_0 = '0) U Cal: Uset vs. U out: %d\n'%(l_0-len(x_0))
+            plot_1 = '1) U Cal: Uout vs. MonUreg: %d\n'%(l_1-len(x_1))
+            plot_2 = '2) U Cal: Uout vs. MonUload: %d\n'%(l_2-len(x_2))
+            plot_3 = '3) I Cal: Iout vs. IoutMon: %d\n'%(l_3-len(x_3))
+            plot_4 = '4) I Cal: DAC LIMIT vs. I Measured: %d\n'%(l_4-len(x_4))
+
+            plt.figtext(0.75, 0.18,title+plot_0+plot_1+plot_2+plot_3+plot_4,bbox=dict(facecolor='lightgrey', edgecolor='red'), fontdict=None)
 
             # All 5 plots in one figure
             plt.subplots_adjust(left=0.1,
