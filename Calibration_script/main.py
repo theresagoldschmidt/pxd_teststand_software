@@ -29,6 +29,7 @@ def prepare_data(x, y):
 
 def cut_outliers(x, y, channel):
     """
+    Cuts points that are to far away from the fit
     :param x: np array
     :return: cut data
     """
@@ -66,8 +67,14 @@ def linear(m,x,b):
     """
     return m*x+b
 
+def get_and_prepare(data,x_data,y_data):
+    x_1 = data[x_data]
+    y_1 = data[y_data]
+    x_2,y_2 = prepare_data(x_1, y_1)
 
-def plot_and_fit(x, y, dx, dy, x_cut, y_cut, xlabel, ylabel, label):
+    return x_2,y_2
+
+def plot_and_fit(x, y, dx, dy, x_cut, y_cut, xlabel, ylabel, label,n):
     """
     Creates plots from cleaned calibration data and linear regression
     :param x: Calibration Data
@@ -100,6 +107,7 @@ def plot_and_fit(x, y, dx, dy, x_cut, y_cut, xlabel, ylabel, label):
     b = popt[1]
 
     # plot each of 5 subplots
+    plt.subplot(2, 3, n)
     plt.scatter(x, y, color='k', marker='.', linewidths=1.0 )
     plt.scatter(x_cut, y_cut, color='grey',marker='.', linewidths=1.0, label = 'Outliers')
     plt.errorbar(x, y, yerr=dy, xerr=dx, fmt='none', ecolor='k', label = label)
@@ -111,11 +119,23 @@ def plot_and_fit(x, y, dx, dy, x_cut, y_cut, xlabel, ylabel, label):
 
     return m, b
 
-def residual_plots(data, data_x, data_y, m, b, n):
-    x_0 = data[data_x]
-    y_0 = data[data_y]
+def residual_plots(data_x, data_y,x,y,cut_x, cut_y, m, b, n):
+    """
+    Plots the rediuals for the data points
+    :param data_x: Name of the x data
+    :param data_y: Name of the y data
+    :param x: the x data without the outliers
+    :param y: the y data without the outliers
+    :param cut_x: the x outliers
+    :param cut_y: the y outliers
+    :param m: the slope
+    :param b: the offset
+    :param n: which subplot
+    :return: residual plots
+    """
     plt.subplot(2,3,n)
-    plt.scatter(x_0, y_0-(m * x_0 + b) , color='g', marker='.', linewidths=1.0, label="Residual:\n"+data_x+" vs. "+data_y)
+    plt.scatter(x, y-(m * x + b) , color='g', marker='.', linewidths=1.0, label="Residual:\n"+data_x+" vs. "+data_y)
+    plt.scatter(cut_x, cut_y-(m * cut_x + b) , color='grey', marker='.', linewidths=1.0)
     plt.xlabel(data_x)
     plt.ylabel(data_y)
     plt.legend(prop={'size': 8})
@@ -168,66 +188,46 @@ def main():
             columns_UvsU = ["$U_{dac}$ [mV]", "$U_{out}$ [mV]", "$U_{regulator}$ [mV]", "$U_{load}$ [mV]", "unknown 5","unknown 6"]
             data_UvsU = read_data(path_UvsU, columns_UvsU)
 
-            # 0) Plot(U Cal: Uset vs. U out)
-            x_0_all = data_UvsU['$U_{dac}$ [mV]']
-            y_0_all = data_UvsU['$U_{out}$ [mV]']
-            x_0,y_0 = prepare_data(x_0_all, y_0_all)
-            x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
-
-            plt.subplot(2, 3, 1)
-            m_0, b_0 = plot_and_fit(x_0, y_0, 10, 10, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$')
-
-            # 1) U Cal: Uout vs. MonUreg
-            x_1 = data_UvsU['$U_{out}$ [mV]']
-            y_1 = data_UvsU['$U_{regulator}$ [mV]']
-            x_1, y_1 = prepare_data(x_1, y_1)
-            x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
-
-            plt.subplot(2, 3, 2)
-            m_1, b_1 = plot_and_fit(x_1, y_1, 10, 10 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{out} vs. U_{regulator}$')
-
-            # 2) U Cal: Uout vs. MonUload
-            x_2 = data_UvsU['$U_{out}$ [mV]']
-            y_2 = data_UvsU['$U_{load}$ [mV]']
-            x_2, y_2 = prepare_data(x_2, y_2)
-            x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
-
-            plt.subplot(2, 3, 3)
-            m_2, b_2 = plot_and_fit(x_2, y_2, 10, 10, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{out} vs. U_{load}$')
-
-            # changing to I_vs_I.dat file 'Channel_%d_I_vs_I'%channel
-
-            path_IvsI = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_I_vs_I' % channel + '.dat')
-            columns_IvsI = ["unknown 1", "$I_{out(dac)}$ [mA]", "$I_{outMon}$ [mA]", "$U_{outMon}$", "StatBit", "$U_{SMU}$"]
-
+            # Opening I_vs_I.dat file
+            path_IvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_I_vs_I' % channel + '.dat')
+            columns_IvsI = ["unknown 1", "$I_{out(dac)}$ [mA]", "$I_{outMon}$ [mA]", "$U_{outMon}$", "StatBit","$U_{SMU}$"]
             data_IvsI = read_data(path_IvsI, columns_IvsI)
 
-            # (3) I Cal: Iout vs. IoutMon
-            x_3 = data_IvsI['$I_{out(dac)}$ [mA]']
-            y_3 = data_IvsI['$I_{outMon}$ [mA]']
-            x_3, y_3 = prepare_data(x_3, y_3)
-            x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
-
-            plt.subplot(2, 3, 4)
-            if channel == 13:
-                m_3, b_3 = plot_and_fit(x_3, y_3, 0.001, 0.001,x_cut_3,y_cut_3,'$I_{dac}$ [mA]', '$I_{outMon}$ [$mu$A]', '$I_{out} vs. I_{outMon}$')
-                m_3 = m_3/1000
-            else:
-                m_3, b_3 = plot_and_fit(x_3, y_3, 1, 1, x_cut_3,y_cut_3, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', '$I_{out} vs. I_{outMon}$')
-
-            # changing to Ilimit_vs_I.dat file
+            # Opening Ilimit_vs_I.dat file
             path_IlimitvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_Ilimit_vs_I' % channel + '.dat')
             columns_IlimitvsI = ["$Limit DAC$ [mV]", "$Limit Current$ [mA]", "unknown 3", "unknown 4", "StatBit"]
             data_IlimitvsI = read_data(path_IlimitvsI, columns_IlimitvsI)
 
-            # 4) I Cal: DAC LIMIT vs. I Measured
-            x_4 = data_IlimitvsI['$Limit DAC$ [mV]']
-            y_4 = data_IlimitvsI['$Limit Current$ [mA]']
-            x_4, y_4 = prepare_data(x_4, y_4)
-            x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
 
-            plt.subplot(2, 3, 5)
-            m_4, b_4 = plot_and_fit(x_4, y_4, 10, 1, x_cut_4,y_cut_4, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', '$DAC LIMIT vs. I_{Measured}$')
+
+            # 0) Plot(U Cal: Uset vs. U out)
+            x_0,y_0= get_and_prepare(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]')
+            x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
+            m_0, b_0 = plot_and_fit(x_0, y_0, 10, 10, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$',1)
+
+            # 1) U Cal: Uout vs. MonUreg
+            x_1,y_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]')
+            x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
+            m_1, b_1 = plot_and_fit(x_1, y_1, 10, 10 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{out} vs. U_{regulator}$',2)
+
+            # 2) U Cal: Uout vs. MonUload
+            x_2,y_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]')
+            x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
+            m_2, b_2 = plot_and_fit(x_2, y_2, 10, 10, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{out} vs. U_{load}$',3)
+
+            # (3) I Cal: Iout vs. IoutMon
+            x_3,y_3 = get_and_prepare(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]')
+            x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
+            if channel == 13:
+                m_3, b_3 = plot_and_fit(x_3, y_3, 0.001, 0.001,x_cut_3,y_cut_3,'$I_{dac}$ [mA]', '$I_{outMon}$ [$mu$A]', '$I_{out} vs. I_{outMon}$',4)
+                m_3 = m_3/1000
+            else:
+                m_3, b_3 = plot_and_fit(x_3, y_3, 1, 1, x_cut_3,y_cut_3, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', '$I_{out} vs. I_{outMon}$',4)
+
+            # 4) I Cal: DAC LIMIT vs. I Measured
+            x_4,y_4 = get_and_prepare(data_IlimitvsI, '$Limit DAC$ [mV]', '$Limit Current$ [mA]')
+            x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
+            m_4, b_4 = plot_and_fit(x_4, y_4, 10, 1, x_cut_4,y_cut_4, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', '$DAC LIMIT vs. I_{Measured}$',5)
             if channel == 13:
                 m_4 = m_4 * 1000
                 b_4 = b_4 * 1000
@@ -246,18 +246,18 @@ def main():
             plt.subplots(figsize=(12, 6))
 
             # 0) Plot(U Cal: Uset vs. U out)
-            residual_plots(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]', m_0, b_0,1)
+            residual_plots('$U_{dac}$ [mV]', '$U_{out}$ [mV]',x_0, y_0, x_cut_0, y_cut_0, m_0, b_0,1)
             # 1) U Cal: Uout vs. MonUreg
-            residual_plots(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', m_1, b_1,2)
+            residual_plots('$U_{out}$ [mV]', '$U_{regulator}$ [mV]',x_1, y_1, x_cut_1, y_cut_1, m_1, b_1,2)
             # 2) U Cal: Uout vs. MonUload
-            residual_plots(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]', m_2, b_2,3)
+            residual_plots('$U_{out}$ [mV]', '$U_{load}$ [mV]',x_2, y_2, x_cut_2, y_cut_2, m_2, b_2,3)
             # (3) I Cal: Iout vs. IoutMon
             if (channel == 13):
-                residual_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
+                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
             else:
-                residual_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
+                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
             # 4) I Cal: DAC LIMIT vs. I Measured
-            residual_plots(data_IlimitvsI, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', m_4, b_4, 5)
+            residual_plots('$Limit DAC$ [mV]', '$Limit Current$ [mA]',x_4, y_4, x_cut_4, y_cut_4, m_4, b_4, 5)
 
             # All 5 residual plots in one figure
             plt.subplots_adjust(left=0.1,
@@ -281,7 +281,6 @@ def main():
             # 4) Limit Cal: I Limit out vs. StatBit - should be low
             help_plots(data_IlimitvsI, '$Limit Current$ [mA]', 'StatBit', 'LimitCal: I Limit vs. StatBit - should be low',4)
 
-
             # All 5 residual plots in one figure
             plt.subplots_adjust(left=0.1,
                                 bottom=0.1,
@@ -292,8 +291,6 @@ def main():
 
             pdf.savefig()
             plt.close()
-
-
 
             # writing in constants ini file
             config_ini[f'{channel}'] = {'DAC_VOLTAGE_GAIN': round(m_0 * 10000, 0),
