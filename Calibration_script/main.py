@@ -120,6 +120,15 @@ def residual_plots(data, data_x, data_y, m, b, n):
     plt.ylabel(data_y)
     plt.legend(prop={'size': 8})
 
+def help_plots(data, data_x, data_y, title,n):
+    x_0 = data[data_x]
+    y_0 = data[data_y]
+    plt.subplot(2, 3, n)
+    plt.scatter(x_0, y_0, color='b', marker='.', linewidths=1.0, label=title)
+    plt.xlabel(data_x)
+    plt.ylabel(data_y)
+    plt.legend(prop={'size': 8})
+
 def read_data(path, columns):
     """
     Gets data from path
@@ -142,14 +151,8 @@ def main():
     else:
         os.mkdir("plots")
 
-    if os.path.exists("plots/residuals") == True:
-        pass
-    else:
-        os.mkdir("plots/residuals")
-
     for channel in range(24):
         with PdfPages("plots/Channel_%d.pdf" % channel) as pdf:
-
             """
             The graphs:
             0) U Cal: Uset vs. Uout (x_axis: U_dac[mV], y_axis: U_output[mV]) 
@@ -162,9 +165,7 @@ def main():
 
             # Opening the U_vs_U ini file
             path_UvsU = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_U_vs_U' % channel + '.dat')
-
             columns_UvsU = ["$U_{dac}$ [mV]", "$U_{out}$ [mV]", "$U_{regulator}$ [mV]", "$U_{load}$ [mV]", "unknown 5","unknown 6"]
-
             data_UvsU = read_data(path_UvsU, columns_UvsU)
 
             # 0) Plot(U Cal: Uset vs. U out)
@@ -175,10 +176,6 @@ def main():
 
             plt.subplot(2, 3, 1)
             m_0, b_0 = plot_and_fit(x_0, y_0, 10, 10, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$')
-
-
-            #plt.scatter(x_0_all,(m_0*x_0_all+b_0)-y_0_all, color='g')
-
 
             # 1) U Cal: Uout vs. MonUreg
             x_1 = data_UvsU['$U_{out}$ [mV]']
@@ -201,18 +198,18 @@ def main():
             # changing to I_vs_I.dat file 'Channel_%d_I_vs_I'%channel
 
             path_IvsI = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_I_vs_I' % channel + '.dat')
-            columns_IvsI = ["unknown 1", "$I_{dac}$ [mA]", "$I_{outMon}$ [mA]", "unknown 4", "unknown 5", "unknown 6"]
+            columns_IvsI = ["unknown 1", "$I_{out(dac)}$ [mA]", "$I_{outMon}$ [mA]", "$U_{outMon}$", "StatBit", "$U_{SMU}$"]
 
             data_IvsI = read_data(path_IvsI, columns_IvsI)
 
             # (3) I Cal: Iout vs. IoutMon
-            x_3 = data_IvsI['$I_{dac}$ [mA]']
+            x_3 = data_IvsI['$I_{out(dac)}$ [mA]']
             y_3 = data_IvsI['$I_{outMon}$ [mA]']
             x_3, y_3 = prepare_data(x_3, y_3)
             x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
 
             plt.subplot(2, 3, 4)
-            if (channel == 13):
+            if channel == 13:
                 m_3, b_3 = plot_and_fit(x_3, y_3, 0.001, 0.001,x_cut_3,y_cut_3,'$I_{dac}$ [mA]', '$I_{outMon}$ [$mu$A]', '$I_{out} vs. I_{outMon}$')
                 m_3 = m_3/1000
             else:
@@ -220,11 +217,8 @@ def main():
 
             # changing to Ilimit_vs_I.dat file
             path_IlimitvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_Ilimit_vs_I' % channel + '.dat')
-            columns_IlimitvsI = ["$Limit DAC$ [mV]", "$Limit Current$ [mA]", "unknown 3", "unknown 4", "unknown 5"]
-
+            columns_IlimitvsI = ["$Limit DAC$ [mV]", "$Limit Current$ [mA]", "unknown 3", "unknown 4", "StatBit"]
             data_IlimitvsI = read_data(path_IlimitvsI, columns_IlimitvsI)
-
-
 
             # 4) I Cal: DAC LIMIT vs. I Measured
             x_4 = data_IlimitvsI['$Limit DAC$ [mV]']
@@ -245,15 +239,11 @@ def main():
                                 top=0.9,
                                 wspace=0.6,
                                 hspace=0.6)
-
-
-            #plt.savefig("plots/Channel_%d.pdf" % channel, format='pdf', bbox_inches='tight')
             pdf.savefig()
             plt.close()
 
-            #Now plotting the residual PLots
+            # Now plotting the residual PLots
             plt.subplots(figsize=(12, 6))
-
 
             # 0) Plot(U Cal: Uset vs. U out)
             residual_plots(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]', m_0, b_0,1)
@@ -263,9 +253,9 @@ def main():
             residual_plots(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]', m_2, b_2,3)
             # (3) I Cal: Iout vs. IoutMon
             if (channel == 13):
-                residual_plots(data_IvsI, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
+                residual_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
             else:
-                residual_plots(data_IvsI, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
+                residual_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]', m_3, b_3,4)
             # 4) I Cal: DAC LIMIT vs. I Measured
             residual_plots(data_IlimitvsI, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', m_4, b_4, 5)
 
@@ -277,7 +267,29 @@ def main():
                                 wspace=0.6,
                                 hspace=0.6)
 
-            #plt.savefig("plots/residuals/Channel_%d.pdf" % channel, format='pdf', bbox_inches='tight')
+            pdf.savefig()
+            plt.close()
+
+            # Now plotting the help PLots
+            plt.subplots(figsize=(12, 6))
+            # 1) I Cal: Iout vs. UoutMon- horizontal line
+            help_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$U_{outMon}$', 'I Cal: Iout vs. UoutMon - horizontal line', 1)
+            # 2) I Cal: Iout vs. U-SMU - horizontal line
+            help_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$U_{SMU}$', 'I Cal: Iout vs. U-SMU - horizontal line', 2)
+            # 3) I Cal: Iout vs. StatBit - should be high
+            help_plots(data_IvsI, '$I_{out(dac)}$ [mA]', 'StatBit', 'I Cal: Iout vs. StatBit - should be high', 3)
+            # 4) Limit Cal: I Limit out vs. StatBit - should be low
+            help_plots(data_IlimitvsI, '$Limit Current$ [mA]', 'StatBit', 'LimitCal: I Limit vs. StatBit - should be low',4)
+
+
+            # All 5 residual plots in one figure
+            plt.subplots_adjust(left=0.1,
+                                bottom=0.1,
+                                right=0.9,
+                                top=0.9,
+                                wspace=0.6,
+                                hspace=0.6)
+
             pdf.savefig()
             plt.close()
 
