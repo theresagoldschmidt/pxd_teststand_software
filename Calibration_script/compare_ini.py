@@ -8,17 +8,22 @@ config_old = configparser.ConfigParser()
 config_new = configparser.ConfigParser()
 
 #config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/MainProdNODE18/constants_node_56.ini")
+#config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/1_Calibration_ohne_OVPps87/root/constants_node_56.ini")
+config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/1_Calibration_ohneOVP_ps87/root/constants_node_56.ini")
+config_new.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/1_Calibration_ohneOVP_ps87/constants.ini")
 
-
-config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/1_Calibration_ohneOVP_ps87/constants_node_56.ini")
-config_new.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/constants.ini")
-
+#config_new.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/constants.ini")
+#config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/ps26/1_Calibration_ps26/from root/constants_node_56.ini")
+#config_new.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/ps26/1_Calibration_ps26/constants.ini")
 
 
 def gain_offset(name_gain, name_offset,channel):
     gain_old = float(config_old[f'{channel}'].get(name_gain))
     gain_new = float(config_new[f'{channel}'].get(name_gain))
-    gain_diff = round(((gain_old - gain_new) / gain_new) * 100, 2)
+    if (gain_old - gain_new)==0:
+        gain_diff = 0
+    else:
+        gain_diff = round(((gain_old - gain_new) / gain_new) * 100, 2)
     writer.writerow({'Channel': channel, 'Constants': name_gain, 'old': gain_old, 'new': gain_new,'difference': gain_diff, 'in': '%'})
 
     offset_old = float(config_old[f'{channel}'].get(name_offset))

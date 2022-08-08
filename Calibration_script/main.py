@@ -168,13 +168,15 @@ def main():
     config.read("path.ini")
 
     # Making the folders for the  plots
-    if os.path.exists("plots") == True:
+    if os.path.exists(os.path.join(config["calibration_data"].get("data_path"),"plots")) == True:
         pass
     else:
-        os.mkdir("plots")
+        os.mkdir(os.path.join(config["calibration_data"].get("data_path"),"plots"))
 
     for channel in range(24):
-        with PdfPages("plots/Channel_%d.pdf" % channel) as pdf:
+        path = os.path.join(config["calibration_data"].get("data_path"),"plots/Channel_%d.pdf" % channel )
+
+        with PdfPages(path) as pdf:
             """
             The graphs:
             0) U Cal: Uset vs. Uout (x_axis: U_dac[mV], y_axis: U_output[mV]) 
@@ -235,12 +237,12 @@ def main():
                 b_4 = b_4 * 1000
 
             # Calculating
-            title = 'Number of deleted points:\n\n'
-            plot_0 = '0) U Cal: Uset vs. U out: %d\n'%(l_0-len(x_0))
-            plot_1 = '1) U Cal: Uout vs. MonUreg: %d\n'%(l_1-len(x_1))
-            plot_2 = '2) U Cal: Uout vs. MonUload: %d\n'%(l_2-len(x_2))
-            plot_3 = '3) I Cal: Iout vs. IoutMon: %d\n'%(l_3-len(x_3))
-            plot_4 = '4) I Cal: DAC LIMIT vs. I Measured: %d\n'%(l_4-len(x_4))
+            title = "$\\bf{Number\:of\:deleted\:points:}$\n\n"
+            plot_0 = '0) U Cal: Uset vs. U out: $\\bf{%d}$\n'%(l_0-len(x_0))
+            plot_1 = '1) U Cal: Uout vs. MonUreg: $\\bf{%d}$\n'%(l_1-len(x_1))
+            plot_2 = '2) U Cal: Uout vs. MonUload: $\\bf{%d}$\n'%(l_2-len(x_2))
+            plot_3 = '3) I Cal: Iout vs. IoutMon: $\\bf{%d}$\n'%(l_3-len(x_3))
+            plot_4 = '4) I Cal: DAC LIMIT vs. I Measured:$\\bf{%d}$ \n'%(l_4-len(x_4))
 
             plt.figtext(0.75, 0.18,title+plot_0+plot_1+plot_2+plot_3+plot_4,bbox=dict(facecolor='lightgrey', edgecolor='red'), fontdict=None)
 
@@ -251,6 +253,7 @@ def main():
                                 top=0.9,
                                 wspace=0.6,
                                 hspace=0.6)
+            plt.tight_layout()
             pdf.savefig()
             plt.close()
 
@@ -318,8 +321,12 @@ def main():
 
             print('Calculations for Channel %d finished' % channel)
 
-        with open('constants.ini', 'w') as configfile:
+        #with open(os.path.join(config["calibration_data"].get("data_path"),'constants.ini'), 'w') as configfile:
+
+        with open(os.path.join(config["calibration_data"].get("data_path"),'constants.ini'), 'w') as configfile:
             config_ini.write(configfile)
+
+
 
 
 if __name__ == '__main__':
