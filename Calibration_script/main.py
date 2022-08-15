@@ -162,6 +162,45 @@ def read_data(path, columns):
     data = np.loadtxt(fname=path, delimiter=" ", skiprows=0, dtype=dtype)
     return data
 
+def SMU_V_error(data):
+    error=np.zeros_like(data)
+
+    for i in range(len(error)):
+        if (abs(data[i])<200):
+            error[i] =  data[i]*0.015+0.225
+        elif (abs(data[i])<2000):
+            error[i] = data[i]*0.015+0.325
+        elif (abs(data[i])< 20000):
+            error[i] = data[i]*0.015+5
+        elif (abs(data[i])< 200000):
+            error[i] = data[i]*0.015+50
+    return error
+
+def SMU_I_error(data, channel):
+    error=np.zeros_like(data)
+    if channel == 13:
+        np.divide(data, 1000)
+    for i in range(len(error)):
+        if (abs(data[i])<0.1):
+            error[i] =  data[i]*0.02+0.000025
+        elif (abs(data[i])<1):
+            error[i] = data[i]*0.02+0.0002
+        elif (abs(data[i])< 10):
+            error[i] = data[i]*0.02+0.0025
+        elif (abs(data[i])< 100):
+            error[i] = data[i]*0.02+0.02
+        elif (abs(data[i]) < 1000):
+            error[i] = data[i] * 0.03 + 1.5
+        elif (abs(data[i]) < 1500):
+            error[i] = data[i] * 0.05 + 3.5
+        elif (abs(data[i]) < 3000):
+            error[i] = data[i] * 0.4 + 7
+        elif (abs(data[i]) < 10000):
+            error[i] = data[i] * 0.4 + 25
+    return error
+
+
+
 
 def main():
     # Getting path from .ini file
@@ -194,12 +233,12 @@ def main():
 
             # Opening I_vs_I.dat file
             path_IvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_I_vs_I' % channel + '.dat')
-            columns_IvsI = ["unknown 1", "$I_{out(dac)}$ [mA]", "$I_{outMon}$ [mA]", "$U_{outMon}$", "StatBit","$U_{SMU}$"]
+            columns_IvsI = ["unknown 1", "$I_{out(SMU)}$ [mA]", "$I_{outMon}$ [mV]", "$U_{outMon}$", "StatBit","$U_{SMU}$"]
             data_IvsI = read_data(path_IvsI, columns_IvsI)
 
             # Opening Ilimit_vs_I.dat file
             path_IlimitvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_Ilimit_vs_I' % channel + '.dat')
-            columns_IlimitvsI = ["$Limit DAC$ [mV]", "$Limit Current$ [mA]", "unknown 3", "unknown 4", "StatBit"]
+            columns_IlimitvsI = ["$I Limit DAC$ [mV]", "$Limit Current$ [mA]", "unknown 3", "unknown 4", "StatBit"]
             data_IlimitvsI = read_data(path_IlimitvsI, columns_IlimitvsI)
 
 
@@ -207,34 +246,39 @@ def main():
             # 0) Plot(U Cal: Uset vs. U out)
             x_0,y_0,l_0= get_and_prepare(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]')
             x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
-            m_0, b_0 = plot_and_fit(x_0, y_0, 10, 10, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$',1)
+            y_err_0 = SMU_V_error(y_0)
+            m_0, b_0 = plot_and_fit(x_0, y_0, 4, y_err_0, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$',1)
 
             # 1) U Cal: Uout vs. MonUreg
             x_1,y_1, l_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]')
             x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
-            m_1, b_1 = plot_and_fit(x_1, y_1, 10, 10 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{out} vs. U_{regulator}$',2)
+            x_err_1 = SMU_V_error(x_1)
+            m_1, b_1 = plot_and_fit(x_1, y_1, x_err_1, 30 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{out} vs. U_{regulator}$',2)
 
             # 2) U Cal: Uout vs. MonUload
             x_2,y_2, l_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]')
             x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
-            m_2, b_2 = plot_and_fit(x_2, y_2, 10, 10, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{out} vs. U_{load}$',3)
+            x_err_2 = SMU_V_error(x_2)
+            m_2, b_2 = plot_and_fit(x_2, y_2, x_err_2, 30, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{out} vs. U_{load}$',3)
 
             # 3) I Cal: Iout vs. IoutMon
-            x_3,y_3, l_3 = get_and_prepare(data_IvsI, '$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]')
+            x_3,y_3, l_3 = get_and_prepare(data_IvsI, '$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [mV]')
             x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
+            x_err_3 = SMU_I_error(x_3, channel)
             if channel == 13:
-                m_3, b_3 = plot_and_fit(x_3, y_3, 0.001, 0.001,x_cut_3,y_cut_3,'$I_{dac}$ [mA]', '$I_{outMon}$ [$mu$A]', '$I_{out} vs. I_{outMon}$',4)
-                m_3 = m_3/1000
+                m_3, b_3 = plot_and_fit(x_3, y_3, x_err_3, 0.03,x_cut_3,y_cut_3,'$I_{SMU}$ [mA]', '$I_{outMon}$ [$mu$V]', '$I_{out} vs. I_{outMon}$',4)
+                #m_3 = m_3/1000
             else:
-                m_3, b_3 = plot_and_fit(x_3, y_3, 1, 1, x_cut_3,y_cut_3, '$I_{dac}$ [mA]', '$I_{outMon}$ [mA]', '$I_{out} vs. I_{outMon}$',4)
+                m_3, b_3 = plot_and_fit(x_3, y_3, x_err_3, 30, x_cut_3,y_cut_3, '$I_{dac}$ [mA]', '$I_{outMon}$ [mV]', '$I_{out} vs. I_{outMon}$',4)
 
             # 4) I Cal: DAC LIMIT vs. I Measured
-            x_4,y_4,l_4 = get_and_prepare(data_IlimitvsI, '$Limit DAC$ [mV]', '$Limit Current$ [mA]')
+            x_4,y_4,l_4 = get_and_prepare(data_IlimitvsI, '$I Limit DAC$ [mV]', '$Limit Current$ [mA]')
             x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
-            m_4, b_4 = plot_and_fit(x_4, y_4, 10, 1, x_cut_4,y_cut_4, '$Limit DAC$ [mV]', '$Limit Current$ [mA]', '$DAC LIMIT vs. I_{Measured}$',5)
-            if channel == 13:
-                m_4 = m_4 * 1000
-                b_4 = b_4 * 1000
+            y_err_4= SMU_I_error(y_4, channel)
+            m_4, b_4 = plot_and_fit(x_4, y_4, 4, y_err_4, x_cut_4,y_cut_4, '$I Limit DAC$ [mV]', '$Limit Current$ [mA]', '$DAC LIMIT vs. I_{Measured}$',5)
+            #if channel == 13:
+            #    m_4 = m_4 * 1000
+            #    b_4 = b_4 * 1000
 
             # Calculating
             title = "$\\bf{Number\:of\:deleted\:points:}$\n\n"
@@ -245,6 +289,7 @@ def main():
             plot_4 = '4) I Cal: DAC LIMIT vs. I Measured:$\\bf{%d}$ \n'%(l_4-len(x_4))
 
             plt.figtext(0.75, 0.18,title+plot_0+plot_1+plot_2+plot_3+plot_4,bbox=dict(facecolor='lightgrey', edgecolor='red'), fontdict=None)
+
 
             # All 5 plots in one figure
             plt.subplots_adjust(left=0.1,
@@ -268,9 +313,9 @@ def main():
             residual_plots('$U_{out}$ [mV]', '$U_{load}$ [mV]',x_2, y_2, x_cut_2, y_cut_2, m_2, b_2,3)
             # (3) I Cal: Iout vs. IoutMon
             if (channel == 13):
-                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
+                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
             else:
-                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mA]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
+                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
             # 4) I Cal: DAC LIMIT vs. I Measured
             residual_plots('$Limit DAC$ [mV]', '$Limit Current$ [mA]',x_4, y_4, x_cut_4, y_cut_4, m_4, b_4, 5)
 
@@ -288,11 +333,11 @@ def main():
             # Now plotting the help PLots
             plt.subplots(figsize=(12, 6))
             # 1) I Cal: Iout vs. UoutMon- horizontal line
-            help_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$U_{outMon}$', 'I Cal: Iout vs. UoutMon - horizontal line', 1)
+            help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', '$U_{outMon}$', 'I Cal: Iout vs. UoutMon - horizontal line', 1)
             # 2) I Cal: Iout vs. U-SMU - horizontal line
-            help_plots(data_IvsI, '$I_{out(dac)}$ [mA]', '$U_{SMU}$', 'I Cal: Iout vs. U-SMU - horizontal line', 2)
+            help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', '$U_{SMU}$', 'I Cal: Iout vs. U-SMU - horizontal line', 2)
             # 3) I Cal: Iout vs. StatBit - should be high
-            help_plots(data_IvsI, '$I_{out(dac)}$ [mA]', 'StatBit', 'I Cal: Iout vs. StatBit - should be high', 3)
+            help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', 'StatBit', 'I Cal: Iout vs. StatBit - should be high', 3)
             # 4) Limit Cal: I Limit out vs. StatBit - should be low
             help_plots(data_IlimitvsI, '$Limit Current$ [mA]', 'StatBit', 'LimitCal: I Limit vs. StatBit - should be low',4)
 

@@ -10,13 +10,6 @@
             </Attribute>
           </value>
         </entry>
-        <entry key="/Calibration_script/error_on_constants.csv">
-          <value>
-            <Attribute>
-              <option name="separator" value="," />
-            </Attribute>
-          </value>
-        </entry>
         <entry key="/LightCal/MAC_Addresses.csv">
           <value>
             <Attribute>
