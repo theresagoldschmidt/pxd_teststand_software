@@ -167,36 +167,36 @@ def SMU_V_error(data):
 
     for i in range(len(error)):
         if (abs(data[i])<200):
-            error[i] =  data[i]*0.015+0.225
+            error[i] =  data[i]*0.00015+0.225
         elif (abs(data[i])<2000):
-            error[i] = data[i]*0.015+0.325
+            error[i] = data[i]*0.00015+0.325
         elif (abs(data[i])< 20000):
-            error[i] = data[i]*0.015+5
+            error[i] = data[i]*0.00015+5
         elif (abs(data[i])< 200000):
-            error[i] = data[i]*0.015+50
+            error[i] = data[i]*0.00015+50
     return error
 
 def SMU_I_error(data, channel):
     error=np.zeros_like(data)
     if channel == 13:
-        np.divide(data, 1000)
+        np.multiply(data, 0.0001)
     for i in range(len(error)):
         if (abs(data[i])<0.1):
-            error[i] =  data[i]*0.02+0.000025
+            error[i] =  data[i]*0.0002+0.000025
         elif (abs(data[i])<1):
-            error[i] = data[i]*0.02+0.0002
+            error[i] = data[i]*0.0002+0.0002
         elif (abs(data[i])< 10):
-            error[i] = data[i]*0.02+0.0025
+            error[i] = data[i]*0.0002+0.0025
         elif (abs(data[i])< 100):
-            error[i] = data[i]*0.02+0.02
+            error[i] = data[i]*0.0002+0.02
         elif (abs(data[i]) < 1000):
-            error[i] = data[i] * 0.03 + 1.5
+            error[i] = data[i] * 0.0003 + 1.5
         elif (abs(data[i]) < 1500):
-            error[i] = data[i] * 0.05 + 3.5
+            error[i] = data[i] * 0.0005 + 3.5
         elif (abs(data[i]) < 3000):
-            error[i] = data[i] * 0.4 + 7
+            error[i] = data[i] * 0.04 + 7
         elif (abs(data[i]) < 10000):
-            error[i] = data[i] * 0.4 + 25
+            error[i] = data[i] * 0.04 + 25
     return error
 
 
