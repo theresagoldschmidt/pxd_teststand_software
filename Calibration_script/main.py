@@ -4,7 +4,7 @@ import configparser
 import os
 from Calibration_script import fit
 from matplotlib.backends.backend_pdf import PdfPages
-
+import csv
 
 
 config = configparser.ConfigParser()
@@ -200,177 +200,227 @@ def SMU_I_error(data, channel):
     return error
 
 
+def histo_deleted_points():
+    Channel = []
+    plot_0 = []
+    plot_1 = []
+    plot_2 = []
+    plot_3 = []
+    plot_4 = []
+    with open('deleted_points.csv', 'r') as csvfile:
+        plots = csv.reader(csvfile, delimiter=',')
+        next(plots)
+        for row in plots:
+            Channel.append(row[0])
+            plot_0.append(int(row[1]))
+            plot_1.append(int(row[2]))
+            plot_2.append(int(row[3]))
+            plot_3.append(int(row[4]))
+            plot_4.append(int(row[5]))
+    plt.subplots(figsize=(12, 6))
+    plot_histo(Channel, plot_0, '$U_{out} vs. U_{dac}$',1 )
+    plot_histo(Channel, plot_1, '$U_{regulator} vs. U_{out}$', 2)
+    plot_histo(Channel, plot_2, '$U_{load} vs. U_{out}$', 3)
+    plot_histo(Channel, plot_3,'$I_{outMON} vs. I_{SMU}$', 4)
+    plot_histo(Channel, plot_4,'$Limit Current vs. I Limit_{DAC}$', 5)
+    plt.subplots_adjust(left=0.1,
+                        bottom=0.1,
+                        right=0.9,
+                        top=0.9,
+                        wspace=0.6,
+                        hspace=0.6)
 
+    plt.savefig(os.path.join(config["calibration_data"].get("data_path"),'deleted_point.pdf'))
+    plt.close()
+
+def plot_histo(x,y,title,n):
+    plt.subplot(2, 3, n)
+    plt.bar(x, y, color='r', width=0.72, label=title)
+    plt.xlabel('Channel')
+    plt.xticks(fontsize=6)
+    plt.ylabel('Deleted Points')
+    plt.legend(prop={'size': 8})
+    plt.rcParams["figure.autolayout"] = True
 
 def main():
     # Getting path from .ini file
     config.read("path.ini")
-
     # Making the folders for the  plots
     if os.path.exists(os.path.join(config["calibration_data"].get("data_path"),"plots")) == True:
         pass
     else:
         os.mkdir(os.path.join(config["calibration_data"].get("data_path"),"plots"))
 
-    for channel in range(24):
-        path = os.path.join(config["calibration_data"].get("data_path"),"plots/Channel_%d.pdf" % channel )
+    with open('deleted_points.csv', 'w', encoding='UTF8') as csvfile:
+        fieldnames = ['Channel', 'plot_0', 'plot_1', 'plot_2', 'plot_3', 'plot_4']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer.writeheader()
 
-        with PdfPages(path) as pdf:
-            """
-            The graphs:
-            0) U Cal: Uset vs. Uout (x_axis: U_dac[mV], y_axis: U_output[mV]) 
-            1) U Cal: Uout vs. MonUreg (x_axis: U_output[mV], y_axis: U_regulator[mV])
-            2) U Cal: Uout vs. MonUload (x_axis: U_output[mV], y_axis: U_load[mV])
-            3) I Cal: Iout vs. IoutMon  (x_axis: I_output[mA], y_axis: I_monitoring[mA])
-            4) I Cal: DAC limit vs. IMeasured  (x_axis: Limit DAC[mV], y_axis: limit current[mA])
-            """
-            plt.subplots(figsize=(12, 6))
+        for channel in range(24):
+            path = os.path.join(config["calibration_data"].get("data_path"),"plots/Channel_%d.pdf" % channel )
 
-            # Opening the U_vs_U ini file
-            path_UvsU = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_U_vs_U' % channel + '.dat')
-            columns_UvsU = ["$U_{dac}$ [mV]", "$U_{out}$ [mV]", "$U_{regulator}$ [mV]", "$U_{load}$ [mV]", "unknown 5","unknown 6"]
-            data_UvsU = read_data(path_UvsU, columns_UvsU)
+            with PdfPages(path) as pdf:
+                """
+                The graphs:
+                0) U Cal: Uset vs. Uout (x_axis: U_dac[mV], y_axis: U_output[mV]) 
+                1) U Cal: Uout vs. MonUreg (x_axis: U_output[mV], y_axis: U_regulator[mV])
+                2) U Cal: Uout vs. MonUload (x_axis: U_output[mV], y_axis: U_load[mV])
+                3) I Cal: Iout vs. IoutMon  (x_axis: I_output[mA], y_axis: I_monitoring[mA])
+                4) I Cal: DAC limit vs. IMeasured  (x_axis: Limit DAC[mV], y_axis: limit current[mA])
+                """
+                plt.subplots(figsize=(12, 6))
 
-            # Opening I_vs_I.dat file
-            path_IvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_I_vs_I' % channel + '.dat')
-            columns_IvsI = ["unknown 1", "$I_{out(SMU)}$ [mA]", "$I_{outMon}$ [mV]", "$U_{outMon}$", "StatBit","$U_{SMU}$"]
-            data_IvsI = read_data(path_IvsI, columns_IvsI)
+                # Opening the U_vs_U ini file
+                path_UvsU = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_U_vs_U' % channel + '.dat')
+                columns_UvsU = ["$U_{dac}$ [mV]", "$U_{out}$ [mV]", "$U_{regulator}$ [mV]", "$U_{load}$ [mV]", "unknown 5","unknown 6"]
+                data_UvsU = read_data(path_UvsU, columns_UvsU)
 
-            # Opening Ilimit_vs_I.dat file
-            path_IlimitvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_Ilimit_vs_I' % channel + '.dat')
-            columns_IlimitvsI = ["$I Limit DAC$ [mV]", "$Limit Current$ [mA]", "unknown 3", "unknown 4", "StatBit"]
-            data_IlimitvsI = read_data(path_IlimitvsI, columns_IlimitvsI)
+                # Opening I_vs_I.dat file
+                path_IvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_I_vs_I' % channel + '.dat')
+                columns_IvsI = ["unknown 1", "$I_{out(SMU)}$ [mA]", "$I_{outMon}$ [mV]", "$U_{outMon}$", "StatBit","$U_{SMU}$"]
+                data_IvsI = read_data(path_IvsI, columns_IvsI)
 
-
-
-            # 0) Plot(U Cal: Uset vs. U out)
-            x_0,y_0,l_0= get_and_prepare(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]')
-            x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
-            y_err_0 = SMU_V_error(y_0)
-            m_0, b_0 = plot_and_fit(x_0, y_0, 4, y_err_0, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{set} vs. U_{out}$',1)
-
-            # 1) U Cal: Uout vs. MonUreg
-            x_1,y_1, l_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]')
-            x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
-            x_err_1 = SMU_V_error(x_1)
-            m_1, b_1 = plot_and_fit(x_1, y_1, x_err_1, 30 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{out} vs. U_{regulator}$',2)
-
-            # 2) U Cal: Uout vs. MonUload
-            x_2,y_2, l_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]')
-            x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
-            x_err_2 = SMU_V_error(x_2)
-            m_2, b_2 = plot_and_fit(x_2, y_2, x_err_2, 30, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{out} vs. U_{load}$',3)
-
-            # 3) I Cal: Iout vs. IoutMon
-            x_3,y_3, l_3 = get_and_prepare(data_IvsI, '$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [mV]')
-            x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
-            x_err_3 = SMU_I_error(x_3, channel)
-            if channel == 13:
-                m_3, b_3 = plot_and_fit(x_3, y_3, x_err_3, 0.03,x_cut_3,y_cut_3,'$I_{SMU}$ [mA]', '$I_{outMon}$ [$mu$V]', '$I_{out} vs. I_{outMon}$',4)
-                #m_3 = m_3/1000
-            else:
-                m_3, b_3 = plot_and_fit(x_3, y_3, x_err_3, 30, x_cut_3,y_cut_3, '$I_{dac}$ [mA]', '$I_{outMon}$ [mV]', '$I_{out} vs. I_{outMon}$',4)
-
-            # 4) I Cal: DAC LIMIT vs. I Measured
-            x_4,y_4,l_4 = get_and_prepare(data_IlimitvsI, '$I Limit DAC$ [mV]', '$Limit Current$ [mA]')
-            x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
-            y_err_4= SMU_I_error(y_4, channel)
-            m_4, b_4 = plot_and_fit(x_4, y_4, 4, y_err_4, x_cut_4,y_cut_4, '$I Limit DAC$ [mV]', '$Limit Current$ [mA]', '$DAC LIMIT vs. I_{Measured}$',5)
-            #if channel == 13:
-            #    m_4 = m_4 * 1000
-            #    b_4 = b_4 * 1000
-
-            # Calculating
-            title = "$\\bf{Number\:of\:deleted\:points:}$\n\n"
-            plot_0 = '0) U Cal: Uset vs. U out: $\\bf{%d}$\n'%(l_0-len(x_0))
-            plot_1 = '1) U Cal: Uout vs. MonUreg: $\\bf{%d}$\n'%(l_1-len(x_1))
-            plot_2 = '2) U Cal: Uout vs. MonUload: $\\bf{%d}$\n'%(l_2-len(x_2))
-            plot_3 = '3) I Cal: Iout vs. IoutMon: $\\bf{%d}$\n'%(l_3-len(x_3))
-            plot_4 = '4) I Cal: DAC LIMIT vs. I Measured:$\\bf{%d}$ \n'%(l_4-len(x_4))
-
-            plt.figtext(0.75, 0.18,title+plot_0+plot_1+plot_2+plot_3+plot_4,bbox=dict(facecolor='lightgrey', edgecolor='red'), fontdict=None)
+                # Opening Ilimit_vs_I.dat file
+                path_IlimitvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_Ilimit_vs_I' % channel + '.dat')
+                columns_IlimitvsI = ["$I Limit DAC$ [mV]", "$Limit Current$ [mA]", "unknown 3", "unknown 4", "StatBit"]
+                data_IlimitvsI = read_data(path_IlimitvsI, columns_IlimitvsI)
 
 
-            # All 5 plots in one figure
-            plt.subplots_adjust(left=0.1,
-                                bottom=0.1,
-                                right=0.9,
-                                top=0.9,
-                                wspace=0.6,
-                                hspace=0.6)
-            plt.tight_layout()
-            pdf.savefig()
-            plt.close()
 
-            # Now plotting the residual PLots
-            plt.subplots(figsize=(12, 6))
+                # 0) Plot(U Cal: Uset vs. U out)
+                x_0,y_0,l_0= get_and_prepare(data_UvsU, '$U_{dac}$ [mV]', '$U_{out}$ [mV]')
+                x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
+                y_err_0 = SMU_V_error(y_0)
+                m_0, b_0 = plot_and_fit(x_0, y_0, 4, y_err_0, x_cut_0,y_cut_0,  '$U_{dac}$ [mV]', '$U_{out}$ [mV]', '$U_{out} vs. U_{dac}$',1)
 
-            # 0) Plot(U Cal: Uset vs. U out)
-            residual_plots('$U_{dac}$ [mV]', '$U_{out}$ [mV]',x_0, y_0, x_cut_0, y_cut_0, m_0, b_0,1)
-            # 1) U Cal: Uout vs. MonUreg
-            residual_plots('$U_{out}$ [mV]', '$U_{regulator}$ [mV]',x_1, y_1, x_cut_1, y_cut_1, m_1, b_1,2)
-            # 2) U Cal: Uout vs. MonUload
-            residual_plots('$U_{out}$ [mV]', '$U_{load}$ [mV]',x_2, y_2, x_cut_2, y_cut_2, m_2, b_2,3)
-            # (3) I Cal: Iout vs. IoutMon
-            if (channel == 13):
-                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
-            else:
-                residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
-            # 4) I Cal: DAC LIMIT vs. I Measured
-            residual_plots('$Limit DAC$ [mV]', '$Limit Current$ [mA]',x_4, y_4, x_cut_4, y_cut_4, m_4, b_4, 5)
+                # 1) U Cal: Uout vs. MonUreg
+                x_1,y_1, l_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]')
+                x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
+                x_err_1 = SMU_V_error(x_1)
+                m_1, b_1 = plot_and_fit(x_1, y_1, x_err_1, 30 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{regulator} vs. U_{out}$',2)
 
-            # All 5 residual plots in one figure
-            plt.subplots_adjust(left=0.1,
-                                bottom=0.1,
-                                right=0.9,
-                                top=0.9,
-                                wspace=0.6,
-                                hspace=0.6)
+                # 2) U Cal: Uout vs. MonUload
+                x_2,y_2, l_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]')
+                x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
+                x_err_2 = SMU_V_error(x_2)
+                m_2, b_2 = plot_and_fit(x_2, y_2, x_err_2, 30, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{load} vs. U_{out}$',3)
 
-            pdf.savefig()
-            plt.close()
+                # 3) I Cal: Iout vs. IoutMon
+                x_3,y_3, l_3 = get_and_prepare(data_IvsI, '$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [mV]')
+                x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
+                x_err_3 = SMU_I_error(x_3, channel)
+                if channel == 13:
+                    m_3, b_3 = plot_and_fit(x_3, y_3, x_err_3, 0.03,x_cut_3,y_cut_3,'$I_{SMU}$ [mA]', '$I_{outMon}$ [$mu$V] (V because ADC)', '$I_{outMON} vs. I_{SMU}$',4)
+                    #m_3 = m_3/1000
+                else:
+                    m_3, b_3 = plot_and_fit(x_3, y_3, x_err_3, 30, x_cut_3,y_cut_3, '$I_{SMU}$ [mA]', '$I_{outMon}$ [mV] (V because ADC)', '$I_{outMOn} vs. I_{SMU}$',4)
 
-            # Now plotting the help PLots
-            plt.subplots(figsize=(12, 6))
-            # 1) I Cal: Iout vs. UoutMon- horizontal line
-            help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', '$U_{outMon}$', 'I Cal: Iout vs. UoutMon - horizontal line', 1)
-            # 2) I Cal: Iout vs. U-SMU - horizontal line
-            help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', '$U_{SMU}$', 'I Cal: Iout vs. U-SMU - horizontal line', 2)
-            # 3) I Cal: Iout vs. StatBit - should be high
-            help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', 'StatBit', 'I Cal: Iout vs. StatBit - should be high', 3)
-            # 4) Limit Cal: I Limit out vs. StatBit - should be low
-            help_plots(data_IlimitvsI, '$Limit Current$ [mA]', 'StatBit', 'LimitCal: I Limit vs. StatBit - should be low',4)
+                # 4) I Cal: DAC LIMIT vs. I Measured
+                x_4,y_4,l_4 = get_and_prepare(data_IlimitvsI, '$I Limit DAC$ [mV]', '$Limit Current$ [mA]')
+                x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
+                y_err_4= SMU_I_error(y_4, channel)
+                m_4, b_4 = plot_and_fit(x_4, y_4, 4, y_err_4, x_cut_4,y_cut_4, '$I Limit_{DAC}$ [mV]', '$Limit Current$ [mA]', '$Limit Current vs. I Limit_{DAC}$',5)
+                #if channel == 13:
+                #    m_4 = m_4 * 1000
+                #    b_4 = b_4 * 1000
 
-            # All 5 residual plots in one figure
-            plt.subplots_adjust(left=0.1,
-                                bottom=0.1,
-                                right=0.9,
-                                top=0.9,
-                                wspace=0.6,
-                                hspace=0.6)
+                # Calculating
+                title = "$\\bf{Number\:of\:deleted\:points:}$\n\n"
+                plot_0 = '0) U Cal: Uset vs. U out: $\\bf{%d}$\n'%(l_0-len(x_0))
+                plot_1 = '1) U Cal: Uout vs. MonUreg: $\\bf{%d}$\n'%(l_1-len(x_1))
+                plot_2 = '2) U Cal: Uout vs. MonUload: $\\bf{%d}$\n'%(l_2-len(x_2))
+                plot_3 = '3) I Cal: Iout vs. IoutMon: $\\bf{%d}$\n'%(l_3-len(x_3))
+                plot_4 = '4) I Cal: DAC LIMIT vs. I Measured:$\\bf{%d}$ \n'%(l_4-len(x_4))
 
-            pdf.savefig()
-            plt.close()
+                plt.figtext(0.75, 0.18,title+plot_0+plot_1+plot_2+plot_3+plot_4,bbox=dict(facecolor='lightgrey', edgecolor='red'), fontdict=None)
 
-            # writing in constants ini file
-            config_ini[f'{channel}'] = {'DAC_VOLTAGE_GAIN': round(m_0 * 10000, 0),
-                                        'DAC_VOLTAGE_OFFSET': round(b_0 * 100, 0),
-                                        'ADC_U_LOAD_GAIN': round(m_1 * 10000, 0),
-                                        'ADC_U_LOAD_OFFSET': round(b_1 * 100, 0),
-                                        'ADC_U_REGULATOR_GAIN': round(m_2 * 10000, 0),
-                                        'ADC_U_REGULATOR_OFFSET': round(b_2 * 100, 0),
-                                        'ADC_I_MON_GAIN': round(m_3 * 10000, 0),
-                                        'ADC_I_MON_OFFSET': round(b_3 * 100, 0),
-                                        'DAC_CURRENT_GAIN': round(m_4 * 10000, 0),
-                                        'DAC_CURRENT_OFFSET': round(b_4 * 100, 0)}
 
-            print('Calculations for Channel %d finished' % channel)
+                writer.writerow({'Channel': channel, 'plot_0': '%d'%(l_0-len(x_0)), 'plot_1': '%d'%(l_1-len(x_1)), 'plot_2': '%d'%(l_2-len(x_2)), 'plot_3': '%d'%(l_3-len(x_3)), 'plot_4': '%d'%(l_4-len(x_4))})
 
-        #with open(os.path.join(config["calibration_data"].get("data_path"),'constants.ini'), 'w') as configfile:
 
-        with open(os.path.join(config["calibration_data"].get("data_path"),'constants.ini'), 'w') as configfile:
-            config_ini.write(configfile)
+                # All 5 plots in one figure
+                plt.subplots_adjust(left=0.1,
+                                    bottom=0.1,
+                                    right=0.9,
+                                    top=0.9,
+                                    wspace=0.6,
+                                    hspace=0.6)
+                plt.tight_layout()
+                pdf.savefig()
+                plt.close()
 
+                # Now plotting the residual PLots
+                plt.subplots(figsize=(12, 6))
+
+                # 0) Plot(U Cal: Uset vs. U out)
+                residual_plots('$U_{dac}$ [mV]', '$U_{out}$ [mV]',x_0, y_0, x_cut_0, y_cut_0, m_0, b_0,1)
+                # 1) U Cal: Uout vs. MonUreg
+                residual_plots('$U_{out}$ [mV]', '$U_{regulator}$ [mV]',x_1, y_1, x_cut_1, y_cut_1, m_1, b_1,2)
+                # 2) U Cal: Uout vs. MonUload
+                residual_plots('$U_{out}$ [mV]', '$U_{load}$ [mV]',x_2, y_2, x_cut_2, y_cut_2, m_2, b_2,3)
+                # (3) I Cal: Iout vs. IoutMon
+                if (channel == 13):
+                    residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
+                else:
+                    residual_plots('$I_{out(dac)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4)
+                # 4) I Cal: DAC LIMIT vs. I Measured
+                residual_plots('$Limit DAC$ [mV]', '$Limit Current$ [mA]',x_4, y_4, x_cut_4, y_cut_4, m_4, b_4, 5)
+
+                # All 5 residual plots in one figure
+                plt.subplots_adjust(left=0.1,
+                                    bottom=0.1,
+                                    right=0.9,
+                                    top=0.9,
+                                    wspace=0.6,
+                                    hspace=0.6)
+
+                pdf.savefig()
+                plt.close()
+
+                # Now plotting the help PLots
+                plt.subplots(figsize=(12, 6))
+                # 1) I Cal: Iout vs. UoutMon- horizontal line
+                help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', '$U_{outMon}$', 'I Cal: Iout vs. UoutMon - horizontal line', 1)
+                # 2) I Cal: Iout vs. U-SMU - horizontal line
+                help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', '$U_{SMU}$', 'I Cal: Iout vs. U-SMU - horizontal line', 2)
+                # 3) I Cal: Iout vs. StatBit - should be high
+                help_plots(data_IvsI, '$I_{out(SMU)}$ [mA]', 'StatBit', 'I Cal: Iout vs. StatBit - should be high', 3)
+                # 4) Limit Cal: I Limit out vs. StatBit - should be low
+                help_plots(data_IlimitvsI, '$Limit Current$ [mA]', 'StatBit', 'LimitCal: I Limit vs. StatBit - should be low',4)
+
+                # All 5 residual plots in one figure
+                plt.subplots_adjust(left=0.1,
+                                    bottom=0.1,
+                                    right=0.9,
+                                    top=0.9,
+                                    wspace=0.6,
+                                    hspace=0.6)
+
+                pdf.savefig()
+                plt.close()
+
+                # writing in constants ini file
+                config_ini[f'{channel}'] = {'DAC_VOLTAGE_GAIN': round(m_0 * 10000, 0),
+                                            'DAC_VOLTAGE_OFFSET': round(b_0 * 100, 0),
+                                            'ADC_U_LOAD_GAIN': round(m_1 * 10000, 0),
+                                            'ADC_U_LOAD_OFFSET': round(b_1 * 100, 0),
+                                            'ADC_U_REGULATOR_GAIN': round(m_2 * 10000, 0),
+                                            'ADC_U_REGULATOR_OFFSET': round(b_2 * 100, 0),
+                                            'ADC_I_MON_GAIN': round(m_3 * 10000, 0),
+                                            'ADC_I_MON_OFFSET': round(b_3 * 100, 0),
+                                            'DAC_CURRENT_GAIN': round(m_4 * 10000, 0),
+                                            'DAC_CURRENT_OFFSET': round(b_4 * 100, 0)}
+
+                print('Calculations for Channel %d finished' % channel)
+
+            #with open(os.path.join(config["calibration_data"].get("data_path"),'constants.ini'), 'w') as configfile:
+
+            with open(os.path.join(config["calibration_data"].get("data_path"),'constants.ini'), 'w') as configfile:
+                config_ini.write(configfile)
+
+        csvfile.close()
+        print('Plotting Histogram with Number of deleted points')
+        histo_deleted_points()
 
 
 
