@@ -5,7 +5,8 @@ import os
 from Calibration_script import fit
 from matplotlib.backends.backend_pdf import PdfPages
 import csv
-
+from matplotlib import cm
+from matplotlib.cm import ScalarMappable
 
 config = configparser.ConfigParser()
 config_ini = configparser.ConfigParser()
@@ -39,6 +40,7 @@ def cut_outliers(x, y, channel):
     m = np.polyfit(x[:20],y[:20],deg = 1)
 
     tolerance = abs(y[0] - y[-1])*0.01
+
     # Making array same size as data with only False in it
     cut = np.zeros_like(slopes, dtype=bool)
     # Set False to zero in parts where data gradient is close to zero
@@ -46,13 +48,14 @@ def cut_outliers(x, y, channel):
         cut[:][np.isclose(np.gradient(y), 0, atol=tolerance)] = True
 
     else:
-        cut[:][np.isclose(np.gradient(y), 0, atol=1)] = True
-        cut[:][abs((m[0]*x+m[1])-y)> tolerance] = True
+
+        cut[:][np.isclose(np.gradient(y), 0, atol=tolerance)] = True
+        #cut[:][(abs(m[0]*x+m[1]))-y >= tolerance] = True
 
     # calculate mean and standard derivation
     mean, std = np.mean(slopes[~cut]), np.std(slopes[~cut])
-    # cut to sigma (95% stays)
-    cut[np.logical_or((slopes > 2 * std + mean), (slopes < mean - 2 * std))] = True
+    # cut to  2 sigma
+    cut[np.logical_or((slopes >= 2 * std + mean), (slopes <= mean - 2 * std))] = True
 
     return x[~cut], y[~cut],x[cut], y[cut]
 
@@ -200,7 +203,7 @@ def SMU_I_error(data, channel):
     return error
 
 
-def histo_deleted_points():
+def histo_deleted_points(length):
     Channel = []
     plot_0 = []
     plot_1 = []
@@ -218,11 +221,11 @@ def histo_deleted_points():
             plot_3.append(int(row[4]))
             plot_4.append(int(row[5]))
     plt.subplots(figsize=(12, 6))
-    plot_histo(Channel, plot_0, '$U_{out} vs. U_{dac}$',1 )
-    plot_histo(Channel, plot_1, '$U_{regulator} vs. U_{out}$', 2)
-    plot_histo(Channel, plot_2, '$U_{load} vs. U_{out}$', 3)
-    plot_histo(Channel, plot_3,'$I_{outMON} vs. I_{SMU}$', 4)
-    plot_histo(Channel, plot_4,'$Limit Current vs. I Limit_{DAC}$', 5)
+    plot_histo(Channel, plot_0, '$U_{out} vs. U_{dac}$',1, length )
+    plot_histo(Channel, plot_1, '$U_{regulator} vs. U_{out}$', 2, length)
+    plot_histo(Channel, plot_2, '$U_{load} vs. U_{out}$', 3, length)
+    plot_histo(Channel, plot_3,'$I_{outMON} vs. I_{SMU}$', 4, length)
+    plot_histo(Channel, plot_4,'$Limit Current vs. I Limit_{DAC}$', 5, length)
     plt.subplots_adjust(left=0.1,
                         bottom=0.1,
                         right=0.9,
@@ -233,14 +236,28 @@ def histo_deleted_points():
     plt.savefig(os.path.join(config["calibration_data"].get("data_path"),'deleted_point.pdf'))
     plt.close()
 
-def plot_histo(x,y,title,n):
+
+def plot_histo(x,y,title,n, length):
+
+    color_map = cm.get_cmap('RdYlGn_r')
+
+    data_hight_normalized = [z / 80 for z in y]
+    colors = color_map(data_hight_normalized)
+
+
     plt.subplot(2, 3, n)
-    plt.bar(x, y, color='r', width=0.72, label=title)
+    plt.bar(x, y, color=colors, width=0.72, label=title)
     plt.xlabel('Channel')
     plt.xticks(fontsize=6)
     plt.ylabel('Deleted Points')
     plt.legend(prop={'size': 8})
     plt.rcParams["figure.autolayout"] = True
+
+    sm = ScalarMappable(cmap=color_map, norm=plt.Normalize(0, 80))
+    sm.set_array([])
+    plt.colorbar(sm)
+    #cbar.set_label('Color', rotation=270, labelpad=25)
+
 
 def main():
     # Getting path from .ini file
@@ -420,7 +437,7 @@ def main():
 
         csvfile.close()
         print('Plotting Histogram with Number of deleted points')
-        histo_deleted_points()
+        histo_deleted_points(l_1)
 
 
 
