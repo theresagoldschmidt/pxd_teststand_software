@@ -52,10 +52,15 @@ def cut_outliers(x, y, channel):
         cut[:][np.isclose(np.gradient(y), 0, atol=tolerance)] = True
         #cut[:][(abs(m[0]*x+m[1]))-y >= tolerance] = True
 
-    # calculate mean and standard derivation
-    mean, std = np.mean(slopes[~cut]), np.std(slopes[~cut])
-    # cut to  2 sigma
-    cut[np.logical_or((slopes >= 2 * std + mean), (slopes <= mean - 2 * std))] = True
+    if x[~cut].size == 0:
+        return x[~cut], y[~cut], x[cut], y[cut]
+    else:
+        # calculate mean and standard derivation
+        mean, std = np.mean(slopes[~cut]), np.std(slopes[~cut])
+        # cut to  2 sigma
+        cut[np.logical_or((slopes >= 2 * std + mean), (slopes <= mean - 2 * std))] = True
+
+
 
     return x[~cut], y[~cut],x[cut], y[cut]
 
@@ -91,38 +96,46 @@ def plot_and_fit(x, y, dx, dy, x_cut, y_cut, xlabel, ylabel, label,n):
     :param label: title of plot
     :return: plot, slope and offset
     """
+    if x.size == 0:
+        plt.subplot(2, 3, n)
+        plt.scatter(x_cut, y_cut, color='grey', marker='.', linewidths=1.0, label='Outliers')
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.legend(prop={'size': 8})
+        # default values
+        m = 10000
+        b = 0
+        return m, b
+    else:
+        # p0 estimator
+        p0 = np.mean((y-y[0])/x)
+        # (m, b), (SSE,), *_ = np.polyfit(x, y, deg=1, full=True)
+        popt, perr, red_chi_2 = fit.fit_odr(fit_func=linear,
+                                            x=x,
+                                            y=y,
+                                            x_err=dx,
+                                            y_err=dy,
+                                            p0=[p0,y[0]])
 
-    # p0 estimator
-    p0 = np.mean((y-y[0])/x)
+        # Make result string
+        res = "Fit results of {}:\n".format(fit.fit_odr.__name__)
+        res += "m = ({:.3E} {} {:.3E})".format(popt[0], u'\u00B1', perr[0]) + " \n"
+        res += "b = ({:.3E} {} {:.3E})".format(popt[1], u'\u00B1', perr[1]) + " \n"
+        res += "red. Chi^2 = {:.3f}".format(red_chi_2) + "\n"
+        m = popt[0]
+        b = popt[1]
 
-    # (m, b), (SSE,), *_ = np.polyfit(x, y, deg=1, full=True)
-    popt, perr, red_chi_2 = fit.fit_odr(fit_func=linear,
-                                        x=x,
-                                        y=y,
-                                        x_err=dx,
-                                        y_err=dy,
-                                        p0=[p0,y[0]])
-
-    # Make result string
-    res = "Fit results of {}:\n".format(fit.fit_odr.__name__)
-    res += "m = ({:.3E} {} {:.3E})".format(popt[0], u'\u00B1', perr[0]) + " \n"
-    res += "b = ({:.3E} {} {:.3E})".format(popt[1], u'\u00B1', perr[1]) + " \n"
-    res += "red. Chi^2 = {:.3f}".format(red_chi_2) + "\n"
-    m = popt[0]
-    b = popt[1]
-
-    # plot each of 5 subplots
-    plt.subplot(2, 3, n)
-    plt.scatter(x, y, color='k', marker='.', linewidths=1.0 )
-    plt.scatter(x_cut, y_cut, color='grey',marker='.', linewidths=1.0, label = 'Outliers')
-    plt.errorbar(x, y, yerr=dy, xerr=dx, fmt='none', ecolor='k', label = label)
-    plt.plot(x, m * x + b, color='r', label=f'slope = {round(m, 4)}''\n' f'int= {round(b, 4)}''\n'r' $\chi^2_{\mathrm{red}}$ =' f'{round(red_chi_2, 4)}')
-    plt.rcParams["figure.autolayout"] = True
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.legend(prop={'size':8})
-
-    return m, b
+        # plot each of 5 subplots
+        plt.subplot(2, 3, n)
+        plt.scatter(x, y, color='k', marker='.', linewidths=1.0 )
+        plt.scatter(x_cut, y_cut, color='grey',marker='.', linewidths=1.0, label = 'Outliers')
+        plt.errorbar(x, y, yerr=dy, xerr=dx, fmt='none', ecolor='k', label = label)
+        plt.plot(x, m * x + b, color='r', label=f'slope = {round(m, 4)}''\n' f'int= {round(b, 4)}''\n'r' $\chi^2_{\mathrm{red}}$ =' f'{round(red_chi_2, 4)}')
+        plt.rcParams["figure.autolayout"] = True
+        plt.xlabel(xlabel)
+        plt.ylabel(ylabel)
+        plt.legend(prop={'size':8})
+        return m, b
 
 def residual_plots(data_x, data_y,x,y,cut_x, cut_y, m, b, n):
     """
