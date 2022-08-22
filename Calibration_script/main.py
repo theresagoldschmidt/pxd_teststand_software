@@ -241,7 +241,7 @@ def plot_histo(x,y,title,n, length):
 
     color_map = cm.get_cmap('RdYlGn_r')
 
-    data_hight_normalized = [z / 80 for z in y]
+    data_hight_normalized = [z / length for z in y]
     colors = color_map(data_hight_normalized)
 
 
@@ -253,7 +253,7 @@ def plot_histo(x,y,title,n, length):
     plt.legend(prop={'size': 8})
     plt.rcParams["figure.autolayout"] = True
 
-    sm = ScalarMappable(cmap=color_map, norm=plt.Normalize(0, 80))
+    sm = ScalarMappable(cmap=color_map, norm=plt.Normalize(0, length))
     sm.set_array([])
     plt.colorbar(sm)
     #cbar.set_label('Color', rotation=270, labelpad=25)

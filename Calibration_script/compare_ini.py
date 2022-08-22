@@ -77,15 +77,15 @@ def plot_diff():
         channel_short_4 = channel_4[6::10]
         channel_short_5 = channel_5[8::10]
 
-        plt.subplots(2,1,sharex='col')
+        #plt.subplots(2,1,sharex='col')
         plt.subplot(2, 1, 1)
-        plt.bar(channel_short_1, voltage_gain, color='b', width=0.2, label = 'Voltage')
-        plt.bar(channel_short_2, load_gain, color='r', width=0.2, label = 'load')
-        plt.bar(channel_short_3, regulator_gain, color='y', width=0.2, label = 'regulator')
-        plt.bar(channel_short_4, mon_gain, color='g', width=0.2, label = 'mon')
-        plt.bar(channel_short_5, current_gain, color='pink', width=0.2, label = 'current')
-        # plt.grid()
-        #plt.xticks(np.arange(0, 24, 1))
+        plt.bar(channel_short_1, voltage_gain, color='b', width=0.2, label = 'DAC_VOLTAGE')
+        plt.bar(channel_short_2, load_gain, color='r', width=0.2, label = 'ADC_U_LOAD')
+        plt.bar(channel_short_3, regulator_gain, color='y', width=0.2, label = 'ADC_U_REGULATOR')
+        plt.bar(channel_short_4, mon_gain, color='g', width=0.2, label = 'ADC_I_MON')
+        plt.bar(channel_short_5, current_gain, color='pink', width=0.2, label = 'DAC_CURRENT')
+        plt.grid(color='grey', linestyle='--', linewidth=0.1)
+        plt.xticks(np.arange(0, 24, 1))
         #plt.xlabel("Channel")
         plt.legend(prop={'size':6})
         plt.ylabel("percentage gain difference")
@@ -108,7 +108,7 @@ def plot_diff():
         plt.xticks(np.arange(0, 24, 1))
         plt.xlabel("Channel")
         plt.ylabel("absolut offset difference")
-
+        plt.grid(color='grey', linestyle='--', linewidth=0.1)
         plt.savefig("comparison.pdf", format='pdf', bbox_inches='tight')
         plt.close()
 
