@@ -10,6 +10,7 @@ from matplotlib.cm import ScalarMappable
 
 config = configparser.ConfigParser()
 config_ini = configparser.ConfigParser()
+config_range = configparser.ConfigParser()
 config_ini.optionxform = str
 
 
@@ -272,6 +273,7 @@ def plot_histo(x,y,title,n, length):
     #cbar.set_label('Color', rotation=270, labelpad=25)
 
 def pass_fail():
+    config_range.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/constants_range.ini")
     Channel = []
     plot_0 = []
     plot_1 = []
@@ -296,13 +298,47 @@ def pass_fail():
             else:
                 pass
         if success == True:
-            print('Calibration was NOT successful!')
-        elif success == False:
-            print('Calibration was successful!')
+            print('Calibration was NOT successful! To many points were deleted')
+
+        for channel in range(24):
+            if get_range(f'DAC_VOLTAGE_GAIN', f'DAC_VOLTAGE_OFFSET', channel) == True:
+                print('Warning! Please check Channel %d. DAC_VOLTAGE out of usual range.' % channel)
+            if get_range(f'ADC_U_LOAD_GAIN', f'ADC_U_LOAD_OFFSET', channel) == True:
+                print('Warning! Please check Channel %d. ADC_U_LOAD out of usual range.' % channel)
+            if get_range(f'ADC_U_REGULATOR_GAIN', f'ADC_U_REGULATOR_OFFSET', channel) == True:
+                print('Warning! Please check Channel %d. ADC_U_REGULATOR out of usual range.' % channel)
+            if get_range(f'ADC_I_MON_GAIN', f'ADC_I_MON_OFFSET', channel) == True:
+                print('Warning! Please check Channel %d. ADC_I_MON out of usual range.' % channel)
+            if get_range(f'DAC_CURRENT_GAIN', f'DAC_CURRENT_OFFSET', channel) == True:
+                print('Warning! Please check Channel %d. DAC_CURRENT out of usual range.' % channel)
+            elif success == False:
+                print('Calibration was successful!')
+            else:
+                pass
 
 
+def get_range(name_gain, name_offset,channel):
+    in_range = False
+    gain_upper = float(config_range[f'{channel}'].get(name_gain + '_UPPER'))
+    gain_lower = float(config_range[f'{channel}'].get(name_gain + '_LOWER'))
+    gain = float(config_ini[f'{channel}'].get(name_gain))
 
+    offset_upper = float(config_range[f'{channel}'].get(name_offset + '_UPPER'))
+    offset_lower = float(config_range[f'{channel}'].get(name_offset + '_LOWER'))
+    offset = float(config_ini[f'{channel}'].get(name_offset))
 
+    if gain > gain_upper:
+        in_range = True
+    elif gain < gain_lower:
+        in_range = True
+    elif offset > offset_upper:
+        in_range = True
+    elif offset < offset_lower:
+        in_range = True
+    else:
+        pass
+
+    return in_range
 
 def main():
     # Getting path from .ini file
