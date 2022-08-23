@@ -271,6 +271,38 @@ def plot_histo(x,y,title,n, length):
     plt.colorbar(sm)
     #cbar.set_label('Color', rotation=270, labelpad=25)
 
+def pass_fail():
+    Channel = []
+    plot_0 = []
+    plot_1 = []
+    plot_2 = []
+    plot_3 = []
+    plot_4 = []
+    success = False
+    with open('deleted_points.csv', 'r') as csvfile:
+        plots = csv.reader(csvfile, delimiter=',')
+        next(plots)
+        for row in plots:
+            Channel.append(int(row[0]))
+            plot_0.append(int(row[1]))
+            plot_1.append(int(row[2]))
+            plot_2.append(int(row[3]))
+            plot_3.append(int(row[4]))
+            plot_4.append(int(row[5]))
+
+            if int(row[1]) > 50 or int(row[2]) > 50 or int(row[3]) > 50 or int(row[4]) > 50 or int(row[5]) > 50:
+                print('Warning! Please check Channel %d.'%(int(row[0])))
+                success = True
+            else:
+                pass
+        if success == True:
+            print('Calibration was NOT successful!')
+        elif success == False:
+            print('Calibration was successful!')
+
+
+
+
 
 def main():
     # Getting path from .ini file
@@ -449,8 +481,10 @@ def main():
                 config_ini.write(configfile)
 
         csvfile.close()
-        print('Plotting Histogram with Number of deleted points')
+        print('Plotting Histogram with Number of deleted points...')
         histo_deleted_points(l_1)
+        print('Checking if Calibration was successful...\n')
+        pass_fail()
 
 
 
