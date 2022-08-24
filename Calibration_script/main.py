@@ -297,9 +297,9 @@ def pass_fail():
                 success = True
             else:
                 pass
-        if success == True:
-            print('Calibration was NOT successful! To many points were deleted')
 
+
+        in_range = 0
         for channel in range(24):
             if get_range(f'DAC_VOLTAGE_GAIN', f'DAC_VOLTAGE_OFFSET', channel) == True:
                 print('Warning! Please check Channel %d. DAC_VOLTAGE out of usual range.' % channel)
@@ -311,10 +311,14 @@ def pass_fail():
                 print('Warning! Please check Channel %d. ADC_I_MON out of usual range.' % channel)
             if get_range(f'DAC_CURRENT_GAIN', f'DAC_CURRENT_OFFSET', channel) == True:
                 print('Warning! Please check Channel %d. DAC_CURRENT out of usual range.' % channel)
-            elif success == False:
-                print('Calibration was successful!')
             else:
-                pass
+                in_range += 1
+        if success == False and in_range == 24:
+            print('Calibration was successful!')
+        elif success == False and in_range < 23:
+            print('Calibration was NOT successful! Please check warnings!')
+        elif success == True and in_range == 24:
+            print('Calibration was NOT successful! To many points were deleted!')
 
 
 def get_range(name_gain, name_offset,channel):
