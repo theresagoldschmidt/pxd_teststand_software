@@ -38,7 +38,7 @@ def cut_outliers(x, y, channel):
     """
     # Calculating the slope
     slopes = (y - y[0])/x
-    m = np.polyfit(x[:20],y[:20],deg = 1)
+    #m = np.polyfit(x[:20],y[:20],deg = 1)
 
     tolerance = abs(y[0] - y[-1])*0.01
 
@@ -230,6 +230,7 @@ def histo_deleted_points(length):
         for row in plots:
             Channel.append(row[0])
             plot_0.append(int(row[1]))
+            print(plot_0)
             plot_1.append(int(row[2]))
             plot_2.append(int(row[3]))
             plot_3.append(int(row[4]))
@@ -247,7 +248,7 @@ def histo_deleted_points(length):
                         wspace=0.6,
                         hspace=0.6)
 
-    plt.savefig(os.path.join(config["calibration_data"].get("data_path"),'deleted_point.pdf'))
+    plt.savefig(os.path.join(config["calibration_data"].get("data_path"),'deleted_points.pdf'))
     plt.close()
 
 
@@ -300,24 +301,30 @@ def pass_fail():
 
 
         in_range = 0
+
         for channel in range(24):
             if get_range(f'DAC_VOLTAGE_GAIN', f'DAC_VOLTAGE_OFFSET', channel) == True:
                 print('Warning! Please check Channel %d. DAC_VOLTAGE out of usual range.' % channel)
+                in_range+= 1
             if get_range(f'ADC_U_LOAD_GAIN', f'ADC_U_LOAD_OFFSET', channel) == True:
                 print('Warning! Please check Channel %d. ADC_U_LOAD out of usual range.' % channel)
+                in_range += 1
             if get_range(f'ADC_U_REGULATOR_GAIN', f'ADC_U_REGULATOR_OFFSET', channel) == True:
                 print('Warning! Please check Channel %d. ADC_U_REGULATOR out of usual range.' % channel)
+                in_range += 1
             if get_range(f'ADC_I_MON_GAIN', f'ADC_I_MON_OFFSET', channel) == True:
                 print('Warning! Please check Channel %d. ADC_I_MON out of usual range.' % channel)
+                in_range += 1
             if get_range(f'DAC_CURRENT_GAIN', f'DAC_CURRENT_OFFSET', channel) == True:
                 print('Warning! Please check Channel %d. DAC_CURRENT out of usual range.' % channel)
-            else:
                 in_range += 1
-        if success == False and in_range == 24:
+            else:
+                pass
+        if success == False and in_range == 0:
             print('Calibration was successful!')
-        elif success == False and in_range < 23:
+        elif success == False and in_range != 0:
             print('Calibration was NOT successful! Please check warnings!')
-        elif success == True and in_range == 24:
+        elif success == True and in_range == 0:
             print('Calibration was NOT successful! To many points were deleted!')
 
 
