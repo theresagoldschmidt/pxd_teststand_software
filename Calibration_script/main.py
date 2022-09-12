@@ -7,7 +7,8 @@ from matplotlib.backends.backend_pdf import PdfPages
 import csv
 from matplotlib import cm
 from matplotlib.cm import ScalarMappable
-from scipy import stats
+import datetime
+#from scipy.stats import shapiro
 
 config = configparser.ConfigParser()
 config_ini = configparser.ConfigParser()
@@ -58,11 +59,20 @@ def cut_outliers(x, y, channel):
     if x[~cut].size == 0:
         return x[~cut], y[~cut], x[cut], y[cut]
     else:
+        #for i in range(len(y)):
+        #slopes = (y[i+5] - y[i-5]) / (x[i+5] - x[i-5])
         # calculate mean and standard derivation
         mean, std = np.mean(slopes[~cut]), np.std(slopes[~cut])
-        # cut to  2 sigma
+        #cut to  2 sigma
         cut[np.logical_or((slopes >= 2 * std + mean), (slopes <= mean - 2 * std))] = True
+            #nearest_values = np.concatenate([y[max(0, i - 5):i], y[i + 1:min(i + 6, len(y) - 1)]])
+            #mean = np.mean(nearest_values)
+            #std = np.std(nearest_values)
 
+            #if mean - std < y[i] < mean + std:
+            #    cut[i] = False
+            #else:
+            #    cut[i] = True
 
 
     return x[~cut], y[~cut],x[cut], y[cut]
@@ -159,18 +169,19 @@ def residual_plots(data_x, data_y,x,y,cut_x, cut_y, m, b, n, channel, residuals)
     :return: residual plots
     """
     plt.subplot(2,3,n)
-    r = y-(m * x + b)
+    r = y-((m * x) + b)
     plt.scatter(x, r , color='g', marker='.', linewidths=1.0, label="Residual:\n"+data_x+" vs. "+data_y)
     plt.scatter(cut_x, cut_y-(m * cut_x + b) , color='grey', marker='.', linewidths=1.0)
     plt.xlabel(data_x)
     plt.ylabel(data_y)
     plt.legend(prop={'size': 8})
-    k2, p = stats.normaltest(r)
-    alpha = 1
-    if p < alpha:
-        pass
-    else:
-        residuals.append("Warning! Please check Channel %d." % channel+" Residual:"+data_x+" vs. " +data_y+" does not correspond to expected normal distribution.")
+    #check if values a normal distributed
+    #k2, p = shapiro(r)
+    #alpha = 0.05
+    #if p > alpha:
+    #    pass
+    #else:
+    #    residuals.append("Warning! Please check Channel %d." % channel+" Residual:"+data_x+" vs. " +data_y+" does not correspond to expected normal distribution.")
 
 
 def help_plots(data, data_x, data_y, title,n):
@@ -249,11 +260,11 @@ def histo_deleted_points(length):
             plot_3.append(int(row[4]))
             plot_4.append(int(row[5]))
     plt.subplots(figsize=(12, 6))
-    plot_histo(Channel, plot_0, '$U_{out} vs. U_{dac}$',1, length )
+    plot_histo(Channel, plot_0, '$U_{out} vs. U_{DAC}$',1, length )
     plot_histo(Channel, plot_1, '$U_{regulator} vs. U_{out}$', 2, length)
     plot_histo(Channel, plot_2, '$U_{load} vs. U_{out}$', 3, length)
     plot_histo(Channel, plot_3,'$I_{outMON} vs. I_{SMU}$', 4, length)
-    plot_histo(Channel, plot_4,'$Limit Current vs. I Limit_{DAC}$', 5, length)
+    plot_histo(Channel, plot_4,'$I_{lim,SMU} vs. I_{lim,DAC}$', 5, length)
     plt.subplots_adjust(left=0.1,
                         bottom=0.1,
                         right=0.9,
@@ -286,7 +297,7 @@ def plot_histo(x,y,title,n, length):
     plt.colorbar(sm)
     #cbar.set_label('Color', rotation=270, labelpad=25)
 
-def pass_fail(residuals):
+def pass_fail(residuals, l_1):
     config_range.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/constants_range.ini")
     Channel = []
     plot_0 = []
@@ -306,8 +317,9 @@ def pass_fail(residuals):
             plot_3.append(int(row[4]))
             plot_4.append(int(row[5]))
 
-            if int(row[1]) > 50 or int(row[2]) > 50 or int(row[3]) > 50 or int(row[4]) > 50 or int(row[5]) > 50:
-                print('Warning! Please check Channel %d.'%(int(row[0])))
+            l = l_1*0.6
+            if int(row[1]) > l or int(row[2]) > l or int(row[3]) > l or int(row[4]) > l or int(row[5]) > l:
+                print('Warning! Please check Channel %d. To many points were deleted.'%(int(row[0])))
                 success = True
             else:
                 pass
@@ -362,7 +374,7 @@ def get_range(name_gain, name_offset,channel):
     return in_range
 
 def write_in_ini(ini,channel,m0,b0,m1,b1,m2,b2,m3,b3,m4,b4):
-    ini[f'{channel}'] = {'DAC_VOLTAGE_GAIN': round(m0 * 10000, 0),
+    ini[f'{channel}'] =  {'DAC_VOLTAGE_GAIN': round(m0 * 10000, 0),
                                 'DAC_VOLTAGE_OFFSET': round(b0 * 100, 0),
                                 'ADC_U_LOAD_GAIN': round(m1 * 10000, 0),
                                 'ADC_U_LOAD_OFFSET': round(b1 * 100, 0),
@@ -405,65 +417,71 @@ def main():
 
                 # Opening the U_vs_U ini file
                 path_UvsU = os.path.join(config["calibration_data"].get("data_path"), 'Channel_%d_U_vs_U' % channel + '.dat')
-                columns_UvsU = ["$U_{DAC}$ [LSB]", "$U_{out}$ [mV]", "$U_{regulator}$ [LSB]", "$U_{load}$ [LSB]", "unknown 5","unknown 6"]
+                columns_UvsU = ["$U_{DAC}$ [mV]", "$U_{out}$ [mV]", "$U_{regulator}$ [mV]", "$U_{load}$ [mV]", "unknown 5","unknown 6"]
                 data_UvsU = read_data(path_UvsU, columns_UvsU)
+
+                # get file creation time on mac
+                stat = os.stat(path_UvsU)
+                c_timestamp = stat.st_birthtime
+                c_time = datetime.date.fromtimestamp(c_timestamp)
+
 
                 # Opening I_vs_I.dat file
                 path_IvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_I_vs_I' % channel + '.dat')
-                columns_IvsI = ["unknown 1", "$I_{out(SMU)}$ [mA]", "$I_{outMon}$ [LSB]", "$U_{outMon}$", "StatBit","$U_{SMU}$"]
+                columns_IvsI = ["unknown 1", "$I_{out(SMU)}$ [mA]", "$I_{outMon}$ [mV]", "$U_{outMon}$", "StatBit","$U_{SMU}$"]
                 data_IvsI = read_data(path_IvsI, columns_IvsI)
 
                 # Opening Ilimit_vs_I.dat file
                 path_IlimitvsI = os.path.join(config["calibration_data"].get("data_path"),'Channel_%d_Ilimit_vs_I' % channel + '.dat')
-                columns_IlimitvsI = ["$I_{lim,DAC}$ [LSB]", "$I_{lim,SMU}$ [mA]", "unknown 3", "unknown 4", "StatBit"]
+                columns_IlimitvsI = ["$I_{lim,DAC}$ [mV]", "$I_{lim,SMU}$ [mA]", "unknown 3", "unknown 4", "StatBit"]
                 data_IlimitvsI = read_data(path_IlimitvsI, columns_IlimitvsI)
 
 
 
                 # 0) Plot(U Cal: Uset vs. U out)
-                x_0,y_0,l_0= get_and_prepare(data_UvsU, '$U_{DAC}$ [LSB]', '$U_{out}$ [mV]')
+                x_0,y_0,l_0= get_and_prepare(data_UvsU, '$U_{DAC}$ [mV]', '$U_{out}$ [mV]')
                 x_0, y_0,x_cut_0,y_cut_0 = cut_outliers(x_0, y_0, channel)
                 y_err_0 = SMU_V_error(y_0)
-                m_0, b_0, m_err_0, b_err_0 = plot_and_fit(x_0, y_0, 5, y_err_0, x_cut_0,y_cut_0,  '$U_{DAC}$ [LSB]', '$U_{out}$ [mV]', '$U_{out} vs. U_{DAC}$',1)
+                m_0, b_0, m_err_0, b_err_0 = plot_and_fit(x_0, y_0, 3.05, y_err_0, x_cut_0,y_cut_0,  '$U_{DAC}$ [mV]', '$U_{out}$ [mV]', '$U_{out} vs. U_{DAC}$',1)
 
                 # 1) U Cal: Uout vs. MonUreg
-                x_1,y_1, l_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [LSB]')
+                x_1,y_1, l_1= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]')
                 x_1, y_1,x_cut_1,y_cut_1 = cut_outliers(x_1, y_1, channel)
                 x_err_1 = SMU_V_error(x_1)
-                m_1, b_1, m_err_1, b_err_1 = plot_and_fit(x_1, y_1, x_err_1, 2 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [LSB]', '$U_{regulator} vs. U_{out}$',2)
+                m_1, b_1, m_err_1, b_err_1 = plot_and_fit(x_1, y_1, x_err_1, 2.44 ,x_cut_1,y_cut_1, '$U_{out}$ [mV]', '$U_{regulator}$ [mV]', '$U_{regulator} vs. U_{out}$',2)
 
                 # 2) U Cal: Uout vs. MonUload
-                x_2,y_2, l_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [LSB]')
+                x_2,y_2, l_2= get_and_prepare(data_UvsU, '$U_{out}$ [mV]', '$U_{load}$ [mV]')
                 x_2, y_2, x_cut_2,y_cut_2 = cut_outliers(x_2, y_2, channel)
                 x_err_2 = SMU_V_error(x_2)
-                m_2, b_2, m_err_2, b_err_2 = plot_and_fit(x_2, y_2, x_err_2, 2, x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [LSB]', '$U_{load} vs. U_{out}$',3)
+                m_2, b_2, m_err_2, b_err_2 = plot_and_fit(x_2, y_2, x_err_2, 2.44 , x_cut_2,y_cut_2, '$U_{out}$ [mV]', '$U_{load}$ [mV]', '$U_{load} vs. U_{out}$',3)
 
                 # 3) I Cal: Iout vs. IoutMon
-                x_3,y_3, l_3 = get_and_prepare(data_IvsI, '$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [LSB]')
+                x_3,y_3, l_3 = get_and_prepare(data_IvsI, '$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [mV]')
                 x_3, y_3, x_cut_3,y_cut_3= cut_outliers(x_3, y_3, channel)
                 x_err_3 = SMU_I_error(x_3, channel)
                 if channel == 13:
-                    m_3, b_3, m_err_3, b_err_3 = plot_and_fit(x_3, y_3, x_err_3, 0.002,x_cut_3,y_cut_3,'$I_{SMU}$ [mA]', '$I_{outMon}$ [LSB]', '$I_{outMON} vs. I_{SMU}$',4)
+                    m_3, b_3, m_err_3, b_err_3 = plot_and_fit(x_3, y_3, x_err_3, 0.00244,x_cut_3,y_cut_3,'$I_{SMU}$ [mA]', '$I_{outMon}$ [$\mu$V]', '$I_{outMON} vs. I_{SMU}$',4)
                     #m_3 = m_3/1000
                 else:
-                    m_3, b_3, m_err_3, b_err_3 = plot_and_fit(x_3, y_3, x_err_3, 20, x_cut_3,y_cut_3, '$I_{SMU}$ [mA]', '$I_{outMon}$ [LSB]', '$I_{outMOn} vs. I_{SMU}$',4)
+                    m_3, b_3, m_err_3, b_err_3 = plot_and_fit(x_3, y_3, x_err_3, 2.44, x_cut_3,y_cut_3, '$I_{SMU}$ [mA]', '$I_{outMon}$ [mV]', '$I_{outMOn} vs. I_{SMU}$',4)
 
                 # 4) I Cal: DAC LIMIT vs. I Measured
-                x_4,y_4,l_4 = get_and_prepare(data_IlimitvsI, '$I_{lim,DAC}$ [LSB]', '$I_{lim,SMU}$ [mA]')
+                x_4,y_4,l_4 = get_and_prepare(data_IlimitvsI, '$I_{lim,DAC}$ [mV]', '$I_{lim,SMU}$ [mA]')
                 x_4, y_4, x_cut_4,y_cut_4 = cut_outliers(x_4, y_4, channel)
                 y_err_4= SMU_I_error(y_4, channel)
-                m_4, b_4, m_err_4, b_err_4 = plot_and_fit(x_4, y_4, 5, y_err_4, x_cut_4,y_cut_4, '$I_{lim,DAC}$ [LSB]', '$I_{lim,SMU}$ [mA]', '$I_{lim,SMU} vs. I_{lim,DAC}$',5)
+                m_4, b_4, m_err_4, b_err_4 = plot_and_fit(x_4, y_4, 3.05, y_err_4, x_cut_4,y_cut_4, '$I_{lim,DAC}$ [mV]', '$I_{lim,SMU}$ [mA]', '$I_{lim,SMU} vs. I_{lim,DAC}$',5)
                 #if channel == 13:
                 #    m_4 = m_4 * 1000
                 #    b_4 = b_4 * 1000
 
-                # Calculating
+                # Calculating number of deleted points in each plot
                 title = "$\\bf{Number\:of\:deleted\:points:}$\n\n"
-                plot_0 = '0) U Cal: Uset vs. U out: $\\bf{%d}$\n'%(l_0-len(x_0))
-                plot_1 = '1) U Cal: Uout vs. MonUreg: $\\bf{%d}$\n'%(l_1-len(x_1))
-                plot_2 = '2) U Cal: Uout vs. MonUload: $\\bf{%d}$\n'%(l_2-len(x_2))
-                plot_3 = '3) I Cal: Iout vs. IoutMon: $\\bf{%d}$\n'%(l_3-len(x_3))
-                plot_4 = '4) I Cal: DAC LIMIT vs. I Measured:$\\bf{%d}$ \n'%(l_4-len(x_4))
+                plot_0 = '0) $U_{out} vs. U_{DAC}$ : $\\bf{%d}$\n'%(l_0-len(x_0))
+                plot_1 = '1) $U_{regulator} vs. U_{out}$ : $\\bf{%d}$\n'%(l_1-len(x_1))
+                plot_2 = '2) $U_{load} vs. U_{out}$: $\\bf{%d}$\n'%(l_2-len(x_2))
+                plot_3 = '3) $I_{outMON} vs. I_{SMU}$: $\\bf{%d}$\n'%(l_3-len(x_3))
+                plot_4 = '4) $I_{lim,SMU} vs. I_{lim,DAC}$ : $\\bf{%d}$ \n'%(l_4-len(x_4))
 
                 plt.figtext(0.75, 0.18,title+plot_0+plot_1+plot_2+plot_3+plot_4,bbox=dict(facecolor='lightgrey', edgecolor='red'), fontdict=None)
 
@@ -486,18 +504,18 @@ def main():
                 plt.subplots(figsize=(12, 6))
 
                 # 0) Plot(U Cal: Uset vs. U out)
-                residual_plots('$U_{DAC}$ [LSB]', '$U_{out}$ [mV]',x_0, y_0, x_cut_0, y_cut_0, m_0, b_0,1, channel, residuals)
+                residual_plots('$U_{DAC}$ [mV]', '$U_{out}$ [mV]',x_0, y_0, x_cut_0, y_cut_0, m_0, b_0,1, channel, residuals)
                 # 1) U Cal: Uout vs. MonUreg
-                residual_plots('$U_{out}$ [mV]', '$U_{regulator}$ [LSB]',x_1, y_1, x_cut_1, y_cut_1, m_1, b_1,2, channel, residuals)
+                residual_plots('$U_{out}$ [mV]', '$U_{regulator}$ [mV]',x_1, y_1, x_cut_1, y_cut_1, m_1, b_1,2, channel, residuals)
                 # 2) U Cal: Uout vs. MonUload
-                residual_plots('$U_{out}$ [mV]', '$U_{load}$ [LSB]',x_2, y_2, x_cut_2, y_cut_2, m_2, b_2,3, channel, residuals)
+                residual_plots('$U_{out}$ [mV]', '$U_{load}$ [mV]',x_2, y_2, x_cut_2, y_cut_2, m_2, b_2,3, channel, residuals)
                 # (3) I Cal: Iout vs. IoutMon
                 if (channel == 13):
-                    residual_plots('$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [LSB]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4, channel, residuals)
+                    residual_plots('$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4, channel, residuals)
                 else:
-                    residual_plots('$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [LSB]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4, channel, residuals)
+                    residual_plots('$I_{out(SMU)}$ [mA]', '$I_{outMon}$ [mV]',x_3, y_3, x_cut_3, y_cut_3, m_3, b_3,4, channel, residuals)
                 # 4) I Cal: DAC LIMIT vs. I Measured
-                residual_plots('$I_{lim,DAC}$ [LSB]', '$I_{lim,SMU}$ [mA]',x_4, y_4, x_cut_4, y_cut_4, m_4, b_4, 5, channel, residuals)
+                residual_plots('$I_{lim,DAC}$ [mV]', '$I_{lim,SMU}$ [mA]',x_4, y_4, x_cut_4, y_cut_4, m_4, b_4, 5, channel, residuals)
 
                 # All 5 residual plots in one figure
                 plt.subplots_adjust(left=0.1,
@@ -532,17 +550,8 @@ def main():
                 pdf.savefig()
                 plt.close()
 
-                # writing in constants ini file
-                #config_ini[f'{channel}'] = {'DAC_VOLTAGE_GAIN': round(m_0 * 10000, 0),
-                #                            'DAC_VOLTAGE_OFFSET': round(b_0 * 100, 0),
-                ##                            'ADC_U_LOAD_GAIN': round(m_1 * 10000, 0),
-                #                            'ADC_U_LOAD_OFFSET': round(b_1 * 100, 0),
-                #                            'ADC_U_REGULATOR_GAIN': round(m_2 * 10000, 0),
-                #                            'ADC_U_REGULATOR_OFFSET': round(b_2 * 100, 0),
-                #                            'ADC_I_MON_GAIN': round(m_3 * 10000, 0),
-                ##                            'ADC_I_MON_OFFSET': round(b_3 * 100, 0),
-               #                             'DAC_CURRENT_GAIN': round(m_4 * 10000, 0),
-               #                             'DAC_CURRENT_OFFSET': round(b_4 * 100, 0)}
+                config_ini['Information'] = {'date': c_time,
+                                        'format': 'yyyy-mm-dd'}
                 write_in_ini(config_ini, channel, m_0, b_0, m_1, b_1, m_2, b_2, m_3, b_3, m_4, b_4)
                 write_in_ini(config_err, channel, m_err_0, b_err_0, m_err_1, b_err_1, m_err_2, b_err_2, m_err_3, b_err_3, m_err_4, b_err_4)
 
@@ -552,13 +561,15 @@ def main():
 
             with open(os.path.join(config["calibration_data"].get("data_path"),'constants.ini'), 'w') as configfile:
                 config_ini.write(configfile)
+            with open(os.path.join(config["calibration_data"].get("data_path"),'constants_err.ini'), 'w') as configfile:
+                config_err.write(configfile)
 
 
         csvfile.close()
         print('Plotting Histogram with Number of deleted points...')
         histo_deleted_points(l_1)
         print('Checking if Calibration was successful...\n')
-        pass_fail(residuals)
+        pass_fail(residuals, l_1)
 
 
 

@@ -9,9 +9,9 @@ config_new = configparser.ConfigParser()
 
 #config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/MainProdNODE18/constants_node_56.ini")
 #config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/1_Calibration_ohne_OVPps87/root/constants_node_56.ini")
-config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/1_Calibration_ohneOVP_ps87/root/constants_node_56.ini")
-config_new.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/CalibrationData/1_Calibration_ohneOVP_ps87/constants.ini")
-
+config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps87/20_Calibration_ps87/constants_node_56-9.ini")
+config_new.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps87/20_Calibration_ps87/constants.ini")
+save_to="/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps87/20_Calibration_ps87/"
 #config_new.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/constants.ini")
 #config_old.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/ps26/1_Calibration_ps26/from root/constants_node_56.ini")
 #config_new.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/ps26/1_Calibration_ps26/constants.ini")
@@ -28,7 +28,7 @@ def gain_offset(name_gain, name_offset,channel):
 
     offset_old = float(config_old[f'{channel}'].get(name_offset))
     offset_new = float(config_new[f'{channel}'].get(name_offset))
-    offset_diff = offset_old - offset_new
+    offset_diff = (offset_old - offset_new)
     writer.writerow({'Channel': channel, 'Constants': name_offset, 'old': offset_old,'new': offset_new, 'difference': offset_diff, 'in': 'abs'})
 
 
@@ -39,7 +39,6 @@ with open('comparison.csv', 'w',encoding='UTF8') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     for channel in range(24):
-
         gain_offset(f'DAC_VOLTAGE_GAIN', f'DAC_VOLTAGE_OFFSET', channel)
         gain_offset(f'ADC_U_LOAD_GAIN', f'ADC_U_LOAD_OFFSET', channel)
         gain_offset(f'ADC_U_REGULATOR_GAIN', f'ADC_U_REGULATOR_OFFSET', channel)
@@ -88,7 +87,7 @@ def plot_diff():
         plt.xticks(np.arange(0, 24, 1))
         #plt.xlabel("Channel")
         plt.legend(prop={'size':6})
-        plt.ylabel("percentage gain difference")
+        plt.ylabel("Relative gain difference ")
 
         # gain differences
         difference = comp['difference']
@@ -107,9 +106,9 @@ def plot_diff():
         plt.bar(channel_short_5, current_offset, color='pink', width=0.2)
         plt.xticks(np.arange(0, 24, 1))
         plt.xlabel("Channel")
-        plt.ylabel("absolut offset difference")
+        plt.ylabel("Absolute offset difference")
         plt.grid(color='grey', linestyle='--', linewidth=0.1)
-        plt.savefig("comparison.pdf", format='pdf', bbox_inches='tight')
+        plt.savefig(save_to+"comparison.pdf", format='pdf', bbox_inches='tight')
         plt.close()
 
 

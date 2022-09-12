@@ -6,7 +6,7 @@ config_range = configparser.ConfigParser()
 config_range.optionxform = str
 
 config_range.read("/Users/resi/PycharmProjects/pxd_teststand_software/Calibration_script/constants_range.ini")
-config_ini.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps26/20_Calibration_ps26/constants.ini")
+config_ini.read("/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps87/20_Calibration_ps87/constants.ini")
 
 
 def get_range(name_gain, name_offset,channel):
