@@ -28,7 +28,7 @@ def gain_offset(name_gain, name_offset,channel):
 
     offset_old = float(config_old[f'{channel}'].get(name_offset))
     offset_new = float(config_new[f'{channel}'].get(name_offset))
-    offset_diff = (offset_old - offset_new)
+    offset_diff = round(((offset_old - offset_new)/gain_new)*100, 2)
     writer.writerow({'Channel': channel, 'Constants': name_offset, 'old': offset_old,'new': offset_new, 'difference': offset_diff, 'in': 'abs'})
 
 
@@ -87,7 +87,7 @@ def plot_diff():
         plt.xticks(np.arange(0, 24, 1))
         #plt.xlabel("Channel")
         plt.legend(prop={'size':6})
-        plt.ylabel("Relative gain difference ")
+        plt.ylabel("Relative gain difference [%]", fontsize=6)
 
         # gain differences
         difference = comp['difference']
@@ -106,7 +106,7 @@ def plot_diff():
         plt.bar(channel_short_5, current_offset, color='pink', width=0.2)
         plt.xticks(np.arange(0, 24, 1))
         plt.xlabel("Channel")
-        plt.ylabel("Absolute offset difference")
+        plt.ylabel("Offset diff. relative to gain  [%]", fontsize=6)
         plt.grid(color='grey', linestyle='--', linewidth=0.1)
         plt.savefig(save_to+"comparison.pdf", format='pdf', bbox_inches='tight')
         plt.close()

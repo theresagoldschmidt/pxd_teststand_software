@@ -15,12 +15,11 @@ def gain_offset(name_gain, name_offset,channel):
     return gain,offset
 
 def main():
-    path = "/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps15/"
-    with open('constants_err_collection.csv', 'w+', encoding='UTF8') as csvfile:
+    path = "/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps26/"
     #with open('constants_collection.csv', 'w+', encoding='UTF8') as csvfile:
-
-            #names = ["'Date'"] #raus für err
-            names = []
+    with open('constants_err_collection.csv', 'w+', encoding='UTF8') as csvfile:
+            #names = ["'Date'"]
+            names = [] #for err
             for i in range(24):
                 names.append(i)
                 names.append("'DAC_VOLTAGE_GAIN_%i'" % i)
@@ -39,29 +38,29 @@ def main():
 
             for i in range(1, 21):
 
-                result = os.path.join(path, "%d_Calibration_ps15" % i + "/constants_err.ini")
-                #result = os.path.join(path, "%d_Calibration_ps15" % i + "/constants.ini")
-                config_ini.read(result)
+                    #result = os.path.join(path, "%d_Calibration_ps26" % i + "/constants.ini")
+                    result = os.path.join(path, "%d_Calibration_ps26" % i + "/constants_err.ini")
+                    config_ini.read(result)
 
-                #date = str(config_ini[f'Information'].get(f'date'))#raus für err
-                #values = [date]#raus für err
-                values = []
-                for channel in range(24):
-                    (g1, o1) = gain_offset(f'DAC_VOLTAGE_GAIN', f'DAC_VOLTAGE_OFFSET', channel)
-                    (g2, o2) = gain_offset(f'ADC_U_LOAD_GAIN', f'ADC_U_LOAD_OFFSET', channel)
-                    (g3, o3) = gain_offset(f'ADC_U_REGULATOR_GAIN', f'ADC_U_REGULATOR_OFFSET', channel)
-                    (g4, o4) = gain_offset(f'ADC_I_MON_GAIN', f'ADC_I_MON_OFFSET', channel)
-                    (g5, o5) = gain_offset(f'DAC_CURRENT_GAIN', f'DAC_CURRENT_OFFSET', channel)
-                    for i in [channel, g1,o1,g2,o2,g3,o3,g4,o4,g5,o5]:
-                        values.append(i)
+                    #date = str(config_ini[f'Information'].get(f'date'))#raus für err
+                    #values = [date]#raus für err
+                    values = []
+                    for channel in range(24):
+                        (g1, o1) = gain_offset(f'DAC_VOLTAGE_GAIN', f'DAC_VOLTAGE_OFFSET', channel)
+                        (g2, o2) = gain_offset(f'ADC_U_LOAD_GAIN', f'ADC_U_LOAD_OFFSET', channel)
+                        (g3, o3) = gain_offset(f'ADC_U_REGULATOR_GAIN', f'ADC_U_REGULATOR_OFFSET', channel)
+                        (g4, o4) = gain_offset(f'ADC_I_MON_GAIN', f'ADC_I_MON_OFFSET', channel)
+                        (g5, o5) = gain_offset(f'DAC_CURRENT_GAIN', f'DAC_CURRENT_OFFSET', channel)
+                        for i in [channel, g1,o1,g2,o2,g3,o3,g4,o4,g5,o5]:
+                            values.append(i)
 
 
-                dictonary ={names[i]: values[i] for i in range(len(names))}
-                writer.writerow(dictonary)
+                    dictonary ={names[i]: values[i] for i in range(len(names))}
+                    writer.writerow(dictonary)
 
     csvfile.close()
-    pd.read_csv('constants_err_collection.csv', header=None).T.to_csv(path + 'output_err.csv', header=False, index=False)
     #pd.read_csv('constants_collection.csv', header=None).T.to_csv(path + 'output.csv', header=False, index=False)
+    pd.read_csv('constants_err_collection.csv', header=None).T.to_csv(path + 'output_err.csv', header=False, index=False)
 
 if __name__ == '__main__':
     main()

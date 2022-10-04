@@ -43,7 +43,11 @@ def cut_outliers(x, y, channel):
     slopes = (y - y[0])/x
     m = np.polyfit(x[:20],y[:20],deg = 1)
 
-    tolerance = abs(y[0] - y[-1])*0.01
+    #tolerance = abs(y[0] - y[-2])*0.01
+
+    tolerance = abs(m[0]*x[0] - m[0]*x[-1])*0.01
+
+
 
     # Making array same size as data with only False in it
     cut = np.zeros_like(slopes, dtype=bool)
@@ -54,6 +58,7 @@ def cut_outliers(x, y, channel):
     else:
 
         cut[:][np.isclose(np.gradient(y), 0, atol=tolerance)] = True
+
         #cut[:][(abs(m[0]*x+m[1]))-y >= tolerance] = True
 
     if x[~cut].size == 0:
