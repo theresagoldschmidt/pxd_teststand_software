@@ -18,8 +18,8 @@ def main():
     path = "/Users/resi/Desktop/Schreibtisch - MacBook Pro von Theresa/SS2022/BA scibo/Calibrations/ps26/"
     #with open('constants_collection.csv', 'w+', encoding='UTF8') as csvfile:
     with open('constants_err_collection.csv', 'w+', encoding='UTF8') as csvfile:
-            #names = ["'Date'"]
-            names = [] #for err
+            names = ["'Date'"] #for constants
+            #names = [] #for err
             for i in range(24):
                 names.append(i)
                 names.append("'DAC_VOLTAGE_GAIN_%i'" % i)
@@ -38,13 +38,13 @@ def main():
 
             for i in range(1, 21):
 
-                    #result = os.path.join(path, "%d_Calibration_ps26" % i + "/constants.ini")
-                    result = os.path.join(path, "%d_Calibration_ps26" % i + "/constants_err.ini")
+                    result = os.path.join(path, "%d_Calibration_ps26" % i + "/constants.ini") #for constants
+                    #result = os.path.join(path, "%d_Calibration_ps26" % i + "/constants_err.ini") #for errors
                     config_ini.read(result)
 
-                    #date = str(config_ini[f'Information'].get(f'date'))#raus für err
-                    #values = [date]#raus für err
-                    values = []
+                    date = str(config_ini[f'Information'].get(f'date')) #for constants
+                    values = [date] #for constants
+                    #values = [] #for errors
                     for channel in range(24):
                         (g1, o1) = gain_offset(f'DAC_VOLTAGE_GAIN', f'DAC_VOLTAGE_OFFSET', channel)
                         (g2, o2) = gain_offset(f'ADC_U_LOAD_GAIN', f'ADC_U_LOAD_OFFSET', channel)
@@ -59,8 +59,8 @@ def main():
                     writer.writerow(dictonary)
 
     csvfile.close()
-    #pd.read_csv('constants_collection.csv', header=None).T.to_csv(path + 'output.csv', header=False, index=False)
-    pd.read_csv('constants_err_collection.csv', header=None).T.to_csv(path + 'output_err.csv', header=False, index=False)
+    pd.read_csv('constants_collection.csv', header=None).T.to_csv(path + 'output.csv', header=False, index=False)
+    #pd.read_csv('constants_err_collection.csv', header=None).T.to_csv(path + 'output_err.csv', header=False, index=False)
 
 if __name__ == '__main__':
     main()
