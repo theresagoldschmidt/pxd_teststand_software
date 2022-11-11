@@ -76,16 +76,3 @@ pd.read_csv('constants_collection.csv', header=None).T.to_csv(path + 'output.csv
 ### Output:
 The output are two csv files, one containing a table with the calibration 
 constants and one containing a table with the errors of the constants.
-* **
-## constants_stability.py
-This script visualizes the stability of the calibration constants. It was written
-to plot data collected via the collecting constants script.
-### Input:
-### Output:
-
-* **
-## compare_ini.py
-
-### Input:
-### Output:
-
